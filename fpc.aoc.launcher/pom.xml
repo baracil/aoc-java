@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>fpc.aoc2023</groupId>
+        <artifactId>aoc-maven</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../maven/pom.xml</relativePath>
+    </parent>
+
+    <artifactId>aoc-launcher</artifactId>
+
+    <name>${project.name} - ${module.name}</name>
+
+    <properties>
+        <module.name>Launcher</module.name>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>fpc.aoc2023</groupId>
+            <artifactId>aoc-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fpc.aoc2023</groupId>
+            <artifactId>aoc-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>fpc.aoc2023</groupId>
+            <artifactId>aoc-problems-day01</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fpc.aoc2023</groupId>
+            <artifactId>aoc-problems-day02</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>fpc.aoc2023</groupId>
+            <artifactId>aoc-problems-day03</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day04</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day05</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day06</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day07</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day08</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day09</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day10</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day11</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day12</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day13</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day14</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day15</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day16</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day17</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day18</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day19</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day20</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day21</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day22</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day23</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day24</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>fpc.aoc2023</groupId>-->
+<!--            <artifactId>aoc-problems-day25</artifactId>-->
+<!--        </dependency>-->
+    </dependencies>
+</project>
