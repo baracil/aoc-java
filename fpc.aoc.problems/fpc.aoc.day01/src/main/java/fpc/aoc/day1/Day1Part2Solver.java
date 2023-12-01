@@ -14,7 +14,7 @@ public class Day1Part2Solver extends Day1Solver {
 
   @Override
   protected ToIntFunction<String> getLineConverter() {
-    return new LineConverterPart2();
+    return LineConverter.forPart2();
   }
 
 }

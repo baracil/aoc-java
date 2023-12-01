@@ -6,9 +6,7 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.function.ToIntFunction;
-import java.util.stream.LongStream;
 import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 @RequiredArgsConstructor
 public abstract class Day1Solver extends SmartSolver<Stream<String>, String> {
