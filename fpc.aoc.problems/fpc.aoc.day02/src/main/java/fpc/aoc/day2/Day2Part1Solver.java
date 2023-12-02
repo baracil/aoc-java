@@ -1,7 +1,6 @@
 package fpc.aoc.day2;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
 import lombok.NonNull;
 
 import java.util.stream.Stream;
@@ -12,13 +11,10 @@ public class Day2Part1Solver extends Day2Solver {
         return new Day2Part1Solver().createProblem();
     }
 
-    @Override
-    public boolean isSkipped() {
-        return true;
-    }
+    public static final Pick MAX = new Pick(12,13,14);
 
     @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
+    public @NonNull Integer solve(@NonNull Stream<Game> input) {
+      return input.filter(game -> game.isValid(MAX)).mapToInt(Game::id).sum();
     }
 }
