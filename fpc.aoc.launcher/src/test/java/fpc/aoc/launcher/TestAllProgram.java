@@ -1,11 +1,11 @@
 package fpc.aoc.launcher;
 
+import fpc.aoc.api.Day;
+import fpc.aoc.api.Part;
 import lombok.NonNull;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-import fpc.aoc.api.Day;
-import fpc.aoc.api.Part;
 
 public class TestAllProgram {
 

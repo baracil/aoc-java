@@ -1,6 +1,5 @@
 package fpc.aoc.common;
 
-import fpc.aoc.common.Bag;
 import lombok.NonNull;
 
 import java.util.HashMap;

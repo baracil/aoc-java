@@ -1,9 +1,9 @@
 package fpc.aoc.input;
 
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import fpc.aoc.api.Day;
 import fpc.aoc.common.AOCException;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

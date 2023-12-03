@@ -1,8 +1,5 @@
 package fpc.aoc.common;
 
-import fpc.aoc.common.Displacement;
-import fpc.aoc.common.GridHelper;
-import fpc.aoc.common.Position;
 import lombok.Getter;
 import lombok.NonNull;
 
@@ -35,7 +32,7 @@ public class SimpleGridHelper implements GridHelper {
         if (x >= 0 && x < width && y >= 0 && y < height) {
             return positions[x + y * width];
         }
-        return null;
+        throw new IllegalArgumentException();
     }
 
     @Override

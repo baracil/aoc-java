@@ -1,10 +1,10 @@
 package fpc.aoc.api;
 
+import fpc.aoc.common.AOCException;
+import fpc.aoc.common.Tools;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import fpc.aoc.common.AOCException;
-import fpc.aoc.common.Tools;
 
 import java.util.Arrays;
 import java.util.function.Predicate;

@@ -1,12 +1,12 @@
 package fpc.aoc.launcher;
 
-import lombok.NonNull;
 import fpc.aoc.api.AOCProblem;
 import fpc.aoc.api.AOCProblemId;
 import fpc.aoc.api.Day;
 import fpc.aoc.api.Part;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.launcher._private.ProblemService;
+import lombok.NonNull;
 
 import static fpc.aoc.launcher._private.ProblemService.findLastDefinedProblem;
 

@@ -1,7 +1,8 @@
 package fpc.aoc.common;
 
-import com.google.common.collect.ImmutableMap;
 import lombok.NonNull;
+
+import java.util.Map;
 
 /**
  * Cardinal orientation
@@ -21,10 +22,10 @@ public enum Orientation {
 
     private static final class Holder {
 
-        private static final ImmutableMap<Orientation,Orientation[]> ROTATION;
+        private static final Map<Orientation,Orientation[]> ROTATION;
 
         static {
-            ROTATION = ImmutableMap.of(
+            ROTATION = Map.of(
                     N, new Orientation[]{N,E,S,W},
                     E, new Orientation[]{E,S,W,N},
                     S, new Orientation[]{S,W,N,E},

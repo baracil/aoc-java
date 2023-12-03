@@ -5,7 +5,7 @@ import fpc.aoc.day7.Day7Part2Solver;
 module fpc.aoc.day7 {
     requires static lombok;
 
-    requires com.google.common;
+
     requires fpc.aoc.input;
 
     exports fpc.aoc.day7;

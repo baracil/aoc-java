@@ -7,7 +7,7 @@ module fpc.aoc.day3 {
 
     requires fpc.aoc.input;
 
-    requires com.google.common;
+
 
     exports fpc.aoc.day3;
 

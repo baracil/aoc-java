@@ -1,6 +1,5 @@
 package fpc.aoc.common;
 
-import com.google.common.collect.ImmutableSet;
 import lombok.AccessLevel;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -25,15 +24,15 @@ public class GameOfLife<T extends NeighbourProvider<T>> {
                 }
             }
         }
-        return new GameOfLife<T>(listOfPoints, GameOfLifeRule.DEFAULT_RULE);
+        return new GameOfLife<>(listOfPoints, GameOfLifeRule.DEFAULT_RULE);
     }
 
-    public static <T extends NeighbourProvider<T>> @NonNull GameOfLife<T> initialize(@NonNull ImmutableSet<T> initialState) {
-        return new GameOfLife<T>(new HashSet<T>(initialState), GameOfLifeRule.DEFAULT_RULE);
+    public static <T extends NeighbourProvider<T>> @NonNull GameOfLife<T> initialize(@NonNull Set<T> initialState) {
+        return new GameOfLife<>(new HashSet<>(initialState), GameOfLifeRule.DEFAULT_RULE);
     }
 
-    public static <T extends NeighbourProvider<T>> @NonNull GameOfLife<T> initialize(@NonNull ImmutableSet<T> initialState, @NonNull GameOfLifeRule gameOfLifeRule) {
-        return new GameOfLife<T>(new HashSet<T>(initialState), gameOfLifeRule);
+    public static <T extends NeighbourProvider<T>> @NonNull GameOfLife<T> initialize(@NonNull Set<T> initialState, @NonNull GameOfLifeRule gameOfLifeRule) {
+        return new GameOfLife<>(new HashSet<>(initialState), gameOfLifeRule);
     }
 
     private @NonNull Set<T> aliveCells;

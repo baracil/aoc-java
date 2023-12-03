@@ -1,10 +1,10 @@
 package fpc.aoc.input;
 
-import com.google.common.collect.ImmutableList;
-import lombok.NonNull;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.ArrayOfChar;
+import lombok.NonNull;
 
+import java.util.List;
 import java.util.function.Function;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -52,7 +52,7 @@ public interface Converter<I> extends Function<Stream<String>,I> {
     /**
      * collect all lines into a list
      */
-    Converter<ImmutableList<String>> ALL_LINES = s -> s.collect(ImmutableList.toImmutableList());
+    Converter<List<String>> ALL_LINES = Stream::toList;
 
     Converter<long[]> TO_ARRAY_OF_LONG = s -> s.mapToLong(Long::parseLong).toArray();
 

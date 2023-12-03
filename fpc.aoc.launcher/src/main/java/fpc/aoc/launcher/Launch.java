@@ -1,8 +1,8 @@
 package fpc.aoc.launcher;
 
+import fpc.aoc.launcher._private.Launcher;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import fpc.aoc.launcher._private.Launcher;
 
 @RequiredArgsConstructor
 public class Launch {

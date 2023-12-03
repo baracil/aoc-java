@@ -1,8 +1,5 @@
 package fpc.aoc.common;
 
-import fpc.aoc.common.AOCException;
-import fpc.aoc.common.Array;
-import fpc.aoc.common.Position;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -101,7 +98,7 @@ public abstract class BaseArray implements Array {
         private final ArrayCopier<? super A> arrayCopier;
         private final ArrayBuilder<? super A, ? extends B> arrayBuilder;
 
-        private List<A> lines = new ArrayList<>();
+        private final List<A> lines = new ArrayList<>();
 
         public void addLine(@NonNull String line) {
             final A newLine = lineTransformer.apply(line);

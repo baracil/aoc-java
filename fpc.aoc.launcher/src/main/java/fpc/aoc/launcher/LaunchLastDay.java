@@ -1,10 +1,10 @@
 package fpc.aoc.launcher;
 
+import fpc.aoc.api.Day;
 import fpc.aoc.launcher._private.Launcher;
 import fpc.aoc.launcher._private.ProblemService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import fpc.aoc.api.Day;
 
 @RequiredArgsConstructor
 public class LaunchLastDay {

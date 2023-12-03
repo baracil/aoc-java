@@ -1,7 +1,5 @@
 package fpc.aoc.common;
 
-import fpc.aoc.common.ArrayOfChar;
-import fpc.aoc.common.LazyString;
 import lombok.NonNull;
 
 public abstract class AbstractArrayOfChar implements ArrayOfChar {

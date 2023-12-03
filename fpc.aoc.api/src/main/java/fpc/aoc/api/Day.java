@@ -1,9 +1,9 @@
 package fpc.aoc.api;
 
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Tools;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 import java.util.Comparator;

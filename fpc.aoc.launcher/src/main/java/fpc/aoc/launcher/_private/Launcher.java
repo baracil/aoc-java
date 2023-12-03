@@ -1,11 +1,11 @@
 package fpc.aoc.launcher._private;
 
+import fpc.aoc.api.AOCProblem;
 import fpc.aoc.common.NotSolvedYet;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import fpc.aoc.api.AOCProblem;
 
 import java.io.PrintStream;
 

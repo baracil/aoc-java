@@ -1,9 +1,9 @@
 package fpc.aoc.common;
 
-import com.google.common.collect.ImmutableList;
 import lombok.NonNull;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.function.IntUnaryOperator;
 import java.util.stream.Collector;
 
@@ -18,7 +18,7 @@ public interface ArrayOfChar extends Array, ArrayOfCharReader {
                 .collect(ArrayOfChar.collector(filling));
     }
 
-    static @NonNull ArrayOfChar from(@NonNull ImmutableList<String> data, char filling) {
+    static @NonNull ArrayOfChar from(@NonNull List<String> data, char filling) {
         return data.stream().collect(ArrayOfChar.collector(filling));
     }
 

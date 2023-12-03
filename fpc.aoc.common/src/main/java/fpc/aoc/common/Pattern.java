@@ -1,14 +1,16 @@
 package fpc.aoc.common;
 
-import com.google.common.collect.ImmutableSet;
 import lombok.NonNull;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class Pattern {
 
-    private final @NonNull ImmutableSet<Displacement> positionsOfSharp;
+    private final @NonNull Set<Displacement> positionsOfSharp;
 
     public Pattern(@NonNull String pattern, char withData) {
-        final ImmutableSet.Builder<Displacement> positions = ImmutableSet.builder();
+        final Set<Displacement> positions = new HashSet<>();
         final String[] lines = pattern.split("\n");
         for (int y = 0; y < lines.length; y++) {
             final var line = lines[y];
@@ -18,7 +20,7 @@ public class Pattern {
                 }
             }
         }
-        this.positionsOfSharp = positions.build();
+        this.positionsOfSharp = positions;
     }
 
     public int nbPoints() {

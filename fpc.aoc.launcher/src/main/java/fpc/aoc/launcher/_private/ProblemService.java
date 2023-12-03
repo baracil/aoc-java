@@ -1,13 +1,13 @@
 package fpc.aoc.launcher._private;
 
-import com.google.common.collect.ImmutableList;
-import lombok.NonNull;
 import fpc.aoc.api.AOCProblem;
 import fpc.aoc.api.AOCProblemId;
 import fpc.aoc.api.Day;
 import fpc.aoc.api.Part;
 import fpc.aoc.common.AOCException;
+import lombok.NonNull;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.ServiceLoader;
 import java.util.function.Predicate;
@@ -55,11 +55,11 @@ public class ProblemService {
         return findProblemById(day, part);
     }
 
-    public static ImmutableList<? extends AOCProblem<?>> listProblems(@NonNull Predicate<AOCProblemId> filter) {
-        return loadProblems().filter(p -> filter.test(p.id())).collect(ImmutableList.toImmutableList());
+    public static List<? extends AOCProblem<?>> listProblems(@NonNull Predicate<AOCProblemId> filter) {
+        return loadProblems().filter(p -> filter.test(p.id())).toList();
     }
 
-    public static ImmutableList<? extends AOCProblem<?>> listProblemsOfADay(@NonNull Day day) {
+    public static List<? extends AOCProblem<?>> listProblemsOfADay(@NonNull Day day) {
         return listProblems(id -> id.day().equals(day));
     }
 

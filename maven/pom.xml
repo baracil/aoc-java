@@ -19,7 +19,6 @@
 
         <lombok.version>1.18.30</lombok.version>
         <junit-jupiter.version>5.10.1</junit-jupiter.version>
-        <guava.version>32.0.1-jre</guava.version>
     </properties>
 
     <dependencies>
@@ -186,11 +185,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.guava</groupId>
-                <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>

@@ -1,11 +1,11 @@
 package fpc.aoc.input;
 
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 import fpc.aoc.api.AOCProblem;
 import fpc.aoc.api.AOCProblemId;
 import fpc.aoc.api.Solver;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 
 import java.util.stream.Stream;
 
