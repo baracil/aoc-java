@@ -1,10 +1,9 @@
 package fpc.aoc.day4;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
 import lombok.NonNull;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 public class Day4Part1Solver extends Day4Solver {
 
@@ -13,12 +12,7 @@ public class Day4Part1Solver extends Day4Solver {
     }
 
     @Override
-    public boolean isSkipped() {
-        return true;
-    }
-
-    @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
+    public @NonNull String solve(@NonNull List<Card> input) {
+        return String.valueOf(input.stream().mapToInt(Card::score).sum());
     }
 }
