@@ -3,7 +3,6 @@ package fpc.aoc.day5.data;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class RangeTool {
 
@@ -22,67 +21,39 @@ public class RangeTool {
       ticks.add(new Tick(mapping.start(), true, true));
       ticks.add(new Tick(mapping.end(), false, true));
     }
+    return getRanges(ticks);
+  }
 
+  private static List<Range> getRanges(List<Tick> ticks) {
     ticks.sort(Tick.COMPARATOR);
-
     long start = 0;
     int counter = 0;
 
     List<Range> result = new ArrayList<>();
 
     for (Tick tick : ticks) {
-      if (tick.start) {
-        if (tick.mapping) {
-          if (counter != 0) {
-            result.add(new Range(start, tick.position));
-            start = tick.position;
-          }
-        } else {
-          if (counter == 0) {
-            start = tick.position;
-          }
-          counter++;
+      if (tick.start && !tick.mapping) {
+        if (counter == 0) {
+          start = tick.position;
+        }
+        counter++;
+      } else if (tick.start || tick.mapping) {
+        if (counter != 0) {
+          result.add(new Range(start, tick.position));
+          start = tick.position;
         }
       } else {
-        if (tick.mapping) {
-          if (counter != 0) {
-            result.add(new Range(start, tick.position));
-            start = tick.position;
-          }
-        } else {
-          counter--;
-          if (counter == 0) {
-            result.add(new Range(start, tick.position));
-          }
+
+        counter--;
+        if (counter == 0) {
+          result.add(new Range(start, tick.position));
         }
       }
     }
-
     return result;
   }
 
-
-  //  private record Tick(long position, boolean start) {
-//    private static final Comparator<Tick> COMPARATOR = (Tick p1, Tick p2) -> {
-//      final var r = Long.compare(p1.position(),p2.position());
-//      if (r == 0) {
-//        if (p1.start == p2.start) {
-//          return 0;
-//        }
-//        return p1.start()?-1:1;
-//      }
-//      return r;
-//    };
-//  }
   private record Tick(long position, boolean start, boolean mapping) {
-
-    public static Stream<Tick> from(Mapping mapping) {
-      return Stream.of(
-        new Tick(mapping.start(), true, true),
-        new Tick(mapping.end(), false, true)
-      );
-    }
-
 
     public static final Comparator<Tick> COMPARATOR = (o1, o2) -> {
       if (o1.equals(o2)) {
