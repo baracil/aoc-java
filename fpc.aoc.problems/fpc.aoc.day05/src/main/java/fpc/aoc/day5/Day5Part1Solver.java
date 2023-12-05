@@ -1,24 +1,26 @@
 package fpc.aoc.day5;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
+import fpc.aoc.day5.data.Input;
 import lombok.NonNull;
 
-import java.util.stream.Stream;
+import java.util.Arrays;
 
 public class Day5Part1Solver extends Day5Solver {
 
-    public static @NonNull AOCProblem<?> provider() {
-        return new Day5Part1Solver().createProblem();
-    }
+  public static @NonNull AOCProblem<?> provider() {
+    return new Day5Part1Solver().createProblem();
+  }
 
-    @Override
-    public boolean isSkipped() {
-        return true;
-    }
+  @Override
+  public @NonNull String solve(@NonNull Input input) {
+    final var min = Arrays
+      .stream(input.seeds1())
+      .map(input::map)
+      .min()
+      .orElse(0);
 
-    @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
-    }
+    return String.valueOf(min);
+  }
+
 }

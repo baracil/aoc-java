@@ -9,6 +9,7 @@ module fpc.aoc.day5 {
     requires fpc.aoc.input;
 
     exports fpc.aoc.day5;
+  exports fpc.aoc.day5.data;
 
-    provides AOCProblem with Day5Part1Solver, Day5Part2Solver;
+  provides AOCProblem with Day5Part1Solver, Day5Part2Solver;
 }
