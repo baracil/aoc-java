@@ -4,12 +4,13 @@ import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
 import lombok.NonNull;
 
-import java.util.stream.Stream;
+import java.util.List;
 
-public abstract class Day6Solver extends SmartSolver<Stream<String>,String> {
+public abstract class Day6Solver extends SmartSolver<List<String>,Long> {
 
     @Override
-    protected @NonNull Converter<Stream<String>> getConverter() {
-        return Converter.IDENTITY;
+    protected @NonNull Converter<List<String>> getConverter() {
+        return Converter.ALL_LINES;
     }
+
 }

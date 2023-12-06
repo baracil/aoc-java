@@ -1,5 +1,6 @@
 package fpc.aoc.day5.data;
 
+import fpc.aoc.common.Tools;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -7,8 +8,6 @@ import lombok.Value;
 
 import java.util.*;
 import java.util.stream.Collector;
-
-import static java.util.function.Predicate.not;
 
 @RequiredArgsConstructor
 @Value
@@ -64,11 +63,11 @@ public class Input {
 
     public void add(String line) {
       if (line.startsWith("seeds:")) {
-        this.seeds = toArrayOfLong(line.substring("seeds:".length()));
+        this.seeds = Tools.toArrayOfLong(line.substring("seeds:".length()));
       } else if (line.contains("map:")) {
         this.current = Type.findType(line);
       } else if (!line.isBlank()) {
-        final var tokens = toArrayOfLong(line);
+        final var tokens = Tools.toArrayOfLong(line);
 
         mappers.computeIfAbsent(this.current, t -> new ArrayList<>()).add(Mapping.with(tokens[0], tokens[1], tokens[2]));
       }
@@ -87,9 +86,5 @@ public class Input {
       return new Input(seeds, mappers);
     }
 
-
-    public long[] toArrayOfLong(String numbers) {
-      return Arrays.stream(numbers.trim().split(" ")).filter(not(String::isBlank)).mapToLong(Long::parseLong).toArray();
-    }
   }
 }

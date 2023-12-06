@@ -1,10 +1,9 @@
 package fpc.aoc.day6;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
 import lombok.NonNull;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 public class Day6Part2Solver extends Day6Solver {
 
@@ -12,13 +11,9 @@ public class Day6Part2Solver extends Day6Solver {
         return new Day6Part2Solver().createProblem();
     }
 
-    @Override
-    public boolean isSkipped() {
-        return true;
-    }
 
     @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
+    public @NonNull Long solve(@NonNull List<String> input) {
+        return Race.parsePart2(input).nbWins();
     }
 }
