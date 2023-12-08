@@ -4,12 +4,10 @@ import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
 import lombok.NonNull;
 
-import java.util.stream.Stream;
-
-public abstract class Day8Solver extends SmartSolver<Stream<String>,String> {
+public abstract class Day8Solver extends SmartSolver<Input,String> {
 
     @Override
-    protected @NonNull Converter<Stream<String>> getConverter() {
-        return Converter.IDENTITY;
+    protected @NonNull Converter<Input> getConverter() {
+        return Converter.ALL_LINES.andThen(Input::parse);
     }
 }

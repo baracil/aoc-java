@@ -1,10 +1,8 @@
 package fpc.aoc.day7;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
+import fpc.aoc.day7.model.HandParser;
 import lombok.NonNull;
-
-import java.util.stream.Stream;
 
 public class Day7Part2Solver extends Day7Solver {
 
@@ -13,12 +11,7 @@ public class Day7Part2Solver extends Day7Solver {
     }
 
     @Override
-    public boolean isSkipped() {
-        return true;
-    }
-
-    @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
+    protected HandParser createHandParser() {
+        return HandParser.forPart2();
     }
 }

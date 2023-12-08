@@ -55,7 +55,17 @@ public class Tools {
     return code;
   }
 
+  public static long lcm(long num1, long num2) {
+    return (num1 * num2) / gcd(num1, num2);
+  }
 
+
+  public static long gcd(long num1, long num2) {
+    if (num2 == 0) {
+      return num1;
+    }
+    return gcd(num2, num1 % num2);
+  }
 
   @NonNull
   public static <K, V> Collector<V, ?, Map<K, V>> toMap(@NonNull Function<? super V, ? extends K> keyGetter) {
@@ -140,7 +150,7 @@ public class Tools {
 
   @NonNull
   public static <T> List<T> mergeLists(@NonNull List<T> firstPart, @NonNull List<T> secondPart) {
-    final List<T> result = new ArrayList<>(firstPart.size()+secondPart.size());
+    final List<T> result = new ArrayList<>(firstPart.size() + secondPart.size());
     result.addAll(firstPart);
     result.addAll(secondPart);
     return result;
