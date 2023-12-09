@@ -8,8 +8,6 @@ import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
-import static java.util.function.Predicate.not;
-
 public class Tools {
 
   public static long longProduct(long l1, long l2) {
@@ -194,7 +192,7 @@ public class Tools {
   }
 
   public static long[] toArrayOfLong(String numbers) {
-    return Arrays.stream(numbers.trim().split(" ")).filter(not(String::isBlank)).mapToLong(Long::parseLong).toArray();
+    return Arrays.stream(numbers.trim().split(" +")).mapToLong(Long::parseLong).toArray();
   }
 
 }
