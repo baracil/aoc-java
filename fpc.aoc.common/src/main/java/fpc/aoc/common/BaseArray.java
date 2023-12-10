@@ -18,13 +18,12 @@ import java.util.stream.Stream;
 /**
  * @author Bastien Aracil
  **/
+@Getter
 @RequiredArgsConstructor
 public abstract class BaseArray implements Array {
 
-    @Getter
     private final int width;
 
-    @Getter
     private final int height;
 
     protected boolean isPositionInRange(@NonNull Position position) {
@@ -43,10 +42,7 @@ public abstract class BaseArray implements Array {
         return xyToIndex(position.x(),position.y());
     }
 
-    public void printToStandardOutput() {
-        print(System.out);
-    }
-
+    @Override
     public void print(@NonNull PrintStream printStream) {
         int idx = 0;
         for (int y = 0; y < height; y++) {

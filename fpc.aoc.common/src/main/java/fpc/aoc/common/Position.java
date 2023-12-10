@@ -14,8 +14,8 @@ public class Position {
         return new Position(x,y);
     }
 
-    public @NonNull Position displaced(@NonNull Displacement displacement) {
-        return translate(displacement.dx(), displacement.dy());
+    public @NonNull Position displaced(@NonNull Translation translation) {
+        return translate(translation.dx(), translation.dy());
     }
 
     public @NonNull Position translate(int dx, int dy) {

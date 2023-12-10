@@ -30,4 +30,6 @@ public abstract class AbstractArrayOfChar implements ArrayOfChar {
     public String toString() {
         return asString();
     }
+
+
 }

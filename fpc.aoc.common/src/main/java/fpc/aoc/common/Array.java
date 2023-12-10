@@ -2,6 +2,7 @@ package fpc.aoc.common;
 
 import lombok.NonNull;
 
+import java.io.PrintStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -15,6 +16,11 @@ public interface Array {
         return new BaseGenericArray<T>(data, width, height);
     }
 
+    void print(@NonNull PrintStream printStream);
+
+    default void printToStandardOutput() {
+        print(System.out);
+    }
 
     int width();
 

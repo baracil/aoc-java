@@ -1,10 +1,7 @@
 package fpc.aoc.day10;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
 import lombok.NonNull;
-
-import java.util.stream.Stream;
 
 public class Day10Part2Solver extends Day10Solver {
 
@@ -12,13 +9,11 @@ public class Day10Part2Solver extends Day10Solver {
         return new Day10Part2Solver().createProblem();
     }
 
-    @Override
-    public boolean isSkipped() {
-        return true;
-    }
 
     @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
+    public @NonNull Integer solve(@NonNull Map input) {
+        final var doubled = Doubled.create(input);
+        doubled.fill();
+        return doubled.countInside();
     }
 }
