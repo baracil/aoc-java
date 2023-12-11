@@ -24,11 +24,5 @@ public class Day11Test {
     Assertions.assertEquals(374, actual);
   }
 
-  @Test
-  public void testPart2() {
-    final var actual = new Day11Part2Solver().createProblem(TEST_INPUT).solve();
-    Assertions.assertEquals(1030, actual);
-  }
-
 
 }

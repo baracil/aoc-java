@@ -6,19 +6,21 @@ import fpc.aoc.common.Position;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Part1 {
+public class Solver {
 
-  public static long find(ArrayOfChar map) {
-    return new Part1(map).find();
+  public static long find(ArrayOfChar map, int size) {
+    return new Solver(map,size).find();
   }
 
   private final ArrayOfChar map;
+  private final int size;
   private List<Position> galaxies = new ArrayList<>();
   private boolean[] emptyRow;
   private boolean[] emptyColumn;
 
-  private Part1(ArrayOfChar map) {
+  private Solver(ArrayOfChar map, int size) {
     this.map = map;
+    this.size = size;
     this.emptyRow = new boolean[map.height()];
     this.emptyColumn = new boolean[map.width()];
     for (int y = 0; y < map.height(); y++) {
@@ -56,15 +58,17 @@ public class Part1 {
     int maxy = Math.max(p1.y(), p2.y());
 
     for (int i = minx + 1; i <= maxx; i++) {
-      dist += 1;
       if (emptyColumn[i]) {
-        dist += 1;
+        dist += size;
+      } else {
+        dist +=1;
       }
     }
     for (int i = miny + 1; i <= maxy; i++) {
-      dist += 1;
       if (emptyRow[i]) {
-        dist += 1;
+        dist += size;
+      } else {
+        dist +=1;
       }
     }
     return dist;

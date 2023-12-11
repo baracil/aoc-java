@@ -12,6 +12,6 @@ public class Day11Part2Solver extends Day11Solver {
 
   @Override
   public @NonNull Long solve(@NonNull ArrayOfChar input) {
-    return Part2.find(input);
+    return Solver.find(input, 1000000);
   }
 }

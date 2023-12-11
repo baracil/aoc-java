@@ -5,8 +5,6 @@ import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
 import lombok.NonNull;
 
-import java.util.stream.Stream;
-
 public abstract class Day11Solver extends SmartSolver<ArrayOfChar,Long> {
 
     @Override
