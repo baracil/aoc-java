@@ -3,10 +3,7 @@ package fpc.aoc.day10;
 import fpc.aoc.common.*;
 import lombok.NonNull;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.IntFunction;
 import java.util.stream.Collector;
 
@@ -27,12 +24,10 @@ public class Map {
   }
 
 
-  public Pair<GenericArray<Tile>,List<Position>> cleaned() {
+  public GenericArray<Tile> cleaned() {
     final var cycle = cycle();
-    final var points = Set.copyOf(cycle);
-    final var array = tiles.map((p,t) -> points.contains(p)?t:Tile.FLOOR, Tile[]::new);
-
-    return Pair.of(array,cycle);
+    final var points = new HashSet<>(cycle);
+    return tiles.map((p, t) -> points.contains(p) ? t : Tile.FLOOR, Tile[]::new);
   }
 
   public List<Position> cycle() {
