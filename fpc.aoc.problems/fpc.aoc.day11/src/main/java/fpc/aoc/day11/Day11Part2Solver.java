@@ -1,24 +1,17 @@
 package fpc.aoc.day11;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
+import fpc.aoc.common.ArrayOfChar;
 import lombok.NonNull;
-
-import java.util.stream.Stream;
 
 public class Day11Part2Solver extends Day11Solver {
 
-    public static @NonNull AOCProblem<?> provider() {
-        return new Day11Part2Solver().createProblem();
-    }
+  public static @NonNull AOCProblem<?> provider() {
+    return new Day11Part2Solver().createProblem();
+  }
 
-    @Override
-    public boolean isSkipped() {
-        return true;
-    }
-
-    @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
-    }
+  @Override
+  public @NonNull Long solve(@NonNull ArrayOfChar input) {
+    return Part2.find(input);
+  }
 }
