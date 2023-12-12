@@ -1,24 +1,26 @@
 package fpc.aoc.day12;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
 import lombok.NonNull;
 
 import java.util.stream.Stream;
 
 public class Day12Part2Solver extends Day12Solver {
 
+    //7278707704334 to high
     public static @NonNull AOCProblem<?> provider() {
         return new Day12Part2Solver().createProblem();
     }
 
     @Override
-    public boolean isSkipped() {
-        return true;
+    public @NonNull Long solve(@NonNull Stream<Row> input) {
+        return input
+          .map(Row::unfold)
+          .mapToLong(this::count)
+          .sum();
     }
 
-    @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
+    private long count(Row row) {
+      return ArrangementCounter.count(row);
     }
 }

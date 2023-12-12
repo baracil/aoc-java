@@ -6,10 +6,10 @@ import lombok.NonNull;
 
 import java.util.stream.Stream;
 
-public abstract class Day12Solver extends SmartSolver<Stream<String>,String> {
+public abstract class Day12Solver extends SmartSolver<Stream<Row>,Long> {
 
     @Override
-    protected @NonNull Converter<Stream<String>> getConverter() {
-        return Converter.IDENTITY;
+    protected @NonNull Converter<Stream<Row>> getConverter() {
+        return s -> s.map(Row::parse);
     }
 }

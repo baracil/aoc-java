@@ -194,5 +194,12 @@ public class Tools {
   public static long[] toArrayOfLong(String numbers) {
     return Arrays.stream(numbers.trim().split(" +")).mapToLong(Long::parseLong).toArray();
   }
+  public static int[] toArrayOfInt(String numbers) {
+    return toArrayOfInt(numbers," _+");
+  }
+
+  public static int[] toArrayOfInt(String numbers, String sep) {
+    return Arrays.stream(numbers.trim().split(sep)).mapToInt(Integer::parseInt).toArray();
+  }
 
 }
