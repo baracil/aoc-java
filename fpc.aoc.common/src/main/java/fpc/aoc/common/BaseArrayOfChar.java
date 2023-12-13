@@ -58,22 +58,6 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
         printStream.print(data[elementIndex]);
     }
 
-//    public @NonNull String upperBorder() {
-//        return Tools.TODO();
-//    }
-//
-//    public @NonNull String lowerBorder() {
-//        return Tools.TODO();
-//    }
-//
-//    public @NonNull String leftBorder() {
-//        return Tools.TODO();
-//    }
-//
-//    public @NonNull String rightBorder() {
-//        return Tools.TODO();
-//    }
-
     public @NonNull String asString() {
         return asString.toString();
     }
