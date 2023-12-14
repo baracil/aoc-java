@@ -1,24 +1,54 @@
 package fpc.aoc.day14;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
+import fpc.aoc.common.AOCException;
+import fpc.aoc.day14.model.Platform;
 import lombok.NonNull;
 
-import java.util.stream.Stream;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Day14Part2Solver extends Day14Solver {
 
-    public static @NonNull AOCProblem<?> provider() {
-        return new Day14Part2Solver().createProblem();
+  public static @NonNull AOCProblem<?> provider() {
+    return new Day14Part2Solver().createProblem();
+  }
+
+
+  public static final long NB_CYCLES = 1000000000L;
+
+  @Override
+  public @NonNull Integer solve(@NonNull Platform input) {
+    final var c = findCycle(input);
+
+    final var total = (NB_CYCLES - c.offset) % c.period + c.offset;
+
+    for (int i = 0; i < total; i++) {
+      input.performOneCycle();
     }
 
-    @Override
-    public boolean isSkipped() {
-        return true;
-    }
+    return input.computeNorthWeight();
+  }
 
-    @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
+  private CycleInfo findCycle(@NonNull Platform platform) {
+    final var p = platform.duplicate();
+    final Map<String, Long> cache = new HashMap<>();
+
+    cache.put(p.toString(), 0L);
+
+    for (long i = 0L; i < NB_CYCLES; i++) {
+      p.performOneCycle();
+      final var s = p.toString();
+      final var existing = cache.get(s);
+      if (existing != null) {
+        return new CycleInfo(existing, i + 1 - existing);
+      }
+      cache.put(s, i + 1);
     }
+    throw new AOCException("No cycle found");
+  }
+
+  public record CycleInfo(long offset, long period) {
+
+  }
 }

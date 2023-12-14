@@ -27,6 +27,15 @@ public class Tools {
   }
 
 
+  public static <E> List<E> sort(List<E> source, Comparator<? super E> comparator) {
+    return source.stream().sorted(comparator).toList();
+  }
+
+  public static <E> List<E> sortInPlace(List<E> source, Comparator<? super E> comparator) {
+    source.sort(comparator);
+    return source;
+  }
+
   public static <E> @NonNull E getOneElement(@NonNull Collection<E> collection) {
     return collection.iterator().next();
   }
