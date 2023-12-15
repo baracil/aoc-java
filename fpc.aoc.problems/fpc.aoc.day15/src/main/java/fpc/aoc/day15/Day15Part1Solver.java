@@ -1,10 +1,9 @@
 package fpc.aoc.day15;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
 import lombok.NonNull;
 
-import java.util.stream.Stream;
+import java.util.List;
 
 public class Day15Part1Solver extends Day15Solver {
 
@@ -13,12 +12,10 @@ public class Day15Part1Solver extends Day15Solver {
     }
 
     @Override
-    public boolean isSkipped() {
-        return true;
+    public @NonNull Long solve(@NonNull List<String> input) {
+        final var computer = new HashComputer();
+        return input.stream().mapToLong(computer::compute).sum();
     }
 
-    @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
-    }
+
 }
