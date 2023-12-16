@@ -1,24 +1,21 @@
 package fpc.aoc.day16;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
+import fpc.aoc.common.Orientation;
+import fpc.aoc.common.Position;
+import fpc.aoc.day16.model.BeamComputer;
 import lombok.NonNull;
-
-import java.util.stream.Stream;
 
 public class Day16Part1Solver extends Day16Solver {
 
-    public static @NonNull AOCProblem<?> provider() {
-        return new Day16Part1Solver().createProblem();
-    }
+  public static @NonNull AOCProblem<?> provider() {
+    return new Day16Part1Solver().createProblem();
+  }
 
-    @Override
-    public boolean isSkipped() {
-        return true;
-    }
 
-    @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
-    }
+  @Override
+  public @NonNull Long solve(@NonNull BeamComputer input) {
+    return input.compute(new Beam(Position.of(0, 0), Orientation.E));
+  }
+
 }
