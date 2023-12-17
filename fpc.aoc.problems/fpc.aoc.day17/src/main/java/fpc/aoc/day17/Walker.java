@@ -35,7 +35,7 @@ public class Walker {
 
     } else if (existing.heatLoss() > step.totalHeatLoss()) {
       if (null == buffer.put(existing.id, step)) {
-        this.toDo.addLast(existing.id);
+        this.toDo.addFirst(existing.id);
       }
       seenByKey.put(key, existing.withNewStep(step));
     }
