@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -32,14 +33,28 @@ public enum Orientation implements Translation {
     };
   }
 
+  public @NonNull char toChar() {
+    return switch (this) {
+      case N -> '^';
+      case E -> '>';
+      case S -> 'V';
+      case W -> '<';
+    };
+  }
+
   public @NonNull Orientation turn(int angle) {
     final int a = Tools.mod(angle, 360);
     assert a == 0 || a == 90 || a == 180 || a == 270;
     return Holder.ROTATION.get(this)[a / 90];
   }
 
+  public static List<Orientation> allValues() {
+    return Holder.VALUES;
+  }
+
   private static final class Holder {
 
+    private static final List<Orientation> VALUES = List.of(values());
     private static final Map<Orientation, Orientation[]> ROTATION;
 
     static {

@@ -13,7 +13,7 @@ public interface Array {
     }
 
     static <T> @NonNull GenericArray<T> create(@NonNull T[] data, int width, int height) {
-        return new BaseGenericArray<T>(data, width, height);
+        return new BaseGenericArray<>(data, width, height);
     }
 
     void print(@NonNull PrintStream printStream);
@@ -30,6 +30,12 @@ public interface Array {
     default Stream<Position> positionStream() {
         final int width = width();
         return IntStream.range(0, width*height()).mapToObj(i -> Position.of(i%width, i/width));
+    }
+
+    default boolean isInside(Position position) {
+        final var x = position.x();
+        final var y = position.y();
+        return (x >=0 && x < width() && y>=0 && y<height());
     }
 
 }
