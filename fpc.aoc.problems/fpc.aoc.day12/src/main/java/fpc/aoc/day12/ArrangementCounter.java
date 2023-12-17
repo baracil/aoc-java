@@ -30,8 +30,7 @@ public class ArrangementCounter {
 
 
   private long count() {
-    final var l = count2(new State(toNextNotOp(line2, 0), 0, 0));
-    return l;
+    return count(new State(toNextNotOp(line2, 0), 0, 0));
   }
 
 
@@ -48,17 +47,17 @@ public class ArrangementCounter {
   }
 
 
-  private long count2(State state) {
+  private long count(State state) {
     final var v = cache.get(state);
     if (v != null) {
       return v;
     }
-    final var value = doCount2(state);
+    final var value = doCount(state);
     cache.put(state, value);
     return value;
   }
 
-  private long doCount2(State state) {
+  private long doCount(State state) {
     if (state.allGroupMatches()) {
       return state.noKo() ? 1 : 0;
     }
@@ -79,7 +78,7 @@ public class ArrangementCounter {
     int nbKo = countKo(state.line());
     if (nbKo > 0) {
       final var newState = state.nextWithNKo(nbKo);
-      return newState == null ? 0 : count2(newState);
+      return newState == null ? 0 : count(newState);
     }
 
     assert c == '?';
@@ -87,8 +86,8 @@ public class ArrangementCounter {
     final var ok = state.useOk();
     final var ko = state.useKo();
 
-    final var valOk = ok == null ? 0 : count2(ok);
-    final var valKo = ko == null ? 0 : count2(ko);
+    final var valOk = ok == null ? 0 : count(ok);
+    final var valKo = ko == null ? 0 : count(ko);
 
     return valOk + valKo;
   }

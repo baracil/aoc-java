@@ -2,7 +2,7 @@
   <configuration default="false" name="Launch" type="Application" factoryName="Application" nameIsGenerated="true">
     <option name="MAIN_CLASS_NAME" value="fpc.aoc.launcher.Launch" />
     <module name="aoc-launcher" />
-    <option name="PROGRAM_PARAMETERS" value="7 2" />
+    <option name="PROGRAM_PARAMETERS" value="12 1" />
     <method v="2">
       <option name="Make" enabled="true" />
     </method>
