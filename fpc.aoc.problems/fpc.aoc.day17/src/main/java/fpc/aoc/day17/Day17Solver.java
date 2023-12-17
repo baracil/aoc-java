@@ -27,7 +27,7 @@ public abstract class Day17Solver extends SmartSolver<ArrayOfChar, Integer> {
     int bestSoFar = Integer.MAX_VALUE;
     Step end = null;
 
-    walker.handleNew(Step.first());
+    walker.handleNew(helper.first());
     while (walker.hasToDo()) {
       final var step = walker.next();
       for (Orientation orientation : Orientation.allValues()) {
@@ -41,7 +41,7 @@ public abstract class Day17Solver extends SmartSolver<ArrayOfChar, Integer> {
             bestSoFar = end.totalHeatLoss();
           }
         }
-        if (s.totalHeatLoss() < bestSoFar) {
+        if (s.heuristic() < bestSoFar) {
           walker.handleNew(s);
         }
       }

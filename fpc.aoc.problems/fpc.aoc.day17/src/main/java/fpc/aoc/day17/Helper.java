@@ -2,17 +2,18 @@ package fpc.aoc.day17;
 
 import fpc.aoc.common.ArrayOfChar;
 import fpc.aoc.common.Orientation;
+import fpc.aoc.common.Position;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class Helper {
 
   public static Helper forPart1(ArrayOfChar array) {
-      return new Helper(array,0,3,array.width()-1,array.height()-1);
+    return new Helper(array, 0, 3, array.width() - 1, array.height() - 1);
   }
 
   public static Helper forPart2(ArrayOfChar array) {
-    return new Helper(array,4,10,array.width()-1,array.height()-1);
+    return new Helper(array, 4, 10, array.width() - 1, array.height() - 1);
   }
 
 
@@ -22,6 +23,10 @@ public class Helper {
   private final int endX;
   private final int endY;
 
+
+  public Step first() {
+    return new Step(Position.of(0, 0), 0, endX + endY, Orientation.S, 0);
+  }
 
   public Step move(Step current, Orientation orientation) {
 
@@ -48,7 +53,9 @@ public class Helper {
 
     final var ref = orientation == lastOrientation ? nb : 0;
 
-    return new Step(newPosition, current.totalHeatLoss() + heatLoss, orientation, ref + 1);
+    final var newTotalHeatLoss = current.totalHeatLoss() + heatLoss;
+    final var newHeuristic = newTotalHeatLoss+(endX-newPosition.x())+(endY-newPosition.y());
+    return new Step(newPosition, newTotalHeatLoss,newHeuristic ,orientation, ref + 1);
   }
 
   public boolean endReached(Step step) {
@@ -56,7 +63,7 @@ public class Helper {
     final var y = step.y();
     final var n = step.nb();
 
-    return x == endX && y == endY && n>=minimalNbSteps;
+    return x == endX && y == endY && n >= minimalNbSteps;
   }
 
 }
