@@ -4,4 +4,5 @@ module fpc.aoc.common {
 
     exports fpc.aoc.common;
     exports fpc.aoc.common.rules;
+  exports fpc.aoc.common._private;
 }

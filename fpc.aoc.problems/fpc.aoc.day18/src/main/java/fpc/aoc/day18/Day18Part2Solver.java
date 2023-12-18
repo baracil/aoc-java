@@ -1,10 +1,9 @@
 package fpc.aoc.day18;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
+import fpc.aoc.day18.model.InstructionParser;
+import fpc.aoc.day18.model.InstructionParserPart2;
 import lombok.NonNull;
-
-import java.util.stream.Stream;
 
 public class Day18Part2Solver extends Day18Solver {
 
@@ -13,12 +12,7 @@ public class Day18Part2Solver extends Day18Solver {
     }
 
     @Override
-    public boolean isSkipped() {
-        return true;
-    }
-
-    @Override
-    public @NonNull String solve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
+    public InstructionParser getParser() {
+        return new InstructionParserPart2();
     }
 }

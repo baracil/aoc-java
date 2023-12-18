@@ -4,6 +4,7 @@ import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 import java.util.function.IntUnaryOperator;
 import java.util.stream.Collector;
 
@@ -24,6 +25,21 @@ public interface ArrayOfChar extends Array, ArrayOfCharReader {
 
     static @NonNull ArrayOfChar of(char[] data, char filling, int width, int height) {
         return new BaseArrayOfChar(data,filling,width,height);
+    }
+
+    static @NonNull ArrayOfChar from(Set<Position> positions, char withPosition, char withoutPosition, int margin) {
+        final var minMax = positions.stream().collect(PositionMinMax.COLLECTOR);
+        final var width = (minMax.maxX()-minMax.minX()+1)+margin*2;
+        final var height = (minMax.maxY()-minMax.minY()+1)+margin*2;
+        final var data = new char[width*height];
+        Arrays.fill(data,withoutPosition);
+        final var helper = GridHelper.create(width,height);
+        for (Position position : positions) {
+            final var x=  position.x()-minMax.minX()+margin;
+            final var y=  position.y()-minMax.minY()+margin;
+            data[helper.linearIndexFor(x,y)] = withPosition;
+        }
+        return of(data,withoutPosition,width,height);
     }
 
     @NonNull Transformation transformation();
