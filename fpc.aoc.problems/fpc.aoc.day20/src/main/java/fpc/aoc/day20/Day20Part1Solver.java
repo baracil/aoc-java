@@ -1,11 +1,8 @@
 package fpc.aoc.day20;
 
 import fpc.aoc.api.AOCProblem;
+import fpc.aoc.day20.model.Circuit;
 import lombok.NonNull;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
 public class Day20Part1Solver extends Day20Solver {
 
@@ -16,7 +13,6 @@ public class Day20Part1Solver extends Day20Solver {
 
   @Override
   public @NonNull Long solve(@NonNull Circuit circuit) {
-    final Set<CircuitState> seen = new HashSet<>();
     var state = circuit.initialState();
 
     long nbLow = 0;

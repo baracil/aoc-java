@@ -1,13 +1,13 @@
 package fpc.aoc.day20;
 
 import fpc.aoc.api.Day;
+import fpc.aoc.day20.model.Circuit;
+import fpc.aoc.day20.model.Module;
 import fpc.aoc.input.ResourceFile;
-
-import java.io.IOException;
 
 public class DumpDot {
 
-  public static void main(String[] args) throws IOException {
+  public static void main(String[] args) {
     final var modules = new ResourceFile(Day.DAY_20).readData().map(Module::parse).toList();
     final var circuit = Circuit.create(modules);
 

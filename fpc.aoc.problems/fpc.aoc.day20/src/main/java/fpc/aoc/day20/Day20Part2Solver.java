@@ -1,35 +1,46 @@
 package fpc.aoc.day20;
 
 import fpc.aoc.api.AOCProblem;
-import fpc.aoc.common.NotSolvedYet;
+import fpc.aoc.common.Tools;
+import fpc.aoc.day20.model.Circuit;
+import fpc.aoc.day20.model.state.CircuitState;
 import lombok.NonNull;
 
 import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Stream;
 
+/**
+ * Probably only work on my input. See "day20.png" for insight
+ */
 public class Day20Part2Solver extends Day20Solver {
 
-    public static @NonNull AOCProblem<?> provider() {
-        return new Day20Part2Solver().createProblem();
-    }
+  public static @NonNull AOCProblem<?> provider() {
+    return new Day20Part2Solver().createProblem();
+  }
 
 
-    @Override
-    public @NonNull Long solve(@NonNull Circuit circuit) {
+  @Override
+  public @NonNull Long solve(@NonNull Circuit circuit) {
+    final var split = circuit.split();
 
-        final var seen = new HashSet<Map<String, FlipFlopState>>();
-
-        var state = circuit.initialState();
-
-        DotDumper.dump(circuit,state,"day20_0.dot");
-
-        state = circuit.execute(state).state();
-
-        DotDumper.dump(circuit,state,"day20_1.dot");
+    return split.stream()
+        .mapToLong(this::findPeriod)
+        .reduce(1L, Tools::lcm);
+  }
 
 
-        throw new NotSolvedYet();
-    }
+  private long findPeriod(Circuit circuit) {
+    final var seen = new HashSet<CircuitState>();
+    var current = circuit.initialState();
+    int i = 0;
+    do {
+      if (seen.contains(current)) {
+        return i;
+      }
+      seen.add(current);
+      i++;
+      final var result = circuit.execute(current);
+      current = result.state();
+    } while (true);
+  }
+
 }

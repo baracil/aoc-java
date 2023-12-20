@@ -1,7 +1,9 @@
 package fpc.aoc.day20;
 
-import fpc.aoc.api.Day;
-import fpc.aoc.input.ResourceFile;
+import fpc.aoc.day20.model.Circuit;
+import fpc.aoc.day20.model.Module;
+import fpc.aoc.day20.model.state.CircuitState;
+import fpc.aoc.day20.model.state.FlipFlopState;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 
@@ -34,6 +36,8 @@ public class DotDumper {
         if (module instanceof Module.FlipFlop) {
           final var s = state.flipFlopStates().get(module.name());
           ps.println(module.name()+"[fillcolor=\"%s\", style=\"filled\"]".formatted(s == FlipFlopState.ON?"red":"green"));
+        } else if (module instanceof Module.Conjunction) {
+          ps.println(module.name()+"[fillcolor=\"blue\", style=\"filled\"]");
         }
         for (String output : module.outputs()) {
           ps.println(module.name()+" -> "+output);

@@ -1,4 +1,4 @@
-package fpc.aoc.day20;
+package fpc.aoc.day20.model.state;
 
 public enum FlipFlopState {
   ON,

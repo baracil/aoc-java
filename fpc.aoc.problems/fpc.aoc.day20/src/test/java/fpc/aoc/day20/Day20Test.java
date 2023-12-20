@@ -31,11 +31,5 @@ public class Day20Test {
     Assertions.assertEquals(11687500, actual);
   }
 
-  @Test
-  public void testPart2() {
-    final var actual = new Day20Part2Solver().createProblem(TEST_INPUT_1).solve();
-    Assertions.assertEquals("1924", actual);
-  }
-
 
 }

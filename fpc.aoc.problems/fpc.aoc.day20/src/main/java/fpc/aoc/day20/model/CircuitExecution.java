@@ -1,5 +1,7 @@
-package fpc.aoc.day20;
+package fpc.aoc.day20.model;
 
+import fpc.aoc.day20.model.state.CircuitState;
+import fpc.aoc.day20.model.state.FlipFlopState;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 
@@ -14,27 +16,27 @@ public class CircuitExecution {
   }
 
   private final Circuit circuit;
-  private final MutableCircuitState circuitState;
+  private final CircuitState.Mutable circuitState;
   private final List<Signal> toProcess = new LinkedList<>();
   private int nbLow = 1;
   private int nbHigh = 0;
 
+
   public ExecutionResult execute() {
     final var broadcast = circuit.getModule(Module.BROADCAST);
-    broadcast.outputs().stream().map(n -> new Signal(broadcast.name(), n, Pulse.LOW)).forEach(toProcess::add);
+
+    this.addOutputToProcess(broadcast,Pulse.LOW);
 
     while (!toProcess.isEmpty()) {
       final var signal = toProcess.removeFirst();
-      if (signal.pulse() == Pulse.LOW) {
-        nbLow++;
-      } else {
-        nbHigh++;
-      }
+      updatePulseCount(signal);
 
       if (!circuit.hasModule(signal.destination())) {
         continue;
       }
+
       final var module = circuit.getModule(signal.destination());
+
       final var emitted = switch (module) {
         case Module.FlipFlop flipFlop -> handleFlipFlop(flipFlop, signal.pulse());
         case Module.Conjunction conjunction -> handleConjunction(conjunction, signal);
@@ -42,27 +44,39 @@ public class CircuitExecution {
       };
 
       if (emitted != null) {
-        module.outputs().stream().map(o -> new Signal(module.name(), o, emitted)).forEach(toProcess::addLast);
+        this.addOutputToProcess(module,emitted);
       }
     }
 
     return new ExecutionResult(nbLow, nbHigh, circuitState.fix());
   }
 
+  private void updatePulseCount(Signal signal) {
+    if (signal.pulse() == Pulse.LOW) {
+      nbLow++;
+    } else {
+      nbHigh++;
+    }
+  }
+
+  private void addOutputToProcess(Module module, Pulse pulse) {
+    module.outputs().stream().map(o -> new Signal(module.name(), o, pulse)).forEach(toProcess::addLast);
+  }
+
+
   private Pulse handleFlipFlop(Module.FlipFlop flipFlop, Pulse pulse) {
     if (pulse == Pulse.HIGH) {
       return null;
     }
-    final var state = circuitState.getFlipFlopState(flipFlop.name());
-    final var emittedPulse = state == FlipFlopState.ON ? Pulse.LOW : Pulse.HIGH;
-
-    circuitState.setFlipFlopState(flipFlop.name(), state.toggle());
-
-    return emittedPulse;
+    final var state = circuitState.toggleFlipFlopState(flipFlop.name());
+    return state == FlipFlopState.ON ? Pulse.LOW : Pulse.HIGH;
   }
 
   private Pulse handleConjunction(Module.Conjunction conjunction, Signal signal) {
     return circuitState.updateConjunctionState(conjunction.name(), signal.source(), signal.pulse());
 
+  }
+
+  private record Signal(String source, String destination, Pulse pulse) {
   }
 }

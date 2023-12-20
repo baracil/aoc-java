@@ -1,16 +1,17 @@
-package fpc.aoc.day20;
+package fpc.aoc.day20.model;
 
 import fpc.aoc.common.AOCException;
 
+import java.util.Arrays;
 import java.util.List;
-import java.util.stream.IntStream;
 
 public sealed interface Module {
 
-  public static final String BROADCAST = "broadcast";
+  String BROADCAST = "broadcast";
 
   String name();
   List<String> outputs();
+
 
   record FlipFlop(String name, List<String> outputs) implements Module {
   }
@@ -37,10 +38,12 @@ public sealed interface Module {
     }
   }
 
+  /**
+   * Parse a module
+   */
   static Module parse(String line) {
     final var token = line.split("[- >,]+");
-    final var outputs = IntStream.range(1, token.length).mapToObj(i -> token[i]).toList();
-
+    final var outputs = Arrays.stream(token, 1, token.length).toList();
 
     if (token[0].equals("broadcaster")) {
       return new Broadcast(outputs);

@@ -1,11 +1,10 @@
 package fpc.aoc.day20;
 
+import fpc.aoc.day20.model.Circuit;
+import fpc.aoc.day20.model.Module;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
 import lombok.NonNull;
-
-import java.util.List;
-import java.util.stream.Stream;
 
 public abstract class Day20Solver extends SmartSolver<Circuit,Long> {
 
