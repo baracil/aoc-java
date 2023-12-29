@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+@Getter
 @RequiredArgsConstructor
 public enum Rotation {
   _000(0),
@@ -12,7 +13,6 @@ public enum Rotation {
   _270(3),
   ;
 
-  @Getter
   private final int index;
 
 

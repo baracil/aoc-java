@@ -5,7 +5,7 @@ import fpc.aoc.input.SmartSolver;
 import fpc.aoc.year2020.day21.structures.Guide;
 import lombok.NonNull;
 
-public abstract class Day21Solver<O> extends SmartSolver<Guide> {
+public abstract class Day21Solver extends SmartSolver<Guide> {
 
   @Override
   protected @NonNull Converter<Guide> getConverter() {

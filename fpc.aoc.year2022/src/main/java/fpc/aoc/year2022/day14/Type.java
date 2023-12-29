@@ -3,6 +3,7 @@ package fpc.aoc.year2022.day14;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+@Getter
 @RequiredArgsConstructor
 public enum Type {
   ROCK('█'),
@@ -10,6 +11,5 @@ public enum Type {
   EMPTY('.'),
   ;
 
-  @Getter
   private final char chr;
 }

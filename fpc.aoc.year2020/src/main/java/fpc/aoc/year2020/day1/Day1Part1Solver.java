@@ -6,7 +6,7 @@ import lombok.NonNull;
 
 import java.util.Optional;
 
-public class Day1Part1Solver extends Day1Solver<Integer> {
+public class Day1Part1Solver extends Day1Solver {
 
   public static Solver provider() {
     return new Day1Part1Solver();

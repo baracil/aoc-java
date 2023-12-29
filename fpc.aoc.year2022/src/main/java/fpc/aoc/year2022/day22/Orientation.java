@@ -4,6 +4,7 @@ import fpc.aoc.common.Displacement;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+@Getter
 @RequiredArgsConstructor
 public enum Orientation {
   RIGHT(Displacement.E, 0),
@@ -11,9 +12,7 @@ public enum Orientation {
   LEFT(Displacement.W, 2),
   UP(Displacement.N, 3),
   ;
-  @Getter
   private final Displacement displacement;
-  @Getter
   private final int value;
 
   public Orientation clockwise() {

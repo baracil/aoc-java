@@ -17,8 +17,6 @@ public class Day8Part2Solver extends Day8Solver {
     return new Day8Part2Solver();
   }
 
-  private static final Part2Mutator instructionMutator = new Part2Mutator();
-
   @Override
   public @NonNull Integer doSolve(@NonNull Program program) {
     return streamProgramCandidates(program.code())
@@ -44,7 +42,7 @@ public class Day8Part2Solver extends Day8Solver {
   private @NonNull Program alterCode(
       @NonNull List<Instruction> originalCode,
       int alterationIndex) {
-    final var alteredCode = Tools.replaceAt(originalCode, alterationIndex, instructionMutator.asFunction());
+    final var alteredCode = Tools.replaceAt(originalCode, alterationIndex, Instruction::mutate);
     return new Program(alteredCode);
   }
 }

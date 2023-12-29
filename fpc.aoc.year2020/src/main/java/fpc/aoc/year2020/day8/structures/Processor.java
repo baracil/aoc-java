@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day8.structures;
 
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.TryResult;
-import fpc.aoc.year2020.day8.structures.instruction.InstructionExecutor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
@@ -15,8 +14,6 @@ public class Processor {
   public static @NonNull Processor with(@NonNull StopCondition stopCondition) {
     return new Processor(stopCondition);
   }
-
-  private final @NonNull InstructionExecutor executor = new InstructionExecutor();
 
   private final @NonNull StopCondition stopCondition;
 
@@ -33,7 +30,7 @@ public class Processor {
       positionExecuted.add(context.pointer());
 
       final Instruction current = program.getInstructionAt(context.pointer());
-      context = current.accept(executor, context);
+      context = current.execute(context);
     }
   }
 

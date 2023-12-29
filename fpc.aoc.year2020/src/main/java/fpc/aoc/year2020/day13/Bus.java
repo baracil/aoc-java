@@ -8,6 +8,7 @@ import java.math.BigInteger;
 import java.util.Optional;
 
 
+@Getter
 @RequiredArgsConstructor
 public class Bus {
 
@@ -19,7 +20,6 @@ public class Bus {
     }
   }
 
-  @Getter
   private final BigInteger id;
 
   public boolean isOutOfService() {

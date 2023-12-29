@@ -9,7 +9,7 @@ import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-public class Day1Part2Solver extends Day1Solver<Long> {
+public class Day1Part2Solver extends Day1Solver {
 
   public static Solver provider() {
     return new Day1Part2Solver();

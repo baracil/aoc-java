@@ -3,6 +3,7 @@ package fpc.aoc.year2022.day19;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
+@Getter
 @RequiredArgsConstructor
 public enum Type {
   ORE(0),
@@ -10,7 +11,6 @@ public enum Type {
   OBSIDIAN(2),
   GEODE(3),
   ;
-  @Getter
   public final int index;
 
 

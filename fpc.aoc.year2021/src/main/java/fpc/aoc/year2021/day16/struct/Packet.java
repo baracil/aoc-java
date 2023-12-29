@@ -5,14 +5,14 @@ import java.util.List;
 
 public sealed interface Packet {
 
-  final record Literal(int version, long value) implements Packet {
+  record Literal(int version, long value) implements Packet {
     @Override
     public long sumOfVersions() {
       return version;
     }
   }
 
-  final record Operator(int version, int id, List<Packet> subPackets) implements Packet {
+  record Operator(int version, int id, List<Packet> subPackets) implements Packet {
     @Override
     public long sumOfVersions() {
       return version + subPackets.stream().mapToLong(Packet::sumOfVersions).sum();

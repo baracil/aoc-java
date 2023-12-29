@@ -8,7 +8,7 @@ import lombok.NonNull;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class Day21Part2Solver extends Day21Solver<String> {
+public class Day21Part2Solver extends Day21Solver {
 
   public static @NonNull Solver provider() {
     return new Day21Part2Solver();

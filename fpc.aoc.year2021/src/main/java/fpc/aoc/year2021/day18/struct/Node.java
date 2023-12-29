@@ -2,12 +2,11 @@ package fpc.aoc.year2021.day18.struct;
 
 import lombok.*;
 
+@Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public sealed abstract class Node {
 
-  @Getter
   private Pair parent;
-  @Getter
   private Side side;
 
   public abstract Node duplicate();

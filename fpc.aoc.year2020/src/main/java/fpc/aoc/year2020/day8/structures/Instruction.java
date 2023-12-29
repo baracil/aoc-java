@@ -1,13 +1,16 @@
 package fpc.aoc.year2020.day8.structures;
 
 import fpc.aoc.common.AOCException;
+import fpc.aoc.year2020.day8.structures.instruction.Acc;
+import fpc.aoc.year2020.day8.structures.instruction.Jmp;
+import fpc.aoc.year2020.day8.structures.instruction.Nop;
 import lombok.NonNull;
 
-public interface Instruction {
+public sealed interface Instruction permits Acc, Jmp, Nop {
 
-  <P, T> @NonNull T accept(@NonNull ComplexInstructionVisitor<P, T> visitor, @NonNull P parameter);
+  ExecutionContext execute(ExecutionContext context);
 
-  <T> @NonNull T accept(@NonNull InstructionVisitor<T> visitor);
+  Instruction mutate();
 
   static @NonNull Instruction parse(@NonNull String line) {
     try {

@@ -6,7 +6,7 @@ import lombok.NonNull;
 
 import java.util.stream.Stream;
 
-public abstract class Day10Solver<T> extends SmartSolver<Stream<String>> {
+public abstract class Day10Solver extends SmartSolver<Stream<String>> {
 
 
   @Override

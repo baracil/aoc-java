@@ -2,22 +2,16 @@ package fpc.aoc.year2020.day8.structures;
 
 import lombok.Getter;
 import lombok.NonNull;
-import lombok.Value;
 
-@Value
-public class ExecutionContext {
+/**
+ * @param pointer Position of the next instruction to execute
+ */
+@Getter
+public record ExecutionContext(int accumulator, int pointer) {
 
   public static @NonNull ExecutionContext createInitial() {
     return new ExecutionContext(0, 0);
   }
-
-  @Getter
-  int accumulator;
-  /**
-   * Position of the next instruction to execute
-   */
-  @Getter
-  int pointer;
 
   public ExecutionContext moveBy(int offset) {
     return new ExecutionContext(accumulator, pointer + offset);

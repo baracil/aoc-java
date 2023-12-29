@@ -11,9 +11,6 @@ public interface NodeVisitor<T> {
   default void leaving(Node node) {
   }
 
-  ;
-
-
   static @NonNull NodeVisitor<Node.Literal> firstLiteralToSplit() {
     return node -> {
       if (node instanceof Node.Literal literal && literal.value() >= 10) {

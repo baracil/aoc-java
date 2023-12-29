@@ -5,15 +5,14 @@ import lombok.Getter;
 
 import java.util.Arrays;
 
+@Getter
 public enum Direction {
   NORTH(Displacement.N, Move.NW, Move.N, Move.NE),
   SOUTH(Displacement.S, Move.SW, Move.S, Move.SE),
   WEST(Displacement.W, Move.NW, Move.W, Move.SW),
   EAST(Displacement.E, Move.NE, Move.E, Move.SE);
 
-  @Getter
   private final int mask;
-  @Getter
   private final Displacement displacement;
 
   Direction(Displacement displacement, Move... moves) {

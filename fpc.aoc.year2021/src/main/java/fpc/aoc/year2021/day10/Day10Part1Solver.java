@@ -6,7 +6,7 @@ import lombok.NonNull;
 
 import java.util.stream.Stream;
 
-public class Day10Part1Solver extends Day10Solver<Integer> {
+public class Day10Part1Solver extends Day10Solver {
 
   public static @NonNull Solver provider() {
     return new Day10Part1Solver();

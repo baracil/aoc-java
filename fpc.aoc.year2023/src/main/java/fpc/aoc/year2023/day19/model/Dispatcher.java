@@ -6,13 +6,9 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.regex.Pattern;
 
+@Getter
 @RequiredArgsConstructor
-public class Dispatcher {
-
-  @Getter
-  private final ScrapPredicate test;
-  @Getter
-  private final String workflowName;
+public record Dispatcher(ScrapPredicate test, String workflowName) {
 
   public String check(Scrap scrap) {
     if (test.test(scrap)) {

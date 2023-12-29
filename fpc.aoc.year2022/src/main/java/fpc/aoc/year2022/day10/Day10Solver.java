@@ -6,7 +6,7 @@ import lombok.NonNull;
 
 import java.util.List;
 
-public abstract class Day10Solver<T> extends SmartSolver<List<Command>> {
+public abstract class Day10Solver extends SmartSolver<List<Command>> {
 
   @Override
   protected @NonNull Converter<List<Command>> getConverter() {

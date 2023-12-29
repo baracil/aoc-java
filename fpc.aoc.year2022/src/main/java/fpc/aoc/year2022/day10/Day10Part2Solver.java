@@ -5,7 +5,7 @@ import lombok.NonNull;
 
 import java.util.List;
 
-public class Day10Part2Solver extends Day10Solver<String> {
+public class Day10Part2Solver extends Day10Solver {
 
   public static @NonNull Solver provider() {
     return new Day10Part2Solver();

@@ -6,5 +6,5 @@ public enum TokenType {
   NUMBER,
   ADD,
   MULTIPLY,
-  ;
+
 }

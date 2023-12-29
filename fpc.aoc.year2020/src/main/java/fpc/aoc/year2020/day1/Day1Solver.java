@@ -6,7 +6,7 @@ import lombok.NonNull;
 
 import java.util.stream.IntStream;
 
-public abstract class Day1Solver<O> extends SmartSolver<int[]> {
+public abstract class Day1Solver extends SmartSolver<int[]> {
 
   @Override
   protected @NonNull
