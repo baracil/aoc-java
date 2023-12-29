@@ -2,6 +2,7 @@ package fpc.aoc.api;
 
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Tools;
+import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.Comparator;
 import java.util.function.Predicate;
 
 @RequiredArgsConstructor
+@Getter
 public enum Day {
     DAY_1(1),
     DAY_2(2),
@@ -42,9 +44,6 @@ public enum Day {
 
     private final int numericalValue;
 
-    public @NonNull AOCProblemId createIdWith(@NonNull Part part) {
-        return new AOCProblemId(this,part);
-    }
 
     @NonNull
     public static Day parse(@NonNull String value) {
@@ -67,7 +66,4 @@ public enum Day {
         return day -> day.name().equalsIgnoreCase(name);
     }
 
-    public String getInputFileName() {
-        return String.format("input_day_%02d.txt",numericalValue);
-    }
 }

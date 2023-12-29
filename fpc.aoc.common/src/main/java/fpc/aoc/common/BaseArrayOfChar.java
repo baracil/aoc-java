@@ -3,6 +3,7 @@ package fpc.aoc.common;
 import lombok.NonNull;
 
 import java.io.PrintStream;
+import java.util.Optional;
 
 /**
  * @author Bastien Aracil
@@ -83,35 +84,6 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
         this.data[xyToIndex(x,y)] = value;
     }
 
-//    @Deprecated
-//    public void setWith(int destX, int destY, @NonNull BaseArrayOfChar other, int srcX, int srcY, int lengthX, int lengthY) {
-//        for (int x = 0,dx=destX,sx=srcX; x < lengthX; x++,dx++,sx++) {
-//            for (int y = 0,dy=destY,sy=srcY; y < lengthY; y++,dy++,sy++) {
-//                this.data[xyToIndex(dx,dy)] = other.get(sx,sy);
-//            }
-//        }
-//    }
-//
-//    public BaseArrayOfChar flip() {
-//        final BaseArrayOfChar flipped = new BaseArrayOfChar(data.clone(), filling, width(), height());
-//        for (int x = 0; x < flipped.width() ; x++) {
-//            for (int y = 0; y < flipped.height(); y++) {
-//                flipped.data[xyToIndex(x,y)] = this.get(width()-1-x,y);
-//            }
-//        }
-//        return flipped;
-//    }
-//
-//    public ArrayOfChar rotate90() {
-//        final BaseArrayOfChar rotated = new BaseArrayOfChar(data.clone(), filling, height(), width());
-//        for (int x = 0; x < rotated.width() ; x++) {
-//            for (int y = 0; y < rotated.height(); y++) {
-//                rotated.data[xyToIndex(x,y)] = this.get(rotated.height()-1-y, x);
-//            }
-//        }
-//        return rotated;
-//    }
-
     public @NonNull String computeAsString() {
         final int width = width();
         final StringBuilder sb = new StringBuilder();
@@ -124,24 +96,19 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
         return sb.toString();
     }
 
-//    @Override
-//    public void setWith(int destX, int destY, @NonNull ArrayOfChar other, int srcX, int srcY, int lengthX, int lengthY) {
-//        Tools.TODO();
-//    }
-//
-//    @Override
-//    public @NonNull ArrayOfChar rotate(@NonNull Rotation rotation) {
-//        return Tools.TODO();
-//    }
-//
-//    @Override
-//    public @NonNull ArrayOfChar flip(@NonNull Flipping axis) {
-//        return Tools.TODO();
-//    }
-
-
     @Override
     public String toString() {
         return asString();
     }
+
+    @Override
+    public @NonNull Optional<Position> findMatching(char s) {
+        for (int i = 0; i < data.length; i++) {
+            if (data[i] == s) {
+                return Optional.of(Position.of(i % width(), i / width()));
+            }
+        }
+        return Optional.empty();
+    }
+
 }

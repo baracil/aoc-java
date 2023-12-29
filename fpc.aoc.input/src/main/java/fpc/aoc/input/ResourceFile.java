@@ -1,49 +1,44 @@
 package fpc.aoc.input;
 
 import fpc.aoc.api.Day;
-import fpc.aoc.common.AOCException;
+import fpc.aoc.api.RawInput;
+import fpc.aoc.api.SolverId;
+import fpc.aoc.api.Year;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
-import java.util.stream.Stream;
+import java.util.List;
 
 @RequiredArgsConstructor
-public class ResourceFile implements Input<Stream<String>> {
+public class ResourceFile implements RawInput {
 
-    @NonNull
-    private final String resourceName;
+  private final Year year;
+  private final Day day;
 
-    public ResourceFile(@NonNull Day day) {
-        this(day.getInputFileName());
+
+  public ResourceFile(@NonNull SolverId solverId) {
+    this(solverId.year(),solverId.day());
+  }
+
+  @Override
+  public @NonNull List<String> read() {
+    final var moduleName = "fpc.aoc.year%04d".formatted(year.numericalValue());
+    final var resourceName = "input_day_%02d.txt".formatted(day.numericalValue());
+
+    final var module = ModuleLayer.boot()
+        .findModule(moduleName)
+        .orElseThrow();
+
+
+    try (var bfr = new BufferedReader(new InputStreamReader(module.getResourceAsStream(resourceName), StandardCharsets.UTF_8))) {
+      return bfr.lines().toList();
+    } catch (IOException e) {
+      throw new UncheckedIOException(e);
     }
-
-    @Override
-    public @NonNull Stream<String> readData() {
-        final InputStream inputStream = Input.class.getResourceAsStream(resourceName);
-        if (inputStream == null) {
-            throw new AOCException("Could not find input file '" + resourceName + "'");
-        }
-
-        final BufferedReader bfr = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8));
-
-        try {
-            final Stream<String> stream = bfr.lines();
-            return stream.onClose(() -> {
-                try {
-                    bfr.close();
-                } catch (IOException e) {
-                    throw new UncheckedIOException(e);
-                }
-            });
-        } catch (RuntimeException | Error e) {
-            try {
-                bfr.close();
-            } catch (IOException io) {
-                e.addSuppressed(io);
-            }
-            throw e;
-        }
-    }
+  }
 }

@@ -29,6 +29,8 @@ public interface GridHelper {
      */
     @NonNull Stream<Position> allAdjacentPosition(@NonNull Position center);
 
+    @NonNull Stream<Position> allCardinalNeighbours(@NonNull Position center);
+
     @NonNull Stream<Position> allPositionOnGrid();
 
     int linearIndexFor(@NonNull Position position);
@@ -38,6 +40,8 @@ public interface GridHelper {
     @NonNull Position positionFor(int linearIndex);
 
     @NonNull Stream<Position> positionsInDirection(@NonNull Position center, @NonNull Displacement displacement);
+
+    boolean isOnBorder(Position position);
 
     boolean isInside(Position p);
 }

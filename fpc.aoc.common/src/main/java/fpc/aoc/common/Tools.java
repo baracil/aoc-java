@@ -7,8 +7,25 @@ import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Tools {
+
+  public static IntStream generateWithNumberOfBitsAtOne(int nbBits, int nbOnes) {
+    if (nbBits<nbOnes) {
+      throw new AOCException("Invalid arguments, nbBits must be greater or equal to nbOnes nbBits="+nbBits+" , nbOnes="+nbOnes);
+    }
+    if (nbBits == nbOnes) {
+      return IntStream.of((1<<(nbBits+1))-1);
+    }
+    if (nbOnes == 0) {
+      return IntStream.of(0);
+    }
+    return IntStream.concat(
+        generateWithNumberOfBitsAtOne(nbBits-1,nbOnes).map(i -> i*2),
+        generateWithNumberOfBitsAtOne(nbBits-1,nbOnes-1).map(i -> i*2+1)
+    );
+  }
 
   public static long longProduct(long l1, long l2) {
     return l1 * l2;

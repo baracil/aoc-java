@@ -1,19 +1,20 @@
 package fpc.aoc.input;
 
+import fpc.aoc.api.RawInput;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
+import java.util.List;
 
 @RequiredArgsConstructor
-public class MultiLines implements Input<Stream<String>> {
+public class MultiLines implements RawInput {
 
-    @NonNull
-    private final String multiLines;
+  @NonNull
+  private final String multiLines;
 
-    @Override
-    public @NonNull Stream<String> readData() {
-        return Arrays.stream(multiLines.split("\\R"));
-    }
+  @Override
+  public @NonNull List<String> read() {
+    return Arrays.asList(multiLines.split("\\R"));
+  }
 }

@@ -28,11 +28,11 @@ public class SimpleGridHelper implements GridHelper {
     }
   }
 
-  private Position at(int x, int y) {
+  private Position nullableAt(int x, int y) {
     if (x >= 0 && x < width && y >= 0 && y < height) {
       return positions[x + y * width];
     }
-    throw new IllegalArgumentException();
+    return null;
   }
 
   @Override
@@ -40,24 +40,43 @@ public class SimpleGridHelper implements GridHelper {
     final int xc = center.x();
     final int yc = center.y();
     return Stream.of(
-      at(xc - 1, yc - 1),
-      at(xc - 1, yc),
-      at(xc - 1, yc + 1),
-      at(xc + 1, yc - 1),
-      at(xc + 1, yc),
-      at(xc + 1, yc + 1),
-      at(xc, yc - 1),
-      at(xc, yc + 1)
+      nullableAt(xc - 1, yc - 1),
+      nullableAt(xc - 1, yc),
+      nullableAt(xc - 1, yc + 1),
+      nullableAt(xc + 1, yc - 1),
+      nullableAt(xc + 1, yc),
+      nullableAt(xc + 1, yc + 1),
+      nullableAt(xc, yc - 1),
+      nullableAt(xc, yc + 1)
     ).filter(Objects::nonNull);
   }
+
+  @Override
+  public @NonNull Stream<Position> allCardinalNeighbours(@NonNull Position center) {
+    final int xc = center.x();
+    final int yc = center.y();
+    return Stream.of(
+        nullableAt(xc - 1, yc),
+        nullableAt(xc + 1, yc),
+        nullableAt(xc, yc - 1),
+        nullableAt(xc, yc + 1)
+    ).filter(Objects::nonNull);
+  }
+
+
 
   @Override
   public @NonNull Stream<Position> positionsInDirection(@NonNull Position center, @NonNull Displacement displacement) {
     final int dx = displacement.dx();
     final int dy = displacement.dy();
     return IntStream.iterate(1, i -> i + 1)
-      .mapToObj(i -> at(center.x() + dx * i, center.y() + dy * i))
+      .mapToObj(i -> nullableAt(center.x() + dx * i, center.y() + dy * i))
       .takeWhile(Objects::nonNull);
+  }
+
+  @Override
+  public boolean isOnBorder(Position position) {
+    return position.x() == 0 || position.x() == width-1 || position.y() == 0 || position.y() == height-1;
   }
 
   @Override
@@ -83,6 +102,6 @@ public class SimpleGridHelper implements GridHelper {
 
   @Override
   public @NonNull Position positionFor(int linearIndex) {
-    return at(linearIndex % width, linearIndex / width);
+    return nullableAt(linearIndex % width, linearIndex / width);
   }
 }

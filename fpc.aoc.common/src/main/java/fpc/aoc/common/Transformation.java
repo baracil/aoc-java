@@ -89,7 +89,7 @@ public class Transformation {
 
   private static class Holder {
 
-    public static List<IntBinaryOperator> X_TRANSFORMERS = List.of(
+    public static final List<IntBinaryOperator> X_TRANSFORMERS = List.of(
       (x, y) -> x,
       (x, y) -> y,
       (x, y) -> -1 - x,
@@ -101,7 +101,7 @@ public class Transformation {
       (x, y) -> -1 - y
     );
 
-    public static List<IntBinaryOperator> Y_TRANSFORMERS = List.of(
+    public static final List<IntBinaryOperator> Y_TRANSFORMERS = List.of(
       (x, y) -> y,
       (x, y) -> -1 - x,
       (x, y) -> -1 - y,

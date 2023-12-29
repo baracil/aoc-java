@@ -4,6 +4,7 @@ import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
 import java.util.function.IntUnaryOperator;
 import java.util.stream.Collector;
@@ -116,4 +117,7 @@ public interface ArrayOfChar extends Array, ArrayOfCharReader {
     }
 
     @NonNull ArrayOfChar transform(@NonNull Transformation transformation);
+
+    @NonNull Optional<Position> findMatching(char s);
+
 }

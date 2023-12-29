@@ -1,27 +1,36 @@
 package fpc.aoc.launcher;
 
-import fpc.aoc.api.Day;
+import fpc.aoc.api.DayId;
+import fpc.aoc.api.Year;
 import fpc.aoc.launcher._private.Launcher;
-import fpc.aoc.launcher._private.ProblemService;
+import fpc.aoc.launcher._private.SolverService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
+
+import java.util.Optional;
 
 @RequiredArgsConstructor
 public class LaunchLastDay {
 
-    public static void main(String[] args) {
-        ProblemService.findLastDay()
-                      .map(LaunchLastDay::new)
-                      .ifPresentOrElse(LaunchLastDay::launch, () -> System.err.println("No problem found"));
-
+  public static void main(String[] args) {
+    final Optional<DayId> dayId;
+    if (args.length == 0) {
+      dayId = SolverService.findLastDay();
+    } else {
+      dayId = SolverService.findLastDay(Year.parse(args[0]));
     }
+    dayId
+        .map(LaunchLastDay::new)
+        .ifPresentOrElse(LaunchLastDay::launch, () -> System.err.println("No problem found"));
 
-    private final @NonNull Day day;
+  }
 
-    public void launch() {
-        ProblemService.listProblemsOfADay(day)
-                      .forEach(Launcher::launch);
-    }
+  private final @NonNull DayId dayId;
+
+  public void launch() {
+    SolverService.loadSolversOfADay(dayId)
+        .forEach(Launcher::launch);
+  }
 
 }
 

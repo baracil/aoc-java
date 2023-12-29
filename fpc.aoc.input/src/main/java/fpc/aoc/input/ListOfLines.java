@@ -1,19 +1,19 @@
 package fpc.aoc.input;
 
+import fpc.aoc.api.RawInput;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
-import java.util.stream.Stream;
 
 @RequiredArgsConstructor
-public class ListOfLines implements Input<Stream<String>> {
+public class ListOfLines implements RawInput {
 
     @NonNull
     private final List<String> lines;
 
     @Override
-    public @NonNull Stream<String> readData() {
-        return lines.stream();
+    public @NonNull List<String> read() {
+        return lines;
     }
 }

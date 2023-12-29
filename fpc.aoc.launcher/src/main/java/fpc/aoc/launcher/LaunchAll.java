@@ -1,16 +1,16 @@
 package fpc.aoc.launcher;
 
-import fpc.aoc.api.AOCProblem;
+import fpc.aoc.api.Solver;
 import fpc.aoc.launcher._private.Launcher;
-import fpc.aoc.launcher._private.ProblemService;
+import fpc.aoc.launcher._private.SolverService;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class LaunchAll {
 
     public static void main(String[] args) {
-        ProblemService.loadProblems()
-                      .sorted(AOCProblem::compareTo)
+        SolverService.loadSolvers()
+                      .sorted(Solver.CHRONOLOGICAL)
                       .forEach(Launcher::launch);
     }
 
