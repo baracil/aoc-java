@@ -21,7 +21,7 @@ public class Day10Part2Solver extends Day10Solver {
   }
 
   @Override
-  public @NonNull Long doSolve(int @NonNull [] input) {
+  public @NonNull Long doSolve(int[] input) {
     final Part2Counter counter = useLinear ? new LinearCounter() : new RecursiveCounter();
     return counter.count(input);
   }

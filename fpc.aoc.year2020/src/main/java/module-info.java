@@ -52,6 +52,8 @@ import fpc.aoc.year2020.day9.Day9Part2Solver;
 module fpc.aoc.year2020 {
   requires static lombok;
 
+  requires fpc.aoc.api;
+
   requires fpc.aoc.input;
 
   provides Solver with Day1Part1Solver, Day1Part2Solver,

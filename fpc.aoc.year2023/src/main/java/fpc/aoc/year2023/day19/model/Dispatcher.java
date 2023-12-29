@@ -1,13 +1,9 @@
 package fpc.aoc.year2023.day19.model;
 
 import fpc.aoc.common.AOCException;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 
 import java.util.regex.Pattern;
 
-@Getter
-@RequiredArgsConstructor
 public record Dispatcher(ScrapPredicate test, String workflowName) {
 
   public String check(Scrap scrap) {

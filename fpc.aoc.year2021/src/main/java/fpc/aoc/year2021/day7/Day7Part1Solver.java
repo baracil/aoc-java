@@ -12,7 +12,7 @@ public class Day7Part1Solver extends Day7Solver {
   }
 
   @Override
-  public @NonNull Integer doSolve(int @NonNull [] input) {
+  public @NonNull Integer doSolve(@NonNull int[] input) {
     Arrays.sort(input);
     final var target = input[input.length / 2];
 

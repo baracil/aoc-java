@@ -14,7 +14,7 @@ public class Day7Part2Solver extends Day7Solver {
   }
 
   @Override
-  public @NonNull Integer doSolve(int @NonNull [] input) {
+  public @NonNull Integer doSolve(@NonNull int[] input) {
     final var mean = Arrays.stream(input).average().orElseThrow();
     final var targetInf = (int) Math.floor(mean);
     final var targetSup = (int) Math.ceil(mean);

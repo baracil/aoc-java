@@ -12,7 +12,7 @@ public class Day10Part1Solver extends Day10Solver {
   }
 
   @Override
-  public @NonNull Long doSolve(int @NonNull [] input) {
+  public @NonNull Long doSolve(int[] input) {
     Arrays.sort(input);
     final var counter = new Counter();
 
