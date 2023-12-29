@@ -8,12 +8,12 @@ import java.util.stream.Stream;
 
 public class Day24Part1Solver extends Day24Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day24Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day24Part1Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(@NonNull Stream<Path> input) {
-        return initialBlackTiles(input).size();
-    }
+  @Override
+  public @NonNull Integer doSolve(@NonNull Stream<Path> input) {
+    return initialBlackTiles(input).size();
+  }
 }

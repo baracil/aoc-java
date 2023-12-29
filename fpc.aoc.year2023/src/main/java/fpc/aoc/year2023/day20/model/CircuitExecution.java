@@ -25,7 +25,7 @@ public class CircuitExecution {
   public ExecutionResult execute() {
     final var broadcast = circuit.getModule(Module.BROADCAST);
 
-    this.addOutputToProcess(broadcast,Pulse.LOW);
+    this.addOutputToProcess(broadcast, Pulse.LOW);
 
     while (!toProcess.isEmpty()) {
       final var signal = toProcess.removeFirst();
@@ -44,7 +44,7 @@ public class CircuitExecution {
       };
 
       if (emitted != null) {
-        this.addOutputToProcess(module,emitted);
+        this.addOutputToProcess(module, emitted);
       }
     }
 

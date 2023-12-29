@@ -6,17 +6,17 @@ import lombok.NonNull;
 
 public class Day21Part1Solver extends Day21Solver<Integer> {
 
-    public static @NonNull Solver provider() {
-        return new Day21Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day21Part1Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(@NonNull Guide guide) {
+  @Override
+  public @NonNull Integer doSolve(@NonNull Guide guide) {
 
-        return guide.safeIngredients()
-             .stream()
-             .mapToInt(i -> guide.bagOfIngredients().quantity(i))
-             .sum();
+    return guide.safeIngredients()
+        .stream()
+        .mapToInt(i -> guide.bagOfIngredients().quantity(i))
+        .sum();
 
-    }
+  }
 }

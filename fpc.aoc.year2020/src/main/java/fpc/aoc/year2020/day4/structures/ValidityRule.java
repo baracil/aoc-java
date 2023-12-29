@@ -4,5 +4,5 @@ import lombok.NonNull;
 
 public interface ValidityRule {
 
-    boolean isValid(@NonNull Passport passport);
+  boolean isValid(@NonNull Passport passport);
 }

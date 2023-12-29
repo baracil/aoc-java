@@ -6,8 +6,8 @@ import lombok.NonNull;
 
 public abstract class Day8Solver extends SmartSolver<Input> {
 
-    @Override
-    protected @NonNull Converter<Input> getConverter() {
-        return Converter.IDENTITY.andThen(Input::parse);
-    }
+  @Override
+  protected @NonNull Converter<Input> getConverter() {
+    return Converter.IDENTITY.andThen(Input::parse);
+  }
 }

@@ -6,19 +6,19 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class Map {
-    private final ArrayOfChar map;
-    private final Navigation navigation;
+  private final ArrayOfChar map;
+  private final Navigation navigation;
 
-    public Player start() {
-        return new Player(navigation.start(),Orientation.RIGHT);
-    }
+  public Player start() {
+    return new Player(navigation.start(), Orientation.RIGHT);
+  }
 
-    public Move next(Position position, Orientation orientation) {
+  public Move next(Position position, Orientation orientation) {
 //        return new TestUnFold().findNext(position,orientation);
-        return navigation.next(position,orientation);
-    }
+    return navigation.next(position, orientation);
+  }
 
-    public boolean isWall(Position position) {
-        return map.get(position) == '#';
-    }
+  public boolean isWall(Position position) {
+    return map.get(position) == '#';
+  }
 }

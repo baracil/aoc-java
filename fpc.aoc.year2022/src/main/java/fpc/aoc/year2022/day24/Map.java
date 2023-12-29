@@ -14,7 +14,7 @@ public class Map {
   }
 
   public boolean isExit(Position position) {
-    return position.x() == map.width()-2 && position.y() == map.height()-1;
+    return position.x() == map.width() - 2 && position.y() == map.height() - 1;
   }
 
   public boolean isStart(Position position) {
@@ -33,7 +33,7 @@ public class Map {
       return true;
     }
 
-    return blizzards.canMoveTo(position,turn);
+    return blizzards.canMoveTo(position, turn);
   }
 
   public boolean canMoveTo(Path path) {

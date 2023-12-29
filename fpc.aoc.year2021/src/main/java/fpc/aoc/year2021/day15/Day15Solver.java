@@ -8,16 +8,16 @@ import lombok.NonNull;
 
 public abstract class Day15Solver extends SmartSolver<Map> {
 
-    @Override
-    protected @NonNull Converter<Map> getConverter() {
-        return list -> Map.parse(list,getNbRepetitions());
-    }
+  @Override
+  protected @NonNull Converter<Map> getConverter() {
+    return list -> Map.parse(list, getNbRepetitions());
+  }
 
 
-    protected abstract int getNbRepetitions();
+  protected abstract int getNbRepetitions();
 
-    @Override
-    public @NonNull String doSolve(@NonNull Map input) {
-        return String.valueOf(new PathFinder().findLowestRisk(input));
-    }
+  @Override
+  public @NonNull String doSolve(@NonNull Map input) {
+    return String.valueOf(new PathFinder().findLowestRisk(input));
+  }
 }

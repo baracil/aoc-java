@@ -7,10 +7,10 @@ import java.util.stream.Stream;
 public record Cube(int x, int y, int z) {
 
   public @NonNull Stream<Face> faces() {
-    final var ref = new Point(x,y,z);
+    final var ref = new Point(x, y, z);
     return Disp.allValues()
         .map(ref::add)
-        .map(pos -> new Face(this,pos));
+        .map(pos -> new Face(this, pos));
   }
 
   public static Cube parse(@NonNull String line) {

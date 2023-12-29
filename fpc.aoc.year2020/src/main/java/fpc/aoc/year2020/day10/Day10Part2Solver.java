@@ -10,21 +10,21 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Day10Part2Solver extends Day10Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day10Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day10Part2Solver();
+  }
 
-    public final boolean useLinear;
+  public final boolean useLinear;
 
-    public Day10Part2Solver() {
-        this(true);
-    }
+  public Day10Part2Solver() {
+    this(true);
+  }
 
-    @Override
-    public @NonNull Long doSolve(int @NonNull [] input) {
-        final Part2Counter counter = useLinear?new LinearCounter():new RecursiveCounter();
-        return counter.count(input);
-    }
+  @Override
+  public @NonNull Long doSolve(int @NonNull [] input) {
+    final Part2Counter counter = useLinear ? new LinearCounter() : new RecursiveCounter();
+    return counter.count(input);
+  }
 
 }
 

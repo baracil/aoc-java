@@ -28,25 +28,25 @@ public class Schematic {
 
   public IntStream numberCloseToSymbol() {
     return symbols.stream()
-      .flatMap(this::getIndicesAround)
-      .mapToInt(numbers::get);
+        .flatMap(this::getIndicesAround)
+        .mapToInt(numbers::get);
   }
 
   public LongStream gearRatio() {
 
     return symbols
-      .stream()
-      .filter(p -> input.get(p) == '*')
-      .map(p -> getIndicesAround(p).mapToLong(numbers::get).toArray())
-      .filter(a -> a.length == 2)
-      .mapToLong(i -> i[0] * i[1]);
+        .stream()
+        .filter(p -> input.get(p) == '*')
+        .map(p -> getIndicesAround(p).mapToLong(numbers::get).toArray())
+        .filter(a -> a.length == 2)
+        .mapToLong(i -> i[0] * i[1]);
   }
 
   private Stream<Integer> getIndicesAround(Position p) {
     return helper.allAdjacentPosition(p)
-      .map(pointers::get)
-      .filter(Objects::nonNull)
-      .distinct();
+        .map(pointers::get)
+        .filter(Objects::nonNull)
+        .distinct();
   }
 
   public static Schematic from(List<String> lines) {

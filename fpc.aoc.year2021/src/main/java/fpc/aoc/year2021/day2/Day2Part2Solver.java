@@ -6,12 +6,12 @@ import lombok.NonNull;
 
 public class Day2Part2Solver extends Day2Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day2Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day2Part2Solver();
+  }
 
-    public Day2Part2Solver() {
-        super(Submarine::withCommand);
-    }
+  public Day2Part2Solver() {
+    super(Submarine::withCommand);
+  }
 
 }

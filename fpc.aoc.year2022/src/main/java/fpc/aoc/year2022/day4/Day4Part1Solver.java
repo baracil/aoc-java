@@ -7,12 +7,12 @@ import java.util.stream.Stream;
 
 public class Day4Part1Solver extends Day4Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day4Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day4Part1Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(@NonNull Stream<AssignmentPair> input) {
-        return (int)input.filter(AssignmentPair::hasSectionFullyContainedInOther).count();
-    }
+  @Override
+  public @NonNull Integer doSolve(@NonNull Stream<AssignmentPair> input) {
+    return (int) input.filter(AssignmentPair::hasSectionFullyContainedInOther).count();
+  }
 }

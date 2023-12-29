@@ -8,18 +8,18 @@ import lombok.NonNull;
 
 public abstract class Day19Solver extends SmartSolver<Day19Input> {
 
-    @Override
-    protected @NonNull Converter<Day19Input> getConverter() {
-        return Day19Input::parse;
-    }
+  @Override
+  protected @NonNull Converter<Day19Input> getConverter() {
+    return Day19Input::parse;
+  }
 
-    protected abstract @NonNull Day19Input modifyInput(@NonNull Day19Input input);
+  protected abstract @NonNull Day19Input modifyInput(@NonNull Day19Input input);
 
-    @Override
-    public final @NonNull Long doSolve(@NonNull Day19Input input) {
-        final var modifiedInput = modifyInput(input);
-        final var tester = new Tester(modifiedInput.rules());
+  @Override
+  public final @NonNull Long doSolve(@NonNull Day19Input input) {
+    final var modifiedInput = modifyInput(input);
+    final var tester = new Tester(modifiedInput.rules());
 
-        return modifiedInput.messages().stream().filter(tester).count();
-    }
+    return modifiedInput.messages().stream().filter(tester).count();
+  }
 }

@@ -8,8 +8,8 @@ import java.util.stream.Stream;
 
 public abstract class Day4Solver extends SmartSolver<Stream<AssignmentPair>> {
 
-    @Override
-    protected @NonNull Converter<Stream<AssignmentPair>> getConverter() {
-        return s -> s.stream().map(AssignmentPair::parse);
-    }
+  @Override
+  protected @NonNull Converter<Stream<AssignmentPair>> getConverter() {
+    return s -> s.stream().map(AssignmentPair::parse);
+  }
 }

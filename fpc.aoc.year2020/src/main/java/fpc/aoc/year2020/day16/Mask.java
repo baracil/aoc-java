@@ -9,23 +9,23 @@ import java.util.Set;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Mask {
 
-    public static @NonNull Mask create(@NonNull Set<Field> fields) {
-        final boolean[] inRangeFlags = new boolean[1000];
-        fields.forEach(f -> f.setValidityFlags(inRangeFlags));
-        return new Mask(inRangeFlags);
-    }
+  public static @NonNull Mask create(@NonNull Set<Field> fields) {
+    final boolean[] inRangeFlags = new boolean[1000];
+    fields.forEach(f -> f.setValidityFlags(inRangeFlags));
+    return new Mask(inRangeFlags);
+  }
 
-    private final boolean[] inRangeFlags;
+  private final boolean[] inRangeFlags;
 
-    public boolean isValid(int value) {
-        return inRangeFlags[value];
-    }
+  public boolean isValid(int value) {
+    return inRangeFlags[value];
+  }
 
-    public boolean isNotValid(int value) {
-        return !inRangeFlags[value];
-    }
+  public boolean isNotValid(int value) {
+    return !inRangeFlags[value];
+  }
 
-    public boolean isValid(@NonNull Ticket ticket) {
-        return ticket.values().allMatch(this::isValid);
-    }
+  public boolean isValid(@NonNull Ticket ticket) {
+    return ticket.values().allMatch(this::isValid);
+  }
 }

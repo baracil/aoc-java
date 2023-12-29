@@ -6,12 +6,12 @@ import lombok.NonNull;
 
 public class Day19Part1Solver extends Day19Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day19Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day19Part1Solver();
+  }
 
-    @Override
-    protected @NonNull Day19Input modifyInput(@NonNull Day19Input input) {
-        return input;
-    }
+  @Override
+  protected @NonNull Day19Input modifyInput(@NonNull Day19Input input) {
+    return input;
+  }
 }

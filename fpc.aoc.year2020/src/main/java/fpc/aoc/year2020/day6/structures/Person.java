@@ -11,17 +11,17 @@ import java.util.stream.Stream;
 @ToString
 public class Person {
 
-    private final @NonNull EnumSet<Question> questions;
+  private final @NonNull EnumSet<Question> questions;
 
-    public int getNumberOfQuestions() {
-        return questions.size();
-    }
+  public int getNumberOfQuestions() {
+    return questions.size();
+  }
 
-    public @NonNull Stream<Question> questionStream() {
-        return questions.stream();
-    }
+  public @NonNull Stream<Question> questionStream() {
+    return questions.stream();
+  }
 
-    public boolean doesNotHaveTheQuestion(@NonNull Question question) {
-        return !questions.contains(question);
-    }
+  public boolean doesNotHaveTheQuestion(@NonNull Question question) {
+    return !questions.contains(question);
+  }
 }

@@ -5,11 +5,11 @@ import lombok.NonNull;
 
 public class Day6Part2Solver extends Day6Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day6Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day6Part2Solver();
+  }
 
-    public Day6Part2Solver() {
-        super(14);
-    }
+  public Day6Part2Solver() {
+    super(14);
+  }
 }

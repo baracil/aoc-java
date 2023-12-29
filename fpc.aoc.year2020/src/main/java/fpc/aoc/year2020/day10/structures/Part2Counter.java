@@ -4,5 +4,5 @@ import lombok.NonNull;
 
 public interface Part2Counter {
 
-    long count(@NonNull int[] input);
+  long count(@NonNull int[] input);
 }

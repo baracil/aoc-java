@@ -29,8 +29,8 @@ public class Workflow {
     return fallbackWorkflowName;
   }
 
-  public Map<String,List<MultiScrap>> process(MultiScrap scrap) {
-    final var map = new HashMap<String,List<MultiScrap>>();
+  public Map<String, List<MultiScrap>> process(MultiScrap scrap) {
+    final var map = new HashMap<String, List<MultiScrap>>();
 
     var current = scrap;
 
@@ -38,7 +38,7 @@ public class Workflow {
       var tested = dispatcher.check(current);
       var wkName = dispatcher.workflowName();
 
-      tested.getOk().ifPresent(m -> map.computeIfAbsent(wkName,w -> new ArrayList<>()).add(m));
+      tested.getOk().ifPresent(m -> map.computeIfAbsent(wkName, w -> new ArrayList<>()).add(m));
 
       current = tested.getNok().orElse(null);
       if (current == null) {
@@ -46,7 +46,7 @@ public class Workflow {
       }
     }
     if (current != null) {
-      map.computeIfAbsent(fallbackWorkflowName,w -> new ArrayList<>()).add(current);
+      map.computeIfAbsent(fallbackWorkflowName, w -> new ArrayList<>()).add(current);
     }
     return map;
   }
@@ -54,10 +54,10 @@ public class Workflow {
   public static Workflow parse(String line) {
     final var tokens = line.split("[{,}]");
     final var name = tokens[0];
-    final var dispatchers = IntStream.range(1,tokens.length-1)
+    final var dispatchers = IntStream.range(1, tokens.length - 1)
         .mapToObj(i -> Dispatcher.parse(tokens[i]))
         .toList();
-    final var fallback = tokens[tokens.length-1];
-    return new Workflow(name,dispatchers,fallback);
+    final var fallback = tokens[tokens.length - 1];
+    return new Workflow(name, dispatchers, fallback);
   }
 }

@@ -10,18 +10,18 @@ import java.util.stream.Collectors;
 
 public class Day21Part2Solver extends Day21Solver<String> {
 
-    public static @NonNull Solver provider() {
-        return new Day21Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day21Part2Solver();
+  }
 
-    @Override
-    public @NonNull String doSolve(@NonNull Guide guide) {
-        return guide.allergenIdentification()
-                    .entrySet()
-                    .stream()
-                    .sorted(Map.Entry.comparingByKey())
-                    .map(Map.Entry::getValue)
-                    .map(Ingredient::name)
-                    .collect(Collectors.joining(","));
-    }
+  @Override
+  public @NonNull String doSolve(@NonNull Guide guide) {
+    return guide.allergenIdentification()
+        .entrySet()
+        .stream()
+        .sorted(Map.Entry.comparingByKey())
+        .map(Map.Entry::getValue)
+        .map(Ingredient::name)
+        .collect(Collectors.joining(","));
+  }
 }

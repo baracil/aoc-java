@@ -30,7 +30,7 @@ public class State {
   }
 
   public int totalAtTheEnd() {
-    return  total + rate * timeLeft;
+    return total + rate * timeLeft;
   }
 
   public State withNewValve(int toOpen) {

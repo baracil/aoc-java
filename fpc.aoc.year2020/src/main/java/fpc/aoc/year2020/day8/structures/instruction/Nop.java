@@ -10,24 +10,24 @@ import lombok.Value;
 @Value
 public class Nop implements Instruction {
 
-    public static Nop parse(@NonNull String argument) {
-        return new Nop(Integer.parseInt(argument));
-    }
+  public static Nop parse(@NonNull String argument) {
+    return new Nop(Integer.parseInt(argument));
+  }
 
-    int argument;
+  int argument;
 
-    @Override
-    public <P,T> T accept(@NonNull ComplexInstructionVisitor<P,T> visitor, @NonNull P parameter) {
-        return visitor.visit(this,parameter);
-    }
+  @Override
+  public <P, T> T accept(@NonNull ComplexInstructionVisitor<P, T> visitor, @NonNull P parameter) {
+    return visitor.visit(this, parameter);
+  }
 
-    @Override
-    public <T> @NonNull T accept(@NonNull InstructionVisitor<T> visitor) {
-        return visitor.visit(this);
-    }
+  @Override
+  public <T> @NonNull T accept(@NonNull InstructionVisitor<T> visitor) {
+    return visitor.visit(this);
+  }
 
-    @Override
-    public @NonNull Operation getOperation() {
-        return Operation.NOP;
-    }
+  @Override
+  public @NonNull Operation getOperation() {
+    return Operation.NOP;
+  }
 }

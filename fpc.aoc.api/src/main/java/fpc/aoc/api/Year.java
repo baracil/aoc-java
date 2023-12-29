@@ -36,8 +36,6 @@ public enum Year {
   }
 
 
-
-
   public @NonNull SolverId createIdWith(@NonNull Day day, @NonNull Part part) {
     return new SolverId(this, day, part);
   }

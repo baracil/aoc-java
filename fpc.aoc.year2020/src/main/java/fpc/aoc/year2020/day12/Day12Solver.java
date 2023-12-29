@@ -9,8 +9,8 @@ import java.util.List;
 
 public abstract class Day12Solver extends SmartSolver<List<Movement>> {
 
-    @Override
-    protected @NonNull Converter<List<Movement>> getConverter() {
-        return Converter.forItem(Movement::parse);
-    }
+  @Override
+  protected @NonNull Converter<List<Movement>> getConverter() {
+    return Converter.forItem(Movement::parse);
+  }
 }

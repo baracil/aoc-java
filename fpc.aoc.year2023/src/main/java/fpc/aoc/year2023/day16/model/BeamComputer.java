@@ -32,7 +32,7 @@ public class BeamComputer {
       if (cache.put(beams)) {
         final var newBeams = beams.move(input.get(beams.position()));
         for (final Beam newBeam : newBeams) {
-          if (newBeam.isInside(input.width(),input.height())) {
+          if (newBeam.isInside(input.width(), input.height())) {
             toCheck.add(newBeam);
           }
         }

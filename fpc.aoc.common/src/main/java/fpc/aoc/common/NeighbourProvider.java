@@ -6,8 +6,8 @@ import java.util.stream.Stream;
 
 public interface NeighbourProvider<P> {
 
-    /**
-     * @return the neighbours
-     */
-    @NonNull Stream<P> neighbours();
+  /**
+   * @return the neighbours
+   */
+  @NonNull Stream<P> neighbours();
 }

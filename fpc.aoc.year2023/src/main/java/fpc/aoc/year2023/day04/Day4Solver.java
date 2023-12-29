@@ -8,8 +8,8 @@ import java.util.List;
 
 public abstract class Day4Solver extends SmartSolver<List<Card>> {
 
-    @Override
-    protected @NonNull Converter<List<Card>> getConverter() {
-        return Converter.forItem(new CardParser());
-    }
+  @Override
+  protected @NonNull Converter<List<Card>> getConverter() {
+    return Converter.forItem(new CardParser());
+  }
 }

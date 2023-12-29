@@ -22,6 +22,6 @@ public class Split<T> {
   public <U> Split<U> map(Function<? super T, ? extends Optional<U>> mapper) {
     final var newOk = Optional.ofNullable(ok).flatMap(mapper);
     final var newNok = Optional.ofNullable(nok).flatMap(mapper);
-    return new Split<>(newOk.orElse(null),newNok.orElse(null));
+    return new Split<>(newOk.orElse(null), newNok.orElse(null));
   }
 }

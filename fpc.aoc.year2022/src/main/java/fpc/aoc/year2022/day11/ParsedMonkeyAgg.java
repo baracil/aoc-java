@@ -17,8 +17,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ParsedMonkeyAgg {
 
-  public static Collector<String,?,MonkeyGame> collect(@NonNull Function<List<ParsedMonkey>,LongUnaryOperator> postOperationFactory) {
-    return Collector.of(() -> new ParsedMonkeyAgg(postOperationFactory),ParsedMonkeyAgg::addLine,ParsedMonkeyAgg::combine,ParsedMonkeyAgg::build);
+  public static Collector<String, ?, MonkeyGame> collect(@NonNull Function<List<ParsedMonkey>, LongUnaryOperator> postOperationFactory) {
+    return Collector.of(() -> new ParsedMonkeyAgg(postOperationFactory), ParsedMonkeyAgg::addLine, ParsedMonkeyAgg::combine, ParsedMonkeyAgg::build);
 
   }
 
@@ -61,7 +61,7 @@ public class ParsedMonkeyAgg {
     return parsed
         .stream()
         .map(m -> m.createMonkey(postOperation))
-        .collect(Collectors.collectingAndThen(Collectors.toList(),MonkeyGame::new));
+        .collect(Collectors.collectingAndThen(Collectors.toList(), MonkeyGame::new));
   }
 
   private void finalizeMonkeyBuilder() {
@@ -81,12 +81,12 @@ public class ParsedMonkeyAgg {
   }
 
   private int getMonkeyIndex(@NonNull String line) {
-    return Integer.parseInt(line.trim().substring("Monkey ".length(),line.length()-1));
+    return Integer.parseInt(line.trim().substring("Monkey ".length(), line.length() - 1));
   }
 
   private int parseIntAtEndOfLine(@NonNull String line) {
     final var idx = line.lastIndexOf(" ");
-    return Integer.parseInt(line.substring(idx+1));
+    return Integer.parseInt(line.substring(idx + 1));
   }
 
   private static final Pattern OPERATION_PATTERN = Pattern.compile(".* new = *(?<left>(old|[0-9]+)) *(?<op>[+*]) *(?<right>(old|[0-9]+))");
@@ -94,14 +94,14 @@ public class ParsedMonkeyAgg {
   private LongUnaryOperator parseOperation(@NonNull String line) {
     final var match = OPERATION_PATTERN.matcher(line);
     if (!match.matches()) {
-      throw new AOCException("Could not parse operation from '"+line+"'");
+      throw new AOCException("Could not parse operation from '" + line + "'");
     }
     final var left = match.group("left");
     final var right = match.group("right");
     final var op = match.group("op");
 
     if (left.equals("old") && right.equals("old")) {
-      return op.equals("*")?o -> o*o:o -> o+o;
+      return op.equals("*") ? o -> o * o : o -> o + o;
     }
 
     final int value;
@@ -111,7 +111,7 @@ public class ParsedMonkeyAgg {
       value = Integer.parseInt(left);
     }
 
-    return op.equals("*")?o -> o*value:o -> o+value;
+    return op.equals("*") ? o -> o * value : o -> o + value;
   }
 
 }

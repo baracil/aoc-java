@@ -6,6 +6,6 @@ public enum FlipFlopState {
   ;
 
   public FlipFlopState toggle() {
-    return this==ON?OFF:ON;
+    return this == ON ? OFF : ON;
   }
 }

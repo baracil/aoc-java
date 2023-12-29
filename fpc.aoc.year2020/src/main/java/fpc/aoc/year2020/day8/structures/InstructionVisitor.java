@@ -9,11 +9,16 @@ import java.util.function.Function;
 
 public interface InstructionVisitor<T> {
 
-    @NonNull T visit(@NonNull Acc acc);
-    @NonNull T visit(@NonNull Nop nop);
-    @NonNull T visit(@NonNull Jmp jmp);
+  @NonNull
+  T visit(@NonNull Acc acc);
 
-    default @NonNull Function<Instruction, T> asFunction() {
-        return instruction -> instruction.accept(this);
-    }
+  @NonNull
+  T visit(@NonNull Nop nop);
+
+  @NonNull
+  T visit(@NonNull Jmp jmp);
+
+  default @NonNull Function<Instruction, T> asFunction() {
+    return instruction -> instruction.accept(this);
+  }
 }

@@ -9,16 +9,16 @@ import java.util.stream.Stream;
 
 public class Day8Part1Solver extends Day8Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day8Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day8Part1Solver();
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull Stream<WiringInfo<String>> input) {
-        return input.map(WiringInfo::digits)
-                    .flatMap(Collection::stream)
-                    .map(String::length)
-                    .filter(l -> l == 2 || l == 3 || l == 4 || l == 7)
-                    .count();
-    }
+  @Override
+  public @NonNull Long doSolve(@NonNull Stream<WiringInfo<String>> input) {
+    return input.map(WiringInfo::digits)
+        .flatMap(Collection::stream)
+        .map(String::length)
+        .filter(l -> l == 2 || l == 3 || l == 4 || l == 7)
+        .count();
+  }
 }

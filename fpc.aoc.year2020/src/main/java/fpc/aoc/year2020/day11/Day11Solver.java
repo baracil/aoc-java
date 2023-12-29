@@ -12,24 +12,24 @@ import lombok.NonNull;
 
 public abstract class Day11Solver extends SmartSolver<SeatLayoutLife> {
 
-    @Override
-    protected @NonNull Converter<SeatLayoutLife> getConverter() {
-        return Converter.TO_ARRAY_OF_CHAR.andThen(this::createSeatLayout);
-    }
+  @Override
+  protected @NonNull Converter<SeatLayoutLife> getConverter() {
+    return Converter.TO_ARRAY_OF_CHAR.andThen(this::createSeatLayout);
+  }
 
-    private @NonNull SeatLayoutLife createSeatLayout(@NonNull ArrayOfChar chars) {
-        final GridHelper gridHelper = new SimpleGridHelper(chars.width(),chars.height());
-        return new SeatLayoutLife(gridHelper, createEvolutionRule(), createCounter(gridHelper), chars);
-    }
+  private @NonNull SeatLayoutLife createSeatLayout(@NonNull ArrayOfChar chars) {
+    final GridHelper gridHelper = new SimpleGridHelper(chars.width(), chars.height());
+    return new SeatLayoutLife(gridHelper, createEvolutionRule(), createCounter(gridHelper), chars);
+  }
 
-    protected abstract @NonNull AdjacentCounter createCounter(@NonNull GridHelper gridHelper);
+  protected abstract @NonNull AdjacentCounter createCounter(@NonNull GridHelper gridHelper);
 
-    protected abstract @NonNull StateEvolutionRule createEvolutionRule();
+  protected abstract @NonNull StateEvolutionRule createEvolutionRule();
 
-    @Override
-    public @NonNull Long doSolve(@NonNull SeatLayoutLife seatLayoutLife) {
-        while (seatLayoutLife.evolving());
-        return seatLayoutLife.totalNumberOfOccupiedSeats();
-    }
+  @Override
+  public @NonNull Long doSolve(@NonNull SeatLayoutLife seatLayoutLife) {
+    while (seatLayoutLife.evolving()) ;
+    return seatLayoutLife.totalNumberOfOccupiedSeats();
+  }
 
 }

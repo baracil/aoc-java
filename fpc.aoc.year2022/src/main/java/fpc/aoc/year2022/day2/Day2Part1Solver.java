@@ -5,12 +5,12 @@ import lombok.NonNull;
 
 public class Day2Part1Solver extends Day2Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day2Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day2Part1Solver();
+  }
 
-    public Day2Part1Solver() {
-        super(Turn::forPart1);
-    }
+  public Day2Part1Solver() {
+    super(Turn::forPart1);
+  }
 
 }

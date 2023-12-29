@@ -4,10 +4,11 @@ import lombok.NonNull;
 
 public interface History {
 
-    @NonNull NumberHistory get(int lastSpoken);
+  @NonNull
+  NumberHistory get(int lastSpoken);
 
-    void initialize(int[] initialNumbers);
+  void initialize(int[] initialNumbers);
 
-    void updateNumberHistory(int nextToSay, int turnIndex);
+  void updateNumberHistory(int nextToSay, int turnIndex);
 
 }

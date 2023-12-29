@@ -10,7 +10,7 @@ public class Top {
   }
 
   public long product() {
-    return Arrays.stream(top).reduce(1,(a,b) -> a*b);
+    return Arrays.stream(top).reduce(1, (a, b) -> a * b);
   }
 
   public Top(int n) {

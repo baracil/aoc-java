@@ -9,27 +9,27 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor
 public class Ticket {
 
-    private final @NonNull int[] values;
+  private final @NonNull int[] values;
 
-    public static @NonNull Ticket parse(@NonNull String line) {
-        final var values = Arrays.stream(line.split(","))
-                                 .mapToInt(Integer::parseInt)
-                                 .toArray();
-        return new Ticket(values);
-    }
+  public static @NonNull Ticket parse(@NonNull String line) {
+    final var values = Arrays.stream(line.split(","))
+        .mapToInt(Integer::parseInt)
+        .toArray();
+    return new Ticket(values);
+  }
 
-    public int getValueAt(int index) {
-        return values[index];
-    }
+  public int getValueAt(int index) {
+    return values[index];
+  }
 
-    public @NonNull IntStream values() {
-        return Arrays.stream(values);
-    }
+  public @NonNull IntStream values() {
+    return Arrays.stream(values);
+  }
 
-    @Override
-    public String toString() {
-        return "RawTicket{" +
-                "values=" + Arrays.toString(values) +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "RawTicket{" +
+        "values=" + Arrays.toString(values) +
+        '}';
+  }
 }

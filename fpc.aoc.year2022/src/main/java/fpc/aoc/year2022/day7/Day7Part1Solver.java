@@ -5,16 +5,16 @@ import lombok.NonNull;
 
 public class Day7Part1Solver extends Day7Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day7Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day7Part1Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(@NonNull FileSystem fileSystem) {
+  @Override
+  public @NonNull Integer doSolve(@NonNull FileSystem fileSystem) {
 
-        return fileSystem.streamDirectories()
-            .mapToInt(File.Folder::size)
-            .filter(size -> size <= 100000)
-            .sum();
-    }
+    return fileSystem.streamDirectories()
+        .mapToInt(File.Folder::size)
+        .filter(size -> size <= 100000)
+        .sum();
+  }
 }

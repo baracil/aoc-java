@@ -29,7 +29,7 @@ public class ItemParserWithRecurse {
     final List<Item> result = new ArrayList<>();
     while (idx < line.length()) {
       final int end = findNextSeparator(idx);
-      if (end<0) {
+      if (end < 0) {
         break;
       }
       result.add(ItemParserWithRecurse.parse(line.substring(idx + 1, end)));
@@ -40,14 +40,13 @@ public class ItemParserWithRecurse {
   }
 
   private int findNextSeparator(int idx) {
-    int nextSepIndex = idx+1;
+    int nextSepIndex = idx + 1;
     int nbOpened = 0;
-    while(nextSepIndex<line.length()) {
+    while (nextSepIndex < line.length()) {
       final var c = line.charAt(nextSepIndex);
       if (c == ',' && nbOpened == 0) {
         return nextSepIndex;
-      }
-      else if (c == '[') {
+      } else if (c == '[') {
         nbOpened++;
       } else if (c == ']') {
         if (nbOpened == 0) {

@@ -15,46 +15,46 @@ import java.util.stream.Collector;
 @Getter
 public class Input {
 
-    private final Sheet sheet;
+  private final Sheet sheet;
 
-    private final List<Fold> folds;
+  private final List<Fold> folds;
 
 
-    public static Collector<String, ?, Input> COLLECTOR = Collector.of(
-            Acc::new,
-            Acc::pushLine,
-            Acc::combine,
-            Acc::build
-            );
+  public static Collector<String, ?, Input> COLLECTOR = Collector.of(
+      Acc::new,
+      Acc::pushLine,
+      Acc::combine,
+      Acc::build
+  );
 
-    @NoArgsConstructor
-    private static final class Acc {
+  @NoArgsConstructor
+  private static final class Acc {
 
-        private final Set<Dot> dots = new HashSet<>();
-        private final List<Fold> folds = new ArrayList<>();
+    private final Set<Dot> dots = new HashSet<>();
+    private final List<Fold> folds = new ArrayList<>();
 
-        public boolean inDots = true;
+    public boolean inDots = true;
 
-        public @NonNull Input build() {
-            return new Input(new Sheet(dots), folds);
-        }
-
-        public @NonNull Acc combine(@NonNull Acc other) {
-            throw new UnsupportedOperationException();
-        }
-
-        public void pushLine(@NonNull String line) {
-            if (line.isBlank()) {
-                inDots = false;
-                return;
-            }
-
-            if (inDots) {
-                dots.add(Dot.parse(line));
-            } else {
-                folds.add(Fold.parse(line));
-            }
-        }
-
+    public @NonNull Input build() {
+      return new Input(new Sheet(dots), folds);
     }
+
+    public @NonNull Acc combine(@NonNull Acc other) {
+      throw new UnsupportedOperationException();
+    }
+
+    public void pushLine(@NonNull String line) {
+      if (line.isBlank()) {
+        inDots = false;
+        return;
+      }
+
+      if (inDots) {
+        dots.add(Dot.parse(line));
+      } else {
+        folds.add(Fold.parse(line));
+      }
+    }
+
+  }
 }

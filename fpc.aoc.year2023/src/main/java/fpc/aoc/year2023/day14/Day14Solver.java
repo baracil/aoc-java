@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class Day14Solver extends SmartSolver<Platform> {
 
-    @Override
-    protected @NonNull Converter<Platform> getConverter() {
-        return Converter.TO_ARRAY_OF_CHAR.andThen(Platform::new);
-    }
+  @Override
+  protected @NonNull Converter<Platform> getConverter() {
+    return Converter.TO_ARRAY_OF_CHAR.andThen(Platform::new);
+  }
 }

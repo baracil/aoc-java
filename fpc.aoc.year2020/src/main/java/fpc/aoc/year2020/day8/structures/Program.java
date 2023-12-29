@@ -9,14 +9,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Program {
 
-    @Getter
-    private final @NonNull List<Instruction> code;
+  @Getter
+  private final @NonNull List<Instruction> code;
 
-    public @NonNull Instruction getInstructionAt(int pointer) {
-        return code.get(pointer);
-    }
+  public @NonNull Instruction getInstructionAt(int pointer) {
+    return code.get(pointer);
+  }
 
-    public int codeSize() {
-        return code.size();
-    }
+  public int codeSize() {
+    return code.size();
+  }
 }

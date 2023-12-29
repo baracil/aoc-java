@@ -11,11 +11,11 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Ferry {
 
-    private @NonNull Orientation orientation;
-    private int x;
-    private int y;
+  private @NonNull Orientation orientation;
+  private int x;
+  private int y;
 
-//    public @NonNull Ferry x(int x) {
+  //    public @NonNull Ferry x(int x) {
 //        this.x = x;
 //        return this;
 //    }
@@ -67,21 +67,21 @@ public class Ferry {
 //        operation.apply(this,quantity);
 //    }
 //
-    public int manhattanDistance() {
-        return Math.abs(x)+Math.abs(y);
-    }
+  public int manhattanDistance() {
+    return Math.abs(x) + Math.abs(y);
+  }
 
-    @Override
-    public String toString() {
-        return "Ferry{" +
-                 orientation +
-                ", x=" + x +
-                ", y=" + y +
-                '}';
-    }
+  @Override
+  public String toString() {
+    return "Ferry{" +
+        orientation +
+        ", x=" + x +
+        ", y=" + y +
+        '}';
+  }
 
-    public void moveBy(int dx, int dy) {
-        this.x+=dx;
-        this.y+=dy;
-    }
+  public void moveBy(int dx, int dy) {
+    this.x += dx;
+    this.y += dy;
+  }
 }

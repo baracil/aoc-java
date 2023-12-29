@@ -38,11 +38,11 @@ public enum ShapeType {
   private final List<Position> rocks;
 
   ShapeType(String shape) {
-    final var chars = ArrayOfChar.from(shape,'.');
+    final var chars = ArrayOfChar.from(shape, '.');
     final var height = chars.height();
     this.rocks = chars.positionStream()
         .filter(p -> chars.get(p) != '.')
-        .map(p -> Position.of(p.x(),height-p.y()-1))
+        .map(p -> Position.of(p.x(), height - p.y() - 1))
         .toList();
   }
 

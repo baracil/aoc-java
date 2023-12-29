@@ -10,17 +10,17 @@ import java.util.stream.Stream;
 
 public class Day5Part2Solver extends Day5Solver<Long> {
 
-    public static @NonNull Solver provider() {
-        return new Day5Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day5Part2Solver();
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull Stream<BoardingPass> input) {
-        final var statistic = input.mapToInt(BoardingPass::getSeatId)
-                                   .summaryStatistics();
-        final var sumFromMinToMax = Tools.sumUpTo(statistic.getMax()) - Tools.sumUpTo(statistic.getMin() - 1);
-        final var missingId = sumFromMinToMax - statistic.getSum();
+  @Override
+  public @NonNull Long doSolve(@NonNull Stream<BoardingPass> input) {
+    final var statistic = input.mapToInt(BoardingPass::getSeatId)
+        .summaryStatistics();
+    final var sumFromMinToMax = Tools.sumUpTo(statistic.getMax()) - Tools.sumUpTo(statistic.getMin() - 1);
+    final var missingId = sumFromMinToMax - statistic.getSum();
 
-        return missingId;
-    }
+    return missingId;
+  }
 }

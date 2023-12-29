@@ -8,17 +8,17 @@ import lombok.Value;
 @Value
 public class BoardingPass {
 
-    public static BoardingPass create(@NonNull String code) {
-        final Seat seat = Seat.of(code);
-        return new BoardingPass(code,seat);
-    }
+  public static BoardingPass create(@NonNull String code) {
+    final Seat seat = Seat.of(code);
+    return new BoardingPass(code, seat);
+  }
 
-    @NonNull String code;
+  @NonNull String code;
 
-    @NonNull Seat seat;
+  @NonNull Seat seat;
 
-    public int getSeatId() {
-        return seat.id();
-    }
+  public int getSeatId() {
+    return seat.id();
+  }
 
 }

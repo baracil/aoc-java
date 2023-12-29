@@ -38,10 +38,9 @@ public enum Shape {
 
   private static class Holder {
 
-    public static final Shape[] BETTER = {PAPER,SCISSORS,ROCK};
-    public static final Shape[] WORSE = {SCISSORS,ROCK,PAPER};
+    public static final Shape[] BETTER = {PAPER, SCISSORS, ROCK};
+    public static final Shape[] WORSE = {SCISSORS, ROCK, PAPER};
   }
-
 
 
 }

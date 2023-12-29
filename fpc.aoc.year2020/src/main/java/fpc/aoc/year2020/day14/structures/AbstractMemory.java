@@ -7,26 +7,26 @@ import java.util.Map;
 
 public abstract class AbstractMemory implements Memory {
 
-    private final Map<Long,Long> values = new HashMap<>();
+  private final Map<Long, Long> values = new HashMap<>();
 
-    private Mask mask;
+  private Mask mask;
 
-    protected void putValueInMemory(long addr, long value) {
-        values.put(addr,value);
-    }
+  protected void putValueInMemory(long addr, long value) {
+    values.put(addr, value);
+  }
 
-    @Override
-    public void setActiveMask(@NonNull Mask mask) {
-        this.mask = mask;
-    }
+  @Override
+  public void setActiveMask(@NonNull Mask mask) {
+    this.mask = mask;
+  }
 
-    protected @NonNull Mask getActiveMask() {
-        assert mask!=null;
-        return mask;
-    }
+  protected @NonNull Mask getActiveMask() {
+    assert mask != null;
+    return mask;
+  }
 
-    @Override
-    public long sumOfAllValues() {
-        return values.values().stream().mapToLong(l -> l).sum();
-    }
+  @Override
+  public long sumOfAllValues() {
+    return values.values().stream().mapToLong(l -> l).sum();
+  }
 }

@@ -97,9 +97,9 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
 
   @Override
   public @NonNull Optional<Position> findMatching(char s) {
-    for (int x = 0; x < width ; x++) {
+    for (int x = 0; x < width; x++) {
       for (int y = 0; y < height; y++) {
-        if (get(x,y) == s) {
+        if (get(x, y) == s) {
           return Optional.of(Position.of(x, y));
         }
       }

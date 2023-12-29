@@ -5,20 +5,20 @@ import lombok.NonNull;
 
 public class Day11Part2Solver extends Day11Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day11Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day11Part2Solver();
+  }
 
-    @Override
-    public @NonNull String doSolve(@NonNull Map map) {
-        int step = 0;
-        do {
-            step +=1;
-            if (map.executeOneStep()) {
-                return String.valueOf(step);
-            }
-        } while (true);
+  @Override
+  public @NonNull String doSolve(@NonNull Map map) {
+    int step = 0;
+    do {
+      step += 1;
+      if (map.executeOneStep()) {
+        return String.valueOf(step);
+      }
+    } while (true);
 
 
-    }
+  }
 }

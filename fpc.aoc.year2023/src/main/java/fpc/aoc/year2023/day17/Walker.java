@@ -57,7 +57,7 @@ public class Walker {
 
   private record Key(Position position, Orientation orientation, int nb) {
     public static Key fromStep(Step step) {
-      return new Key(step.position(),step.orientation(),step.nb());
+      return new Key(step.position(), step.orientation(), step.nb());
     }
   }
 }

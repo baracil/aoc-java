@@ -23,9 +23,9 @@ public class VideoSystem {
 
     do {
 
-      final var col = ((cycle-1)%40);
+      final var col = ((cycle - 1) % 40);
 
-      if (Math.abs(x - col)<=1) {
+      if (Math.abs(x - col) <= 1) {
         crt.drawPixel(cycle);
       }
       final var st = cycle * x;

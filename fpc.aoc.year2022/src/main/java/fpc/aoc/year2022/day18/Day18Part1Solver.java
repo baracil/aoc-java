@@ -7,12 +7,12 @@ import java.util.Set;
 
 public class Day18Part1Solver extends Day18Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day18Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day18Part1Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(@NonNull Set<Face> input) {
-        return input.size();
-    }
+  @Override
+  public @NonNull Integer doSolve(@NonNull Set<Face> input) {
+    return input.size();
+  }
 }

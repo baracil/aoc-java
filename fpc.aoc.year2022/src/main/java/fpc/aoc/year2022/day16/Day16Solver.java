@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class Day16Solver extends SmartSolver<Valves> {
 
-    @Override
-    protected @NonNull Converter<Valves> getConverter() {
-        return s -> s.stream().collect(Network.NetworkAggregator.COLLECTOR);
-    }
+  @Override
+  protected @NonNull Converter<Valves> getConverter() {
+    return s -> s.stream().collect(Network.NetworkAggregator.COLLECTOR);
+  }
 }

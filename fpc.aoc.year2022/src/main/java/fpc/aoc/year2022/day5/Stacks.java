@@ -22,11 +22,11 @@ public class Stacks {
   }
 
   public @NonNull String pick(int stackNumber) {
-    return stacks.get(stackNumber-1).removeLast();
+    return stacks.get(stackNumber - 1).removeLast();
   }
 
   public void put(int stackNumber, @NonNull String crate) {
-    stacks.get(stackNumber-1).addLast(crate);
+    stacks.get(stackNumber - 1).addLast(crate);
   }
 
   public @NonNull String listTopOfStacks() {
@@ -41,7 +41,7 @@ public class Stacks {
     final var lastIndex = header.size() - 1;
     final var indices = header.get(lastIndex);
 
-    final var nbStacks = (indices.length() / 4)+1;
+    final var nbStacks = (indices.length() / 4) + 1;
 
     final var stacks = new Stacks(nbStacks);
 
@@ -49,7 +49,7 @@ public class Stacks {
       for (int i = 1, j = 1; i < line.length(); i += 4, j++) {
         final var c = line.charAt(i);
         if (c != ' ') {
-          stacks.put(j,String.valueOf(c));
+          stacks.put(j, String.valueOf(c));
         }
       }
     }

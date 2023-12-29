@@ -17,19 +17,19 @@ public class Input {
 
   public String process(Scrap scrap) {
     var name = "in";
-    while(!name.equals("A") && !name.equals("R")) {
+    while (!name.equals("A") && !name.equals("R")) {
       name = workflowByName.get(name).process(scrap);
     }
     return name;
   }
 
   public List<MultiScrap> process(MultiScrap multiScrap) {
-    final List<Pair<String,MultiScrap>> toProcess = new LinkedList<>();
+    final List<Pair<String, MultiScrap>> toProcess = new LinkedList<>();
     final List<MultiScrap> accepted = new ArrayList<>();
 
-    toProcess.add(Pair.of("in",multiScrap));
+    toProcess.add(Pair.of("in", multiScrap));
 
-    while(!toProcess.isEmpty()) {
+    while (!toProcess.isEmpty()) {
       final var pair = toProcess.removeFirst();
 
       final var wk = workflowByName.get(pair.first());
@@ -39,7 +39,8 @@ public class Input {
         final var wkName = entry.getKey();
         switch (wkName) {
           case "A" -> accepted.addAll(entry.getValue());
-          case "R" -> {}
+          case "R" -> {
+          }
           default -> entry.getValue().stream().map(w -> Pair.of(wkName, w)).forEach(toProcess::add);
         }
       }
@@ -48,8 +49,6 @@ public class Input {
     return accepted;
 
   }
-
-
 
 
   public static final Collector<String, ?, Input> COLLECTOR = Collector.of(Agg::new, Agg::add, Agg::combine, Agg::build);

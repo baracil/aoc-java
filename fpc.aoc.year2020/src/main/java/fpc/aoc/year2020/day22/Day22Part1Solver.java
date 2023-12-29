@@ -7,12 +7,12 @@ import lombok.NonNull;
 
 public class Day22Part1Solver extends Day22Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day22Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day22Part1Solver();
+  }
 
-    @Override
-    protected @NonNull GameRules getGameRules() {
-        return new CrabCombatRules();
-    }
+  @Override
+  protected @NonNull GameRules getGameRules() {
+    return new CrabCombatRules();
+  }
 }

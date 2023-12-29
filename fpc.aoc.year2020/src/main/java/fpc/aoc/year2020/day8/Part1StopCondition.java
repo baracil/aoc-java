@@ -9,14 +9,14 @@ import java.util.Set;
 
 public class Part1StopCondition implements StopCondition {
 
-    private final Set<Integer> positionExecuted = new HashSet<>();
+  private final Set<Integer> positionExecuted = new HashSet<>();
 
-    @Override
-    public boolean shouldStopExecution(@NonNull ExecutionContext executionContext) {
-        if (positionExecuted.contains(executionContext.pointer())) {
-            return true;
-        }
-        positionExecuted.add(executionContext.pointer());
-        return false;
+  @Override
+  public boolean shouldStopExecution(@NonNull ExecutionContext executionContext) {
+    if (positionExecuted.contains(executionContext.pointer())) {
+      return true;
     }
+    positionExecuted.add(executionContext.pointer());
+    return false;
+  }
 }

@@ -10,6 +10,7 @@ public sealed interface Module {
   String BROADCAST = "broadcast";
 
   String name();
+
   List<String> outputs();
 
 
@@ -52,7 +53,7 @@ public sealed interface Module {
     } else if (token[0].startsWith("%")) {
       return new FlipFlop(token[0].substring(1), outputs);
     } else {
-      throw new AOCException("Cannot parse module from : '"+line+"'");
+      throw new AOCException("Cannot parse module from : '" + line + "'");
     }
   }
 }

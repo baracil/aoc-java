@@ -6,13 +6,13 @@ import lombok.NonNull;
 
 public class Day7Part1Solver extends Day7Solver {
 
-    @Override
-    public @NonNull Long doSolve(@NonNull BagGraph bagGraph) {
-        return bagGraph.countContainers("shiny gold");
-    }
+  @Override
+  public @NonNull Long doSolve(@NonNull BagGraph bagGraph) {
+    return bagGraph.countContainers("shiny gold");
+  }
 
-    public static @NonNull Solver provider() {
-        return new Day7Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day7Part1Solver();
+  }
 
 }

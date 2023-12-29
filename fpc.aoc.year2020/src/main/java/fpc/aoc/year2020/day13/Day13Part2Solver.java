@@ -7,27 +7,27 @@ import java.math.BigInteger;
 
 public class Day13Part2Solver extends Day13Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day13Part2Solver();
+  public static @NonNull Solver provider() {
+    return new Day13Part2Solver();
+  }
+
+  @Override
+  public @NonNull BigInteger doSolve(@NonNull Notes input) {
+    final var buses = input.buses();
+
+    if (buses.size() == 1) {
+      return BigInteger.ZERO;
     }
 
-    @Override
-    public @NonNull BigInteger doSolve(@NonNull Notes input) {
-        final var buses = input.buses();
+    final Part2Solver solver1 = new Part2FermatSolver();
+    final Part2Solver solver2 = new Part2IncrementalSolver();
 
-        if (buses.size() == 1) {
-            return BigInteger.ZERO;
-        }
+    final var solution1 = solver1.doSolve(buses);
+    final var solution2 = solver2.doSolve(buses);
 
-        final Part2Solver solver1 = new Part2FermatSolver();
-        final Part2Solver solver2 = new Part2IncrementalSolver();
+    assert solution1.equals(solution2);
 
-        final var solution1 = solver1.doSolve(buses);
-        final var solution2 = solver2.doSolve(buses);
-
-        assert solution1.equals(solution2);
-
-        return solution1;
-    }
+    return solution1;
+  }
 
 }

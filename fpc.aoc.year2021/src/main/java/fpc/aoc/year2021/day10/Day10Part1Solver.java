@@ -8,13 +8,13 @@ import java.util.stream.Stream;
 
 public class Day10Part1Solver extends Day10Solver<Integer> {
 
-    public static @NonNull Solver provider() {
-        return new Day10Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day10Part1Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(@NonNull Stream<String> input) {
-        return input.mapToInt(SyntaxChecker.create()::check)
-                    .sum();
-    }
+  @Override
+  public @NonNull Integer doSolve(@NonNull Stream<String> input) {
+    return input.mapToInt(SyntaxChecker.create()::check)
+        .sum();
+  }
 }

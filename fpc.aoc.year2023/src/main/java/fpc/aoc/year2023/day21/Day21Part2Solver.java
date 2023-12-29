@@ -8,17 +8,17 @@ import java.util.stream.Stream;
 
 public class Day21Part2Solver extends Day21Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day21Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day21Part2Solver();
+  }
 
-    @Override
-    public boolean isSkipped() {
-        return true;
-    }
+  @Override
+  public boolean isSkipped() {
+    return true;
+  }
 
-    @Override
-    public @NonNull Object doSolve(@NonNull Stream<String> input) {
-        throw new NotSolvedYet();
-    }
+  @Override
+  public @NonNull Object doSolve(@NonNull Stream<String> input) {
+    throw new NotSolvedYet();
+  }
 }

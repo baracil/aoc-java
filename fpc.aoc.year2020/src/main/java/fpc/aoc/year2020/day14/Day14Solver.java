@@ -10,18 +10,18 @@ import java.util.List;
 
 public abstract class Day14Solver extends SmartSolver<List<Instruction>> {
 
-    @Override
-    protected @NonNull Converter<List<Instruction>> getConverter() {
-        return Converter.forItem(Instruction::parse);
-    }
+  @Override
+  protected @NonNull Converter<List<Instruction>> getConverter() {
+    return Converter.forItem(Instruction::parse);
+  }
 
-    protected abstract @NonNull Memory createMemory();
+  protected abstract @NonNull Memory createMemory();
 
-    @Override
-    public final @NonNull Long doSolve(@NonNull List<Instruction> input) {
-        final Memory memory = createMemory();
-        input.forEach(i -> i.applyToMemory(memory));
-        return memory.sumOfAllValues();
-    }
+  @Override
+  public final @NonNull Long doSolve(@NonNull List<Instruction> input) {
+    final Memory memory = createMemory();
+    input.forEach(i -> i.applyToMemory(memory));
+    return memory.sumOfAllValues();
+  }
 
 }

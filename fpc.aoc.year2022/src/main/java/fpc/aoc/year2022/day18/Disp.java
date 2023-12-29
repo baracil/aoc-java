@@ -27,7 +27,7 @@ public enum Disp {
   }
 
   private static class Holder {
-    private static final List<Disp> VALUES = List.of(LEFT,BOTTOM,BACK,RIGHT,TOP,FRONT);
+    private static final List<Disp> VALUES = List.of(LEFT, BOTTOM, BACK, RIGHT, TOP, FRONT);
   }
 
 }

@@ -8,15 +8,15 @@ import lombok.NonNull;
 
 public class Day20Part1Solver extends Day20Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day20Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day20Part1Solver();
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull ImageArray imageArray) {
-        return imageArray.corners()
-                         .mapToLong(ImageTile::id)
-                         .reduce(1, Tools::longProduct);
-    }
+  @Override
+  public @NonNull Long doSolve(@NonNull ImageArray imageArray) {
+    return imageArray.corners()
+        .mapToLong(ImageTile::id)
+        .reduce(1, Tools::longProduct);
+  }
 
 }

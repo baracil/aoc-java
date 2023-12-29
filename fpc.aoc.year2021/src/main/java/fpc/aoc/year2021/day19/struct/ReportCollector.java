@@ -8,40 +8,40 @@ import java.util.stream.Collector;
 
 public class ReportCollector {
 
-    public static final Collector<String,ReportCollector, List<Report>> COLLECTOR = Collector.of(
-            ReportCollector::new,
-            ReportCollector::accumulate,
-            ReportCollector::combine,
-            ReportCollector::build
-    );
+  public static final Collector<String, ReportCollector, List<Report>> COLLECTOR = Collector.of(
+      ReportCollector::new,
+      ReportCollector::accumulate,
+      ReportCollector::combine,
+      ReportCollector::build
+  );
 
-    private Report.ReportBuilder builder = null;
-    private final List<Report> reports = new ArrayList<>();
+  private Report.ReportBuilder builder = null;
+  private final List<Report> reports = new ArrayList<>();
 
-    public void accumulate(@NonNull String line) {
-        if (line.startsWith("---")) {
-            this.finishBuilderIfAny();
-            this.builder = new Report.ReportBuilder();
-        } else if (!line.isBlank()) {
-            builder.beacon(Vector.parse(line));
-        }
+  public void accumulate(@NonNull String line) {
+    if (line.startsWith("---")) {
+      this.finishBuilderIfAny();
+      this.builder = new Report.ReportBuilder();
+    } else if (!line.isBlank()) {
+      builder.beacon(Vector.parse(line));
     }
+  }
 
 
-    public ReportCollector combine(@NonNull ReportCollector other) {
-        throw new UnsupportedOperationException();
+  public ReportCollector combine(@NonNull ReportCollector other) {
+    throw new UnsupportedOperationException();
+  }
+
+  public List<Report> build() {
+    this.finishBuilderIfAny();
+    return reports;
+  }
+
+  private void finishBuilderIfAny() {
+    if (builder != null) {
+      reports.add(builder.build());
     }
-
-    public List<Report> build() {
-        this.finishBuilderIfAny();
-        return reports;
-    }
-
-    private void finishBuilderIfAny() {
-        if (builder != null) {
-            reports.add(builder.build());
-        }
-        builder = null;
-    }
+    builder = null;
+  }
 
 }

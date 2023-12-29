@@ -9,8 +9,8 @@ import java.util.stream.Stream;
 
 public abstract class Day9Solver extends SmartSolver<Stream<long[]>> {
 
-    @Override
-    protected @NonNull Converter<Stream<long[]>> getConverter() {
-        return s -> s.stream().map(Tools::toArrayOfLong);
-    }
+  @Override
+  protected @NonNull Converter<Stream<long[]>> getConverter() {
+    return s -> s.stream().map(Tools::toArrayOfLong);
+  }
 }

@@ -9,14 +9,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Part2StopCondition implements StopCondition {
 
-    public static @NonNull Part2StopCondition createFor(@NonNull Program program) {
-        return new Part2StopCondition(program.codeSize());
-    }
+  public static @NonNull Part2StopCondition createFor(@NonNull Program program) {
+    return new Part2StopCondition(program.codeSize());
+  }
 
-    private final int codeSize;
+  private final int codeSize;
 
-    @Override
-    public boolean shouldStopExecution(@NonNull ExecutionContext executionContext) {
-        return executionContext.pointer()>=codeSize;
-    }
+  @Override
+  public boolean shouldStopExecution(@NonNull ExecutionContext executionContext) {
+    return executionContext.pointer() >= codeSize;
+  }
 }

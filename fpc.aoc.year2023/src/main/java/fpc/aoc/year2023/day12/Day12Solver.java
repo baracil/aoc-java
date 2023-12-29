@@ -9,16 +9,16 @@ import java.util.stream.Stream;
 public abstract class Day12Solver extends SmartSolver<Stream<Row>> {
 
 
-    @Override
-    protected @NonNull Converter<Stream<Row>> getConverter() {
-        return s -> s.stream().map(Row::parse);
-    }
+  @Override
+  protected @NonNull Converter<Stream<Row>> getConverter() {
+    return s -> s.stream().map(Row::parse);
+  }
 
 
-    protected abstract Row prepareRow(Row row);
+  protected abstract Row prepareRow(Row row);
 
-    @Override
-    public @NonNull Object doSolve(@NonNull Stream<Row> input) {
-        return input.map(this::prepareRow).mapToLong(ArrangementCounter::count).sum();
-    }
+  @Override
+  public @NonNull Object doSolve(@NonNull Stream<Row> input) {
+    return input.map(this::prepareRow).mapToLong(ArrangementCounter::count).sum();
+  }
 }

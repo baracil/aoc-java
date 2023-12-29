@@ -15,10 +15,10 @@ public class Day5Part1Solver extends Day5Solver {
   @Override
   public @NonNull Object doSolve(@NonNull Input input) {
     final var min = Arrays
-      .stream(input.seeds1())
-      .map(input::map)
-      .min()
-      .orElse(0);
+        .stream(input.seeds1())
+        .map(input::map)
+        .min()
+        .orElse(0);
 
     return String.valueOf(min);
   }

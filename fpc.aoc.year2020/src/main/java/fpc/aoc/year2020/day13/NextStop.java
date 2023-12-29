@@ -8,11 +8,11 @@ import java.math.BigInteger;
 @Value
 public class NextStop {
 
-    @NonNull Bus bus;
+  @NonNull Bus bus;
 
-    @NonNull BigInteger waitingTime;
+  @NonNull BigInteger waitingTime;
 
-    public BigInteger busId() {
-        return bus.id();
-    }
+  public BigInteger busId() {
+    return bus.id();
+  }
 }

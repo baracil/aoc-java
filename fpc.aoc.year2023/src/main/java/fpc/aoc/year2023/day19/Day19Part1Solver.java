@@ -26,6 +26,6 @@ public class Day19Part1Solver extends Day19Solver {
       result.computeIfAbsent(w, i -> new ArrayList<>()).add(scrap);
     }
 
-    return (long)result.get("A").stream().mapToInt(Scrap::rating).sum();
+    return (long) result.get("A").stream().mapToInt(Scrap::rating).sum();
   }
 }

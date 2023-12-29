@@ -6,8 +6,8 @@ import lombok.NonNull;
 
 public abstract class Day11Solver extends SmartSolver<Map> {
 
-    @Override
-    protected @NonNull Converter<Map> getConverter() {
-        return ArrayMap::parse;
-    }
+  @Override
+  protected @NonNull Converter<Map> getConverter() {
+    return ArrayMap::parse;
+  }
 }

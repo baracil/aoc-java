@@ -40,7 +40,7 @@ public class SolverService {
         .map(Solver::id)
         .map(SolverId::day)
         .max(Day.DAY_COMPARATOR);
-    return day.map(d -> new DayId(year,d));
+    return day.map(d -> new DayId(year, d));
   }
 
   @NonNull
@@ -95,7 +95,8 @@ public class SolverService {
     return switch (args.length) {
       case 0 -> findLastDefinedSolver();
       case 3 -> SolverService.getSolverById(args[0], args[1], args[2]);
-      default -> throw new AOCException("Invalid arguments. Either no argument or 3 arguments (year & day & part) must be provided");
+      default ->
+          throw new AOCException("Invalid arguments. Either no argument or 3 arguments (year & day & part) must be provided");
     };
   }
 }

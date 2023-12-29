@@ -6,8 +6,8 @@ import lombok.NonNull;
 
 public abstract class Day10Solver extends SmartSolver<Map> {
 
-    @Override
-    protected @NonNull Converter<Map> getConverter() {
-        return s -> s.stream().collect(Map.COLLECTOR);
-    }
+  @Override
+  protected @NonNull Converter<Map> getConverter() {
+    return s -> s.stream().collect(Map.COLLECTOR);
+  }
 }

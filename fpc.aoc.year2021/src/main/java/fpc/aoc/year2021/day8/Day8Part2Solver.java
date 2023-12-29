@@ -9,15 +9,15 @@ import java.util.stream.Stream;
 
 public class Day8Part2Solver extends Day8Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day8Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day8Part2Solver();
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull Stream<WiringInfo<String>> input) {
-        return input.map(Decoder::decode)
-                    .mapToLong(WiringInfo::display)
-                    .sum();
+  @Override
+  public @NonNull Long doSolve(@NonNull Stream<WiringInfo<String>> input) {
+    return input.map(Decoder::decode)
+        .mapToLong(WiringInfo::display)
+        .sum();
 
-    }
+  }
 }

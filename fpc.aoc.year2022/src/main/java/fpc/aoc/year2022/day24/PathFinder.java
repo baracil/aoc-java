@@ -26,15 +26,15 @@ public class PathFinder {
   private final Map map;
 
   private Path findPathPart1() {
-    final var start = new Path(Position.of(1,0),0,null);
+    final var start = new Path(Position.of(1, 0), 0, null);
     return findPath(start, map::isExit);
   }
 
   private Path findPathPart2() {
-    final var start = new Path(Position.of(1,0),0,null);
+    final var start = new Path(Position.of(1, 0), 0, null);
     final var p1 = findPath(start, map::isExit);
-    final var p2 = findPath(p1,map::isStart);
-    return findPath(p2,map::isExit);
+    final var p2 = findPath(p1, map::isStart);
+    return findPath(p2, map::isExit);
   }
 
   private Path findPath(Path start, Predicate<Position> doneTest) {
@@ -45,7 +45,7 @@ public class PathFinder {
     toProcess.add(start);
     visited.add(start);
 
-    while(true) {
+    while (true) {
       final var p = toProcess.removeFirst();
       if (doneTest.test(p.position())) {
         return p;

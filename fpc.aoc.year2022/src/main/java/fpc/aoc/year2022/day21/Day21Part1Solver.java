@@ -5,16 +5,16 @@ import lombok.NonNull;
 
 public class Day21Part1Solver extends Day21Solver<Long> {
 
-    public static @NonNull Solver provider() {
-        return new Day21Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day21Part1Solver();
+  }
 
-    public Day21Part1Solver() {
-        super(new MonkeyEvaluatorPart1());
-    }
+  public Day21Part1Solver() {
+    super(new MonkeyEvaluatorPart1());
+  }
 
-    @Override
-    protected Long finalize(Long rootResult) {
-        return rootResult;
-    }
+  @Override
+  protected Long finalize(Long rootResult) {
+    return rootResult;
+  }
 }

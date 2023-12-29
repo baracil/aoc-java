@@ -9,12 +9,12 @@ import java.util.List;
 
 public class Day19Part2Solver extends Day19Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day19Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day19Part2Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(@NonNull List<Report> input) {
-        throw new NotSolvedYet();
-    }
+  @Override
+  public @NonNull Integer doSolve(@NonNull List<Report> input) {
+    throw new NotSolvedYet();
+  }
 }

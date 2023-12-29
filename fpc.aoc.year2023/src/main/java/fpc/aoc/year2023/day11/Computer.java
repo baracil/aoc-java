@@ -9,7 +9,7 @@ import java.util.List;
 public class Computer {
 
   public static long find(ArrayOfChar map, int size) {
-    return new Computer(map,size).find();
+    return new Computer(map, size).find();
   }
 
   private final int size;
@@ -41,7 +41,7 @@ public class Computer {
   private long find() {
     long sum = 0L;
     for (int i = 0; i < galaxies.size(); i++) {
-      for (int j = i+1; j < galaxies.size(); j++) {
+      for (int j = i + 1; j < galaxies.size(); j++) {
         sum += distance(galaxies.get(i), galaxies.get(j));
       }
     }
@@ -59,14 +59,14 @@ public class Computer {
       if (emptyColumn[i]) {
         dist += size;
       } else {
-        dist +=1;
+        dist += 1;
       }
     }
     for (int i = miny + 1; i <= maxy; i++) {
       if (emptyRow[i]) {
         dist += size;
       } else {
-        dist +=1;
+        dist += 1;
       }
     }
     return dist;

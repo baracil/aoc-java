@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 public class Expander {
 
-  private final Map<Point,Face> facePositions;
+  private final Map<Point, Face> facePositions;
 
   private final int xmin;
   private final int xmax;
@@ -30,7 +30,7 @@ public class Expander {
   }
 
   private static int toEven(int value) {
-    return (value>>1)<<1;
+    return (value >> 1) << 1;
   }
 
   public Set<Face> expand() {
@@ -38,7 +38,7 @@ public class Expander {
     final Deque<Point> toVisit = new LinkedList<>();
     final Set<Point> visited = new HashSet<>();
 
-    final var start = new Point(xmin+2,ymin+2,zmin+2);
+    final var start = new Point(xmin + 2, ymin + 2, zmin + 2);
     toVisit.addLast(start);
     visited.add(start);
     do {
@@ -66,9 +66,9 @@ public class Expander {
   }
 
   private boolean outsideLimits(Point p) {
-    return p.x()<=xmin || p.x()>=xmax
-        ||p.y()<=ymin || p.y()>=ymax
-        ||p.z()<=zmin || p.z()>=zmax;
+    return p.x() <= xmin || p.x() >= xmax
+        || p.y() <= ymin || p.y() >= ymax
+        || p.z() <= zmin || p.z() >= zmax;
   }
 
 }

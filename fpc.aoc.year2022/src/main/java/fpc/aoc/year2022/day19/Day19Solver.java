@@ -10,11 +10,10 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public abstract class Day19Solver extends SmartSolver<Stream<BluePrint>> {
 
-    @Override
-    protected @NonNull Converter<Stream<BluePrint>> getConverter() {
-        return s -> s.stream().map(BluePrint::parse);
-    }
-
+  @Override
+  protected @NonNull Converter<Stream<BluePrint>> getConverter() {
+    return s -> s.stream().map(BluePrint::parse);
+  }
 
 
 }

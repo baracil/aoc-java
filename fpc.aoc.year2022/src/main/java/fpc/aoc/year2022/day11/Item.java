@@ -4,6 +4,6 @@ public record Item(long worryLevel) {
 
   @Override
   public String toString() {
-    return worryLevel+"";
+    return worryLevel + "";
   }
 }

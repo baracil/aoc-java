@@ -24,28 +24,27 @@ public class Factory {
 
   private State findBest(State state) {
     if (state.time() == nbRound) {
-      best = Math.max(best,state.nbGeode());
+      best = Math.max(best, state.nbGeode());
       return state;
     }
 
 
-
-    final long atmost = state.atMost(Type.GEODE,nbRound);
-    if (atmost<=best) {
+    final long atmost = state.atMost(Type.GEODE, nbRound);
+    if (atmost <= best) {
       return null;
     }
 
     return state.next(nbRound)
         .map(this::findBest)
-        .reduce(null,this::best);
-      }
+        .reduce(null, this::best);
+  }
 
 
   public State best(State s1, State s2) {
     if (s1 == null) {
       return s2;
     }
-    if (s2 == null || s2.nbGeode()<s1.nbGeode()) {
+    if (s2 == null || s2.nbGeode() < s1.nbGeode()) {
       return s1;
     }
     return s2;

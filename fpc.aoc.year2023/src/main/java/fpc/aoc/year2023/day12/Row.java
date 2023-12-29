@@ -20,9 +20,9 @@ public class Row {
 
   public Row unfold() {
     final var repeat = (line + "?").repeat(5);
-    final var newGroups = new int[groupSizes.length*5];
-    for (int i = 0; i<newGroups.length;i+=groupSizes.length) {
-      System.arraycopy(groupSizes,0,newGroups,i,groupSizes.length);
+    final var newGroups = new int[groupSizes.length * 5];
+    for (int i = 0; i < newGroups.length; i += groupSizes.length) {
+      System.arraycopy(groupSizes, 0, newGroups, i, groupSizes.length);
     }
 
     final var substring = repeat.substring(0, repeat.length() - 1);

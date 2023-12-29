@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface Part2Solver {
 
-    @NonNull BigInteger doSolve(@NonNull List<Bus> buses);
+  @NonNull
+  BigInteger doSolve(@NonNull List<Bus> buses);
 }

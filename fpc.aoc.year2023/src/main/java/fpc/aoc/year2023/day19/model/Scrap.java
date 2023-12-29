@@ -8,7 +8,7 @@ public record Scrap(int x, int m, int a, int s) {
 
 
   public int rating() {
-    return x+m+a+s;
+    return x + m + a + s;
   }
 
 
@@ -17,13 +17,13 @@ public record Scrap(int x, int m, int a, int s) {
   public static Scrap parse(String line) {
     final var matcher = PATTERN.matcher(line);
     if (!matcher.matches()) {
-      throw new AOCException("Cannot match '"+line+"'");
+      throw new AOCException("Cannot match '" + line + "'");
     }
     final var x = Integer.parseInt(matcher.group("x"));
     final var m = Integer.parseInt(matcher.group("m"));
     final var a = Integer.parseInt(matcher.group("a"));
     final var s = Integer.parseInt(matcher.group("s"));
 
-    return new Scrap(x,m,a,s);
+    return new Scrap(x, m, a, s);
   }
 }

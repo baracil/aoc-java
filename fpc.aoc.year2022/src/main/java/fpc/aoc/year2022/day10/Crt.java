@@ -20,6 +20,6 @@ public class Crt {
   public String dumpDisplay() {
     return IntStream.range(0, 6)
         .mapToObj(lineIdx -> new String(display, lineIdx * 40, 40))
-        .collect(Collectors.joining("\n","\n","\n"));
+        .collect(Collectors.joining("\n", "\n", "\n"));
   }
 }

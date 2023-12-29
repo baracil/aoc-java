@@ -14,11 +14,11 @@ public class InstructionParserPart1 implements InstructionParser {
       case "L" -> Orientation.W;
       case "U" -> Orientation.N;
       case "D" -> Orientation.S;
-      default -> throw new AOCException("Cannot parse orientation from '"+tokens[0]+"'");
+      default -> throw new AOCException("Cannot parse orientation from '" + tokens[0] + "'");
     };
     final var length = Integer.parseInt(tokens[1]);
 
-    return new Instruction(orientation,length);
+    return new Instruction(orientation, length);
 
   }
 }

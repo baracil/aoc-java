@@ -15,23 +15,23 @@ public class LineCoverage {
   int sup;
 
   public int nbNotDetected() {
-    return sup-inf+1-beacons.size();
+    return sup - inf + 1 - beacons.size();
   }
 
   public boolean doesNotFullyCover(int inf, int sup) {
-    return this.inf> inf || this.sup < sup;
+    return this.inf > inf || this.sup < sup;
   }
 
   public LineCoverage merge(LineCoverage other) {
     assert other.lineIndex == this.lineIndex;
-    if (this.sup < other.inf-1 || this.inf-1 > other.sup) {
+    if (this.sup < other.inf - 1 || this.inf - 1 > other.sup) {
       return null;
     }
     return new LineCoverage(
-        Sets.union(beacons,other.beacons),
+        Sets.union(beacons, other.beacons),
         lineIndex,
-        Math.min(inf,other.inf),
-        Math.max(sup,other.sup)
+        Math.min(inf, other.inf),
+        Math.max(sup, other.sup)
     );
   }
 }

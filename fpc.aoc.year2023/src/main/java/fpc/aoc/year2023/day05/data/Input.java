@@ -48,10 +48,10 @@ public class Input {
   }
 
   public static final Collector<String, ?, Input> COLLECTOR = Collector.of(
-    Agg::new,
-    Agg::add,
-    Agg::merge,
-    Agg::build
+      Agg::new,
+      Agg::add,
+      Agg::merge,
+      Agg::build
   );
 
 
@@ -79,9 +79,9 @@ public class Input {
 
     public Input build() {
       final var mappers = Arrays.stream(Type.values())
-        .sorted(Comparator.comparing(Type::order))
-        .map(t -> new Mapper(t, this.mappers.get(t)))
-        .toList();
+          .sorted(Comparator.comparing(Type::order))
+          .map(t -> new Mapper(t, this.mappers.get(t)))
+          .toList();
 
       return new Input(seeds, mappers);
     }

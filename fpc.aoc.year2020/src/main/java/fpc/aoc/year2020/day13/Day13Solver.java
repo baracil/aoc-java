@@ -6,9 +6,9 @@ import lombok.NonNull;
 
 public abstract class Day13Solver extends SmartSolver<Notes> {
 
-    @Override
-    protected @NonNull Converter<Notes> getConverter() {
-        return Notes::parse;
-    }
+  @Override
+  protected @NonNull Converter<Notes> getConverter() {
+    return Notes::parse;
+  }
 
 }

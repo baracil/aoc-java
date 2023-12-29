@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class Day17Solver extends SmartSolver<Target> {
 
-    @Override
-    protected @NonNull Converter<Target> getConverter() {
-        return Converter.FIRST_LINE.andThen(Target::parse);
-    }
+  @Override
+  protected @NonNull Converter<Target> getConverter() {
+    return Converter.FIRST_LINE.andThen(Target::parse);
+  }
 }

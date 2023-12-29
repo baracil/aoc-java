@@ -13,12 +13,12 @@ public class Move {
   Orientation orientation;
 
   public Move(int x, int y, Orientation orientation) {
-    this.position = new Position(x,y);
+    this.position = new Position(x, y);
     this.orientation = orientation;
   }
 
   public static Move displaced(@NonNull Position position, @NonNull Orientation orientation) {
-    return new Move(position.displaced(orientation.displacement()),orientation);
+    return new Move(position.displaced(orientation.displacement()), orientation);
   }
 
 }

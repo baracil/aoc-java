@@ -18,9 +18,9 @@ public record Command(@NonNull Displacement displacement, int nbSteps) {
       case "D" -> Displacement.S;
       case "L" -> Displacement.W;
       case "R" -> Displacement.E;
-      default -> throw new IllegalArgumentException("Cannot parse '"+tokens[0]+"' as displacement");
+      default -> throw new IllegalArgumentException("Cannot parse '" + tokens[0] + "' as displacement");
     };
-    return new Command(displacement,nbSteps);
+    return new Command(displacement, nbSteps);
   }
 
 }

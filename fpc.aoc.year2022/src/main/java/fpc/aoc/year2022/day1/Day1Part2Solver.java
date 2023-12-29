@@ -8,15 +8,15 @@ import java.util.stream.LongStream;
 
 public class Day1Part2Solver extends Day1Solver {
 
-    public static Solver provider() {
-        return new Day1Part2Solver();
-    }
+  public static Solver provider() {
+    return new Day1Part2Solver();
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull LongStream input) {
-        final var top = new Top(3);
-        input.forEach(top::handle);
-        return top.sum();
-    }
+  @Override
+  public @NonNull Long doSolve(@NonNull LongStream input) {
+    final var top = new Top(3);
+    input.forEach(top::handle);
+    return top.sum();
+  }
 
 }

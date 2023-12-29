@@ -11,19 +11,19 @@ import java.util.stream.Stream;
 @ToString
 public class Literal implements Rule {
 
-    @Getter
-    private final char value;
+  @Getter
+  private final char value;
 
-    @Override
-    public Stream<IndexedString> matches(@NonNull IndexedString string, @NonNull RuleProvider ruleProvider) {
-        if (!string.isEmpty() && string.charAt(0) == value) {
-            return Stream.of(string.addToOffset(1));
-        }
-        return Stream.empty();
+  @Override
+  public Stream<IndexedString> matches(@NonNull IndexedString string, @NonNull RuleProvider ruleProvider) {
+    if (!string.isEmpty() && string.charAt(0) == value) {
+      return Stream.of(string.addToOffset(1));
     }
+    return Stream.empty();
+  }
 
-    static @NonNull Literal parse(@NonNull String line) {
-        return new Literal(line.trim().charAt(1));
-    }
+  static @NonNull Literal parse(@NonNull String line) {
+    return new Literal(line.trim().charAt(1));
+  }
 
 }

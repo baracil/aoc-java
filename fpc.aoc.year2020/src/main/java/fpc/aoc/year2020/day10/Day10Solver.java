@@ -6,8 +6,8 @@ import lombok.NonNull;
 
 public abstract class Day10Solver extends SmartSolver<int[]> {
 
-    @Override
-    protected @NonNull Converter<int[]> getConverter() {
-        return Converter.TO_ARRAY_OF_INT;
-    }
+  @Override
+  protected @NonNull Converter<int[]> getConverter() {
+    return Converter.TO_ARRAY_OF_INT;
+  }
 }

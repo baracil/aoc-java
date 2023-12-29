@@ -27,8 +27,8 @@ public class Input {
     final int length = right.length;
     var position = start;
     long count = 0;
-    while(!endTest.test(position)) {
-      final var r = right[(int)(count%length)];
+    while (!endTest.test(position)) {
+      final var r = right[(int) (count % length)];
 
       if (r) {
         position = paths.get(position).right();
@@ -56,6 +56,6 @@ public class Input {
       paths.put(tokens[0], new Node(tokens[1], tokens[2]));
     }
 
-    return new Input(right,paths);
+    return new Input(right, paths);
   }
 }

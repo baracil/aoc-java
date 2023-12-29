@@ -34,8 +34,8 @@ public class Forest {
 
   private long scenicScore(@NonNull Position treePosition) {
     return Stream.of(Displacement.S, Displacement.N, Displacement.E, Displacement.W)
-        .mapToLong(displacement -> scenicScoreInOneDirection(treePosition,displacement))
-        .reduce(1,(a,b) -> a*b);
+        .mapToLong(displacement -> scenicScoreInOneDirection(treePosition, displacement))
+        .reduce(1, (a, b) -> a * b);
   }
 
 
@@ -43,7 +43,7 @@ public class Forest {
     final var treeHeight = treeHeights.get(treePosition);
     return gridHelper.positionsInDirection(treePosition, displacement)
         .takeWhile(position -> treeHeights.get(position) < treeHeight && isNotOnBorder(position))
-        .count()+1;
+        .count() + 1;
   }
 
   private boolean isNotOnBorder(Position position) {

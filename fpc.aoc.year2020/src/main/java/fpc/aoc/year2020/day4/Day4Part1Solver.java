@@ -12,20 +12,20 @@ import java.util.List;
 
 public class Day4Part1Solver extends SmartSolver<List<Passport>> {
 
-    public static @NonNull Solver provider() {
-        return new Day4Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day4Part1Solver();
+  }
 
-    @Override
-    protected @NonNull Converter<List<Passport>> getConverter() {
-        return PassportListBuilder::build;
-    }
+  @Override
+  protected @NonNull Converter<List<Passport>> getConverter() {
+    return PassportListBuilder::build;
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull List<Passport> passports) {
-        final var validityRule = new WithCIDOptional();
-        return passports.stream()
-                        .filter(validityRule::isValid)
-                        .count();
-    }
+  @Override
+  public @NonNull Long doSolve(@NonNull List<Passport> passports) {
+    final var validityRule = new WithCIDOptional();
+    return passports.stream()
+        .filter(validityRule::isValid)
+        .count();
+  }
 }

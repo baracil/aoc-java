@@ -25,12 +25,12 @@ public class Mapper {
   }
 
   public List<Range> map(List<Range> ranges) {
-    final var list = RangeTool.split(ranges,mappings);
+    final var list = RangeTool.split(ranges, mappings);
 
     return RangeTool.merge(list
-      .stream()
-      .map(this::apply)
-      .toList());
+        .stream()
+        .map(this::apply)
+        .toList());
   }
 
   private Range apply(Range r) {

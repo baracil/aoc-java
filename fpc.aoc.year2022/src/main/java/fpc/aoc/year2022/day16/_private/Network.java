@@ -22,7 +22,7 @@ public class Network {
   public @NonNull Valves buildValves() {
     final var names = rates.entrySet()
         .stream()
-        .filter(e -> e.getKey().equals("AA") || e.getValue()>0)
+        .filter(e -> e.getKey().equals("AA") || e.getValue() > 0)
         .map(Map.Entry::getKey)
         .sorted()
         .toArray(String[]::new);
@@ -39,14 +39,14 @@ public class Network {
       }
     }
 
-    return new Valves( names, rates, distances);
+    return new Valves(names, rates, distances);
   }
 
   public int distance(String start, String end) {
-    final Deque<Pair<String,Integer>> toVisit = new LinkedList<>();
+    final Deque<Pair<String, Integer>> toVisit = new LinkedList<>();
     final Set<String> visited = new HashSet<>();
 
-    toVisit.add(Pair.of(start,0));
+    toVisit.add(Pair.of(start, 0));
     visited.add(start);
     do {
       final var p = toVisit.pollFirst();
@@ -62,9 +62,9 @@ public class Network {
           .stream()
           .filter(v -> !visited.contains(v))
           .forEach(v -> {
-              visited.add(v);
-              toVisit.add(Pair.of(v,p.second()+1));
-      });
+            visited.add(v);
+            toVisit.add(Pair.of(v, p.second() + 1));
+          });
 
     } while (true);
   }

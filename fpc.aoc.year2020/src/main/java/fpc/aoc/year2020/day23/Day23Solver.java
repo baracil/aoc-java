@@ -6,9 +6,9 @@ import lombok.NonNull;
 
 public abstract class Day23Solver extends SmartSolver<String> {
 
-    @Override
-    protected @NonNull Converter<String> getConverter() {
-        return Converter.FIRST_LINE;
-    }
+  @Override
+  protected @NonNull Converter<String> getConverter() {
+    return Converter.FIRST_LINE;
+  }
 
 }

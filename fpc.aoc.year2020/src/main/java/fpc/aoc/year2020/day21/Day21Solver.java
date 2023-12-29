@@ -7,8 +7,8 @@ import lombok.NonNull;
 
 public abstract class Day21Solver<O> extends SmartSolver<Guide> {
 
-    @Override
-    protected @NonNull Converter<Guide> getConverter() {
-        return s -> s.stream().collect(Guide.collector());
-    }
+  @Override
+  protected @NonNull Converter<Guide> getConverter() {
+    return s -> s.stream().collect(Guide.collector());
+  }
 }

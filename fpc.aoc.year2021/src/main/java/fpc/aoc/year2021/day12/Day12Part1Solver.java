@@ -7,12 +7,12 @@ import lombok.NonNull;
 
 public class Day12Part1Solver extends Day12Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day12Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day12Part1Solver();
+  }
 
-    @Override
-    protected RecursiveMode getRecursiveMode() {
-        return new Part1RecursiveMode();
-    }
+  @Override
+  protected RecursiveMode getRecursiveMode() {
+    return new Part1RecursiveMode();
+  }
 }

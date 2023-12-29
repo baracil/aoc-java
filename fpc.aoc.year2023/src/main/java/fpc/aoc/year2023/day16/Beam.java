@@ -9,7 +9,7 @@ import java.util.List;
 public record Beam(Position position, Orientation orientation) {
 
   public Beam(int x, int y, Orientation orientation) {
-    this(Position.of(x,y), orientation);
+    this(Position.of(x, y), orientation);
   }
 
   public List<Beam> move(char c) {

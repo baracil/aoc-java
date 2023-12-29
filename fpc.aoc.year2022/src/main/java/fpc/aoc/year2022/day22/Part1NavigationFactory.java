@@ -10,13 +10,13 @@ public class Part1NavigationFactory extends BaseNavigationFactory {
   }
 
   protected Move findNext(Position position, Orientation orientation) {
-      var p = position;
-      do {
-        p = p.displaced(orientation.displacement()).wrap(map.width(), map.height());
-        if (isNotSpace(p)) {
-          return new Move(p,orientation);
-        }
-      } while (true);
-    }
+    var p = position;
+    do {
+      p = p.displaced(orientation.displacement()).wrap(map.width(), map.height());
+      if (isNotSpace(p)) {
+        return new Move(p, orientation);
+      }
+    } while (true);
+  }
 
 }

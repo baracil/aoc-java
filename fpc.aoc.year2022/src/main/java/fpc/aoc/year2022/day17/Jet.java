@@ -7,7 +7,6 @@ public class Jet {
   private final JetDirection[] directions;
 
 
-
   public Jet(@NonNull String line) {
     this.directions = line.chars()
         .mapToObj(JetDirection::get)
@@ -15,11 +14,11 @@ public class Jet {
   }
 
   public @NonNull JetDirection getJetDirection(int index) {
-    return directions[index%directions.length];
+    return directions[index % directions.length];
   }
 
 
   public int increaseIndex(int jetIndex) {
-    return (jetIndex+1)%directions.length;
+    return (jetIndex + 1) % directions.length;
   }
 }

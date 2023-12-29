@@ -10,8 +10,8 @@ import java.util.List;
 
 public abstract class Day19Solver extends SmartSolver<List<Report>> {
 
-    @Override
-    protected @NonNull Converter<List<Report>> getConverter() {
-        return s -> s.stream().collect(ReportCollector.COLLECTOR);
-    }
+  @Override
+  protected @NonNull Converter<List<Report>> getConverter() {
+    return s -> s.stream().collect(ReportCollector.COLLECTOR);
+  }
 }

@@ -90,33 +90,33 @@ public class Transformation {
   private static class Holder {
 
     public static final List<IntBinaryOperator> X_TRANSFORMERS = List.of(
-      (x, y) -> x,
-      (x, y) -> y,
-      (x, y) -> -1 - x,
-      (x, y) -> -1 - y,
+        (x, y) -> x,
+        (x, y) -> y,
+        (x, y) -> -1 - x,
+        (x, y) -> -1 - y,
 
-      (x, y) -> -1 - x,
-      (x, y) -> y,
-      (x, y) -> x,
-      (x, y) -> -1 - y
+        (x, y) -> -1 - x,
+        (x, y) -> y,
+        (x, y) -> x,
+        (x, y) -> -1 - y
     );
 
     public static final List<IntBinaryOperator> Y_TRANSFORMERS = List.of(
-      (x, y) -> y,
-      (x, y) -> -1 - x,
-      (x, y) -> -1 - y,
-      (x, y) -> x,
+        (x, y) -> y,
+        (x, y) -> -1 - x,
+        (x, y) -> -1 - y,
+        (x, y) -> x,
 
-      (x, y) -> y,
-      (x, y) -> x,
-      (x, y) -> -1 - y,
-      (x, y) -> -1 - x
+        (x, y) -> y,
+        (x, y) -> x,
+        (x, y) -> -1 - y,
+        (x, y) -> -1 - x
     );
 
     private static final List<Transformation> ALL = Stream.of(Rotation.values())
-      .flatMap(r -> Stream.of(Flipping.values()).map(f -> Transformation.of(r, f)))
-      .distinct()
-      .toList();
+        .flatMap(r -> Stream.of(Flipping.values()).map(f -> Transformation.of(r, f)))
+        .distinct()
+        .toList();
 
   }
 }

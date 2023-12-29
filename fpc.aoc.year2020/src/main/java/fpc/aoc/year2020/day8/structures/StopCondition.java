@@ -4,5 +4,5 @@ import lombok.NonNull;
 
 public interface StopCondition {
 
-    boolean shouldStopExecution(@NonNull ExecutionContext executionContext);
+  boolean shouldStopExecution(@NonNull ExecutionContext executionContext);
 }

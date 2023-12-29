@@ -7,25 +7,26 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Validation<T> {
 
-    private static final Validation<?> INVALID = new Validation<>(null);
+  private static final Validation<?> INVALID = new Validation<>(null);
 
-    public static <O> Validation<O> valid(@NonNull O value) {
-        return new Validation<>(value);
-    }
-    public static <O> Validation<O> invalid() {
-        return (Validation<O>) INVALID;
-    }
+  public static <O> Validation<O> valid(@NonNull O value) {
+    return new Validation<>(value);
+  }
 
-    private final T value;
+  public static <O> Validation<O> invalid() {
+    return (Validation<O>) INVALID;
+  }
 
-    public boolean isValid() {
-        return value != null;
-    }
+  private final T value;
 
-    public <S> Validation<S> map(@NonNull Rule<? super T,S> rule) {
-        if (value == null) {
-            return invalid();
-        }
-        return rule.validate(value);
+  public boolean isValid() {
+    return value != null;
+  }
+
+  public <S> Validation<S> map(@NonNull Rule<? super T, S> rule) {
+    if (value == null) {
+      return invalid();
     }
+    return rule.validate(value);
+  }
 }

@@ -9,8 +9,8 @@ import java.util.stream.Stream;
 
 public abstract class Day8Solver extends SmartSolver<Stream<WiringInfo<String>>> {
 
-    @Override
-    protected @NonNull Converter<Stream<WiringInfo<String>>> getConverter() {
-        return s -> s.stream().map(WiringInfo::parse);
-    }
+  @Override
+  protected @NonNull Converter<Stream<WiringInfo<String>>> getConverter() {
+    return s -> s.stream().map(WiringInfo::parse);
+  }
 }

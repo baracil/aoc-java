@@ -8,8 +8,8 @@ import java.util.stream.Stream;
 
 public abstract class Day23Solver extends SmartSolver<Stream<String>> {
 
-    @Override
-    protected @NonNull Converter<Stream<String>> getConverter() {
-        return Converter.TO_STREAM;
-    }
+  @Override
+  protected @NonNull Converter<Stream<String>> getConverter() {
+    return Converter.TO_STREAM;
+  }
 }

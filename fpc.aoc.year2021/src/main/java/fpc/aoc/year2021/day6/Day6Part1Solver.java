@@ -6,12 +6,12 @@ import lombok.NonNull;
 
 public class Day6Part1Solver extends Day6Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day6Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day6Part1Solver();
+  }
 
-    @Override
-    public @NonNull String doSolve(@NonNull School input) {
-        return input.compute_population(GEN_80).toString();
-    }
+  @Override
+  public @NonNull String doSolve(@NonNull School input) {
+    return input.compute_population(GEN_80).toString();
+  }
 }

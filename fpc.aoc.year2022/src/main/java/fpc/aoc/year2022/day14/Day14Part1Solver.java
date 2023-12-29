@@ -5,11 +5,11 @@ import lombok.NonNull;
 
 public class Day14Part1Solver extends Day14Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day14Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day14Part1Solver();
+  }
 
-    public Day14Part1Solver() {
-        super(Cave::dropSandPart1);
-    }
+  public Day14Part1Solver() {
+    super(Cave::dropSandPart1);
+  }
 }

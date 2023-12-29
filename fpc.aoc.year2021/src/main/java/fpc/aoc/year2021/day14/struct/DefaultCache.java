@@ -8,16 +8,16 @@ import java.util.Optional;
 
 public class DefaultCache implements Cache {
 
-    private final Map<Couple, Map<Integer,Distribution>> cachedDistributions = new HashMap<>();
+  private final Map<Couple, Map<Integer, Distribution>> cachedDistributions = new HashMap<>();
 
 
-    @Override
-    public @NonNull Optional<Distribution> fromCache(@NonNull Couple couple, int generation) {
-        return Optional.ofNullable(cachedDistributions.get(couple)).map(m -> m.get(generation));
-    }
+  @Override
+  public @NonNull Optional<Distribution> fromCache(@NonNull Couple couple, int generation) {
+    return Optional.ofNullable(cachedDistributions.get(couple)).map(m -> m.get(generation));
+  }
 
-    @Override
-    public void saveInCache(@NonNull Couple couple, int generation, @NonNull Distribution distribution) {
-        this.cachedDistributions.computeIfAbsent(couple,c -> new HashMap<>()).put(generation,distribution);
-    }
+  @Override
+  public void saveInCache(@NonNull Couple couple, int generation, @NonNull Distribution distribution) {
+    this.cachedDistributions.computeIfAbsent(couple, c -> new HashMap<>()).put(generation, distribution);
+  }
 }

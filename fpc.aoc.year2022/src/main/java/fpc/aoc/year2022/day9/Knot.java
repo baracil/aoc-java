@@ -31,22 +31,19 @@ public class Knot {
 
 
     if (Math.abs(dx) == 2 && Math.abs(dy) == 2) {
-      int mx = dx<0?-1:1;
-      int my = dy<0?-1:1;
-      position = Position.of(knot.x()+mx,knot.y()+my);
-    }
-    else if (dx == -2) {
+      int mx = dx < 0 ? -1 : 1;
+      int my = dy < 0 ? -1 : 1;
+      position = Position.of(knot.x() + mx, knot.y() + my);
+    } else if (dx == -2) {
       position = Position.of(knot.x() - 1, knot.y());
     } else if (dx == 2) {
       position = Position.of(knot.x() + 1, knot.y());
-    }
-    else if (dy == -2) {
+    } else if (dy == -2) {
       position = Position.of(knot.x(), knot.y() - 1);
     } else if (dy == 2) {
       position = Position.of(knot.x(), knot.y() + 1);
     }
   }
-
 
 
 }

@@ -6,13 +6,13 @@ import lombok.NonNull;
 
 public class Day11Part1Solver extends Day11Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day11Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day11Part1Solver();
+  }
 
 
-    @Override
-    public @NonNull Object doSolve(@NonNull ArrayOfChar input) {
-        return Computer.find(input,2);
-    }
+  @Override
+  public @NonNull Object doSolve(@NonNull ArrayOfChar input) {
+    return Computer.find(input, 2);
+  }
 }

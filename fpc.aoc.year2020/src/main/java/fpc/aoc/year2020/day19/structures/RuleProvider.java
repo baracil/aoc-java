@@ -4,12 +4,13 @@ import lombok.NonNull;
 
 import java.util.function.Function;
 
-public interface RuleProvider extends Function<Integer,Rule> {
+public interface RuleProvider extends Function<Integer, Rule> {
 
-    @NonNull Rule getRule(int id);
+  @NonNull
+  Rule getRule(int id);
 
-    @Override
-    default @NonNull Rule apply(Integer integer) {
-        return getRule(integer);
-    }
+  @Override
+  default @NonNull Rule apply(Integer integer) {
+    return getRule(integer);
+  }
 }

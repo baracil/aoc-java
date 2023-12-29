@@ -3,17 +3,16 @@ package fpc.aoc.year2023.day02;
 public record Pick(int red, int green, int blue) {
 
 
-
   public boolean isValid(Pick max) {
-    return red<=max.red && green <= max.green && blue <= max.blue;
+    return red <= max.red && green <= max.green && blue <= max.blue;
   }
 
 
   public Pick max(Pick other) {
-    return new Pick(Math.max(this.red,other.red), Math.max(this.green,other.green), Math.max(this.blue,other.blue));
+    return new Pick(Math.max(this.red, other.red), Math.max(this.green, other.green), Math.max(this.blue, other.blue));
   }
 
-  public final static Pick ZERO = new Pick(0,0,0);
+  public final static Pick ZERO = new Pick(0, 0, 0);
 
   public static Pick parse(String pickAsString) {
     int red = 0;
@@ -31,6 +30,6 @@ public record Pick(int red, int green, int blue) {
       }
     }
 
-    return new Pick(red,green,blue);
+    return new Pick(red, green, blue);
   }
 }

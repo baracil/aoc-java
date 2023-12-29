@@ -7,10 +7,10 @@ import lombok.NonNull;
 
 public abstract class Day13Solver extends SmartSolver<Input> {
 
-    @Override
-    protected @NonNull Converter<Input> getConverter() {
-        return Converter.IDENTITY.andThen(s -> s.stream().collect(Input.COLLECTOR));
-    }
+  @Override
+  protected @NonNull Converter<Input> getConverter() {
+    return Converter.IDENTITY.andThen(s -> s.stream().collect(Input.COLLECTOR));
+  }
 
 
 }

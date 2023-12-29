@@ -15,10 +15,9 @@ public abstract class Day1Solver extends SmartSolver<LongStream> {
   protected @NonNull Converter<LongStream> getConverter() {
     return list -> {
       final var caloryList = new CarriedCalory(list);
-      return StreamSupport.stream(caloryList.spliterator(),false).mapToLong(l -> l);
+      return StreamSupport.stream(caloryList.spliterator(), false).mapToLong(l -> l);
     };
   }
-
 
 
 }

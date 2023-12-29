@@ -39,7 +39,7 @@ public class MarkerFinder {
 
 
   private void updateCount(int countIndex, int delta) {
-    if (countIndex<0) {
+    if (countIndex < 0) {
       return;
     }
     final var oldCount = this.counts[countIndex];

@@ -8,8 +8,8 @@ import java.util.List;
 
 public abstract class Day10Solver<T> extends SmartSolver<List<Command>> {
 
-    @Override
-    protected @NonNull Converter<List<Command>> getConverter() {
-        return Converter.forItem(Command::parse);
-    }
+  @Override
+  protected @NonNull Converter<List<Command>> getConverter() {
+    return Converter.forItem(Command::parse);
+  }
 }

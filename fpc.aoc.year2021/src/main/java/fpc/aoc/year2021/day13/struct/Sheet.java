@@ -10,38 +10,38 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class Sheet {
 
-    private final Set<Dot> dots;
+  private final Set<Dot> dots;
 
-    public @NonNull Sheet fold(@NonNull Fold fold) {
-        final var operator = fold.operator();
+  public @NonNull Sheet fold(@NonNull Fold fold) {
+    final var operator = fold.operator();
 
-        return dots.stream()
-                   .map(operator)
-                   .collect(COLLECTOR);
-    }
+    return dots.stream()
+        .map(operator)
+        .collect(COLLECTOR);
+  }
 
-    private final Collector<Dot,?,Sheet> COLLECTOR = Collectors.collectingAndThen(Collectors.toSet(), Sheet::new);
+  private final Collector<Dot, ?, Sheet> COLLECTOR = Collectors.collectingAndThen(Collectors.toSet(), Sheet::new);
 
-    public int getNumberOfDots() {
-        return dots.size();
-    }
+  public int getNumberOfDots() {
+    return dots.size();
+  }
 
-    public String toDisplay() {
-        final int xmax = dots.stream().mapToInt(Dot::x).max().orElse(0);
-        final int ymax = dots.stream().mapToInt(Dot::y).max().orElse(0);
+  public String toDisplay() {
+    final int xmax = dots.stream().mapToInt(Dot::x).max().orElse(0);
+    final int ymax = dots.stream().mapToInt(Dot::y).max().orElse(0);
 
-        final StringBuilder sb = new StringBuilder();
-        for (int y = 0; y <= ymax; y++) {
-            sb.append(System.lineSeparator());
-            for (int x = 0; x <= xmax; x++) {
-                if (dots.contains(Dot.with(x,y))) {
-                    sb.append("█");
-                } else {
-                    sb.append(" ");
-                }
-            }
+    final StringBuilder sb = new StringBuilder();
+    for (int y = 0; y <= ymax; y++) {
+      sb.append(System.lineSeparator());
+      for (int x = 0; x <= xmax; x++) {
+        if (dots.contains(Dot.with(x, y))) {
+          sb.append("█");
+        } else {
+          sb.append(" ");
         }
-
-        return sb.toString();
+      }
     }
+
+    return sb.toString();
+  }
 }

@@ -10,15 +10,15 @@ import lombok.NonNull;
 
 public abstract class Day12Solver extends SmartSolver<Graph> {
 
-    @Override
-    protected @NonNull Converter<Graph> getConverter() {
-        return s -> s.stream().map(Connection::parse).collect(Graph.COLLECTOR);
-    }
+  @Override
+  protected @NonNull Converter<Graph> getConverter() {
+    return s -> s.stream().map(Connection::parse).collect(Graph.COLLECTOR);
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull Graph graph) {
-        return PathCounter.count(graph,getRecursiveMode());
-    }
+  @Override
+  public @NonNull Long doSolve(@NonNull Graph graph) {
+    return PathCounter.count(graph, getRecursiveMode());
+  }
 
-    protected abstract RecursiveMode getRecursiveMode();
+  protected abstract RecursiveMode getRecursiveMode();
 }

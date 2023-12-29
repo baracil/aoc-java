@@ -54,8 +54,9 @@ public class Day17Part2Solver extends Day17Solver {
       this.length = second.turnIndex() - first.turnIndex();
       this.height = second.height() - first.height();
     }
+
     public long nbLeft(long total) {
-      return ((total - startIndex) % length) -1;
+      return ((total - startIndex) % length) - 1;
     }
 
     public long computeTowerHeight(long nbTurns, long towerHeight) {

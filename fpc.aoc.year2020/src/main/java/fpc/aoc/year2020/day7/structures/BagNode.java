@@ -11,24 +11,24 @@ import java.util.*;
 @EqualsAndHashCode(of = {"color"})
 public class BagNode {
 
-    @Getter
-    private final @NonNull String color;
+  @Getter
+  private final @NonNull String color;
 
-    private final @NonNull Set<BagNode> containers = new HashSet<>();
+  private final @NonNull Set<BagNode> containers = new HashSet<>();
 
-    private final @NonNull Map<BagNode,Integer> content = new HashMap<>();
+  private final @NonNull Map<BagNode, Integer> content = new HashMap<>();
 
-    public void addToContent(@NonNull BagNode contained, int quantity) {
-        content.put(contained,quantity);
-        contained.containers.add(this);
-    }
+  public void addToContent(@NonNull BagNode contained, int quantity) {
+    content.put(contained, quantity);
+    contained.containers.add(this);
+  }
 
-    public @NonNull Map<BagNode,Integer> getContent() {
-        return Collections.unmodifiableMap(content);
-    }
+  public @NonNull Map<BagNode, Integer> getContent() {
+    return Collections.unmodifiableMap(content);
+  }
 
-    public @NonNull Set<BagNode> getContainers() {
-        return containers;
-    }
+  public @NonNull Set<BagNode> getContainers() {
+    return containers;
+  }
 
 }

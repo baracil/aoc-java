@@ -9,13 +9,13 @@ import java.util.List;
 
 public class Day19Part1Solver extends Day19Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day19Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day19Part1Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(@NonNull List<Report> input) {
-        throw new NotSolvedYet();
-    }
+  @Override
+  public @NonNull Integer doSolve(@NonNull List<Report> input) {
+    throw new NotSolvedYet();
+  }
 
 }

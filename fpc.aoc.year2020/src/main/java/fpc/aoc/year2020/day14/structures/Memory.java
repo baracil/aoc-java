@@ -4,9 +4,9 @@ import lombok.NonNull;
 
 public interface Memory {
 
-    void setValue(int address, long value);
+  void setValue(int address, long value);
 
-    void setActiveMask(@NonNull Mask mask);
+  void setActiveMask(@NonNull Mask mask);
 
-    long sumOfAllValues();
+  long sumOfAllValues();
 }

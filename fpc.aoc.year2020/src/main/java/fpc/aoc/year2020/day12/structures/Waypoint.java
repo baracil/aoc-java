@@ -8,11 +8,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Waypoint {
-    private int x;
-    private int y;
+  private int x;
+  private int y;
 
-    public void moveBy(int dx, int dy) {
-        this.x +=dx;
-        this.y +=dy;
-    }
+  public void moveBy(int dx, int dy) {
+    this.x += dx;
+    this.y += dy;
+  }
 }

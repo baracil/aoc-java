@@ -11,7 +11,7 @@ public class Occupancy {
   private final int mask;
 
   public boolean isFree(Direction direction) {
-    return (mask&direction.mask()) == 0;
+    return (mask & direction.mask()) == 0;
   }
 
 
@@ -43,7 +43,7 @@ public class Occupancy {
 
   @Override
   public String toString() {
-    final var v = ("000000000"+Integer.toString(mask,2));
-    return v.substring(v.length()-8);
+    final var v = ("000000000" + Integer.toString(mask, 2));
+    return v.substring(v.length() - 8);
   }
 }

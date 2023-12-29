@@ -18,7 +18,7 @@ public record SensorReport(@NonNull Position sensor, @NonNull Position beacon, i
       return Optional.empty();
     }
     final int margin = distanceCovered - minDistance;
-    return Optional.of(new LineCoverage(beacon.y() == lineIndex? Set.of(beacon.x()):Set.of(), lineIndex,-margin + sensor.x(), margin + sensor.x()));
+    return Optional.of(new LineCoverage(beacon.y() == lineIndex ? Set.of(beacon.x()) : Set.of(), lineIndex, -margin + sensor.x(), margin + sensor.x()));
   }
 
 

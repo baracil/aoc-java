@@ -7,13 +7,13 @@ import lombok.NonNull;
 
 public class Day17Part2Solver extends Day17Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day17Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day17Part2Solver();
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull Target input) {
-        final var tester = new ProbeTester(input);
-        return input.searchSpace().filter(tester::willReach).count();
-    }
+  @Override
+  public @NonNull Long doSolve(@NonNull Target input) {
+    final var tester = new ProbeTester(input);
+    return input.searchSpace().filter(tester::willReach).count();
+  }
 }

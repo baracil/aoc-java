@@ -12,18 +12,18 @@ import java.util.stream.IntStream;
 public class Tools {
 
   public static IntStream generateWithNumberOfBitsAtOne(int nbBits, int nbOnes) {
-    if (nbBits<nbOnes) {
-      throw new AOCException("Invalid arguments, nbBits must be greater or equal to nbOnes nbBits="+nbBits+" , nbOnes="+nbOnes);
+    if (nbBits < nbOnes) {
+      throw new AOCException("Invalid arguments, nbBits must be greater or equal to nbOnes nbBits=" + nbBits + " , nbOnes=" + nbOnes);
     }
     if (nbBits == nbOnes) {
-      return IntStream.of((1<<(nbBits+1))-1);
+      return IntStream.of((1 << (nbBits + 1)) - 1);
     }
     if (nbOnes == 0) {
       return IntStream.of(0);
     }
     return IntStream.concat(
-        generateWithNumberOfBitsAtOne(nbBits-1,nbOnes).map(i -> i*2),
-        generateWithNumberOfBitsAtOne(nbBits-1,nbOnes-1).map(i -> i*2+1)
+        generateWithNumberOfBitsAtOne(nbBits - 1, nbOnes).map(i -> i * 2),
+        generateWithNumberOfBitsAtOne(nbBits - 1, nbOnes - 1).map(i -> i * 2 + 1)
     );
   }
 
@@ -116,8 +116,8 @@ public class Tools {
       return target;
     }
     return target.entrySet().stream()
-      .filter(e -> !e.getKey().equals(key))
-      .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        .filter(e -> !e.getKey().equals(key))
+        .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
   }
 
   @NonNull
@@ -161,9 +161,9 @@ public class Tools {
   @NonNull
   public static <K, A, B> Map<K, B> mapValues(@NonNull Map<K, A> input, @NonNull Function<? super A, ? extends B> mapper) {
     return input
-      .entrySet()
-      .stream()
-      .collect(Collectors.toMap(Map.Entry::getKey, e -> mapper.apply(e.getValue())));
+        .entrySet()
+        .stream()
+        .collect(Collectors.toMap(Map.Entry::getKey, e -> mapper.apply(e.getValue())));
   }
 
 
@@ -206,22 +206,23 @@ public class Tools {
 
   public static <E extends Enum<E>> @NonNull Collector<E, ?, EnumSet<E>> enumSetCollector(@NonNull Class<E> enumType) {
     return Collector.of(
-      () -> EnumSet.noneOf(enumType),
-      AbstractCollection::add,
-      (e1, e2) -> {
-        e1.addAll(e2);
-        return e1;
-      },
-      Collector.Characteristics.IDENTITY_FINISH,
-      Collector.Characteristics.UNORDERED
+        () -> EnumSet.noneOf(enumType),
+        AbstractCollection::add,
+        (e1, e2) -> {
+          e1.addAll(e2);
+          return e1;
+        },
+        Collector.Characteristics.IDENTITY_FINISH,
+        Collector.Characteristics.UNORDERED
     );
   }
 
   public static long[] toArrayOfLong(String numbers) {
     return Arrays.stream(numbers.trim().split(" +")).mapToLong(Long::parseLong).toArray();
   }
+
   public static int[] toArrayOfInt(String numbers) {
-    return toArrayOfInt(numbers," _+");
+    return toArrayOfInt(numbers, " _+");
   }
 
   public static int[] toArrayOfInt(String numbers, String sep) {

@@ -8,32 +8,32 @@ import java.util.Map;
 
 public class Day16Part2Solver extends Day16Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day16Part2Solver();
+  public static @NonNull Solver provider() {
+    return new Day16Part2Solver();
+  }
+
+  @Override
+  public @NonNull Long doSolve(@NonNull Input input) {
+    final var matcher = new FieldsMatcher(input.fields());
+
+    for (Ticket ticket : input.allTickets()) {
+      matcher.testTicket(ticket);
     }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull Input input) {
-        final var matcher = new FieldsMatcher(input.fields());
+    matcher.cleanUp();
 
-        for (Ticket ticket : input.allTickets()) {
-            matcher.testTicket(ticket);
-        }
+    final var mapping = matcher.getSolution().orElseThrow(() -> new AOCException("Not solved yet!"));
 
-        matcher.cleanUp();
+    final var myTicket = input.myTicket();
 
-        final var mapping = matcher.getSolution().orElseThrow(() -> new AOCException("Not solved yet!"));
+    return mapping.entrySet()
+        .stream()
+        .filter(e -> e.getKey().nameStartsWith("departure"))
+        .mapToInt(Map.Entry::getValue)
+        .map(myTicket::getValueAt)
+        .mapToLong(i -> i)
+        .reduce(1, (i1, i2) -> i1 * i2);
 
-        final var myTicket = input.myTicket();
-
-        return mapping.entrySet()
-                      .stream()
-                      .filter(e -> e.getKey().nameStartsWith("departure"))
-                      .mapToInt(Map.Entry::getValue)
-                      .map(myTicket::getValueAt)
-                      .mapToLong(i -> i)
-                      .reduce(1, (i1, i2) -> i1 * i2);
-
-    }
+  }
 
 }

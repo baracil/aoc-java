@@ -10,9 +10,9 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class OneLineParsing {
 
-    @Getter
-    private final @NonNull String colorName;
+  @Getter
+  private final @NonNull String colorName;
 
-    @Getter
-    private final @NonNull Map<String,Integer> content;
+  @Getter
+  private final @NonNull Map<String, Integer> content;
 }

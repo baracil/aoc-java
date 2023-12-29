@@ -10,21 +10,21 @@ import lombok.NonNull;
 
 public abstract class Day22Solver extends SmartSolver<GameState> {
 
-    @Override
-    protected @NonNull Converter<GameState> getConverter() {
-        return GameState::parse;
-    }
+  @Override
+  protected @NonNull Converter<GameState> getConverter() {
+    return GameState::parse;
+  }
 
-    protected abstract @NonNull GameRules getGameRules();
+  protected abstract @NonNull GameRules getGameRules();
 
-    @Override
-    public final @NonNull Score doSolve(@NonNull GameState state) {
-        final var rules = getGameRules();
-        final var gameExecutor = new GameExecutor(rules);
+  @Override
+  public final @NonNull Score doSolve(@NonNull GameState state) {
+    final var rules = getGameRules();
+    final var gameExecutor = new GameExecutor(rules);
 
-        final var outcome = gameExecutor.play(state);
+    final var outcome = gameExecutor.play(state);
 
-        return outcome.score();
+    return outcome.score();
 
-    }
+  }
 }

@@ -6,7 +6,7 @@ import java.util.Deque;
 
 public interface ExpressionEvaluator {
 
-    boolean performOnePass(@NonNull Deque<Token> tokens);
+  boolean performOnePass(@NonNull Deque<Token> tokens);
 
-    long getFinalResultFromQueue(@NonNull Deque<Token> tokens);
+  long getFinalResultFromQueue(@NonNull Deque<Token> tokens);
 }

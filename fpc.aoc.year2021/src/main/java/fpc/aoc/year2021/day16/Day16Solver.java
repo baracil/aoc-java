@@ -8,8 +8,8 @@ import lombok.NonNull;
 
 public abstract class Day16Solver extends SmartSolver<Packet> {
 
-    @Override
-    protected @NonNull Converter<Packet> getConverter() {
-        return Converter.FIRST_LINE.andThen(PacketReader::read);
-    }
+  @Override
+  protected @NonNull Converter<Packet> getConverter() {
+    return Converter.FIRST_LINE.andThen(PacketReader::read);
+  }
 }

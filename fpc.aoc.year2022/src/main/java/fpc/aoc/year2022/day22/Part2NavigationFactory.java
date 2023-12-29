@@ -9,7 +9,7 @@ public class Part2NavigationFactory extends BaseNavigationFactory {
 
   public Part2NavigationFactory(ArrayOfChar map) {
     super(map);
-    if (map.width()<=16) {
+    if (map.width() <= 16) {
       unFold = new TestUnFold();
     } else {
       unFold = new SampleUnFold();

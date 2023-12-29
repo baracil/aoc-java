@@ -8,14 +8,14 @@ import java.util.List;
 
 public class Day6Part1Solver extends Day6Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day6Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day6Part1Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(@NonNull List<Group> input) {
-        return input.stream()
-             .mapToInt(Group::getNumberOfDistinctQuestions)
-             .sum();
-    }
+  @Override
+  public @NonNull Integer doSolve(@NonNull List<Group> input) {
+    return input.stream()
+        .mapToInt(Group::getNumberOfDistinctQuestions)
+        .sum();
+  }
 }

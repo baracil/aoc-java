@@ -10,7 +10,7 @@ public class Monkey {
 
   private final Deque<Item> items;
   private final UnaryOperator<Item> operation;
-  private final Function<Item,Throw> throwFunction;
+  private final Function<Item, Throw> throwFunction;
 
   public Monkey(int[] items, UnaryOperator<Item> operation, Function<Item, Throw> throwFunction) {
     this.items = new LinkedList<>();

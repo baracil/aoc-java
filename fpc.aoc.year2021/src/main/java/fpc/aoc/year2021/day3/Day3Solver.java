@@ -6,9 +6,9 @@ import lombok.NonNull;
 
 public abstract class Day3Solver extends SmartSolver<DiagnosticReport> {
 
-    @Override
-    protected @NonNull Converter<DiagnosticReport> getConverter() {
-        return DiagnosticReport::fromLines;
-    }
+  @Override
+  protected @NonNull Converter<DiagnosticReport> getConverter() {
+    return DiagnosticReport::fromLines;
+  }
 
 }

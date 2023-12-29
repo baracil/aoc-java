@@ -6,7 +6,7 @@ import java.util.stream.Collector;
 
 public class FileSystemCollector {
 
-  public static final Collector<String, FileSystemCollector,FileSystem> COLLECTOR = Collector.of(
+  public static final Collector<String, FileSystemCollector, FileSystem> COLLECTOR = Collector.of(
       FileSystemCollector::new,
       FileSystemCollector::handle,
       FileSystemCollector::combine,
@@ -41,11 +41,11 @@ public class FileSystemCollector {
   }
 
   private void handleLsOutput(String line) {
-    final var tokens = line.split(" ",2);
+    final var tokens = line.split(" ", 2);
     if ("dir".equals(tokens[0])) {
       current.addFolder(tokens[1]);
     } else {
-      current.addRegularFile(Integer.parseInt(tokens[0]),tokens[1]);
+      current.addRegularFile(Integer.parseInt(tokens[0]), tokens[1]);
     }
   }
 

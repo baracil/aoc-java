@@ -16,12 +16,12 @@ public class ValveSolver {
   }
 
   public long doSolve(int initialValveStates, int maxTime) {
-    final Map<String,Integer> cache = new HashMap<>();
-    final var start = new State(valves,initialValveStates,maxTime);
-    return findBestFrom(start,cache);
+    final Map<String, Integer> cache = new HashMap<>();
+    final var start = new State(valves, initialValveStates, maxTime);
+    return findBestFrom(start, cache);
   }
 
-  private int findBestFrom(@NonNull State state, Map<String,Integer> cache) {
+  private int findBestFrom(@NonNull State state, Map<String, Integer> cache) {
     final var cached = cache.get(state.path());
     if (cached != null) {
       return cached;
@@ -42,7 +42,7 @@ public class ValveSolver {
       if (newState.timeLeft() < 0) {
         continue;
       }
-      final var pro = findBestFrom(newState,cache);
+      final var pro = findBestFrom(newState, cache);
       if (best < pro) {
         best = pro;
       }

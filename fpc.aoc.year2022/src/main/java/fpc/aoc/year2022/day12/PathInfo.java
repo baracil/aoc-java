@@ -7,6 +7,8 @@ import lombok.NonNull;
 public interface PathInfo {
 
   @NonNull Position startingPosition(@NonNull ArrayOfChar heights);
+
   boolean isTargetReached(int height);
+
   boolean isReachable(int startHeight, int targetHeight);
 }

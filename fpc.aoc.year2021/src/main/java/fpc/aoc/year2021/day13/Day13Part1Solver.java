@@ -6,16 +6,16 @@ import lombok.NonNull;
 
 public class Day13Part1Solver extends Day13Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day13Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day13Part1Solver();
+  }
 
-    @Override
-    public @NonNull String doSolve(@NonNull Input input) {
-        final var fold = input.folds().getFirst();
+  @Override
+  public @NonNull String doSolve(@NonNull Input input) {
+    final var fold = input.folds().getFirst();
 
-        final var sheet = input.sheet().fold(fold);
+    final var sheet = input.sheet().fold(fold);
 
-        return String.valueOf(sheet.getNumberOfDots());
-    }
+    return String.valueOf(sheet.getNumberOfDots());
+  }
 }

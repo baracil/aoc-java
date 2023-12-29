@@ -4,5 +4,5 @@ import lombok.NonNull;
 
 public interface PositionFactory {
 
-    @NonNull Position at(int x, int y);
+  @NonNull Position at(int x, int y);
 }

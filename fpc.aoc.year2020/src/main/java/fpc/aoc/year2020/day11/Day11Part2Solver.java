@@ -10,18 +10,18 @@ import lombok.NonNull;
 
 public class Day11Part2Solver extends Day11Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day11Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day11Part2Solver();
+  }
 
-    @Override
-    protected @NonNull AdjacentCounter createCounter(@NonNull GridHelper gridHelper) {
-        return new OptimizedViewableCounter(gridHelper);
-    }
+  @Override
+  protected @NonNull AdjacentCounter createCounter(@NonNull GridHelper gridHelper) {
+    return new OptimizedViewableCounter(gridHelper);
+  }
 
-    @Override
-    protected @NonNull StateEvolutionRule createEvolutionRule() {
-        return new WithLeavingThresholdRule(5);
-    }
+  @Override
+  protected @NonNull StateEvolutionRule createEvolutionRule() {
+    return new WithLeavingThresholdRule(5);
+  }
 
 }

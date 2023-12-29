@@ -9,9 +9,9 @@ import lombok.NonNull;
 
 public abstract class Day20Solver extends SmartSolver<ImageArray> {
 
-    @Override
-    protected @NonNull Converter<ImageArray> getConverter() {
-        return Converter.from(Parser::parse).andThen(ImageArrayBuilder::build);
-    }
+  @Override
+  protected @NonNull Converter<ImageArray> getConverter() {
+    return Converter.from(Parser::parse).andThen(ImageArrayBuilder::build);
+  }
 
 }

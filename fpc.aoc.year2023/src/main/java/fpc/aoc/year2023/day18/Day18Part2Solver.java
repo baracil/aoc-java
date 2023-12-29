@@ -7,12 +7,12 @@ import lombok.NonNull;
 
 public class Day18Part2Solver extends Day18Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day18Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day18Part2Solver();
+  }
 
-    @Override
-    public InstructionParser getParser() {
-        return new InstructionParserPart2();
-    }
+  @Override
+  public InstructionParser getParser() {
+    return new InstructionParserPart2();
+  }
 }

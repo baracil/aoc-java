@@ -13,7 +13,6 @@ public class BluePrint {
   private final int[][] cost;
 
 
-
   public int[] getCost(Type type) {
     return cost[type.index];
   }
@@ -36,7 +35,7 @@ public class BluePrint {
     costs[3][0] = ints[5];
     costs[3][2] = ints[6];
 
-    return new BluePrint(ints[0],costs);
+    return new BluePrint(ints[0], costs);
   }
 
 }

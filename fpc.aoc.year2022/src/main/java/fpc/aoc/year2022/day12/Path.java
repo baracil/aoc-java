@@ -11,6 +11,6 @@ public class Path {
   private final int nbSteps;
 
   public Path withNewStep(Position position) {
-    return new Path(position,nbSteps+1);
+    return new Path(position, nbSteps + 1);
   }
 }

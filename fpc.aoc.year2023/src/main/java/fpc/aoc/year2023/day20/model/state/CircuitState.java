@@ -36,13 +36,13 @@ public class CircuitState {
 
     public FlipFlopState toggleFlipFlopState(String name) {
       final var current = Objects.requireNonNull(flipFlopStates.get(name));
-      flipFlopStates.put(name,current.toggle());
+      flipFlopStates.put(name, current.toggle());
       return current;
     }
 
     public Pulse updateConjunctionState(String name, String source, Pulse pulse) {
       final var conjunctionState = Objects.requireNonNull(conjunctionStates.get(name));
-      return conjunctionState.updateState(source,pulse);
+      return conjunctionState.updateState(source, pulse);
     }
 
     public CircuitState fix() {

@@ -13,18 +13,18 @@ import java.util.List;
 
 public class Day4Part2Solver extends SmartSolver<List<Passport>> {
 
-    public static @NonNull Solver provider() {
-        return new Day4Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day4Part2Solver();
+  }
 
-    @Override
-    protected @NonNull Converter<List<Passport>> getConverter() {
-        return PassportListBuilder::build;
-    }
+  @Override
+  protected @NonNull Converter<List<Passport>> getConverter() {
+    return PassportListBuilder::build;
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull List<Passport> passports) {
-        final ValidityRule validityRule = new WithCIDOptionalAndValidValues();
-        return passports.stream().filter(validityRule::isValid).count();
-    }
+  @Override
+  public @NonNull Long doSolve(@NonNull List<Passport> passports) {
+    final ValidityRule validityRule = new WithCIDOptionalAndValidValues();
+    return passports.stream().filter(validityRule::isValid).count();
+  }
 }

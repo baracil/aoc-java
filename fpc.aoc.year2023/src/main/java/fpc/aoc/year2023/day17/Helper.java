@@ -54,8 +54,8 @@ public class Helper {
     final var ref = orientation == lastOrientation ? nb : 0;
 
     final var newTotalHeatLoss = current.totalHeatLoss() + heatLoss;
-    final var newHeuristic = newTotalHeatLoss+(endX-newPosition.x())+(endY-newPosition.y());
-    return new Step(newPosition, newTotalHeatLoss,newHeuristic ,orientation, ref + 1);
+    final var newHeuristic = newTotalHeatLoss + (endX - newPosition.x()) + (endY - newPosition.y());
+    return new Step(newPosition, newTotalHeatLoss, newHeuristic, orientation, ref + 1);
   }
 
   public boolean endReached(Step step) {

@@ -10,19 +10,19 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class AroundAdjacentCounter implements AdjacentCounter {
 
-    private final @NonNull GridHelper gridHelper;
+  private final @NonNull GridHelper gridHelper;
 
-    @Override
-    public void updateOccupationMap(@NonNull SeatLayout seatLayout, long[] buffer) {
-        assert buffer.length == seatLayout.height()*seatLayout.width();
-        for (int i = 0; i < buffer.length; i++) {
-            buffer[i] = countOccupied(seatLayout,gridHelper.positionFor(i));
-        }
+  @Override
+  public void updateOccupationMap(@NonNull SeatLayout seatLayout, long[] buffer) {
+    assert buffer.length == seatLayout.height() * seatLayout.width();
+    for (int i = 0; i < buffer.length; i++) {
+      buffer[i] = countOccupied(seatLayout, gridHelper.positionFor(i));
     }
+  }
 
-    private long countOccupied(@NonNull SeatLayout seatLayout, @NonNull Position center) {
-        return gridHelper.allAdjacentPosition(center)
-                         .filter(seatLayout::isOccupiedSeat)
-                         .count();
-    }
+  private long countOccupied(@NonNull SeatLayout seatLayout, @NonNull Position center) {
+    return gridHelper.allAdjacentPosition(center)
+        .filter(seatLayout::isOccupiedSeat)
+        .count();
+  }
 }

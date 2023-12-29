@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.function.Function;
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-public class HandParser implements Function<String,Hand> {
+public class HandParser implements Function<String, Hand> {
 
   public static HandParser forPart1() {
     return new HandParser(9);

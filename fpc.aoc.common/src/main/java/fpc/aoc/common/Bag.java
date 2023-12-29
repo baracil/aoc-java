@@ -4,15 +4,15 @@ import lombok.NonNull;
 
 public interface Bag<T> {
 
-    static <T> @NonNull Bag<T> create() {
-        return new HashBag<>();
-    }
+  static <T> @NonNull Bag<T> create() {
+    return new HashBag<>();
+  }
 
-    int quantity(@NonNull T element);
+  int quantity(@NonNull T element);
 
-    void addOne(@NonNull T element);
+  void addOne(@NonNull T element);
 
-    void removeOne(@NonNull T element);
+  void removeOne(@NonNull T element);
 
 
 }

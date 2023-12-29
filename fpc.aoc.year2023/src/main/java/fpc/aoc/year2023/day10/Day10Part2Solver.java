@@ -36,8 +36,8 @@ public class Day10Part2Solver extends Day10Solver {
     while (x < array.width() && y < array.height()) {
       final var tile = array.get(x, y);
       switch (tile) {
-        case PIPE_H, PIPE_V , CORNER_F, CORNER_J-> cross = !cross;
-        case FLOOR -> count+=(cross?1:0);
+        case PIPE_H, PIPE_V, CORNER_F, CORNER_J -> cross = !cross;
+        case FLOOR -> count += (cross ? 1 : 0);
         case START -> throw new AOCException("Not cleaned");
       }
       x += 1;

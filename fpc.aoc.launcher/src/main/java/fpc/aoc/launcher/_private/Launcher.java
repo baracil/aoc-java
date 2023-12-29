@@ -14,42 +14,42 @@ import java.io.PrintStream;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Launcher {
 
-    public static void launch(@NonNull Solver solver, @NonNull RawInput input) {
-        new Launcher(solver,input).launch();
-    }
+  public static void launch(@NonNull Solver solver, @NonNull RawInput input) {
+    new Launcher(solver, input).launch();
+  }
 
-    public static void launch(@NonNull Solver solver) {
-        launch(solver, new SmartRawInput(solver.id()));
-    }
+  public static void launch(@NonNull Solver solver) {
+    launch(solver, new SmartRawInput(solver.id()));
+  }
 
-    @NonNull
-    @Getter
-    private final Solver solver;
-    private final RawInput input;
+  @NonNull
+  @Getter
+  private final Solver solver;
+  private final RawInput input;
 
-    private void launch() {
-        try {
-            final Object solution = solver.solve(input);
-            displayMessage(String.valueOf(solution));
-        } catch (NotSolvedYet notSolvedYet) {
-            displayMessage("Not solved yet");
-        } catch (Throwable t) {
-            displayError(t);
-        }
+  private void launch() {
+    try {
+      final Object solution = solver.solve(input);
+      displayMessage(String.valueOf(solution));
+    } catch (NotSolvedYet notSolvedYet) {
+      displayMessage("Not solved yet");
+    } catch (Throwable t) {
+      displayError(t);
     }
+  }
 
-    private void displayMessage(@NonNull String message) {
-        displayMessage(System.out,message);
-    }
+  private void displayMessage(@NonNull String message) {
+    displayMessage(System.out, message);
+  }
 
-    private void displayError(@NonNull Throwable throwable) {
-        displayMessage(System.err,"An error occurred : "+throwable.getMessage());
-        throwable.printStackTrace();
-    }
+  private void displayError(@NonNull Throwable throwable) {
+    displayMessage(System.err, "An error occurred : " + throwable.getMessage());
+    throwable.printStackTrace();
+  }
 
-    private void displayMessage(@NonNull PrintStream ps, @NonNull String message) {
-        ps.format("%s %s %s : %s%n", solver.id().year(), solver.id().day(), solver.id().part(), message);
-    }
+  private void displayMessage(@NonNull PrintStream ps, @NonNull String message) {
+    ps.format("%s %s %s : %s%n", solver.id().year(), solver.id().day(), solver.id().part(), message);
+  }
 
 }
 

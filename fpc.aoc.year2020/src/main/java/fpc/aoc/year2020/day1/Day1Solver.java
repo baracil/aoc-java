@@ -8,11 +8,11 @@ import java.util.stream.IntStream;
 
 public abstract class Day1Solver<O> extends SmartSolver<int[]> {
 
-    @Override
-    protected @NonNull
-    Converter<int[]> getConverter() {
-        return Converter.TO_INT_STREAM.andThen(IntStream::toArray);
-    }
+  @Override
+  protected @NonNull
+  Converter<int[]> getConverter() {
+    return Converter.TO_INT_STREAM.andThen(IntStream::toArray);
+  }
 
 
 }

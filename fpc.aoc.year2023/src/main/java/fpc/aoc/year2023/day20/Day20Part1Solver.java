@@ -25,6 +25,6 @@ public class Day20Part1Solver extends Day20Solver {
       state = result.state();
     }
 
-    return nbHigh*nbLow;
+    return nbHigh * nbLow;
   }
 }

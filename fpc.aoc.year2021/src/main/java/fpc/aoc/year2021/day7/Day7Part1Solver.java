@@ -7,19 +7,19 @@ import java.util.Arrays;
 
 public class Day7Part1Solver extends Day7Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day7Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day7Part1Solver();
+  }
 
-    @Override
-    public @NonNull Integer doSolve(int @NonNull [] input) {
-        Arrays.sort(input);
-        final var target = input[input.length/2];
+  @Override
+  public @NonNull Integer doSolve(int @NonNull [] input) {
+    Arrays.sort(input);
+    final var target = input[input.length / 2];
 
-        return Arrays.stream(input).map(i -> computeFuel(i, target)).sum();
-    }
+    return Arrays.stream(input).map(i -> computeFuel(i, target)).sum();
+  }
 
-    public int computeFuel(int position, int target) {
-        return Math.abs(position-target);
-    }
+  public int computeFuel(int position, int target) {
+    return Math.abs(position - target);
+  }
 }

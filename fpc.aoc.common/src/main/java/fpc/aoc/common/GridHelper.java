@@ -9,39 +9,39 @@ import java.util.stream.Stream;
  */
 public interface GridHelper {
 
-    static @NonNull GridHelper create(int width, int height) {
-        return new SimpleGridHelper(width,height);
-    }
+  static @NonNull GridHelper create(int width, int height) {
+    return new SimpleGridHelper(width, height);
+  }
 
-    /**
-     * @return the width of the grip
-     */
-    int width();
+  /**
+   * @return the width of the grip
+   */
+  int width();
 
-    /**
-     * @return the height of the grip
-     */
-    int height();
+  /**
+   * @return the height of the grip
+   */
+  int height();
 
-    /**
-     * @param center the central position
-     * @return all the position around the provided position (taking care of border)
-     */
-    @NonNull Stream<Position> allAdjacentPosition(@NonNull Position center);
+  /**
+   * @param center the central position
+   * @return all the position around the provided position (taking care of border)
+   */
+  @NonNull Stream<Position> allAdjacentPosition(@NonNull Position center);
 
-    @NonNull Stream<Position> allCardinalNeighbours(@NonNull Position center);
+  @NonNull Stream<Position> allCardinalNeighbours(@NonNull Position center);
 
-    @NonNull Stream<Position> allPositionOnGrid();
+  @NonNull Stream<Position> allPositionOnGrid();
 
-    int linearIndexFor(@NonNull Position position);
+  int linearIndexFor(@NonNull Position position);
 
-    int linearIndexFor(int x, int y);
+  int linearIndexFor(int x, int y);
 
-    @NonNull Position positionFor(int linearIndex);
+  @NonNull Position positionFor(int linearIndex);
 
-    @NonNull Stream<Position> positionsInDirection(@NonNull Position center, @NonNull Displacement displacement);
+  @NonNull Stream<Position> positionsInDirection(@NonNull Position center, @NonNull Displacement displacement);
 
-    boolean isOnBorder(Position position);
+  boolean isOnBorder(Position position);
 
-    boolean isInside(Position p);
+  boolean isInside(Position p);
 }

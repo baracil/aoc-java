@@ -9,11 +9,11 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ListOfLines implements RawInput {
 
-    @NonNull
-    private final List<String> lines;
+  @NonNull
+  private final List<String> lines;
 
-    @Override
-    public @NonNull List<String> read() {
-        return lines;
-    }
+  @Override
+  public @NonNull List<String> read() {
+    return lines;
+  }
 }

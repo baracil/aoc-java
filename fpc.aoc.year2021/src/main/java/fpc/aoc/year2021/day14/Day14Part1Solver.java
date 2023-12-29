@@ -7,13 +7,13 @@ import lombok.NonNull;
 
 public class Day14Part1Solver extends Day14Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day14Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day14Part1Solver();
+  }
 
-    @Override
-    public @NonNull String doSolve(@NonNull Input input) {
-        final var counter = new Counter(input.template(), input.rules());
-        return String.valueOf(counter.compute(10));
-    }
+  @Override
+  public @NonNull String doSolve(@NonNull Input input) {
+    final var counter = new Counter(input.template(), input.rules());
+    return String.valueOf(counter.compute(10));
+  }
 }

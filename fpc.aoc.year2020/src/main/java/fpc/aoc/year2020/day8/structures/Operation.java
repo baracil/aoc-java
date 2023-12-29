@@ -14,34 +14,34 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public enum Operation {
-    ACC(Acc::parse),
-    NOP(Nop::parse),
-    JMP(Jmp::parse),
-    ;
+  ACC(Acc::parse),
+  NOP(Nop::parse),
+  JMP(Jmp::parse),
+  ;
 
-    private final Function<? super String, ? extends Instruction> factory;
+  private final Function<? super String, ? extends Instruction> factory;
 
-    public static @NonNull Operation find(@NonNull String name) {
-        final var operation = Holder.OPERATION_BY_NAME.get(name.toLowerCase());
-        if (operation == null) {
-            throw new AOCException("No operation found with name '" + name + "'");
-        }
-        return operation;
+  public static @NonNull Operation find(@NonNull String name) {
+    final var operation = Holder.OPERATION_BY_NAME.get(name.toLowerCase());
+    if (operation == null) {
+      throw new AOCException("No operation found with name '" + name + "'");
+    }
+    return operation;
+  }
+
+  public @NonNull Instruction createInstruction(@NonNull String argument) {
+    return factory.apply(argument);
+  }
+
+  private static class Holder {
+
+    private static final Map<String, Operation> OPERATION_BY_NAME;
+
+    static {
+      OPERATION_BY_NAME = Arrays.stream(values())
+          .collect(Collectors.toMap(op -> op.name().toLowerCase(), op -> op));
     }
 
-    public @NonNull Instruction createInstruction(@NonNull String argument) {
-        return factory.apply(argument);
-    }
-
-    private static class Holder {
-
-        private static final Map<String, Operation> OPERATION_BY_NAME;
-
-        static {
-            OPERATION_BY_NAME = Arrays.stream(values())
-                                      .collect(Collectors.toMap(op -> op.name().toLowerCase(), op -> op));
-        }
-
-    }
+  }
 
 }

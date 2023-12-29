@@ -9,8 +9,8 @@ import lombok.NonNull;
 
 public abstract class Day20Solver extends SmartSolver<Circuit> {
 
-    @Override
-    protected @NonNull Converter<Circuit> getConverter() {
-        return Converter.forItem(Module::parse).andThen(Circuit::create);
-    }
+  @Override
+  protected @NonNull Converter<Circuit> getConverter() {
+    return Converter.forItem(Module::parse).andThen(Circuit::create);
+  }
 }

@@ -5,9 +5,9 @@ import fpc.aoc.common._private.HashTable;
 import java.util.Collection;
 import java.util.Map;
 
-public interface Table<R,C,V> {
+public interface Table<R, C, V> {
 
-  static <R,C,V> Table<R,C,V> create() {
+  static <R, C, V> Table<R, C, V> create() {
     return new HashTable<>();
   }
 

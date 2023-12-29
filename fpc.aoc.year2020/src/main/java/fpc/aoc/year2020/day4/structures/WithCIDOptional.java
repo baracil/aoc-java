@@ -8,12 +8,12 @@ import java.util.stream.Collectors;
 
 public class WithCIDOptional implements ValidityRule {
 
-    private final @NonNull Set<FieldName> compulsoryFields = Arrays.stream(FieldName.values())
-                                                                            .filter(f -> f!=FieldName.CID)
-                                                                            .collect(Collectors.toSet());
+  private final @NonNull Set<FieldName> compulsoryFields = Arrays.stream(FieldName.values())
+      .filter(f -> f != FieldName.CID)
+      .collect(Collectors.toSet());
 
-    @Override
-    public boolean isValid(@NonNull Passport passport) {
-        return passport.hasFields(compulsoryFields);
-    }
+  @Override
+  public boolean isValid(@NonNull Passport passport) {
+    return passport.hasFields(compulsoryFields);
+  }
 }

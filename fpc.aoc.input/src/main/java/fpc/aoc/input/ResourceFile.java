@@ -22,7 +22,7 @@ public class ResourceFile implements RawInput {
 
 
   public ResourceFile(@NonNull SolverId solverId) {
-    this(solverId.year(),solverId.day());
+    this(solverId.year(), solverId.day());
   }
 
   @Override

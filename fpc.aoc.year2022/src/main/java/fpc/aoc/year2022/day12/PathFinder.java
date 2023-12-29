@@ -48,7 +48,7 @@ public class PathFinder {
       final var heightAtPos = height(pos);
 
       gridHelper.allCardinalNeighbours(pos)
-          .filter(p -> pathInfo.isReachable(heightAtPos,height(p)) && !visitedPositions.contains(p))
+          .filter(p -> pathInfo.isReachable(heightAtPos, height(p)) && !visitedPositions.contains(p))
           .forEach(p -> {
             toProcess.addLast(path.withNewStep(p));
             visitedPositions.add(p);

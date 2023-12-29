@@ -7,13 +7,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @Getter
 public enum Type {
-  SEED_TO_SOIL(0,"seed-to-soil"),
-  SOIL_TO_FERTILIZER(1,"soil-to-fertilizer"),
-  FERTILIZER_TO_WATER(2,"fertilizer-to-water"),
-  WATER_TO_LIGHT(3,"water-to-light"),
-  LIGHT_TO_TEMPERATURE(4,"light-to-temperature"),
-  TEMPERATURE_TO_HUMIDITY(5,"temperature-to-humidity"),
-  HUMIDITY_TO_LOCATION(6,"humidity-to-location"),
+  SEED_TO_SOIL(0, "seed-to-soil"),
+  SOIL_TO_FERTILIZER(1, "soil-to-fertilizer"),
+  FERTILIZER_TO_WATER(2, "fertilizer-to-water"),
+  WATER_TO_LIGHT(3, "water-to-light"),
+  LIGHT_TO_TEMPERATURE(4, "light-to-temperature"),
+  TEMPERATURE_TO_HUMIDITY(5, "temperature-to-humidity"),
+  HUMIDITY_TO_LOCATION(6, "humidity-to-location"),
   ;
 
   private final int order;
@@ -25,7 +25,7 @@ public enum Type {
         return value;
       }
     }
-    throw new AOCException("Invalid line : '"+line+"'");
+    throw new AOCException("Invalid line : '" + line + "'");
 
   }
 }

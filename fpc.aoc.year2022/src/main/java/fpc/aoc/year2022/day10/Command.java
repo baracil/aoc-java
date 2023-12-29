@@ -17,7 +17,7 @@ public interface Command {
   }
 
 
-  record Noop() implements Command{
+  record Noop() implements Command {
     @Override
     public int nbCycles() {
       return 1;
@@ -30,7 +30,7 @@ public interface Command {
 
   }
 
-  record AddX(int increment) implements Command{
+  record AddX(int increment) implements Command {
     @Override
     public int nbCycles() {
       return 2;
@@ -38,7 +38,7 @@ public interface Command {
 
     @Override
     public int applyToRegister(int registerValue) {
-      return registerValue+increment;
+      return registerValue + increment;
     }
   }
 

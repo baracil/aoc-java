@@ -14,7 +14,7 @@ public class CommandProvider {
   private int commandIndex = 0;
 
   public @NonNull Optional<Command> takeCommand() {
-    if (commandIndex>= commands.size()) {
+    if (commandIndex >= commands.size()) {
       return Optional.empty();
     }
     return Optional.ofNullable(commands.get(commandIndex++));

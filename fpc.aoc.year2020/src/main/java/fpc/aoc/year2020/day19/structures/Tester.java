@@ -9,14 +9,14 @@ import java.util.function.Predicate;
 @RequiredArgsConstructor
 public class Tester implements Predicate<String> {
 
-    private final @NonNull Map<Integer, Rule> rules;
+  private final @NonNull Map<Integer, Rule> rules;
 
-    @Override
-    public boolean test(String message) {
-        return rules.get(0)
-                    .matches(IndexedString.initial(message), rules::get)
-                    .anyMatch(IndexedString::isEmpty);
-    }
+  @Override
+  public boolean test(String message) {
+    return rules.get(0)
+        .matches(IndexedString.initial(message), rules::get)
+        .anyMatch(IndexedString::isEmpty);
+  }
 
 
 }

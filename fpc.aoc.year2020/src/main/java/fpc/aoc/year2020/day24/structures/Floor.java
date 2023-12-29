@@ -6,9 +6,9 @@ import java.util.Set;
 
 public class Floor {
 
-    private final Set<HexaPoint> blackTiles;
+  private final Set<HexaPoint> blackTiles;
 
-    public Floor(Set<HexaPoint> initialBlackTiles) {
-        this.blackTiles = new HashSet<>(initialBlackTiles);
-    }
+  public Floor(Set<HexaPoint> initialBlackTiles) {
+    this.blackTiles = new HashSet<>(initialBlackTiles);
+  }
 }

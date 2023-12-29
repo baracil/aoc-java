@@ -6,20 +6,20 @@ import java.util.Set;
 import java.util.stream.Stream;
 
 public enum Direction {
-    E,
-    SE,
-    SW,
-    W,
-    NW,
-    NE,
-    ;
+  E,
+  SE,
+  SW,
+  W,
+  NW,
+  NE,
+  ;
 
-    public static @NonNull Stream<Direction> all() {
-        return Holder.ALL.stream();
-    }
+  public static @NonNull Stream<Direction> all() {
+    return Holder.ALL.stream();
+  }
 
-    private static class Holder {
+  private static class Holder {
 
-        private static final Set<Direction> ALL = Set.of(Direction.values());
-    }
+    private static final Set<Direction> ALL = Set.of(Direction.values());
+  }
 }

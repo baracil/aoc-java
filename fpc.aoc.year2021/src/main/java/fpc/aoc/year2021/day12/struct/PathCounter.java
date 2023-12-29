@@ -7,33 +7,32 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class PathCounter {
 
-    public static long count(@NonNull Graph graph, @NonNull RecursiveMode recursiveMode) {
-        return new PathCounter(graph,recursiveMode).count();
+  public static long count(@NonNull Graph graph, @NonNull RecursiveMode recursiveMode) {
+    return new PathCounter(graph, recursiveMode).count();
+  }
+
+  private final Graph graph;
+  private final RecursiveMode recursiveMode;
+  private long nbPaths = 0;
+
+  private long count() {
+    count(graph.start());
+    return nbPaths;
+  }
+
+  private void count(Node position) {
+    // invariant: position is not visited and not end
+    recursiveMode.onEntering(position);
+
+    for (@NonNull Node connection : graph.getConnections(position)) {
+      if (connection.end()) {
+        nbPaths += 1;
+      } else if (recursiveMode.canVisit(connection)) {
+        count(connection);
+      }
     }
 
-    private final Graph graph;
-    private final RecursiveMode recursiveMode;
-    private long nbPaths = 0;
+    recursiveMode.onLeaving(position);
 
-    private long count() {
-        count(graph.start());
-        return nbPaths;
-    }
-
-    private void count(Node position) {
-        // invariant: position is not visited and not end
-        recursiveMode.onEntering(position);
-
-        for (@NonNull Node connection : graph.getConnections(position)) {
-            if (connection.end()) {
-                nbPaths+=1;
-            }
-            else if (recursiveMode.canVisit(connection)) {
-                count(connection);
-            }
-        }
-
-        recursiveMode.onLeaving(position);
-
-    }
+  }
 }

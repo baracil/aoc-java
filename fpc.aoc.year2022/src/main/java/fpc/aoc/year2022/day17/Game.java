@@ -23,7 +23,7 @@ public class Game {
    */
   public @NonNull TurnInfo fallOnePiece() {
     final var shapeType = generator.getShape(shapeIndex);
-    final var turnInfo = new TurnInfo(shapeType, chamber.peekSnapshot(shapeType,jetIndex), turnIndex, chamber.highestRock());
+    final var turnInfo = new TurnInfo(shapeType, chamber.peekSnapshot(shapeType, jetIndex), turnIndex, chamber.highestRock());
 
     shapeIndex++;
     turnIndex++;

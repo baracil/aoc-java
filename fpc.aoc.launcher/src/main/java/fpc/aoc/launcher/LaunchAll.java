@@ -8,11 +8,11 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class LaunchAll {
 
-    public static void main(String[] args) {
-        SolverService.loadSolvers()
-                      .sorted(Solver.CHRONOLOGICAL)
-                      .forEach(Launcher::launch);
-    }
+  public static void main(String[] args) {
+    SolverService.loadSolvers()
+        .sorted(Solver.CHRONOLOGICAL)
+        .forEach(Launcher::launch);
+  }
 
 }
 

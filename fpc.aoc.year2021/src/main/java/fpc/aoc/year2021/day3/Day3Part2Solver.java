@@ -5,13 +5,13 @@ import lombok.NonNull;
 
 public class Day3Part2Solver extends Day3Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day3Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day3Part2Solver();
+  }
 
-    @Override
-    public @NonNull String doSolve(@NonNull DiagnosticReport input) {
-        return LifeSupport.from(input).getRatingProduct();
+  @Override
+  public @NonNull String doSolve(@NonNull DiagnosticReport input) {
+    return LifeSupport.from(input).getRatingProduct();
 
-    }
+  }
 }

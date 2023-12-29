@@ -21,9 +21,9 @@ public class Rucksack {
 
   public static @NonNull Rucksack parse(@NonNull String line) {
     final var size = line.length();
-    final var first = Compartment.parse(line.substring(0,size/2));
-    final var second = Compartment.parse(line.substring(size/2));
-    return new Rucksack(first,second);
+    final var first = Compartment.parse(line.substring(0, size / 2));
+    final var second = Compartment.parse(line.substring(size / 2));
+    return new Rucksack(first, second);
   }
 
 

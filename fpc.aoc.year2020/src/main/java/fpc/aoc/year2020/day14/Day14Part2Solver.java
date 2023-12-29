@@ -7,13 +7,13 @@ import lombok.NonNull;
 
 public class Day14Part2Solver extends Day14Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day14Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day14Part2Solver();
+  }
 
-    @Override
-    protected @NonNull Memory createMemory() {
-        return new MemoryPart2();
-    }
+  @Override
+  protected @NonNull Memory createMemory() {
+    return new MemoryPart2();
+  }
 
 }

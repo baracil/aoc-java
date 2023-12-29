@@ -15,8 +15,8 @@ public class CrateMover9001 implements CrateMover {
       buffer.addLast(c);
     }
 
-    while(!buffer.isEmpty()) {
-      stacks.put(procedureStep.targetStack(),buffer.removeLast());
+    while (!buffer.isEmpty()) {
+      stacks.put(procedureStep.targetStack(), buffer.removeLast());
     }
 
 

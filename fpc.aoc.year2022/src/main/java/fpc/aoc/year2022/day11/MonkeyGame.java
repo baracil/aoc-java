@@ -31,7 +31,7 @@ public class MonkeyGame {
       }
     }
   }
-  
+
   public long getMonkeyBusiness() {
     final var top = new Top(2);
     Arrays.stream(nbInspection).forEach(top::handle);

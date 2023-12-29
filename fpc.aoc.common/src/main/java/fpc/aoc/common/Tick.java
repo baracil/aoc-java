@@ -12,7 +12,7 @@ public class Tick {
   public void tack(String label) {
     final var old = this.time;
     tick();
-    System.out.format("%s : %.3f%n",label,(this.time-old)*1e-6);
+    System.out.format("%s : %.3f%n", label, (this.time - old) * 1e-6);
     tick();
   }
 }

@@ -40,14 +40,14 @@ public class SimpleGridHelper implements GridHelper {
     final int xc = center.x();
     final int yc = center.y();
     return Stream.of(
-      nullableAt(xc - 1, yc - 1),
-      nullableAt(xc - 1, yc),
-      nullableAt(xc - 1, yc + 1),
-      nullableAt(xc + 1, yc - 1),
-      nullableAt(xc + 1, yc),
-      nullableAt(xc + 1, yc + 1),
-      nullableAt(xc, yc - 1),
-      nullableAt(xc, yc + 1)
+        nullableAt(xc - 1, yc - 1),
+        nullableAt(xc - 1, yc),
+        nullableAt(xc - 1, yc + 1),
+        nullableAt(xc + 1, yc - 1),
+        nullableAt(xc + 1, yc),
+        nullableAt(xc + 1, yc + 1),
+        nullableAt(xc, yc - 1),
+        nullableAt(xc, yc + 1)
     ).filter(Objects::nonNull);
   }
 
@@ -64,19 +64,18 @@ public class SimpleGridHelper implements GridHelper {
   }
 
 
-
   @Override
   public @NonNull Stream<Position> positionsInDirection(@NonNull Position center, @NonNull Displacement displacement) {
     final int dx = displacement.dx();
     final int dy = displacement.dy();
     return IntStream.iterate(1, i -> i + 1)
-      .mapToObj(i -> nullableAt(center.x() + dx * i, center.y() + dy * i))
-      .takeWhile(Objects::nonNull);
+        .mapToObj(i -> nullableAt(center.x() + dx * i, center.y() + dy * i))
+        .takeWhile(Objects::nonNull);
   }
 
   @Override
   public boolean isOnBorder(Position position) {
-    return position.x() == 0 || position.x() == width-1 || position.y() == 0 || position.y() == height-1;
+    return position.x() == 0 || position.x() == width - 1 || position.y() == 0 || position.y() == height - 1;
   }
 
   @Override

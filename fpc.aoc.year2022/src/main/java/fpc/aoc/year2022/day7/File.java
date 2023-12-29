@@ -43,7 +43,7 @@ public sealed interface File permits File.Folder, File.RegularFile {
 
     public Stream<Folder> streamDirectories() {
       return children.stream().filter(f -> f instanceof Folder)
-          .map(f -> (Folder)f)
+          .map(f -> (Folder) f)
           .flatMap(folder -> Stream.concat(Stream.of(folder), folder.streamDirectories()));
     }
 
@@ -64,7 +64,7 @@ public sealed interface File permits File.Folder, File.RegularFile {
     }
 
     public void addToSize(int size) {
-      this.size+=size;
+      this.size += size;
       if (this.parent != this) {
         this.parent.addToSize(size);
       }
@@ -72,7 +72,7 @@ public sealed interface File permits File.Folder, File.RegularFile {
 
     @Override
     public String toString() {
-      return "dir : "+name + " "+size;
+      return "dir : " + name + " " + size;
     }
   }
 
@@ -99,7 +99,7 @@ public sealed interface File permits File.Folder, File.RegularFile {
 
     @Override
     public String toString() {
-      return "fil : "+name + " "+size;
+      return "fil : " + name + " " + size;
     }
 
   }

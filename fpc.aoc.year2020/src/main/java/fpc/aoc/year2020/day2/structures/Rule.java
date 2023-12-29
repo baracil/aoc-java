@@ -4,5 +4,5 @@ import lombok.NonNull;
 
 public interface Rule {
 
-    boolean isPasswordValid(@NonNull Password password);
+  boolean isPasswordValid(@NonNull Password password);
 }

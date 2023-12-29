@@ -6,8 +6,8 @@ import lombok.NonNull;
 
 public abstract class Day15Solver extends SmartSolver<Report> {
 
-    @Override
-    protected @NonNull Converter<Report> getConverter() {
-        return Converter.forItem(SensorReport::parse).andThen(Report::new);
-    }
+  @Override
+  protected @NonNull Converter<Report> getConverter() {
+    return Converter.forItem(SensorReport::parse).andThen(Report::new);
+  }
 }

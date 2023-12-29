@@ -6,13 +6,13 @@ import java.util.Comparator;
 
 public interface Solver {
 
-    Comparator<Solver> CHRONOLOGICAL = Comparator.comparing(Solver::id);
+  Comparator<Solver> CHRONOLOGICAL = Comparator.comparing(Solver::id);
 
-    @NonNull SolverId id();
+  @NonNull SolverId id();
 
-    @NonNull Object solve(@NonNull RawInput input);
+  @NonNull Object solve(@NonNull RawInput input);
 
-    default boolean isSkipped() {
-        return false;
-    }
+  default boolean isSkipped() {
+    return false;
+  }
 }

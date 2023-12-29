@@ -7,11 +7,11 @@ import java.math.BigInteger;
 
 public class Snafu {
 
-  private static final char[] CHARS = {'=','-','0','1','2'};
+  private static final char[] CHARS = {'=', '-', '0', '1', '2'};
 
   public static String toSnafu(BigInteger value) {
     var f = TWO;
-    while(f.compareTo(value)<0) {
+    while (f.compareTo(value) < 0) {
       f = f.multiply(FIVE).add(TWO);
     }
     f = f.add(value);
@@ -19,7 +19,7 @@ public class Snafu {
     final String reversed;
     {
       final var sb = new StringBuilder();
-      while (f.compareTo(ZERO)>0) {
+      while (f.compareTo(ZERO) > 0) {
         sb.append(CHARS[f.mod(FIVE).intValue()]);
         f = f.divide(FIVE);
       }
@@ -30,7 +30,7 @@ public class Snafu {
     {
       final var sb = new StringBuilder();
       for (int i = 0; i < reversed.length(); i++) {
-        sb.append(reversed.charAt(reversed.length()-1-i));
+        sb.append(reversed.charAt(reversed.length() - 1 - i));
       }
       right = sb.toString();
     }
@@ -50,14 +50,14 @@ public class Snafu {
     BigInteger factor = BigInteger.ONE;
     final var length = line.length();
     for (int i = 0; i < length; i++) {
-      final var chr = line.charAt(length-i-1);
+      final var chr = line.charAt(length - i - 1);
       final var digit = switch (chr) {
         case '2' -> TWO;
         case '1' -> ONE;
         case '0' -> ZERO;
         case '-' -> MINUS_ONE;
         case '=' -> MINUS_TWO;
-        default -> throw new AOCException("Unknown digit '"+chr+"'");
+        default -> throw new AOCException("Unknown digit '" + chr + "'");
       };
       value = value.add(factor.multiply(digit));
       factor = factor.multiply(FIVE);

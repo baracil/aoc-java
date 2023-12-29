@@ -21,7 +21,7 @@ public class Chamber {
   }
 
   public @NonNull Position getStartingPosition() {
-    return Position.of(2,highestRock+4);
+    return Position.of(2, highestRock + 4);
   }
 
 
@@ -32,7 +32,7 @@ public class Chamber {
     while (idx >= 0) {
       final var l = levels.get(idx);
       if (l.stop(shapeType)) {
-        return new Snapshot(IntStream.rangeClosed(idx,top).map(i -> levels.get(i).rocks).toArray(),shapeType,jetIndex);
+        return new Snapshot(IntStream.rangeClosed(idx, top).map(i -> levels.get(i).rocks).toArray(), shapeType, jetIndex);
       }
       idx--;
     }
@@ -40,7 +40,7 @@ public class Chamber {
   }
 
   public boolean isEmpty(int x, int y) {
-    if (x < 0 || x >=7 ) {
+    if (x < 0 || x >= 7) {
       return false;
     }
 
@@ -59,7 +59,7 @@ public class Chamber {
     final var x = p.x();
     final var level = getOrCreateLevel(y);
 
-    highestRock = Math.max(highestRock,y);
+    highestRock = Math.max(highestRock, y);
     level.setRock(x);
   }
 
@@ -82,6 +82,7 @@ public class Chamber {
     public static Level empty() {
       return new Level(0);
     }
+
     public static Level full() {
       return new Level(127);
     }
@@ -89,8 +90,8 @@ public class Chamber {
     @Override
     public String toString() {
       return IntStream.range(0, 7)
-          .map(i -> 1<<(6-i))
-          .mapToObj(i -> (rocks&i)==0 ? "." : "#").collect(Collectors.joining());
+          .map(i -> 1 << (6 - i))
+          .mapToObj(i -> (rocks & i) == 0 ? "." : "#").collect(Collectors.joining());
     }
 
     private boolean notMatch(int mask) {
@@ -146,12 +147,12 @@ public class Chamber {
     }
 
     public void setRock(int x) {
-      final var s = 1<<x;
-      this.rocks |=s;
+      final var s = 1 << x;
+      this.rocks |= s;
     }
 
     public boolean isRock(int x) {
-      return (rocks&(1<<x)) !=0;
+      return (rocks & (1 << x)) != 0;
     }
   }
 

@@ -65,10 +65,10 @@ public class Input {
 
 
   public static final Collector<String, ?, List<Input>> COLLECTOR = Collector.of(
-    Agg::new,
-    Agg::add,
-    Agg::combine,
-    Agg::build
+      Agg::new,
+      Agg::add,
+      Agg::combine,
+      Agg::build
   );
 
   private static class Agg {

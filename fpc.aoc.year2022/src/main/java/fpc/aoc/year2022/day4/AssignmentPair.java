@@ -12,7 +12,7 @@ public class AssignmentPair {
 
   public static @NonNull AssignmentPair parse(@NonNull String line) {
     final var idx = line.indexOf(",");
-    return new AssignmentPair(AssignmentPair.parseToIntRange(line.substring(0,idx)), AssignmentPair.parseToIntRange(line.substring(idx+1)));
+    return new AssignmentPair(AssignmentPair.parseToIntRange(line.substring(0, idx)), AssignmentPair.parseToIntRange(line.substring(idx + 1)));
   }
 
   public boolean hasSectionFullyContainedInOther() {

@@ -31,9 +31,9 @@ public class ConjunctionState {
     private final Map<String, Pulse> states;
 
     public Pulse updateState(String source, Pulse pulse) {
-      this.states.put(source,pulse);
+      this.states.put(source, pulse);
       final var allHigh = this.states.values().stream().allMatch(p -> p == Pulse.HIGH);
-      return allHigh?Pulse.LOW:Pulse.HIGH;
+      return allHigh ? Pulse.LOW : Pulse.HIGH;
     }
 
     public ConjunctionState fix() {

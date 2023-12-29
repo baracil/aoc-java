@@ -59,10 +59,10 @@ public enum Orientation implements Translation {
 
     static {
       ROTATION = Map.of(
-        N, new Orientation[]{N, E, S, W},
-        E, new Orientation[]{E, S, W, N},
-        S, new Orientation[]{S, W, N, E},
-        W, new Orientation[]{W, N, E, S}
+          N, new Orientation[]{N, E, S, W},
+          E, new Orientation[]{E, S, W, N},
+          S, new Orientation[]{S, W, N, E},
+          W, new Orientation[]{W, N, E, S}
       );
     }
 

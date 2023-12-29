@@ -7,15 +7,15 @@ import java.util.List;
 
 public class Day10Part2Solver extends Day10Solver<String> {
 
-    public static @NonNull Solver provider() {
-        return new Day10Part2Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day10Part2Solver();
+  }
 
-    @Override
-    public @NonNull String doSolve(@NonNull List<Command> input) {
-        final var videoSystem = new VideoSystem();
+  @Override
+  public @NonNull String doSolve(@NonNull List<Command> input) {
+    final var videoSystem = new VideoSystem();
 
-        videoSystem.execute(new CommandProvider(input));
-        return videoSystem.dumpDisplay();
-    }
+    videoSystem.execute(new CommandProvider(input));
+    return videoSystem.dumpDisplay();
+  }
 }

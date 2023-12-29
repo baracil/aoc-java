@@ -20,7 +20,7 @@ public class Valves {
     this.masks = new int[names.length];
     int allOpened = 0;
     for (int i = 0; i < masks.length; i++) {
-      masks[i] = 1<<i;
+      masks[i] = 1 << i;
       allOpened |= masks[i];
     }
     this.allOpenedMask = allOpened;
@@ -51,9 +51,9 @@ public class Valves {
   }
 
   public Stream<IntPair> generateBalancedPartitions() {
-    final var nbValves=  getNbValves();
-    return Tools.generateWithNumberOfBitsAtOne(nbValves,nbValves/2)
-        .mapToObj(m -> new IntPair(m, (~m)&allOpenedMask));
+    final var nbValves = getNbValves();
+    return Tools.generateWithNumberOfBitsAtOne(nbValves, nbValves / 2)
+        .mapToObj(m -> new IntPair(m, (~m) & allOpenedMask));
 
   }
 

@@ -9,35 +9,35 @@ import java.util.function.Supplier;
 @RequiredArgsConstructor
 public class LazyString implements CharSequence {
 
-    public static LazyString of(@NonNull Supplier<? extends CharSequence> heavyComputation) {
-        return new LazyString(heavyComputation);
-    }
+  public static LazyString of(@NonNull Supplier<? extends CharSequence> heavyComputation) {
+    return new LazyString(heavyComputation);
+  }
 
-    private final AtomicReference<CharSequence> value = new AtomicReference<>(null);
+  private final AtomicReference<CharSequence> value = new AtomicReference<>(null);
 
-    private final Supplier<? extends CharSequence> heavyComputation;
+  private final Supplier<? extends CharSequence> heavyComputation;
 
-    @Override
-    public int length() {
-        return getValue().length();
-    }
+  @Override
+  public int length() {
+    return getValue().length();
+  }
 
-    @Override
-    public char charAt(int index) {
-        return getValue().charAt(index);
-    }
+  @Override
+  public char charAt(int index) {
+    return getValue().charAt(index);
+  }
 
-    @Override
-    public CharSequence subSequence(int start, int end) {
-        return getValue().subSequence(start,end);
-    }
+  @Override
+  public CharSequence subSequence(int start, int end) {
+    return getValue().subSequence(start, end);
+  }
 
-    @Override
-    public @NonNull String toString() {
-        return getValue().toString();
-    }
+  @Override
+  public @NonNull String toString() {
+    return getValue().toString();
+  }
 
-    private @NonNull CharSequence getValue() {
-        return value.updateAndGet(c -> c==null?heavyComputation.get():c);
-    }
+  private @NonNull CharSequence getValue() {
+    return value.updateAndGet(c -> c == null ? heavyComputation.get() : c);
+  }
 }

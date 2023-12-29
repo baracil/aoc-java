@@ -10,19 +10,19 @@ import java.util.Set;
  * and returns its input
  */
 @RequiredArgsConstructor
-public class IsOneOf implements Rule<String,String> {
+public class IsOneOf implements Rule<String, String> {
 
-    public static @NonNull IsOneOf these(@NonNull String... expectedValues) {
-        return new IsOneOf(Set.of(expectedValues));
+  public static @NonNull IsOneOf these(@NonNull String... expectedValues) {
+    return new IsOneOf(Set.of(expectedValues));
+  }
+
+  private final @NonNull Set<String> expectedValues;
+
+  @Override
+  public @NonNull Validation<String> validate(@NonNull String input) {
+    if (expectedValues.contains(input)) {
+      return Validation.valid(input);
     }
-
-    private final @NonNull Set<String> expectedValues;
-
-    @Override
-    public @NonNull Validation<String> validate(@NonNull String input) {
-        if (expectedValues.contains(input)) {
-            return Validation.valid(input);
-        }
-        return Validation.invalid();
-    }
+    return Validation.invalid();
+  }
 }

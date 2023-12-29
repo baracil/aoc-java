@@ -6,5 +6,5 @@ import lombok.Value;
 @Value
 public class Ingredient {
 
-    private final @NonNull String name;
+  private final @NonNull String name;
 }

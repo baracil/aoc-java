@@ -9,6 +9,6 @@ public record PairOfItem(int index, Item first, Item second) {
   }
 
   public Stream<Item> items() {
-    return Stream.of(first,second);
+    return Stream.of(first, second);
   }
 }

@@ -8,21 +8,21 @@ import lombok.NonNull;
 
 public abstract class Day18Solver extends SmartSolver<Polygon> {
 
-    public abstract InstructionParser getParser();
+  public abstract InstructionParser getParser();
 
-    @Override
-    protected @NonNull Converter<Polygon> getConverter() {
-        final var parser = getParser();
-        return Converter.forItem(parser::parse).andThen(Polygon::from);
-    }
+  @Override
+  protected @NonNull Converter<Polygon> getConverter() {
+    final var parser = getParser();
+    return Converter.forItem(parser::parse).andThen(Polygon::from);
+  }
 
-    @Override
-    public @NonNull Long doSolve(@NonNull Polygon input) {
-        final var area = input.area();
-        final var perimeter = input.perimeter();
+  @Override
+  public @NonNull Long doSolve(@NonNull Polygon input) {
+    final var area = input.area();
+    final var perimeter = input.perimeter();
 
-        final var inside = area-perimeter/2+1;
+    final var inside = area - perimeter / 2 + 1;
 
-        return inside+perimeter;
-    }
+    return inside + perimeter;
+  }
 }

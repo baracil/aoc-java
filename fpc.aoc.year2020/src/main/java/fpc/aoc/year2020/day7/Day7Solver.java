@@ -8,8 +8,8 @@ import lombok.NonNull;
 
 public abstract class Day7Solver extends SmartSolver<BagGraph> {
 
-    @Override
-    protected @NonNull Converter<BagGraph> getConverter() {
-        return BagGraphBuilder::build;
-    }
+  @Override
+  protected @NonNull Converter<BagGraph> getConverter() {
+    return BagGraphBuilder::build;
+  }
 }

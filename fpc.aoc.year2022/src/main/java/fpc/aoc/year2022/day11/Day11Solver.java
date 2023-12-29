@@ -12,21 +12,21 @@ import java.util.function.LongUnaryOperator;
 public abstract class Day11Solver extends SmartSolver<MonkeyGame> {
 
 
-    @Override
-    protected @NonNull Converter<MonkeyGame> getConverter() {
-        return s -> s.stream().collect(ParsedMonkeyAgg.collect(this::createPostOperation));
+  @Override
+  protected @NonNull Converter<MonkeyGame> getConverter() {
+    return s -> s.stream().collect(ParsedMonkeyAgg.collect(this::createPostOperation));
+  }
+
+
+  @Override
+  public @NonNull Long doSolve(@NonNull MonkeyGame input) {
+    for (int i = 0; i < getNumberOfTurns(); i++) {
+      input.performOneTurn();
     }
+    return input.getMonkeyBusiness();
+  }
 
+  protected abstract int getNumberOfTurns();
 
-    @Override
-    public @NonNull Long doSolve(@NonNull MonkeyGame input) {
-        for (int i = 0; i < getNumberOfTurns(); i++) {
-            input.performOneTurn();
-        }
-        return input.getMonkeyBusiness();
-    }
-
-    protected abstract int getNumberOfTurns();
-
-    protected abstract LongUnaryOperator createPostOperation(@NonNull List<ParsedMonkey> parsedMonkeys);
+  protected abstract LongUnaryOperator createPostOperation(@NonNull List<ParsedMonkey> parsedMonkeys);
 }

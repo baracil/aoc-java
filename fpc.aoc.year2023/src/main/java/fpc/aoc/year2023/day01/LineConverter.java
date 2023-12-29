@@ -23,8 +23,8 @@ public class LineConverter implements ToIntFunction<String> {
   @Override
   public int applyAsInt(String value) {
     final int first = find(value, i -> i);
-    final int last = find(value, i -> value.length()-i-1);
-    return first*10+last;
+    final int last = find(value, i -> value.length() - i - 1);
+    return first * 10 + last;
   }
 
   private int find(String value, IntUnaryOperator indexGetter) {
@@ -40,15 +40,15 @@ public class LineConverter implements ToIntFunction<String> {
 
   private int toInt(String value) {
     return switch (value) {
-      case "one","1" -> 1;
-      case "two","2" -> 2;
-      case "three","3" -> 3;
-      case "four","4" -> 4;
-      case "five","5" -> 5;
-      case "six","6" -> 6;
-      case "seven","7" -> 7;
-      case "eight","8" -> 8;
-      case "nine","9" -> 9;
+      case "one", "1" -> 1;
+      case "two", "2" -> 2;
+      case "three", "3" -> 3;
+      case "four", "4" -> 4;
+      case "five", "5" -> 5;
+      case "six", "6" -> 6;
+      case "seven", "7" -> 7;
+      case "eight", "8" -> 8;
+      case "nine", "9" -> 9;
       default -> 0;
     };
   }

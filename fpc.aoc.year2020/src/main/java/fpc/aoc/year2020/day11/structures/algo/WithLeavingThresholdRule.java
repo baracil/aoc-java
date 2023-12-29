@@ -8,14 +8,15 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class WithLeavingThresholdRule implements StateEvolutionRule {
 
-    private final long occupiedThresholdWhenLeaving;
+  private final long occupiedThresholdWhenLeaving;
 
-    @Override
-    public @NonNull State evaluateNewSate(@NonNull State current, long numberOfAdjacentOccupiedSeats) {
-        return switch (current) {
-            case OCCUPIED_SEAT -> numberOfAdjacentOccupiedSeats<occupiedThresholdWhenLeaving?State.OCCUPIED_SEAT:State.EMPTY_SEAT;
-            case FLOOR -> State.FLOOR;
-            case EMPTY_SEAT -> numberOfAdjacentOccupiedSeats==0?State.OCCUPIED_SEAT:State.EMPTY_SEAT;
-        };
-    }
+  @Override
+  public @NonNull State evaluateNewSate(@NonNull State current, long numberOfAdjacentOccupiedSeats) {
+    return switch (current) {
+      case OCCUPIED_SEAT ->
+          numberOfAdjacentOccupiedSeats < occupiedThresholdWhenLeaving ? State.OCCUPIED_SEAT : State.EMPTY_SEAT;
+      case FLOOR -> State.FLOOR;
+      case EMPTY_SEAT -> numberOfAdjacentOccupiedSeats == 0 ? State.OCCUPIED_SEAT : State.EMPTY_SEAT;
+    };
+  }
 }

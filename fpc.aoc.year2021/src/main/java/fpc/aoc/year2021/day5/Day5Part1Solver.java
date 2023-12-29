@@ -8,12 +8,12 @@ import java.util.stream.Stream;
 
 public class Day5Part1Solver extends Day5Solver {
 
-    public static @NonNull Solver provider() {
-        return new Day5Part1Solver();
-    }
+  public static @NonNull Solver provider() {
+    return new Day5Part1Solver();
+  }
 
-    @Override
-    public @NonNull String doSolve(@NonNull Stream<Vent> input) {
-        return doSolve(input, Vent::isVerticalOrHorizontal);
-    }
+  @Override
+  public @NonNull String doSolve(@NonNull Stream<Vent> input) {
+    return doSolve(input, Vent::isVerticalOrHorizontal);
+  }
 }

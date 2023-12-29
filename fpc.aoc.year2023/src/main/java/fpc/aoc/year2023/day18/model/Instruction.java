@@ -7,11 +7,11 @@ public record Instruction(Orientation orientation, int length) implements Transl
 
   @Override
   public int dx() {
-    return orientation.dx()*length;
+    return orientation.dx() * length;
   }
 
   @Override
   public int dy() {
-    return orientation.dy()*length;
+    return orientation.dy() * length;
   }
 }

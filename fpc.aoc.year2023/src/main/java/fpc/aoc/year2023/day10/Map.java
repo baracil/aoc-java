@@ -103,22 +103,22 @@ public class Map {
 
 
     tiles[idx] = Tile.estimateStart(
-      getter.apply(idx - width),
-      getter.apply(idx + 1),
-      getter.apply(idx + width),
-      getter.apply(idx - 1)
+        getter.apply(idx - width),
+        getter.apply(idx + 1),
+        getter.apply(idx + width),
+        getter.apply(idx - 1)
     );
 
     return new Map(new BaseGenericArray<>(tiles, width, height), idx);
   }
 
   public static final Collector<String, ?, Map> COLLECTOR = BaseArray.baseCollector(
-    s -> s.chars().mapToObj(Tile::parse).toArray(Tile[]::new),
-    s -> s.length,
-    Tile[]::new,
-    t -> Arrays.fill(t, Tile.FLOOR),
-    Map::arrayCopy,
-    Map::create
+      s -> s.chars().mapToObj(Tile::parse).toArray(Tile[]::new),
+      s -> s.length,
+      Tile[]::new,
+      t -> Arrays.fill(t, Tile.FLOOR),
+      Map::arrayCopy,
+      Map::create
   );
 
   private static void arrayCopy(Tile[] source, Tile[] destination, int destinationOffset) {

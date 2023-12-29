@@ -21,7 +21,7 @@ public class Day4Part2Solver extends Day4Solver {
     for (int i = 0; i < input.size(); i++) {
       final var c = input.get(i);
       for (int j = 0, k = i + 1; j < c.nbMatches() && k < counts.length; j++, k++) {
-        counts[k] += counts[i] ;
+        counts[k] += counts[i];
       }
     }
 
