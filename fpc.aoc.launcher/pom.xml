@@ -35,6 +35,12 @@
 
     <dependency>
       <groupId>fpc.aoc</groupId>
+      <artifactId>aoc-year2019</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>fpc.aoc</groupId>
       <artifactId>aoc-year2020</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>runtime</scope>

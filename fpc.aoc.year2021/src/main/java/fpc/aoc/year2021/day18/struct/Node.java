@@ -31,9 +31,9 @@ public sealed abstract class Node {
 
   public abstract long magnitude();
 
+  @Getter
   @AllArgsConstructor
   public static final class Literal extends Node {
-    @Getter
     private int value;
 
     @Override
@@ -61,10 +61,9 @@ public sealed abstract class Node {
     }
   }
 
+  @Getter
   public static final class Pair extends Node {
-    @Getter
     private @NonNull Node left;
-    @Getter
     private @NonNull Node right;
 
     public Pair(@NonNull Node left, @NonNull Node right) {

@@ -42,6 +42,34 @@ public enum Orientation implements Translation {
     };
   }
 
+  @NonNull
+  public Command commandToSwitchTo(@NonNull Orientation target) {
+    if (rotateEast() == target) {
+      return Command.RIGHT;
+    }
+    else if (rotateWest() == target) {
+      return Command.LEFT;
+    }
+    throw new AOCException("Cannot find command to switch from "+this+" to "+target);
+  }
+
+
+  @NonNull
+  public Orientation rotateWest() {
+    return turn(-90);
+  }
+
+  @NonNull
+  public Orientation rotateEast() {
+    return turn(90);
+  }
+
+  @NonNull
+  public Position moveForward(@NonNull Position position) {
+    return position.translate(dx, dy);
+  }
+
+
   public @NonNull Orientation turn(int angle) {
     final int a = Tools.mod(angle, 360);
     assert a == 0 || a == 90 || a == 180 || a == 270;

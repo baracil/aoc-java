@@ -7,16 +7,14 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
+@Getter
 @RequiredArgsConstructor
 public class SeatLayoutUsingArray implements SeatLayout {
 
-  @Getter
   private final @NonNull State[] layout;
 
-  @Getter
   private final int width;
 
-  @Getter
   private final int height;
 
   @Override

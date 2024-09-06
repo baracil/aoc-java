@@ -9,16 +9,14 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collector;
 
+@Getter
 @RequiredArgsConstructor
 public class Guide {
 
-  @Getter
   private final @NonNull Map<Allergen, Ingredient> allergenIdentification;
 
-  @Getter
   private final @NonNull Set<Ingredient> safeIngredients;
 
-  @Getter
   private final @NonNull Bag<Ingredient> bagOfIngredients;
 
   public static Collector<String, ?, Guide> collector() {

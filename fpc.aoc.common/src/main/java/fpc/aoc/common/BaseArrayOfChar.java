@@ -4,6 +4,9 @@ import lombok.NonNull;
 
 import java.io.PrintStream;
 import java.util.Optional;
+import java.util.function.Function;
+import java.util.function.IntFunction;
+import java.util.stream.IntStream;
 
 /**
  * @author Bastien Aracil
@@ -52,6 +55,10 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
       return data[xyToIndex(x, y)];
     }
     return filling;
+  }
+  @NonNull
+  public <T> T[] convert(@NonNull Function<? super Character, ? extends T> converter, @NonNull IntFunction<T[]> arrayCreator) {
+    return IntStream.range(0, width() * height()).mapToObj(i -> converter.apply(data[i])).toArray(arrayCreator);
   }
 
   @Override

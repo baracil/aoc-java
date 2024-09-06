@@ -6,6 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Function;
+import java.util.function.IntFunction;
 import java.util.function.IntUnaryOperator;
 import java.util.stream.Collector;
 
@@ -78,6 +80,9 @@ public interface ArrayOfChar extends Array, ArrayOfCharReader {
 
     );
   }
+
+  @NonNull
+  <T> T[] convert(@NonNull Function<? super Character, ? extends T> converter, @NonNull IntFunction<T[]> arrayCreator);
 
   @NonNull String asString();
 

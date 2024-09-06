@@ -6,10 +6,10 @@ import lombok.Getter;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+@Getter
 @RequiredArgsConstructor
 public class Knot {
 
-  @Getter
   @NonNull Position position;
 
   public void displaced(Displacement displacement) {

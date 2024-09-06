@@ -9,14 +9,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.IntStream;
 
+@Getter
 @RequiredArgsConstructor
 public class Workflow {
 
-  @Getter
   private final String name;
-  @Getter
   private final List<Dispatcher> dispatchers;
-  @Getter
   private final String fallbackWorkflowName;
 
   public String process(Scrap scrap) {

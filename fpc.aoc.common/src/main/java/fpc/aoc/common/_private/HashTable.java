@@ -12,6 +12,12 @@ public class HashTable<R, C, V> implements Table<R, C, V> {
   private final Map<C, Map<R, V>> valuesByColumn = new HashMap<>();
 
   @Override
+  public void clear() {
+    this.valuesByColumn.clear();
+    this.valuesByRow.clear();
+  }
+
+  @Override
   public void put(R row, C column, V value) {
     valuesByColumn.computeIfAbsent(column, c -> new HashMap<>()).put(row, value);
     valuesByRow.computeIfAbsent(row, c -> new HashMap<>()).put(column, value);

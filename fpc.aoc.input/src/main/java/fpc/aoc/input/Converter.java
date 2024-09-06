@@ -69,6 +69,10 @@ public interface Converter<I> extends Function<List<String>, I> {
     return list -> Tools.map(list, itemMapper);
   }
 
+  static <U> Converter<Stream<U>> forStreamOfItems(Function<? super String, ? extends U> itemMapper) {
+    return list -> list.stream().map(itemMapper);
+  }
+
   static <U> Converter<U> from(Converter<U> converter) {
     return converter;
   }

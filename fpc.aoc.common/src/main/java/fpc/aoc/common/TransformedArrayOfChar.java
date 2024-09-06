@@ -5,7 +5,9 @@ import lombok.NonNull;
 
 import java.io.PrintStream;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.function.IntBinaryOperator;
+import java.util.function.IntFunction;
 import java.util.function.UnaryOperator;
 
 public class TransformedArrayOfChar extends AbstractArrayOfChar implements ArrayOfChar {
@@ -93,6 +95,18 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
       return this;
     }
     return new TransformedArrayOfChar(newTransformation, delegate);
+  }
+
+  @NonNull
+  public <T> T[] convert(@NonNull Function<? super Character, ? extends T> converter, @NonNull IntFunction<T[]> arrayCreator) {
+    final var result = arrayCreator.apply(this.width * this.height);
+    int i = 0;
+    for (int y = 0; y < this.height; y++) {
+      for (int x = 0; x < this.width; x++) {
+        result[i++] = converter.apply(get(x, y));
+      }
+    }
+    return result;
   }
 
   @Override

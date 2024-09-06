@@ -9,13 +9,13 @@ import lombok.RequiredArgsConstructor;
 import java.util.Arrays;
 import java.util.function.Predicate;
 
+@Getter
 @RequiredArgsConstructor
 public enum Part {
   PART_1(1),
   PART_2(2),
   ;
 
-  @Getter
   private final int numericalValue;
 
   @NonNull

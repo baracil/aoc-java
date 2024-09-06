@@ -11,6 +11,11 @@ import java.util.stream.IntStream;
 
 public class Tools {
 
+  public static int toInt(long value) {
+    return (int)value;
+  }
+
+
   public static IntStream generateWithNumberOfBitsAtOne(int nbBits, int nbOnes) {
     if (nbBits < nbOnes) {
       throw new AOCException("Invalid arguments, nbBits must be greater or equal to nbOnes nbBits=" + nbBits + " , nbOnes=" + nbOnes);
@@ -85,6 +90,13 @@ public class Tools {
 
 
   public static long gcd(long num1, long num2) {
+    if (num2 == 0) {
+      return num1;
+    }
+    return gcd(num2, num1 % num2);
+  }
+
+  public static int gcd(int num1, int num2) {
     if (num2 == 0) {
       return num1;
     }

@@ -8,6 +8,7 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Getter
 @RequiredArgsConstructor
 public class Food {
 
@@ -32,9 +33,7 @@ public class Food {
     );
   }
 
-  @Getter
   private final @NonNull Set<Ingredient> ingredients;
-  @Getter
   private final @NonNull Set<Allergen> allergens;
 
   @Override

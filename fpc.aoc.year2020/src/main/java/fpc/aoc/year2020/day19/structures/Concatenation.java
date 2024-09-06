@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+@Getter
 @RequiredArgsConstructor
 @ToString
 public class Concatenation implements Rule {
 
-  @Getter
   private final @NonNull List<Integer> ruleIds;
 
   @Override

@@ -7,11 +7,11 @@ import lombok.ToString;
 
 import java.util.stream.Stream;
 
+@Getter
 @RequiredArgsConstructor
 @ToString
 public class Literal implements Rule {
 
-  @Getter
   private final char value;
 
   @Override

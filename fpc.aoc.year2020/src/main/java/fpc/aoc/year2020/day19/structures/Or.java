@@ -7,14 +7,13 @@ import lombok.ToString;
 
 import java.util.stream.Stream;
 
+@Getter
 @RequiredArgsConstructor
 @ToString
 public class Or implements Rule {
 
-  @Getter
   private final @NonNull Concatenation first;
 
-  @Getter
   private final @NonNull Concatenation second;
 
   @Override

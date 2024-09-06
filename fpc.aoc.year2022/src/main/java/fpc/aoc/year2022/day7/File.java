@@ -77,7 +77,7 @@ public sealed interface File permits File.Folder, File.RegularFile {
   }
 
   @Value
-  final class RegularFile implements File {
+  class RegularFile implements File {
     @NonNull String name;
     int size;
     @NonNull Folder root;

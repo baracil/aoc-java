@@ -20,4 +20,6 @@ public interface Table<R, C, V> {
   Map<R, V> column(C var1);
 
   void put(R row, C column, V value);
+
+  void clear();
 }

@@ -10,16 +10,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+@Getter
 @RequiredArgsConstructor
 @Builder
 public class Day19Input {
 
   @Singular
-  @Getter
   private final @NonNull Map<Integer, Rule> rules;
 
   @Singular
-  @Getter
   private final @NonNull List<String> messages;
 
 
