@@ -13,7 +13,7 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class Maze {
 

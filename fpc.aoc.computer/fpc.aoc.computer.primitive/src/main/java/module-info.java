@@ -1,6 +1,4 @@
 import fpc.aoc.computer.ComputerFactory;
-import fpc.aoc.computer.primitive.FixSizeLongValueComputerFactory;
-import fpc.aoc.computer.primitive.VariableSizeLongValueComputerFactory;
 
 module fpc.aoc.computer.primitive {
     requires static lombok;

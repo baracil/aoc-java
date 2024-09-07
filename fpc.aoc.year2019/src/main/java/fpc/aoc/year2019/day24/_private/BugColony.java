@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @RequiredArgsConstructor
 public class BugColony {

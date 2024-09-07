@@ -14,7 +14,7 @@ import lombok.NonNull;
  * .xxxxx. 35 36-40 41
  * ....... 42   -   48
  *
- * @author perococco
+ * @author Bastien Aracil
  **/
 public abstract class Day24Solver extends SmartSolver<BugColony> {
 

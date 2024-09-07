@@ -3,7 +3,7 @@ package fpc.aoc.common;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class NumericalStrings {
 

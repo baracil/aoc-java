@@ -3,7 +3,7 @@ package fpc.aoc.year2019.day23._private.packet;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public interface PacketVisitor<T> {
 

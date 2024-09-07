@@ -7,7 +7,7 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public interface SynchronizedValue<T> {
 

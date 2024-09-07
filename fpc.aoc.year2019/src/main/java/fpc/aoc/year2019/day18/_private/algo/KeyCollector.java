@@ -18,7 +18,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class KeyCollector {
 

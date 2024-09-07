@@ -7,7 +7,7 @@ import fpc.aoc.computer.ProgramBasedSolver;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class Day25Part1Solver extends ProgramBasedSolver {
 

@@ -5,7 +5,7 @@ import fpc.aoc.year2019.day23._private.packet.DataPacket;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class NetworkWithNAT extends AbstractNetwork {
 

@@ -4,7 +4,7 @@ import fpc.aoc.year2019.day22._private.DeckWithPermutationShuffle;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public interface Deck {
 

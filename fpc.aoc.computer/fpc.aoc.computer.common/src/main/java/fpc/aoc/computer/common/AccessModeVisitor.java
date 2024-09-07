@@ -1,7 +1,7 @@
 package fpc.aoc.computer.common;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public interface AccessModeVisitor {
 

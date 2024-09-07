@@ -11,6 +11,7 @@
   </parent>
 
   <artifactId>aoc-launcher</artifactId>
+  <version>1.0-SNAPSHOT</version>
 
   <name>${project.name} - ${module.name}</name>
 
@@ -35,33 +36,39 @@
 
     <dependency>
       <groupId>fpc.aoc</groupId>
-      <artifactId>aoc-year2019</artifactId>
+      <artifactId>aoc-year2015</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>runtime</scope>
     </dependency>
-    <dependency>
-      <groupId>fpc.aoc</groupId>
-      <artifactId>aoc-year2020</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>fpc.aoc</groupId>
-      <artifactId>aoc-year2021</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>fpc.aoc</groupId>
-      <artifactId>aoc-year2022</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>runtime</scope>
-    </dependency>
-    <dependency>
-      <groupId>fpc.aoc</groupId>
-      <artifactId>aoc-year2023</artifactId>
-      <version>1.0-SNAPSHOT</version>
-      <scope>runtime</scope>
-    </dependency>
+<!--    <dependency>-->
+<!--      <groupId>fpc.aoc</groupId>-->
+<!--      <artifactId>aoc-year2019</artifactId>-->
+<!--      <version>1.0-SNAPSHOT</version>-->
+<!--      <scope>runtime</scope>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>fpc.aoc</groupId>-->
+<!--      <artifactId>aoc-year2020</artifactId>-->
+<!--      <version>1.0-SNAPSHOT</version>-->
+<!--      <scope>runtime</scope>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>fpc.aoc</groupId>-->
+<!--      <artifactId>aoc-year2021</artifactId>-->
+<!--      <version>1.0-SNAPSHOT</version>-->
+<!--      <scope>runtime</scope>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>fpc.aoc</groupId>-->
+<!--      <artifactId>aoc-year2022</artifactId>-->
+<!--      <version>1.0-SNAPSHOT</version>-->
+<!--      <scope>runtime</scope>-->
+<!--    </dependency>-->
+<!--    <dependency>-->
+<!--      <groupId>fpc.aoc</groupId>-->
+<!--      <artifactId>aoc-year2023</artifactId>-->
+<!--      <version>1.0-SNAPSHOT</version>-->
+<!--      <scope>runtime</scope>-->
+<!--    </dependency>-->
   </dependencies>
 </project>

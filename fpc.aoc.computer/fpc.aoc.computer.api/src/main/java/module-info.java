@@ -1,5 +1,3 @@
-import fpc.aoc.computer.ComputerFactory;
-
 module fpc.aoc.computer.api {
     requires static lombok;
 

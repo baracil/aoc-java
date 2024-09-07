@@ -4,7 +4,7 @@ import fpc.aoc.year2019.day23._private.packet.DataPacket;
 import lombok.NonNull;
 import lombok.Value;
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @Value
 public class Message {

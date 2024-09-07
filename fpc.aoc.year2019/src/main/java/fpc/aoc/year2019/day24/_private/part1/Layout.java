@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @Getter
 @RequiredArgsConstructor

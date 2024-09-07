@@ -32,7 +32,7 @@ import java.util.function.Consumer;
  *
  * 7, 6, 6, 10, 10, 5, 15, 12 , 7, 9, 12
  *
- * @author perococco
+ * @author Bastien Aracil
  **/
 @Value
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)

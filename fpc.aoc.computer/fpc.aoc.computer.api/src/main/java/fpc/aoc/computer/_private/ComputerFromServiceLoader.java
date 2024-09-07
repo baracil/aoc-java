@@ -7,7 +7,7 @@ import lombok.NonNull;
 import java.util.ServiceLoader;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class ComputerFromServiceLoader implements Computer {
 

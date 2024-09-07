@@ -3,7 +3,7 @@ package fpc.aoc.year2019.day24._private.part1;
 import lombok.Value;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @Value
 class Masks {

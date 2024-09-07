@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  *  *  *   f(i) = 1 + !1.2.!i = 1 + 2.!i
- * @author perococco
+ * @author Bastien Aracil
  **/
 @RequiredArgsConstructor
 public class SubLayout {

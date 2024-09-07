@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.function.Predicate;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @RequiredArgsConstructor
 public class DeadEndFiller<T> {

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.function.Predicate;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @RequiredArgsConstructor
 public enum Tile {

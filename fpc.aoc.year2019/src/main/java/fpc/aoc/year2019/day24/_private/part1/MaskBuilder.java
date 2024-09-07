@@ -34,7 +34,7 @@ import java.util.stream.IntStream;
  * 7  . 9
  * . 15 .
  *
- * @author perococco
+ * @author Bastien Aracil
  **/
 @RequiredArgsConstructor
 public class MaskBuilder {

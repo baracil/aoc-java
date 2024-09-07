@@ -5,7 +5,7 @@ import fpc.aoc.year2019.day22.PermutationFactors;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class DeckWithPermutationShuffle implements Deck {
 

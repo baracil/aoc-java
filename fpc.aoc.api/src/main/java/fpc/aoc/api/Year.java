@@ -13,6 +13,10 @@ import java.util.function.Predicate;
 @RequiredArgsConstructor
 @Getter
 public enum Year {
+  YEAR_2015(2015),
+  YEAR_2016(2016),
+  YEAR_2017(2017),
+  YEAR_2018(2018),
   YEAR_2019(2019),
   YEAR_2020(2020),
   YEAR_2021(2021),
@@ -32,7 +36,7 @@ public enum Year {
     return Arrays.stream(values())
         .filter(predicate)
         .findFirst()
-        .orElseThrow(() -> new AOCException("Could not convert '" + value + "' to a Day"));
+        .orElseThrow(() -> new AOCException("Could not convert '" + value + "' to a Year"));
   }
 
 

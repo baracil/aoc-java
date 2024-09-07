@@ -7,7 +7,7 @@ import fpc.aoc.year2019.day10.computation.VisibilityMap;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class Day10Part2Solver extends Day10Solver {
 

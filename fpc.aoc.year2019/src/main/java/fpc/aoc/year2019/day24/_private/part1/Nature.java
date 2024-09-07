@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
  *
  *   f(i) = 1 + !1.2.!i = 1 + 2.!i
  *
- * @author perococco
+ * @author Bastien Aracil
  **/
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Nature {

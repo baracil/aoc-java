@@ -10,7 +10,7 @@ import java.util.Optional;
 import java.util.function.Function;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @RequiredArgsConstructor
 public class PrivateOrderProducer<T> implements OrderProducer<T> {

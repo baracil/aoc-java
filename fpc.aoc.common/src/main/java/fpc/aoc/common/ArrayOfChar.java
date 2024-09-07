@@ -6,10 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.function.IntUnaryOperator;
 import java.util.stream.Collector;
+import java.util.stream.Stream;
 
 /**
  * @author Bastien Aracil
@@ -121,6 +123,8 @@ public interface ArrayOfChar extends Array, ArrayOfCharReader {
     }
     return sb.toString();
   }
+
+  <T> Stream<T> where(char value, BiFunction<Integer,Integer,T> pointFactory);
 
   @NonNull ArrayOfChar transform(@NonNull Transformation transformation);
 

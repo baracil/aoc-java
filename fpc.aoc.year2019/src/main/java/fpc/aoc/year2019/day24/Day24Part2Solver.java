@@ -5,7 +5,7 @@ import fpc.aoc.year2019.day24._private.BugColony;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class Day24Part2Solver extends Day24Solver {
     public static Solver provider() {

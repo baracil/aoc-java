@@ -6,7 +6,7 @@ import fpc.aoc.computer.Program;
 import fpc.aoc.computer.ProgramBasedSolver;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class Day25Part2Solver extends ProgramBasedSolver {
     public static Solver provider() {

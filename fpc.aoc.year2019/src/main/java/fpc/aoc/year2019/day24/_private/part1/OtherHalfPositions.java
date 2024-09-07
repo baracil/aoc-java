@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class OtherHalfPositions implements UnaryOperator<int[]> {
 

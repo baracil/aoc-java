@@ -4,7 +4,7 @@ import fpc.aoc.common.Nil;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public abstract class NoAccessProgramIO implements ProgramIO<Nil,Nil> {
 

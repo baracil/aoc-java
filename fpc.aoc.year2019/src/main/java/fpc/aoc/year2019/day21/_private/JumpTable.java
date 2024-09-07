@@ -8,7 +8,7 @@ import java.io.PrintStream;
 import java.util.stream.IntStream;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class JumpTable implements TruthTable {
 

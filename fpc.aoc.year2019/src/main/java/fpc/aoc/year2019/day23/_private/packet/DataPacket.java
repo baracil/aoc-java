@@ -4,7 +4,7 @@ import lombok.NonNull;
 import lombok.Value;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @Value
 public class DataPacket implements Packet {

@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.stream.IntStream;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public abstract class AbstractNetwork implements Network {
 
@@ -104,7 +104,7 @@ public abstract class AbstractNetwork implements Network {
     protected abstract void handlePort255(@NonNull DataPacket packet);
 
     /**
-     * @author perococco
+     * @author Bastien Aracil
      **/
     public class NetworkIO extends NoAccessProgramIO {
 

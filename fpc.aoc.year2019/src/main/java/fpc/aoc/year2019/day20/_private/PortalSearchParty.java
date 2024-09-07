@@ -12,7 +12,7 @@ import java.util.function.UnaryOperator;
 import java.util.stream.Stream;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @Getter
 @RequiredArgsConstructor

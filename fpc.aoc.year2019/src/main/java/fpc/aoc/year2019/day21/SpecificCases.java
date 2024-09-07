@@ -5,7 +5,7 @@ import fpc.aoc.common.Table;
 import java.util.Optional;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class SpecificCases {
 

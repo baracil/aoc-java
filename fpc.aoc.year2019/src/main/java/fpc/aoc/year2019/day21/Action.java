@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @Getter
 @RequiredArgsConstructor

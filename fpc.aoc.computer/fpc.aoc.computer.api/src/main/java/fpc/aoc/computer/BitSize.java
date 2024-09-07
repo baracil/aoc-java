@@ -1,7 +1,7 @@
 package fpc.aoc.computer;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public enum BitSize {
     BIT_32,

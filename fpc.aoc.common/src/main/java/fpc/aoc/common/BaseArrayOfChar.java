@@ -4,9 +4,11 @@ import lombok.NonNull;
 
 import java.io.PrintStream;
 import java.util.Optional;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.function.IntFunction;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 /**
  * @author Bastien Aracil
@@ -56,6 +58,7 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
     }
     return filling;
   }
+
   @NonNull
   public <T> T[] convert(@NonNull Function<? super Character, ? extends T> converter, @NonNull IntFunction<T[]> arrayCreator) {
     return IntStream.range(0, width() * height()).mapToObj(i -> converter.apply(data[i])).toArray(arrayCreator);
@@ -116,6 +119,19 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
       }
     }
     return Optional.empty();
+  }
+
+  @Override
+  public <T> Stream<T> where(char value, BiFunction<Integer, Integer, T> pointFactory) {
+    return IntStream.range(0, data.length)
+        .filter(idx -> data[idx] == value)
+        .mapToObj(idx -> indexToPosition(idx, pointFactory));
+  }
+
+  protected <T> T indexToPosition(int index, BiFunction<Integer, Integer, T> factory) {
+    final var x = index % width();
+    final var y = index / width();
+    return factory.apply(x, y);
   }
 
 }

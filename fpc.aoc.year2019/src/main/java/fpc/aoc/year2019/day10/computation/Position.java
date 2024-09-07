@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @Value
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)

@@ -5,7 +5,7 @@ import fpc.aoc.input.SmartSolver;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public abstract class ProgramBasedSolver extends SmartSolver<String> {
 

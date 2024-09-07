@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.stream.Stream;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @RequiredArgsConstructor
 public class MazeBuilder {

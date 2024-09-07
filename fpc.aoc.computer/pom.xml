@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
 
     <artifactId>aoc-computer</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <name>${project.name} - ${module.name}</name>
 

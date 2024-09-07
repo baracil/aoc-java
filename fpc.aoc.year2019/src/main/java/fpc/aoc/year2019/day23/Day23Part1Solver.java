@@ -7,7 +7,7 @@ import fpc.aoc.year2019.day23._private.FirstYNetwork;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class Day23Part1Solver extends ProgramBasedSolver {
 

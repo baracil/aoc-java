@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import java.util.function.IntUnaryOperator;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class SimpleToBordered implements IntUnaryOperator {

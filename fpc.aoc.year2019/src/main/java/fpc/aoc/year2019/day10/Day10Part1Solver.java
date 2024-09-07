@@ -6,7 +6,7 @@ import fpc.aoc.year2019.day10.computation.Base;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class Day10Part1Solver extends Day10Solver {
 

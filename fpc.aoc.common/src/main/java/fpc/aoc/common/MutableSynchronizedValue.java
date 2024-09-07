@@ -10,7 +10,7 @@ import java.util.concurrent.locks.ReentrantLock;
 import java.util.function.Function;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class MutableSynchronizedValue<T> implements SynchronizedValue<T> {
 

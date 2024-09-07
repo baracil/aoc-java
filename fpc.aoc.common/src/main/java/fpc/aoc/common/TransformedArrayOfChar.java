@@ -4,11 +4,11 @@ import lombok.Getter;
 import lombok.NonNull;
 
 import java.io.PrintStream;
+import java.util.Objects;
 import java.util.Optional;
-import java.util.function.Function;
-import java.util.function.IntBinaryOperator;
-import java.util.function.IntFunction;
-import java.util.function.UnaryOperator;
+import java.util.function.*;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class TransformedArrayOfChar extends AbstractArrayOfChar implements ArrayOfChar {
 
@@ -107,6 +107,19 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
       }
     }
     return result;
+  }
+
+  @Override
+  public <T> Stream<T> where(char value, BiFunction<Integer, Integer, T> pointFactory) {
+    return IntStream.range(0, width * height)
+        .mapToObj(idx -> {
+          final int x = idx % width;
+          final int y = idx / width;
+          if (get(x, y) == value) {
+            return pointFactory.apply(x, y);
+          }
+          return null;
+        }).filter(Objects::nonNull);
   }
 
   @Override

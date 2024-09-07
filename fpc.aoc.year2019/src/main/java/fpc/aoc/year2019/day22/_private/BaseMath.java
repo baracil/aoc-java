@@ -6,7 +6,7 @@ import lombok.NonNull;
 import java.math.BigInteger;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class BaseMath {
 

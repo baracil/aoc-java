@@ -3,7 +3,7 @@ package fpc.aoc.year2019.day19._private;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class BeamExtract {
 

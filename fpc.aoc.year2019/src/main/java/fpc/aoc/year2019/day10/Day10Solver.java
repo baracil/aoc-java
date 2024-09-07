@@ -10,7 +10,7 @@ import lombok.NonNull;
 import java.util.stream.Collectors;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public abstract class Day10Solver extends SmartSolver<AsteroidField> {
 

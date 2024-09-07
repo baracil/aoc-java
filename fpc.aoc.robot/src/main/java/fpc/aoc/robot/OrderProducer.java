@@ -3,7 +3,7 @@ package fpc.aoc.robot;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public interface OrderProducer<T> {
 

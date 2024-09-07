@@ -8,7 +8,7 @@ import java.util.Optional;
 import java.util.function.BiFunction;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class JumpTableBuilder {
 

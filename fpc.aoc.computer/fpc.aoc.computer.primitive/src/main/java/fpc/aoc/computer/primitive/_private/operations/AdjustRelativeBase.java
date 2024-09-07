@@ -6,7 +6,7 @@ import fpc.aoc.computer.primitive._private.ExecutionContext;
 import lombok.NonNull;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class AdjustRelativeBase implements Operation {
 

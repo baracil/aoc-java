@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * @author perococco
+ * @author Bastien Aracil
  **/
 public class Day24Part1Solver extends Day24Solver {
 

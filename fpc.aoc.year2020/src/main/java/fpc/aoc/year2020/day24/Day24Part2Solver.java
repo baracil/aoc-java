@@ -3,6 +3,7 @@ package fpc.aoc.year2020.day24;
 import fpc.aoc.api.Solver;
 import fpc.aoc.common.CellState;
 import fpc.aoc.common.GameOfLife;
+import fpc.aoc.year2020.day24.structures.HexaPoint;
 import fpc.aoc.year2020.day24.structures.Path;
 import lombok.NonNull;
 
@@ -22,7 +23,7 @@ public class Day24Part2Solver extends Day24Solver {
     return gameOfLife.numberOfActiveCells();
   }
 
-  private @NonNull CellState rule(@NonNull CellState previous, int nbNeighbour) {
+  private @NonNull CellState rule(@NonNull CellState previous, int nbNeighbour, HexaPoint position) {
     if (previous == CellState.ALIVE) {
       //black
       if (nbNeighbour == 0 || nbNeighbour > 2) {
