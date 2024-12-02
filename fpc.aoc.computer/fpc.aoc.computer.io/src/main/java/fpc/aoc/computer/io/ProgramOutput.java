@@ -15,12 +15,12 @@ public interface ProgramOutput<T> extends InterruptableOutput<T> {
     T read() throws InterruptedException;
 
     @NonNull
-    default Pipe pipeTo(@NonNull ProgramInput<? super T> input) {
+    default Pipe pipeTo(ProgramInput<? super T> input) {
         return new PrivatePipe<>(input::write,this);
     }
 
     @NonNull
-    default Pipe pipeTo(@NonNull Consumer<? super T> input) {
+    default Pipe pipeTo(Consumer<? super T> input) {
         return new PrivatePipe<>(input,this);
     }
 }

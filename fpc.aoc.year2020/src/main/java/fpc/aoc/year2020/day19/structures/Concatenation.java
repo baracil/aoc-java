@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day19.structures;
 
 import fpc.aoc.common.AOCException;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
@@ -16,10 +15,10 @@ import java.util.stream.Stream;
 @ToString
 public class Concatenation implements Rule {
 
-  private final @NonNull List<Integer> ruleIds;
+  private final List<Integer> ruleIds;
 
   @Override
-  public Stream<IndexedString> matches(@NonNull IndexedString string, @NonNull RuleProvider ruleProvider) {
+  public Stream<IndexedString> matches(IndexedString string, RuleProvider ruleProvider) {
     return ruleIds.stream()
         .map(ruleProvider)
         .reduce(Stream.of(string),
@@ -27,11 +26,11 @@ public class Concatenation implements Rule {
             Stream::concat);
   }
 
-  public static @NonNull Concatenation concatenation(int... ruleIds) {
+  public static Concatenation concatenation(int... ruleIds) {
     return new Concatenation(IntStream.of(ruleIds).boxed().toList());
   }
 
-  static @NonNull Concatenation parse(@NonNull String line) {
+  static Concatenation parse(String line) {
     try {
       final var ruleIds = Arrays.stream(line.trim().split(" "))
           .map(Integer::parseInt)

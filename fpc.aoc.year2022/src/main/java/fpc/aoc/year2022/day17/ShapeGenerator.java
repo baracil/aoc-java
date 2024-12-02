@@ -1,7 +1,5 @@
 package fpc.aoc.year2022.day17;
 
-import lombok.NonNull;
-
 import java.util.List;
 
 public class ShapeGenerator {
@@ -10,7 +8,7 @@ public class ShapeGenerator {
       ShapeType.HBAR, ShapeType.CROSS, ShapeType.CORNER, ShapeType.VBAR, ShapeType.SQUARE
   );
 
-  public @NonNull ShapeType getShape(int index) {
+  public ShapeType getShape(int index) {
     return shapes.get(index % shapes.size());
   }
 }

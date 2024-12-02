@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day15;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor
 public class Report {
 
-  private final @NonNull List<SensorReport> reports;
+  private final List<SensorReport> reports;
 
 
   public long computePart1(int lineIndex) {
@@ -34,7 +33,7 @@ public class Report {
   }
 
 
-  private @NonNull List<LineCoverage> lineCoverage(int lineIndex, @NonNull Predicate<LineCoverage> keep) {
+  private List<LineCoverage> lineCoverage(int lineIndex, Predicate<LineCoverage> keep) {
     final var lineCoverages = reports.stream()
         .map(r -> r.getCoverage(lineIndex))
         .flatMap(Optional::stream)

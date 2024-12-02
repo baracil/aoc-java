@@ -3,7 +3,6 @@ package fpc.aoc.year2020.day20.structures;
 import fpc.aoc.common.AOCException;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class ImageArrayBuilder {
 
-  public static @NonNull ImageArray build(@NonNull List<ImageTile> tiles) {
+  public static ImageArray build(List<ImageTile> tiles) {
     return ImageArray.with(new ImageArrayBuilder(tiles).build());
   }
 
@@ -25,7 +24,7 @@ public class ImageArrayBuilder {
   private int width;
   private Dictionary dictionary;
 
-  private @NonNull List<ImageTile> build() {
+  private List<ImageTile> build() {
     this.buildTileDictionary();
     this.computeFinalImageSize();
 
@@ -44,7 +43,7 @@ public class ImageArrayBuilder {
     this.dictionary = DictionaryBuilder.build(tiles);
   }
 
-  private @NonNull Optional<List<ImageTile>> addNewPiece(@NonNull ImageInProgress image, @NonNull final Set<Integer> availableIds) {
+  private Optional<List<ImageTile>> addNewPiece(ImageInProgress image, final Set<Integer> availableIds) {
     if (availableIds.isEmpty()) {
       return Optional.of(image.buildResult());
     }
@@ -89,29 +88,29 @@ public class ImageArrayBuilder {
     private int x;
     private int y;
 
-    public static @NonNull ImageInProgress initial(int width) {
+    public static ImageInProgress initial(int width) {
       return new ImageInProgress(new ArrayList<>(width * width), width, 0, 0);
     }
 
-    public @NonNull String getReversedLower() {
+    public String getReversedLower() {
       return getImageAt(x, y - 1).reversedLowerBorder();
     }
 
-    public @NonNull String getReversedRight() {
+    public String getReversedRight() {
       return getImageAt(x - 1, y).reversedRightBorder();
     }
 
-    public @NonNull ImageTile getImageAt(int x, int y) {
+    public ImageTile getImageAt(int x, int y) {
       return matchingTiles.get(x + y * width);
     }
 
-    public void pushTile(@NonNull ImageTile tested) {
+    public void pushTile(ImageTile tested) {
       matchingTiles.add(tested);
       this.moveToNextPosition();
     }
 
     public void popTile() {
-      matchingTiles.remove(matchingTiles.size() - 1);
+      matchingTiles.removeLast();
       moveBackToPreviousPosition();
     }
 
@@ -131,7 +130,7 @@ public class ImageArrayBuilder {
       }
     }
 
-    public @NonNull List<ImageTile> buildResult() {
+    public List<ImageTile> buildResult() {
       return List.copyOf(matchingTiles);
     }
   }

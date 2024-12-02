@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day18.structures;
 
 import fpc.aoc.common.AOCException;
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
@@ -10,7 +9,7 @@ import lombok.Value;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Token {
 
-  @NonNull TokenType type;
+  TokenType type;
   Long value;
 
   public static Token openParenthesis() {

@@ -29,9 +29,9 @@ public class ExecutionWithFuture<I,O> implements Execution<O,I> {
     private final ProgramIOAccessors<O,I> programIOAccessors;
 
     public ExecutionWithFuture(
-            @NonNull String name,
-            @NonNull Future<ExecutionResult> future,
-            @NonNull ProgramIOAccessors<O,I> programIOAccessors
+            String name,
+            Future<ExecutionResult> future,
+            ProgramIOAccessors<O,I> programIOAccessors
     ) {
         this.name = name;
         this.future = future;
@@ -40,7 +40,7 @@ public class ExecutionWithFuture<I,O> implements Execution<O,I> {
     }
 
     @NonNull
-    public CompletionStage<Void> whenDone(@NonNull Runnable action) {
+    public CompletionStage<Void> whenDone(Runnable action) {
         return completionStage.whenComplete((r,t)->action.run());
     }
 

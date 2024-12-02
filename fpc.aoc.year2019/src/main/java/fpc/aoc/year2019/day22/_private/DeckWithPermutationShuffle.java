@@ -15,7 +15,7 @@ public class DeckWithPermutationShuffle implements Deck {
     @NonNull
     private final PermutationFactors invertedPermutation;
 
-    public DeckWithPermutationShuffle(@NonNull PermutationFactors permutation) {
+    public DeckWithPermutationShuffle(PermutationFactors permutation) {
         this.permutation = permutation;
         this.invertedPermutation = permutation.invert();
     }

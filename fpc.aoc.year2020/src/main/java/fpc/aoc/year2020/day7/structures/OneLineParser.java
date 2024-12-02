@@ -3,7 +3,6 @@ package fpc.aoc.year2020.day7.structures;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Pair;
 import fpc.aoc.common.Tools;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -14,7 +13,7 @@ import java.util.regex.Pattern;
 @RequiredArgsConstructor
 public class OneLineParser {
 
-  public static @NonNull OneLineParsing parse(@NonNull String line) {
+  public static OneLineParsing parse(String line) {
     try {
       return new OneLineParser(line).parse();
     } catch (Exception e) {
@@ -36,7 +35,7 @@ public class OneLineParser {
 
   private Map<String, Integer> contents;
 
-  private @NonNull OneLineParsing parse() {
+  private OneLineParsing parse() {
     this.splitLine();
     this.removeDotFromSecondPart();
     this.splitSecondPartOnComa();
@@ -72,7 +71,7 @@ public class OneLineParser {
         .collect(Tools.pairsToMap());
   }
 
-  private Pair<String, Integer> parseOneRuleItem(@NonNull String item) {
+  private Pair<String, Integer> parseOneRuleItem(String item) {
     if (item.equals("no other bags")) {
       return null;
     }

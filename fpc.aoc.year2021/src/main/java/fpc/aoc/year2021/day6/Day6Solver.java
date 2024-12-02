@@ -3,7 +3,6 @@ package fpc.aoc.year2021.day6;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
 import fpc.aoc.year2021.day6.struct.School;
-import lombok.NonNull;
 
 import java.math.BigInteger;
 import java.util.stream.Stream;
@@ -19,7 +18,7 @@ public abstract class Day6Solver extends SmartSolver<School> {
   }
 
   @Override
-  protected @NonNull Converter<School> getConverter() {
+  protected Converter<School> getConverter() {
     return Converter.FIRST_LINE.andThen(School::parse);
   }
 }

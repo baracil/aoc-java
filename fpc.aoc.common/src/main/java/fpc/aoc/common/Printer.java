@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class Printer {
 
-    public Printer(@NonNull Function<? super Position, ? extends String> toPixel) {
+    public Printer(Function<? super Position, ? extends String> toPixel) {
         this(toPixel," ");
     }
 
@@ -25,12 +25,12 @@ public class Printer {
     private final String emptyPixel;
 
     @NonNull
-    public String printOnOneLine(@NonNull Supplier<Stream<Position>> knownPositions) {
+    public String printOnOneLine(Supplier<Stream<Position>> knownPositions) {
         return String.join("\n", print(knownPositions));
     }
 
     @NonNull
-    public List<String> print(@NonNull Supplier<Stream<Position>> knownPositions) {
+    public List<String> print(Supplier<Stream<Position>> knownPositions) {
         final IntSummaryStatistics statisticsOnX = knownPositions.get().mapToInt(Position::x).summaryStatistics();
         final IntSummaryStatistics statisticsOnY = knownPositions.get().mapToInt(Position::y).summaryStatistics();
 

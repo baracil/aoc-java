@@ -2,15 +2,14 @@ package fpc.aoc.year2022.day9;
 
 import fpc.aoc.common.Displacement;
 import fpc.aoc.common.Position;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Getter
-@RequiredArgsConstructor
+@AllArgsConstructor
 public class Knot {
 
-  @NonNull Position position;
+  Position position;
 
   public void displaced(Displacement displacement) {
     this.position = position.displaced(displacement);

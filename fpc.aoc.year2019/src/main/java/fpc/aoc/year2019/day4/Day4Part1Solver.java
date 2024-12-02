@@ -1,7 +1,6 @@
 package fpc.aoc.year2019.day4;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 public class Day4Part1Solver extends BaseDay4Solver {
 
@@ -10,7 +9,7 @@ public class Day4Part1Solver extends BaseDay4Solver {
     }
 
     @Override
-    protected int solve(@NonNull Code first, @NonNull Code last) {
+    protected int solve(Code first, Code last) {
         int count = 0;
         first.normalize();
         while (first.compareTo(last) < 0) {

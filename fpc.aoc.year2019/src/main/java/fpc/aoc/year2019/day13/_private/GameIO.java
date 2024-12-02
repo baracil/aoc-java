@@ -24,7 +24,7 @@ public class GameIO implements OutputListener {
         return dt==0?"0":(dt<0?"-1":"1");
     }
 
-    public void write(@NonNull String value) {
+    public void write(String value) {
         output.write(value);
     }
 

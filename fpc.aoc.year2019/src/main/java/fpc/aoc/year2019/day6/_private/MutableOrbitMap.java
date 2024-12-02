@@ -21,7 +21,7 @@ public class MutableOrbitMap implements OrbitMap {
   }
 
   @Override
-  public @NonNull OrbitPath pathFromRoot(@NonNull String bodyId) {
+  public OrbitPath pathFromRoot(String bodyId) {
     Body body = bodyById.get(bodyId);
     final var bodyIds = new ArrayList<String>();
 
@@ -34,7 +34,7 @@ public class MutableOrbitMap implements OrbitMap {
   }
 
   @Override
-  public int distanceFromRoot(@NonNull String bodyId) {
+  public int distanceFromRoot(String bodyId) {
     Body body = bodyById.get(bodyId);
     int distance = 0;
     while (!body.isRoot()) {
@@ -44,23 +44,23 @@ public class MutableOrbitMap implements OrbitMap {
     return distance;
   }
 
-  public void addRelationShip(@NonNull Relationship relationship) {
+  public void addRelationShip(Relationship relationship) {
     final Body planet = getOrCreate(relationship.idOfPlanet());
     final Body moon = getOrCreate(relationship.idOfMoon());
     planet.addMoon(moon);
   }
 
   @NonNull
-  private Body getOrCreate(@NonNull String id) {
+  private Body getOrCreate(String id) {
     return bodyById.computeIfAbsent(id, Body::new);
   }
 
   @Override
-  public void depthFirstWalk(@NonNull OrbitWalker walker) {
+  public void depthFirstWalk(OrbitWalker walker) {
     depthFirst(root, walker);
   }
 
-  private static void depthFirst(@NonNull Body current, @NonNull OrbitWalker walker) {
+  private static void depthFirst(Body current, OrbitWalker walker) {
     walker.enter(current);
     try {
       current.forEachMoon(moon -> depthFirst(moon, walker));

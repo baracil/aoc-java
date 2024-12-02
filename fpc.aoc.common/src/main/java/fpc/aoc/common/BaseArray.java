@@ -26,7 +26,7 @@ public abstract class BaseArray implements Array {
 
   private final int height;
 
-  protected boolean isPositionInRange(@NonNull Position position) {
+  protected boolean isPositionInRange(Position position) {
     return isInRange(position.x(), position.y());
   }
 
@@ -38,12 +38,12 @@ public abstract class BaseArray implements Array {
     return x + y * width;
   }
 
-  protected int positionToIndex(@NonNull Position position) {
+  protected int positionToIndex(Position position) {
     return xyToIndex(position.x(), position.y());
   }
 
   @Override
-  public void print(@NonNull PrintStream printStream) {
+  public void print(PrintStream printStream) {
     int idx = 0;
     for (int y = 0; y < height; y++) {
       for (int x = 0; x < width; x++) {
@@ -53,7 +53,7 @@ public abstract class BaseArray implements Array {
     }
   }
 
-  protected abstract void printSingleElement(@NonNull PrintStream printStream, int elementIndex);
+  protected abstract void printSingleElement(PrintStream printStream, int elementIndex);
 
   @NonNull
   public Stream<Position> positionStream() {
@@ -62,12 +62,12 @@ public abstract class BaseArray implements Array {
 
   @NonNull
   public static <A, B> Collector<String, ?, B> baseCollector(
-      @NonNull Function<? super String, ? extends A> lineTransformer,
-      @NonNull ToIntFunction<? super A> lineSizeEvaluator,
-      @NonNull IntFunction<? extends A> arrayCreator,
-      @NonNull Consumer<? super A> arrayInitializer,
-      @NonNull ArrayCopier<? super A> arrayCopier,
-      @NonNull ArrayBuilder<? super A, ? extends B> arrayBuilder
+      Function<? super String, ? extends A> lineTransformer,
+      ToIntFunction<? super A> lineSizeEvaluator,
+      IntFunction<? extends A> arrayCreator,
+      Consumer<? super A> arrayInitializer,
+      ArrayCopier<? super A> arrayCopier,
+      ArrayBuilder<? super A, ? extends B> arrayBuilder
   ) {
     return Collector.of(() -> new Accumulator<>(lineTransformer, lineSizeEvaluator, arrayCreator, arrayInitializer, arrayCopier, arrayBuilder),
         Accumulator::addLine,
@@ -79,11 +79,11 @@ public abstract class BaseArray implements Array {
   }
 
   public interface ArrayCopier<A> {
-    void copy(@NonNull A source, @NonNull A destination, int destinationOffset);
+    void copy(A source, A destination, int destinationOffset);
   }
 
   public interface ArrayBuilder<A, B> {
-    B build(@NonNull A source, int width, int height);
+    B build(A source, int width, int height);
   }
 
   @RequiredArgsConstructor
@@ -98,7 +98,7 @@ public abstract class BaseArray implements Array {
 
     private final List<A> lines = new ArrayList<>();
 
-    public void addLine(@NonNull String line) {
+    public void addLine(String line) {
       final A newLine = lineTransformer.apply(line);
       lines.add(newLine);
     }

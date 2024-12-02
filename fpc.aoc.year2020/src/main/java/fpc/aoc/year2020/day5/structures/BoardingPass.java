@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day5.structures;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
@@ -8,14 +7,14 @@ import lombok.Value;
 @Value
 public class BoardingPass {
 
-  public static BoardingPass create(@NonNull String code) {
+  public static BoardingPass create(String code) {
     final Seat seat = Seat.of(code);
     return new BoardingPass(code, seat);
   }
 
-  @NonNull String code;
+  String code;
 
-  @NonNull Seat seat;
+  Seat seat;
 
   public int getSeatId() {
     return seat.id();

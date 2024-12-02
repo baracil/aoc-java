@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day1;
 
 import fpc.aoc.api.Solver;
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -16,7 +15,7 @@ public class Day1Part2Solver extends Day1Solver {
   }
 
   @Override
-  public @NonNull Long doSolve(@NonNull int[] input) {
+  public Long doSolve(int[] input) {
     final ProductFinder productFinder = new ProductFinder();
     for (int value : input) {
       final var solution = productFinder.onNewValue(value);
@@ -29,14 +28,14 @@ public class Day1Part2Solver extends Day1Solver {
 
   private static class ProductFinder {
 
-    private final @NonNull Set<Integer> seen = new HashSet<>();
-    private final @NonNull int[] products = new int[2020];
+    private final Set<Integer> seen = new HashSet<>();
+    private final int[] products = new int[2020];
 
     public ProductFinder() {
       Arrays.fill(products, -1);
     }
 
-    public @NonNull Optional<Long> onNewValue(int value) {
+    public Optional<Long> onNewValue(int value) {
       if (isAnInvalidValue(value)) {
         return Optional.empty();
       }
@@ -53,7 +52,7 @@ public class Day1Part2Solver extends Day1Solver {
       return value < 0 || value > 2020;
     }
 
-    private @NonNull Optional<Long> findSolutionWithAlreadySeenValues(int value) {
+    private Optional<Long> findSolutionWithAlreadySeenValues(int value) {
       return Optional.of(products[2020 - value])
           .filter(p -> p >= 0)
           .map(p -> p * (long) value);

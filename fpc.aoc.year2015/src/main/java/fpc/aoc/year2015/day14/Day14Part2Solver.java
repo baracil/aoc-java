@@ -1,19 +1,18 @@
 package fpc.aoc.year2015.day14;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class Day14Part2Solver extends Day14Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day14Part2Solver();
   }
 
   @Override
-  protected @NonNull Object doSolve(@NonNull Stream<Reindeer> input) {
+  protected Object doSolve(Stream<Reindeer> input) {
     final var reindeers = input.toList();
     final var scores = new int[reindeers.size()];
     final var distances = new int[reindeers.size()];

@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day8.structures;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -10,9 +9,9 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Program {
 
-  private final @NonNull List<Instruction> code;
+  private final List<Instruction> code;
 
-  public @NonNull Instruction getInstructionAt(int pointer) {
+  public Instruction getInstructionAt(int pointer) {
     return code.get(pointer);
   }
 

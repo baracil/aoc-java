@@ -16,7 +16,7 @@ public class GameOutput {
 
     private int y;
 
-    public void write(@NonNull String value) {
+    public void write(String value) {
         switch (count) {
             case 0 :
                 x = Integer.parseInt(value);

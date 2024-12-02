@@ -32,18 +32,18 @@ public class MapperController extends AbstractController {
   }
 
   @Override
-  protected @NonNull Optional<Orientation> getFirstOrder(@NonNull Position currentPosition) {
+  protected Optional<Orientation> getFirstOrder(Position currentPosition) {
     final Orientation order = Orientation.N;
     inProgress = new PathElement(currentPosition, order);
     return Optional.of(order);
   }
 
   @Override
-  protected @NonNull Optional<Orientation> evaluateNextOrder(
-      @NonNull DroidState previousState,
-      @NonNull Orientation sentOrder,
-      @NonNull Reply replyToSentOrder,
-      @NonNull DroidState updatedState) {
+  protected Optional<Orientation> evaluateNextOrder(
+      DroidState previousState,
+      Orientation sentOrder,
+      Reply replyToSentOrder,
+      DroidState updatedState) {
 
     final boolean droidMoved = theDroidMoved(previousState, updatedState);
 
@@ -75,7 +75,7 @@ public class MapperController extends AbstractController {
     return !previousState.samePosition(updatedState);
   }
 
-  private Optional<Orientation> findNextOrientationToMoveToUnknownPosition(@NonNull DroidState droidState) {
+  private Optional<Orientation> findNextOrientationToMoveToUnknownPosition(DroidState droidState) {
     for (UnaryOperator<Orientation> modificator : MODIFICATORS) {
       final Orientation orientation = modificator.apply(inProgress.orientation);
       final Position target = orientation.moveForward(inProgress.position);
@@ -92,17 +92,17 @@ public class MapperController extends AbstractController {
   @Value
   private static class PathElement {
 
-    @NonNull Position position;
+    Position position;
 
-    @NonNull Orientation orientation;
+    Orientation orientation;
 
     @NonNull
-    public PathElement with(@NonNull Orientation order) {
+    public PathElement with(Orientation order) {
       return order == this.orientation ? this : new PathElement(position, order);
     }
 
     @NonNull
-    public PathElement with(@NonNull Position position) {
+    public PathElement with(Position position) {
       return position.equals(this.position) ? this : new PathElement(position, orientation);
     }
   }

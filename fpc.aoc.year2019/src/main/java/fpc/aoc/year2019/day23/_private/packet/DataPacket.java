@@ -9,13 +9,13 @@ import lombok.Value;
 @Value
 public class DataPacket implements Packet {
 
-    @NonNull String x;
+    String x;
 
-    @NonNull String y;
+    String y;
 
     @NonNull
     @Override
-    public <T> T accept(@NonNull PacketVisitor<T> visitor) {
+    public <T> T accept(PacketVisitor<T> visitor) {
         return visitor.visit(this);
     }
 

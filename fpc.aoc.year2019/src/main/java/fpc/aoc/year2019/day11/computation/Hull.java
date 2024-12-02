@@ -17,11 +17,11 @@ public class Hull {
     }
 
     @NonNull
-    public Color getPanelColor(@NonNull Position position) {
+    public Color getPanelColor(Position position) {
         return panels.contains(position) ? Color.WHITE : Color.BLACK;
     }
 
-    public void paint(@NonNull Position position, @NonNull Color color) {
+    public void paint(Position position, Color color) {
         if (color == Color.BLACK) {
             panels.remove(position);
         }

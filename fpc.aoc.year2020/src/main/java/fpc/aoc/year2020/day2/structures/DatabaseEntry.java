@@ -1,24 +1,23 @@
 package fpc.aoc.year2020.day2.structures;
 
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.function.Function;
 
 @Value
 public class DatabaseEntry {
-  @NonNull Rule rule;
-  @NonNull Password password;
+  Rule rule;
+  Password password;
 
-  public static @NonNull DatabaseEntry parseWithOldRule(@NonNull String line) {
+  public static DatabaseEntry parseWithOldRule(String line) {
     return parse(line, OldRule::parse);
   }
 
-  public static @NonNull DatabaseEntry parseWithNewRule(@NonNull String line) {
+  public static DatabaseEntry parseWithNewRule(String line) {
     return parse(line, NewRule::parse);
   }
 
-  public static @NonNull DatabaseEntry parse(@NonNull String line, Function<String, ? extends Rule> ruleParser) {
+  public static DatabaseEntry parse(String line, Function<String, ? extends Rule> ruleParser) {
     try {
       final String[] token = line.split(":", 2);
       return new DatabaseEntry(ruleParser.apply(token[0]), new Password(token[1].trim()));

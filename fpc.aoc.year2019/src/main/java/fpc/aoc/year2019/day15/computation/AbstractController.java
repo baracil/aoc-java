@@ -20,7 +20,7 @@ public abstract class AbstractController implements Controller<Orientation, Droi
   private final OrderProducer<Orientation> orderProducer = Order.create(AbstractController::getCode);
 
   @Override
-  public @NonNull Order<Orientation> evaluateNextOrders(@NonNull DroidState currentState) {
+  public Order<Orientation> evaluateNextOrders(DroidState currentState) {
     final Optional<Orientation> movement;
 
     if (lastSentOrder == null) {
@@ -36,20 +36,20 @@ public abstract class AbstractController implements Controller<Orientation, Droi
   }
 
   @Override
-  public void updateOnReply(@NonNull String reply, @NonNull DroidState previousState, @NonNull DroidState currentState) {
+  public void updateOnReply(String reply, DroidState previousState, DroidState currentState) {
     this.lastReply = Reply.decode(reply);
     this.previousState = previousState;
   }
 
   @NonNull
-  protected abstract Optional<Orientation> getFirstOrder(@NonNull Position currentPosition);
+  protected abstract Optional<Orientation> getFirstOrder(Position currentPosition);
 
   @NonNull
   protected abstract Optional<Orientation> evaluateNextOrder(
-      @NonNull DroidState previousState,
-      @NonNull Orientation sentOrder,
-      @NonNull Reply replyToSentOrder,
-      @NonNull DroidState updatedState);
+      DroidState previousState,
+      Orientation sentOrder,
+      Reply replyToSentOrder,
+      DroidState updatedState);
 
   private static String getCode(Orientation orientation) {
     return switch (orientation) {

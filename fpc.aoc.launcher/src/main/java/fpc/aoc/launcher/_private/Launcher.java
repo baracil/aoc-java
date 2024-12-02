@@ -14,11 +14,11 @@ import java.io.PrintStream;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Launcher {
 
-  public static void launch(@NonNull Solver solver, @NonNull RawInput input) {
+  public static void launch(Solver solver, RawInput input) {
     new Launcher(solver, input).launch();
   }
 
-  public static void launch(@NonNull Solver solver) {
+  public static void launch(Solver solver) {
     launch(solver, new SmartRawInput(solver.id()));
   }
 
@@ -38,16 +38,16 @@ public class Launcher {
     }
   }
 
-  private void displayMessage(@NonNull String message) {
+  private void displayMessage(String message) {
     displayMessage(System.out, message);
   }
 
-  private void displayError(@NonNull Throwable throwable) {
+  private void displayError(Throwable throwable) {
     displayMessage(System.err, "An error occurred : " + throwable.getMessage());
     throwable.printStackTrace();
   }
 
-  private void displayMessage(@NonNull PrintStream ps, @NonNull String message) {
+  private void displayMessage(PrintStream ps, String message) {
     ps.format("%s %s %s : %s%n", solver.id().year(), solver.id().day(), solver.id().part(), message);
   }
 

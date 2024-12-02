@@ -3,7 +3,6 @@ package fpc.aoc.year2019.day24;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
 import fpc.aoc.year2019.day24._private.BugColony;
-import lombok.NonNull;
 
 /**
  * .......  0   -    6
@@ -20,7 +19,7 @@ public abstract class Day24Solver extends SmartSolver<BugColony> {
 
 
   @Override
-  protected @NonNull Converter<BugColony> getConverter() {
+  protected Converter<BugColony> getConverter() {
     return BugColony::create;
   }
 

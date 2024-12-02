@@ -12,7 +12,7 @@ public class Input {
   private final long[] cols;
 
   private Input(List<String> rows) {
-    final int nbCols = rows.get(0).length();
+    final int nbCols = rows.getFirst().length();
 
     this.rows = rows.stream().mapToLong(Input::rowToLong).toArray();
     this.cols = IntStream.range(0, nbCols).mapToLong(i -> colToLong(rows, i)).toArray();

@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day13;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.math.BigInteger;
@@ -12,7 +11,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class Bus {
 
-  public static Bus parse(@NonNull String idAsString) {
+  public static Bus parse(String idAsString) {
     if (idAsString.equals("x")) {
       return new Bus(BigInteger.ZERO);
     } else {
@@ -30,7 +29,7 @@ public class Bus {
     return !isOutOfService();
   }
 
-  public @NonNull Optional<NextStop> findNextStop(@NonNull BigInteger instant) {
+  public Optional<NextStop> findNextStop(BigInteger instant) {
     if (isOutOfService()) {
       return Optional.empty();
     }

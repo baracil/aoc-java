@@ -1,7 +1,5 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
-
 import java.io.PrintStream;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -9,9 +7,9 @@ import java.util.function.IntFunction;
 
 public class BaseGenericArray<T> extends BaseArray implements GenericArray<T> {
 
-  protected final @NonNull T[] data;
+  protected final T[] data;
 
-  public BaseGenericArray(@NonNull T[] data, int width, int height) {
+  public BaseGenericArray(T[] data, int width, int height) {
     super(width, height);
     this.data = data;
   }
@@ -36,12 +34,12 @@ public class BaseGenericArray<T> extends BaseArray implements GenericArray<T> {
   }
 
   @Override
-  public @NonNull T get(@NonNull Position position) {
+  public T get(Position position) {
     return get(position.x(), position.y());
   }
 
   @Override
-  public @NonNull T get(int x, int y) {
+  public T get(int x, int y) {
     if (isInRange(x, y)) {
       return data[xyToIndex(x, y)];
     }
@@ -49,7 +47,7 @@ public class BaseGenericArray<T> extends BaseArray implements GenericArray<T> {
   }
 
   @Override
-  public void print(@NonNull PrintStream printStream, BiFunction<? super Position, ? super T, ? extends String> toString) {
+  public void print(PrintStream printStream, BiFunction<? super Position, ? super T, ? extends String> toString) {
     int idx = 0;
     for (int y = 0; y < height(); y++) {
       for (int x = 0; x < width(); x++) {
@@ -62,11 +60,11 @@ public class BaseGenericArray<T> extends BaseArray implements GenericArray<T> {
   }
 
   @Override
-  protected void printSingleElement(@NonNull PrintStream printStream, int elementIndex) {
+  protected void printSingleElement(PrintStream printStream, int elementIndex) {
     printElement(printStream, data[elementIndex]);
   }
 
-  protected void printElement(@NonNull PrintStream printStream, T element) {
+  protected void printElement(PrintStream printStream, T element) {
     printStream.print(element);
   }
 

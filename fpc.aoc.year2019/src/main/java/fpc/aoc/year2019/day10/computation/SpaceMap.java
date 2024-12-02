@@ -24,7 +24,7 @@ public class SpaceMap<T> {
   @Getter
   private final int height;
 
-  public SpaceMap(@NonNull List<T> items, int width, int height) {
+  public SpaceMap(List<T> items, int width, int height) {
     assert items.size() == width * height;
     this.items = items;
     this.width = width;
@@ -32,7 +32,7 @@ public class SpaceMap<T> {
   }
 
   @NonNull
-  public List<Position> listPositionsMatching(@NonNull Predicate<? super T> predicate) {
+  public List<Position> listPositionsMatching(Predicate<? super T> predicate) {
     return IntStream.range(0, items.size())
         .filter(i -> predicate.test(items.get(i)))
         .mapToObj(this::toPosition)
@@ -45,7 +45,7 @@ public class SpaceMap<T> {
   }
 
   @NonNull
-  protected String toString(@NonNull T item) {
+  protected String toString(T item) {
     return String.valueOf(item);
   }
 
@@ -62,7 +62,7 @@ public class SpaceMap<T> {
 
 
   @NonNull
-  public static <T> Collector<String, ?, SpaceMap<T>> collector(@NonNull IntFunction<T> singleCharConverter) {
+  public static <T> Collector<String, ?, SpaceMap<T>> collector(IntFunction<T> singleCharConverter) {
     return new SpaceMapCollector<>(singleCharConverter);
   }
 
@@ -123,7 +123,7 @@ public class SpaceMap<T> {
       }
 
       @NonNull
-      public static <T> SpaceMap.SpaceMapCollector.Accumulator<T> merge(@NonNull SpaceMap.SpaceMapCollector.Accumulator<T> b1, @NonNull SpaceMap.SpaceMapCollector.Accumulator<T> b2) {
+      public static <T> SpaceMap.SpaceMapCollector.Accumulator<T> merge(SpaceMap.SpaceMapCollector.Accumulator<T> b1, SpaceMap.SpaceMapCollector.Accumulator<T> b2) {
         if (b1.height == 0) {
           return b2;
         } else if (b2.height == 0) {

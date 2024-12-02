@@ -1,7 +1,5 @@
 package fpc.aoc.year2020.day12.structures;
 
-import lombok.NonNull;
-
 public interface Executor {
 
   void executeEast(int quantity);
@@ -18,7 +16,7 @@ public interface Executor {
 
   void executeForward(int quantity);
 
-  default void execute(@NonNull Movement movement) {
+  default void execute(Movement movement) {
     movement.operation().execute(this, movement.quantity());
   }
 

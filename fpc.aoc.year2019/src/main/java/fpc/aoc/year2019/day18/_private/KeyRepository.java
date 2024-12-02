@@ -17,15 +17,15 @@ public class KeyRepository {
 
     @NonNull
     @Synchronized
-    public Key get(@NonNull String id) {
+    public Key get(String id) {
         return cache.computeIfAbsent(id, this::create);
     }
 
-    private Key create(@NonNull String id) {
+    private Key create(String id) {
         if (bit>=Long.SIZE) {
             throw new AOCException("Too many keys");
         }
-        final long mask = 1<<bit;
+        final long mask = 1L<<bit;
         bit++;
         return new Key(id,mask);
     }

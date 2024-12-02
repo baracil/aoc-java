@@ -34,6 +34,7 @@
     <module>fpc.aoc.year2021</module>
     <module>fpc.aoc.year2022</module>
     <module>fpc.aoc.year2023</module>
+    <module>fpc.aoc.year2024</module>
   </modules>
 
 

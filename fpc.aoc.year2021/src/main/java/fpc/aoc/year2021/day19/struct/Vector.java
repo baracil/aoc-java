@@ -1,19 +1,17 @@
 package fpc.aoc.year2021.day19.struct;
 
-import lombok.NonNull;
-
 public record Vector(int x, int y, int z) {
 
-  public @NonNull Vector subtract(@NonNull Vector rhs) {
+  public Vector subtract(Vector rhs) {
     return new Vector(this.x() - rhs.x(), this.y() - rhs.y(), this.z() - rhs.z());
   }
 
-  public @NonNull Vector add(@NonNull Vector rhs) {
+  public Vector add(Vector rhs) {
     return new Vector(this.x() + rhs.x(), this.y() + rhs.y(), this.z() + rhs.z());
   }
 
 
-  public @NonNull Vector rotate(int rotationIdx) {
+  public Vector rotate(int rotationIdx) {
     return switch (rotationIdx / 4) {
       case 0 -> this.rotate2D(rotationIdx);
       case 1 -> new Vector(-this.x, this.y, -this.z).rotate2D(rotationIdx);
@@ -36,7 +34,7 @@ public record Vector(int x, int y, int z) {
     };
   }
 
-  public static @NonNull Vector parse(@NonNull String line) {
+  public static Vector parse(String line) {
     final var tokens = line.split(",");
     return new Vector(
         Integer.parseInt(tokens[0]),

@@ -1,7 +1,5 @@
 package fpc.aoc.common.rules;
 
-import lombok.NonNull;
-
 /**
  * A rule that checks that all char are hexa-digits and return its input
  */
@@ -12,7 +10,7 @@ public class AreAllHexDigits implements Rule<String, String> {
   }
 
   @Override
-  public @NonNull Validation<String> validate(@NonNull String input) {
+  public Validation<String> validate(String input) {
     if (input.chars().allMatch(this::isHexDigit)) {
       return Validation.valid(input);
     }

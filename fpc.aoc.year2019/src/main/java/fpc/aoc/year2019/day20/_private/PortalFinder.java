@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class PortalFinder {
 
   @NonNull
-  public static Map<String, List<Portal>> find(@NonNull ArrayOfChar data) {
+  public static Map<String, List<Portal>> find(ArrayOfChar data) {
     return new PortalFinder(data).find();
   }
 

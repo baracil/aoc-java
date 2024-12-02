@@ -1,10 +1,8 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
-
 public sealed interface SubCommand {
 
-  static @NonNull SubCommand parse(@NonNull String commandAsString) {
+  static SubCommand parse(String commandAsString) {
     final var tokens = commandAsString.trim().split(" ", 2);
 
     if (tokens.length == 2) {

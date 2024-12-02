@@ -19,7 +19,7 @@ import java.util.stream.Collectors;
 public class FastestRouteFinder {
 
   @NonNull
-  public static List<Route> findFastestRouteToOtherKeys(@NonNull Maze maze, @NonNull Key reference) {
+  public static List<Route> findFastestRouteToOtherKeys(Maze maze, Key reference) {
     return new FastestRouteFinder(maze, reference, maze.keyPosition(reference)).find();
   }
 
@@ -89,23 +89,23 @@ public class FastestRouteFinder {
 
     private final List<Node> children = new ArrayList<>();
 
-    public Node(@NonNull Pos position) {
+    public Node(Pos position) {
       this.parent = null;
       this.position = position;
       this.length = 0;
     }
 
-    public Node(@NonNull Node parent, @NonNull Pos position) {
+    public Node(Node parent, Pos position) {
       this.parent = parent;
       this.position = position;
       this.length = parent.length + 1;
     }
 
-    public void forEachChild(@NonNull Consumer<? super Node> nodeConsumer) {
+    public void forEachChild(Consumer<? super Node> nodeConsumer) {
       children.forEach(nodeConsumer);
     }
 
-    public void addAsChildIfValid(@NonNull Pos position) {
+    public void addAsChildIfValid(Pos position) {
       if (position.isWall() || visited.contains(position)) {
         return;
       }

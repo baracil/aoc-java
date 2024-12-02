@@ -4,7 +4,6 @@ import fpc.aoc.common.Position;
 import fpc.aoc.common.Tools;
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.HashMap;
@@ -56,7 +55,7 @@ public class Grid {
     return new Grid(numbers, columnFilling, rowFilling, state);
   }
 
-  public static @NonNull Grid from(List<String> gridRows) {
+  public static Grid from(List<String> gridRows) {
     final var map = new HashMap<Integer, Position>();
     final int size = gridRows.size();
     for (int row = 0; row < size; row++) {

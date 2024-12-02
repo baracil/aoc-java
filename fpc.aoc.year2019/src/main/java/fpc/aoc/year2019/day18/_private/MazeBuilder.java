@@ -11,12 +11,12 @@ import java.util.*;
 public class MazeBuilder {
 
   @NonNull
-  public static Maze create(@NonNull List<String> lines) {
+  public static Maze create(List<String> lines) {
     return new MazeBuilder(lines, false).build();
   }
 
   @NonNull
-  public static Maze splitAndCreate(@NonNull List<String> lines) {
+  public static Maze splitAndCreate(List<String> lines) {
     return new MazeBuilder(lines, true).build();
   }
 

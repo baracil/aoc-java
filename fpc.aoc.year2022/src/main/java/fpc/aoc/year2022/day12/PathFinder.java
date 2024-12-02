@@ -4,7 +4,6 @@ import fpc.aoc.common.AOCException;
 import fpc.aoc.common.ArrayOfChar;
 import fpc.aoc.common.GridHelper;
 import fpc.aoc.common.Position;
-import lombok.NonNull;
 
 import java.util.Deque;
 import java.util.HashSet;
@@ -25,7 +24,7 @@ public class PathFinder {
   }
 
 
-  public @NonNull Path findShortestPath() {
+  public Path findShortestPath() {
     final Deque<Path> toProcess = new LinkedList<>();
     final Set<Position> visitedPositions = new HashSet<>();
 
@@ -56,7 +55,7 @@ public class PathFinder {
     }
   }
 
-  private int height(@NonNull Position position) {
+  private int height(Position position) {
     final var h = heights.get(position);
     return h == 'E' ? 'z' : h == 'S' ? 'a' : h;
   }

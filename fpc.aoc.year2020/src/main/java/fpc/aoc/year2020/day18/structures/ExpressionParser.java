@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day18.structures;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -10,11 +9,11 @@ import java.util.stream.IntStream;
 public class ExpressionParser {
 
 
-  private final @NonNull String expressionAsString;
+  private final String expressionAsString;
 
   private int index;
 
-  public @NonNull Optional<Token> getNextToken() {
+  public Optional<Token> getNextToken() {
     if (index >= expressionAsString.length()) {
       return Optional.empty();
     }

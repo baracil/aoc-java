@@ -48,7 +48,7 @@ public class ParsedChemicalBook {
         .collect(CHEMICAL_COLLECTOR);
   }
 
-  private int computeComplexity(@NonNull String chemicalName, @NonNull Map<String, Integer> complexities) {
+  private int computeComplexity(String chemicalName, Map<String, Integer> complexities) {
     Integer complexity = complexities.get(chemicalName);
     if (complexity == null) {
       complexity = reactions.get(chemicalName)

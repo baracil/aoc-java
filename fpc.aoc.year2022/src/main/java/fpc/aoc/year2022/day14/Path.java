@@ -2,7 +2,6 @@ package fpc.aoc.year2022.day14;
 
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Position;
-import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 
-public record Path(@NonNull List<Position> points) {
+public record Path(List<Position> points) {
 
   public Stream<Position> positions() {
     return IntStream.range(1, points.size())
@@ -18,7 +17,7 @@ public record Path(@NonNull List<Position> points) {
         .flatMap(s -> s);
   }
 
-  private Stream<Position> linePosition(@NonNull Position start, @NonNull Position end) {
+  private Stream<Position> linePosition(Position start, Position end) {
     final int dx = end.x() - start.x();
     final int dy = end.y() - start.y();
 
@@ -35,7 +34,7 @@ public record Path(@NonNull List<Position> points) {
   }
 
 
-  public static Path parse(@NonNull String line) {
+  public static Path parse(String line) {
     final var points = Arrays.stream(line.split(" -> "))
         .map(Position::parseCommaSeparated)
         .toList();

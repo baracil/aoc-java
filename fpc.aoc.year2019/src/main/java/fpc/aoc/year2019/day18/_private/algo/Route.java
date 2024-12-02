@@ -35,7 +35,7 @@ public class Route {
     @Singular(value = "doorOnTheWay")
     private final Set<Door> doorsOnTheWay;
 
-    public boolean isNotBlocked(@NonNull Keyring keyring) {
+    public boolean isNotBlocked(Keyring keyring) {
         return keyring.canOpen(doorsOnTheWay);
     }
 
@@ -49,7 +49,7 @@ public class Route {
         return trip.to();
     }
 
-    public boolean allIntermediaryKeysHaveBeenObtained(@NonNull Keyring keyring) {
+    public boolean allIntermediaryKeysHaveBeenObtained(Keyring keyring) {
         return keyring.areAlreadyObtained(intermediaryKeys);
     }
 }

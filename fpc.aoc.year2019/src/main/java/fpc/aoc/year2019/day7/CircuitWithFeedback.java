@@ -23,7 +23,7 @@ public class CircuitWithFeedback implements Circuit {
 
   @Override
   @NonNull
-  public String launch(@NonNull Phase phase) {
+  public String launch(Phase phase) {
     final Launcher launcher = new Launcher(phase);
     final ExecutionResult results = launcher.launch();
 
@@ -41,7 +41,7 @@ public class CircuitWithFeedback implements Circuit {
 
     private List<Execution<ProgramInput<String>, ProgramOutput<String>>> executions;
 
-    public Launcher(@NonNull Phase phase) {
+    public Launcher(Phase phase) {
       this.phase = phase;
       this.nbAmplifiers = phase.size();
     }

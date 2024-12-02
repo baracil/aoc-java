@@ -5,14 +5,13 @@ import fpc.aoc.year2019.day12.computation.MoonSystem;
 import fpc.aoc.year2019.day12.computation.PeriodFinder;
 import fpc.aoc.year2019.day12.computation.TimeOfDuplicates;
 import fpc.aoc.year2019.day12.computation.Vector;
-import lombok.NonNull;
 
 import java.math.BigInteger;
 
 public class Day12Part2Solver extends Day12Solver {
 
   @Override
-  protected @NonNull Object doSolve(@NonNull MoonSystem moonSystem) {
+  protected Object doSolve(MoonSystem moonSystem) {
     final TimeOfDuplicates x = PeriodFinder.findPeriod(moonSystem, Vector::x);
     final TimeOfDuplicates y = PeriodFinder.findPeriod(moonSystem, Vector::y);
     final TimeOfDuplicates z = PeriodFinder.findPeriod(moonSystem, Vector::z);

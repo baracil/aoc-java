@@ -22,7 +22,7 @@ public enum TileType {
   private final String representation;
 
   @NonNull
-  public static TileType decode(@NonNull String code) {
+  public static TileType decode(String code) {
     return Holder.HELPER.get(code);
   }
 

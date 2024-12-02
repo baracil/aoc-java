@@ -32,7 +32,7 @@ public class PermutationFactors {
     }
 
     @NonNull
-    public PermutationFactors then(@NonNull PermutationFactors after) {
+    public PermutationFactors then(PermutationFactors after) {
         assert size == after.size;
         final long composedFactor = baseMath.modOfProduct(after.factor,this.factor);
         final long composedOffset = baseMath.modOfProduct(after.factor,this.offset)+after.offset;

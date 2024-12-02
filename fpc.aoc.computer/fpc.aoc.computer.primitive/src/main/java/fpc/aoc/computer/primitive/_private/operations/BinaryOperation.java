@@ -10,13 +10,13 @@ public class BinaryOperation extends SequentialOperation {
     @NonNull
     private final LongBinaryOperator operator;
 
-    public BinaryOperation(@NonNull LongBinaryOperator operator) {
+    public BinaryOperation(LongBinaryOperator operator) {
         super(3);
         this.operator = operator;
     }
 
     @Override
-    public void doPerform(@NonNull ExecutionContext context) {
+    public void doPerform(ExecutionContext context) {
         final long p0 = context.getParameter(0);
         final long p1 = context.getParameter(1);
         final long result = operator.applyAsLong(p0,p1);

@@ -11,7 +11,7 @@ public interface Execution<I, O> extends ProgramIOAccessors<I,O> {
     String name();
 
     @NonNull
-    CompletionStage<Void> whenDone(@NonNull Runnable action);
+    CompletionStage<Void> whenDone(Runnable action);
 
     @NonNull
     ExecutionResult waitTermination();

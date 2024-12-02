@@ -25,7 +25,7 @@ public abstract class Day21Solver extends ProgramBasedSolver {
 
 
     @Override
-    protected Object doSolve(@NonNull Program program) {
+    protected Object doSolve(Program program) {
         return solve(l -> execute(program,l));
     }
 
@@ -34,14 +34,14 @@ public abstract class Day21Solver extends ProgramBasedSolver {
         System.out.println(jumpTable.createLogicalExpression());
     }
 
-    abstract int solve(@NonNull Function<List<String>,Result> executor);
+    abstract int solve(Function<List<String>,Result> executor);
 
     abstract int sensorRange();
 
     abstract String launchCommand();
 
 
-    private Result execute(@NonNull Program program, @NonNull List<String> commands) {
+    private Result execute(Program program, List<String> commands) {
         final OutputConsumer outputConsumer = new OutputConsumer(sensorRange());
         final String launchCommand = launchCommand();
 
@@ -96,14 +96,14 @@ public abstract class Day21Solver extends ProgramBasedSolver {
         @Getter
         private int damage = -1;
 
-        private ByteArrayOutputStream out = new ByteArrayOutputStream(1000);
+        private final ByteArrayOutputStream out = new ByteArrayOutputStream(1000);
 
         @Override
         public void accept(String s) {
             onData(s);
         }
 
-        public void onData(@NonNull String data) {
+        public void onData(String data) {
             final int v = Integer.parseInt(data);
             if (v >= 0 && v < 256) {
                 out.write(v);
@@ -118,11 +118,11 @@ public abstract class Day21Solver extends ProgramBasedSolver {
             return List.of(lines);
         }
 
-        private int lastSensor(@NonNull List<String> lines) {
+        private int lastSensor(List<String> lines) {
             if (damage>0) {
                 return -1;
             }
-            final String line = lines.get(lines.size()-1);
+            final String line = lines.getLast();
             final int idx = line.indexOf("@");
             if (idx > 0) {
                 final String sensor = line.substring(idx - size+1, idx - size+1 + size);

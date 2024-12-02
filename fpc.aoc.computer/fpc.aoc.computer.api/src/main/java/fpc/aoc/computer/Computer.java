@@ -6,7 +6,7 @@ import lombok.NonNull;
 public interface Computer {
 
     @NonNull
-    static Computer create(@NonNull BitSize minimalBitSize,@NonNull MemoryType memoryType) {
+    static Computer create(BitSize minimalBitSize,MemoryType memoryType) {
         return new ComputerFromServiceLoader(minimalBitSize,memoryType);
     }
 
@@ -16,11 +16,11 @@ public interface Computer {
     }
 
     @NonNull
-    static Program compileProgram(@NonNull String code) {
+    static Program compileProgram(String code) {
         return create().compile(code);
     }
 
     @NonNull
-    Program compile(@NonNull String code);
+    Program compile(String code);
 
 }

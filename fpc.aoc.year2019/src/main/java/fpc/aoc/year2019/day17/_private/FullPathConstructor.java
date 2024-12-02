@@ -17,7 +17,7 @@ import java.util.Set;
 public class FullPathConstructor {
 
     @NonNull
-    public static Path constructFrom(@NonNull Picture picture) {
+    public static Path constructFrom(Picture picture) {
         return new FullPathConstructor(picture).constructFrom();
     }
 
@@ -27,11 +27,11 @@ public class FullPathConstructor {
 
     private Orientation orientation;
 
-    private Set<Position> visitedPositions = new HashSet<>();
+    private final Set<Position> visitedPositions = new HashSet<>();
 
     private int initialDisplacement = 0;
 
-    private List<PathElement> elements = new ArrayList<>();
+    private final List<PathElement> elements = new ArrayList<>();
 
     private boolean cannotMoveFurther = false;
 

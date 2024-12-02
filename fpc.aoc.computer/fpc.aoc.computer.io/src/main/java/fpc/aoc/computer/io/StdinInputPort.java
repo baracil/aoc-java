@@ -25,7 +25,7 @@ public class StdinInputPort implements InputPort<Nil> {
     private int index = 0;
 
     @Override
-    public @NonNull String read() {
+    public String read() {
         if (current == null || index>=current.size()) {
             index = 0;
             final String line = scanner.nextLine();

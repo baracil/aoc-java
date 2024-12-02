@@ -1,6 +1,5 @@
 package fpc.aoc.year2022.day1;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Iterator;
@@ -10,7 +9,7 @@ import java.util.NoSuchElementException;
 @RequiredArgsConstructor
 public class CarriedCalory implements Iterable<Long> {
 
-  private final @NonNull List<String> input;
+  private final List<String> input;
 
   @Override
   public Iterator<Long> iterator() {
@@ -19,7 +18,7 @@ public class CarriedCalory implements Iterable<Long> {
 
   public class CarriedCaloryIterator implements Iterator<Long> {
 
-    private int idx = 0;
+    private int idx;
 
     private Long next;
 

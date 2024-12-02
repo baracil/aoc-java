@@ -3,7 +3,6 @@ package fpc.aoc.year2023.day19;
 import fpc.aoc.api.Solver;
 import fpc.aoc.year2023.day19.model.Input;
 import fpc.aoc.year2023.day19.model.Scrap;
-import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,12 +11,12 @@ import java.util.Map;
 
 public class Day19Part1Solver extends Day19Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day19Part1Solver();
   }
 
   @Override
-  public @NonNull Object doSolve(@NonNull Input input) {
+  public Object doSolve(Input input) {
     final Map<String, List<Scrap>> result = new HashMap<>();
 
 

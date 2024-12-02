@@ -6,17 +6,16 @@ import fpc.aoc.year2021.day12.struct.Connection;
 import fpc.aoc.year2021.day12.struct.Graph;
 import fpc.aoc.year2021.day12.struct.PathCounter;
 import fpc.aoc.year2021.day12.struct.RecursiveMode;
-import lombok.NonNull;
 
 public abstract class Day12Solver extends SmartSolver<Graph> {
 
   @Override
-  protected @NonNull Converter<Graph> getConverter() {
+  protected Converter<Graph> getConverter() {
     return s -> s.stream().map(Connection::parse).collect(Graph.COLLECTOR);
   }
 
   @Override
-  public @NonNull Long doSolve(@NonNull Graph graph) {
+  public Long doSolve(Graph graph) {
     return PathCounter.count(graph, getRecursiveMode());
   }
 

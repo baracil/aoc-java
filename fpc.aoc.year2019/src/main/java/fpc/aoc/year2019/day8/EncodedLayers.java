@@ -38,7 +38,7 @@ public class EncodedLayers {
   }
 
   @NonNull
-  private Pixel[] convertToPixels(@NonNull String encodeLayer) {
+  private Pixel[] convertToPixels(String encodeLayer) {
     return encodeLayer.chars().mapToObj(i -> Pixel.get(i - '0')).toArray(Pixel[]::new);
   }
 

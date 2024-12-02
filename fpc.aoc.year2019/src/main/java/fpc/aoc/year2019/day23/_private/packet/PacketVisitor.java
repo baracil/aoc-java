@@ -8,8 +8,8 @@ import lombok.NonNull;
 public interface PacketVisitor<T> {
 
     @NonNull
-    T visit(@NonNull AddressPacket addressPacket);
+    T visit(AddressPacket addressPacket);
 
     @NonNull
-    T visit(@NonNull DataPacket dataPacket);
+    T visit(DataPacket dataPacket);
 }

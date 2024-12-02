@@ -1,6 +1,5 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -13,7 +12,7 @@ import static fpc.aoc.common.Transformation.of;
 public class TransformationTest {
 
 
-  public static @NonNull Stream<Arguments> rotationTests() {
+  public static Stream<Arguments> rotationTests() {
     return Stream.of(
         Arguments.of(of(Rotation._000, Flipping.NONE), Rotation._000, of(Rotation._000, Flipping.NONE)),
         Arguments.of(of(Rotation._090, Flipping.NONE), Rotation._000, of(Rotation._090, Flipping.NONE)),
@@ -64,7 +63,7 @@ public class TransformationTest {
 
   @ParameterizedTest
   @MethodSource("rotationTests")
-  public void testRotationComposition(@NonNull Transformation input, @NonNull Rotation rotation, @NonNull Transformation expected) {
+  public void testRotationComposition(Transformation input, Rotation rotation, Transformation expected) {
     Assertions.assertEquals(expected, input.compose(rotation));
 
   }

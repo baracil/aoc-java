@@ -8,5 +8,5 @@ public interface StateUpdater<O,S> {
     S createInitialState();
 
     @NonNull
-    S updateStateOnReply(@NonNull S current, @NonNull Order<O> lastSendOrder, @NonNull String reply);
+    S updateStateOnReply(S current, Order<O> lastSendOrder, String reply);
 }

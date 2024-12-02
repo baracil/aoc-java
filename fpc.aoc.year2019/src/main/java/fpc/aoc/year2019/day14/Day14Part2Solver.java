@@ -3,7 +3,6 @@ package fpc.aoc.year2019.day14;
 import fpc.aoc.api.Solver;
 import fpc.aoc.year2019.day14.computation.ChemicalBook;
 import fpc.aoc.year2019.day14.computation.ReversedFactory;
-import lombok.NonNull;
 
 import java.util.function.LongUnaryOperator;
 
@@ -14,14 +13,14 @@ public class Day14Part2Solver extends Day14Solver {
   }
 
   @Override
-  protected @NonNull Object doSolve(@NonNull ChemicalBook chemicalBook) {
+  protected Object doSolve(ChemicalBook chemicalBook) {
     final long available = 1_000_000_000_000L;
 
 
     return findMaxProduction(available, rf -> computeOreRequirement(chemicalBook, rf));
   }
 
-  private long findMaxProduction(long available, @NonNull LongUnaryOperator operator) {
+  private long findMaxProduction(long available, LongUnaryOperator operator) {
     final long for1 = operator.applyAsLong(1);
 
     long inputLow = available / for1;
@@ -58,7 +57,7 @@ public class Day14Part2Solver extends Day14Solver {
     return inputLow;
   }
 
-  private long computeOreRequirement(@NonNull ChemicalBook chemicalBook, long requiredFuel) {
+  private long computeOreRequirement(ChemicalBook chemicalBook, long requiredFuel) {
     final var reversedFactory = new ReversedFactory(chemicalBook);
     reversedFactory.clear();
     reversedFactory.produce(chemicalBook.fuel(), requiredFuel);

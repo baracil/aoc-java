@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day2.structures;
 
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
@@ -9,7 +8,7 @@ public class OldRule implements Rule {
   int maxOccurrence;
   char character;
 
-  public static @NonNull OldRule parse(@NonNull String ruleAsString) {
+  public static OldRule parse(String ruleAsString) {
     final String[] token = ruleAsString.split("[- ]", 3);
     return new OldRule(
         Integer.parseInt(token[0]),
@@ -19,7 +18,7 @@ public class OldRule implements Rule {
   }
 
   @Override
-  public boolean isPasswordValid(@NonNull Password password) {
+  public boolean isPasswordValid(Password password) {
     final var occurrence = password.getCharOccurrence(character);
     return occurrence >= minOccurrence && occurrence <= maxOccurrence;
   }

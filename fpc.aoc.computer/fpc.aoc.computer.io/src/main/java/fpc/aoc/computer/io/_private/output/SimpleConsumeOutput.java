@@ -16,7 +16,7 @@ public class SimpleConsumeOutput extends BaseOutputPort<Nil,String> {
     }
 
     @Override
-    public void write(@NonNull String value) {
+    public void write(String value) {
         consumer.accept(value);
     }
 

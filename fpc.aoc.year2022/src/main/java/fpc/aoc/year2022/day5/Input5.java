@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day5;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.ArrayList;
@@ -12,8 +11,8 @@ import java.util.stream.Collector;
 @Value
 public class Input5 {
 
-  @NonNull Stacks stacks;
-  @NonNull List<ProcedureStep> steps;
+  Stacks stacks;
+  List<ProcedureStep> steps;
 
 
   public static final Collector<String, ?, Input5> COLLECTOR = Collector.of(
@@ -28,7 +27,7 @@ public class Input5 {
 
     private Consumer<String> consumer = this::addHeaderLine;
 
-    public void add(@NonNull String line) {
+    public void add(String line) {
       if (line.isBlank()) {
         consumer = this::addProcedureStep;
       } else {
@@ -36,19 +35,19 @@ public class Input5 {
       }
     }
 
-    public @NonNull Agg combine(@NonNull Agg agg) {
+    public Agg combine(Agg agg) {
       throw new AOCException("Cannot combine");
     }
 
-    public @NonNull Input5 builder() {
+    public Input5 builder() {
       return new Input5(Stacks.parse(headerBuilder), stepsBuilder);
     }
 
-    public void addHeaderLine(@NonNull String line) {
+    public void addHeaderLine(String line) {
       headerBuilder.add(line);
     }
 
-    public void addProcedureStep(@NonNull String line) {
+    public void addProcedureStep(String line) {
       stepsBuilder.add(ProcedureStep.parse(line));
     }
   }

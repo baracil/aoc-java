@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day21;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Deque;
@@ -15,7 +14,7 @@ public class Group {
   private final Map<String, Monkey> monkeys;
 
 
-  public <T> T getRootValue(@NonNull MonkeyEvaluator<T> evaluator) {
+  public <T> T getRootValue(MonkeyEvaluator<T> evaluator) {
     final Deque<String> toEvaluate = new LinkedList<>();
     final Map<String, T> knownValues = new HashMap<>();
 

@@ -1,6 +1,5 @@
 package fpc.aoc.common.rules;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -16,7 +15,7 @@ public class HasSize implements Rule<String, String> {
   private final int size;
 
   @Override
-  public @NonNull Validation<String> validate(@NonNull String input) {
+  public Validation<String> validate(String input) {
     if (input.length() == size) {
       return Validation.valid(input);
     }

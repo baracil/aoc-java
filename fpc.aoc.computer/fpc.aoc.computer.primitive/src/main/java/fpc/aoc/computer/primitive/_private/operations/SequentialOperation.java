@@ -2,7 +2,6 @@ package fpc.aoc.computer.primitive._private.operations;
 
 import fpc.aoc.computer.common.AddressingUpdater;
 import fpc.aoc.computer.primitive._private.ExecutionContext;
-import lombok.NonNull;
 
 public abstract class SequentialOperation implements Operation {
 
@@ -13,10 +12,10 @@ public abstract class SequentialOperation implements Operation {
     }
 
     @Override
-    public @NonNull AddressingUpdater perform(@NonNull ExecutionContext context) {
+    public AddressingUpdater perform(ExecutionContext context) {
         doPerform(context);
         return AddressingUpdater.skipAbsolute(numberOfParameters);
     }
 
-    protected abstract void doPerform(@NonNull ExecutionContext context);
+    protected abstract void doPerform(ExecutionContext context);
 }

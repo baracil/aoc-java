@@ -16,7 +16,7 @@ public class Dictionary {
   @NonNull
   private final Table<String, String, Set<ImageTile>> table;
 
-  public @NonNull Stream<ImageTile> findWithUpMatching(@NonNull String reverseDown) {
+  public Stream<ImageTile> findWithUpMatching(String reverseDown) {
     return Optional.ofNullable(table.column(reverseDown))
         .stream()
         .map(Map::values)
@@ -24,7 +24,7 @@ public class Dictionary {
         .flatMap(Collection::stream);
   }
 
-  public @NonNull Stream<ImageTile> findWithLeftMatching(@NonNull String reversedRight) {
+  public Stream<ImageTile> findWithLeftMatching(String reversedRight) {
     return Optional.ofNullable(table.row(reversedRight))
         .stream()
         .map(Map::values)
@@ -32,18 +32,18 @@ public class Dictionary {
         .flatMap(Collection::stream);
   }
 
-  public @NonNull Stream<ImageTile> findWithLeftAndUpMatching(@NonNull String right, @NonNull String down) {
+  public Stream<ImageTile> findWithLeftAndUpMatching(String right, String down) {
     return Optional.ofNullable(table.get(right, down))
         .stream()
         .flatMap(Collection::stream);
 
   }
 
-  public @NonNull Stream<ImageTile> allTiles() {
+  public Stream<ImageTile> allTiles() {
     return table.values().stream().flatMap(Collection::stream);
   }
 
-  public @NonNull Stream<ImageTile> allCorners() {
+  public Stream<ImageTile> allCorners() {
     return table.values()
         .stream()
         .filter(s -> s.size() == 1)

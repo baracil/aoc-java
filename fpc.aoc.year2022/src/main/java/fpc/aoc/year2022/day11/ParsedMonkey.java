@@ -2,7 +2,6 @@ package fpc.aoc.year2022.day11;
 
 import lombok.Builder;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.function.Function;
@@ -21,11 +20,11 @@ public class ParsedMonkey {
   private final int ifFalse;
 
 
-  public @NonNull Monkey createMonkey(@NonNull LongUnaryOperator postOperation) {
+  public Monkey createMonkey(LongUnaryOperator postOperation) {
     return new Monkey(items, getItemOperation(postOperation), createThrowFunction());
   }
 
-  private UnaryOperator<Item> getItemOperation(@NonNull LongUnaryOperator postOperation) {
+  private UnaryOperator<Item> getItemOperation(LongUnaryOperator postOperation) {
     return item -> new Item(operation.andThen(postOperation).applyAsLong(item.worryLevel()));
   }
 

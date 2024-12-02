@@ -24,7 +24,7 @@ public enum Orientation implements Translation {
   private final int dy;
 
 
-  public @NonNull Orientation opposite() {
+  public Orientation opposite() {
     return switch (this) {
       case N -> S;
       case E -> W;
@@ -33,7 +33,7 @@ public enum Orientation implements Translation {
     };
   }
 
-  public @NonNull char toChar() {
+  public char toChar() {
     return switch (this) {
       case N -> '^';
       case E -> '>';
@@ -43,7 +43,7 @@ public enum Orientation implements Translation {
   }
 
   @NonNull
-  public Command commandToSwitchTo(@NonNull Orientation target) {
+  public Command commandToSwitchTo(Orientation target) {
     if (rotateEast() == target) {
       return Command.RIGHT;
     }
@@ -65,12 +65,12 @@ public enum Orientation implements Translation {
   }
 
   @NonNull
-  public Position moveForward(@NonNull Position position) {
+  public Position moveForward(Position position) {
     return position.translate(dx, dy);
   }
 
 
-  public @NonNull Orientation turn(int angle) {
+  public Orientation turn(int angle) {
     final int a = Tools.mod(angle, 360);
     assert a == 0 || a == 90 || a == 180 || a == 270;
     return Holder.ROTATION.get(this)[a / 90];

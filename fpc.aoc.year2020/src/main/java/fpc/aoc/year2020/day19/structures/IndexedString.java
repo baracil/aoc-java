@@ -1,16 +1,15 @@
 package fpc.aoc.year2020.day19.structures;
 
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
 public class IndexedString {
 
-  public static @NonNull IndexedString initial(@NonNull String reference) {
+  public static IndexedString initial(String reference) {
     return new IndexedString(reference, 0);
   }
 
-  @NonNull String reference;
+  String reference;
 
   int offset;
 
@@ -18,7 +17,7 @@ public class IndexedString {
     return reference.charAt(idx + offset);
   }
 
-  public @NonNull IndexedString addToOffset(int value) {
+  public IndexedString addToOffset(int value) {
     return new IndexedString(reference, value + offset);
   }
 

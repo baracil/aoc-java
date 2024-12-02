@@ -13,7 +13,7 @@ public class LinearCircuit implements Circuit {
   private final Program program;
 
   @NonNull
-  public String launch(@NonNull Phase phase) {
+  public String launch(Phase phase) {
     final int nbAmplifiers = phase.size();
     String result = "0";
     for (int i = 0; i < nbAmplifiers; i++) {

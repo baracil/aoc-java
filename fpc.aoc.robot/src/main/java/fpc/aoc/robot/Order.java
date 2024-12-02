@@ -10,12 +10,12 @@ import java.util.function.Function;
 public interface Order<T> {
 
     @NonNull
-    static <T> OrderProducer<T> createMulti(@NonNull Function<? super T, ? extends List<String>> dataTransformer) {
+    static <T> OrderProducer<T> createMulti(Function<? super T, ? extends List<String>> dataTransformer) {
         return new PrivateOrderProducer<>(dataTransformer);
     }
 
     @NonNull
-    static <T> OrderProducer<T> create(@NonNull Function<? super T, ? extends String> dataTransformer) {
+    static <T> OrderProducer<T> create(Function<? super T, ? extends String> dataTransformer) {
         return createMulti(data -> List.of(dataTransformer.apply(data)));
     }
 

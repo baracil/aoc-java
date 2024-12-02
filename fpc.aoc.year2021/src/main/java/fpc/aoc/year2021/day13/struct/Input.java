@@ -2,7 +2,6 @@ package fpc.aoc.year2021.day13.struct;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -35,15 +34,15 @@ public class Input {
 
     public boolean inDots = true;
 
-    public @NonNull Input build() {
+    public Input build() {
       return new Input(new Sheet(dots), folds);
     }
 
-    public @NonNull Acc combine(@NonNull Acc other) {
+    public Acc combine(Acc other) {
       throw new UnsupportedOperationException();
     }
 
-    public void pushLine(@NonNull String line) {
+    public void pushLine(String line) {
       if (line.isBlank()) {
         inDots = false;
         return;

@@ -3,13 +3,12 @@ package fpc.aoc.year2020.day8.structures.instruction;
 import fpc.aoc.year2020.day8.structures.ExecutionContext;
 import fpc.aoc.year2020.day8.structures.Instruction;
 import fpc.aoc.year2020.day8.structures.Operation;
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
 public class Jmp implements Instruction {
 
-  public static Jmp parse(@NonNull String argument) {
+  public static Jmp parse(String argument) {
     return new Jmp(Integer.parseInt(argument));
   }
 
@@ -26,7 +25,7 @@ public class Jmp implements Instruction {
   }
 
   @Override
-  public @NonNull Operation getOperation() {
+  public Operation getOperation() {
     return Operation.JMP;
   }
 }

@@ -3,7 +3,6 @@ package fpc.aoc.input;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.ArrayOfChar;
 import fpc.aoc.common.Tools;
-import lombok.NonNull;
 
 import java.util.Collection;
 import java.util.List;
@@ -20,13 +19,13 @@ public interface Converter<I> extends Function<List<String>, I> {
    * @param input the input stream
    * @return the converted value
    */
-  @NonNull I convert(@NonNull List<String> input);
+  I convert(List<String> input);
 
   /**
    * @see #convert(List)
    */
   @Override
-  default @NonNull I apply(List<String> stringStream) {
+  default I apply(List<String> stringStream) {
     return convert(stringStream);
   }
 

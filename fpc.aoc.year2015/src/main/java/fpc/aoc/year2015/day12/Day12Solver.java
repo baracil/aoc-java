@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.io.UncheckedIOException;
@@ -15,7 +14,7 @@ import java.util.function.Predicate;
 public abstract class Day12Solver extends SmartSolver<Object> {
 
   @Override
-  protected @NonNull Converter<Object> getConverter() {
+  protected Converter<Object> getConverter() {
     return Converter.FIRST_LINE.andThen(line -> {
       final var o = new ObjectMapper();
       try {
@@ -29,7 +28,7 @@ public abstract class Day12Solver extends SmartSolver<Object> {
   protected abstract Predicate<Map<?,?>> getIgnoredPredicate();
 
   @Override
-  public @NonNull Integer doSolve(@NonNull Object input) {
+  public Integer doSolve(Object input) {
     final var summer = new Summer(getIgnoredPredicate());
 
     return summer.sum(input);

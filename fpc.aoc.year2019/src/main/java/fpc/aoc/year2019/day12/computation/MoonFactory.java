@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 public class MoonFactory {
 
   @NonNull
-  public static List<Moon> createMoons(@NonNull List<String> input) {
+  public static List<Moon> createMoons(List<String> input) {
     return new MoonFactory(input).create();
   }
 

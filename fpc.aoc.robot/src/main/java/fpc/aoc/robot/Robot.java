@@ -7,7 +7,7 @@ import lombok.NonNull;
 public interface Robot<S> {
 
     @NonNull
-    static <O,S> Robot<S> create(@NonNull Program program, @NonNull StateUpdater<O,S> state, @NonNull Controller<O,S> controller) {
+    static <O,S> Robot<S> create(Program program, StateUpdater<O,S> state, Controller<O,S> controller) {
         return new PrivateRobot<>(program, state, controller);
     }
 

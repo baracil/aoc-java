@@ -8,7 +8,6 @@ import fpc.aoc.robot.Robot;
 import fpc.aoc.year2019.day15.computation.DroidState;
 import fpc.aoc.year2019.day15.computation.DroidStateUpdater;
 import fpc.aoc.year2019.day15.computation.MapperController;
-import lombok.NonNull;
 
 public abstract class Day15Solver extends ProgramBasedSolver {
 
@@ -25,5 +24,5 @@ public abstract class Day15Solver extends ProgramBasedSolver {
     return solve(state);
   }
 
-  abstract int solve(@NonNull DroidState droidState);
+  abstract int solve(DroidState droidState);
 }

@@ -5,7 +5,7 @@ import lombok.NonNull;
 public interface ComputerFactory {
 
 
-    boolean verifyAllProperties(@NonNull BitSize minimalBitSize,@NonNull MemoryType memoryType);
+    boolean verifyAllProperties(BitSize minimalBitSize,MemoryType memoryType);
 
     @NonNull
     Computer create();

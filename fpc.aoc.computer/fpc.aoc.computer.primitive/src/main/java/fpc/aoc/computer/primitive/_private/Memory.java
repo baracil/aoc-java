@@ -8,7 +8,7 @@ public interface Memory {
 
     void setValue(int address, long value);
 
-    void alter(@NonNull Alterations alterations);
+    void alter(Alterations alterations);
 
     long getValueAt(int address);
 

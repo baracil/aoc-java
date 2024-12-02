@@ -19,12 +19,12 @@ public enum Reply {
     @NonNull
     private final BiFunction<? super DroidState, ? super Position, ? extends DroidState> updater;
 
-    public static Reply decode(@NonNull String code) {
+    public static Reply decode(String code) {
         return Holder.HELPER.get(code);
     }
 
     @NonNull
-    public DroidState update(@NonNull DroidState state, @NonNull Position targetPosition) {
+    public DroidState update(DroidState state, Position targetPosition) {
         return updater.apply(state,targetPosition);
     }
 

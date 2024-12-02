@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 @Value
 public class PathElement {
 
-  @NonNull Command command;
+  Command command;
 
   int displacement;
 

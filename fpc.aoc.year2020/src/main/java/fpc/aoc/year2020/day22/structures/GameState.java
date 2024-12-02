@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day22.structures;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.ArrayList;
@@ -13,15 +12,15 @@ import java.util.function.Function;
 @Value
 public class GameState {
 
-  @NonNull Deck player1;
+  Deck player1;
 
-  @NonNull Deck player2;
+  Deck player2;
 
-  public int firstCardOf(@NonNull Player player) {
+  public int firstCardOf(Player player) {
     return getDeck(player).firstCard();
   }
 
-  public @NonNull Deck getDeck(@NonNull Player player) {
+  public Deck getDeck(Player player) {
     return switch (player) {
       case ONE -> player1;
       case TWO -> player2;
@@ -31,7 +30,7 @@ public class GameState {
   /**
    * @return an optional containing the sub game if both players can recurse their decks
    */
-  public @NonNull Optional<GameState> subGameState() {
+  public Optional<GameState> subGameState() {
     if (player1.canRecurse() && player2.canRecurse()) {
       return Optional.of(new GameState(player1.createSubDeck(), player2.createSubDeck()));
     }
@@ -41,7 +40,7 @@ public class GameState {
   /**
    * @return the next game state if the winner is the one provided
    */
-  public @NonNull GameState nextState(@NonNull Player winner) {
+  public GameState nextState(Player winner) {
     return switch (winner) {
       case ONE -> new GameState(player1.newDeckIfWonRound(player2.firstCard()), player2.newDeckIfLostRound());
       case TWO -> new GameState(player1.newDeckIfLostRound(), player2.newDeckIfWonRound(player1.firstCard()));
@@ -52,12 +51,12 @@ public class GameState {
     return player1.hasNoCard() || player2.hasNoCard();
   }
 
-  public @NonNull GameOutcome outcome() {
+  public GameOutcome outcome() {
     final var winner = getGameWinner();
     return new GameOutcome(winner, getDeck(winner).score());
   }
 
-  public @NonNull Player getGameWinner() {
+  public Player getGameWinner() {
     if (player1.hasNoCard()) {
       return Player.TWO;
     } else if (player2.hasNoCard()) {
@@ -67,7 +66,7 @@ public class GameState {
 
   }
 
-  public static @NonNull GameState parse(@NonNull List<String> lines) {
+  public static GameState parse(List<String> lines) {
     final List<Integer> card1 = new ArrayList<>();
     final List<Integer> card2 = new ArrayList<>();
     final Function<List<Integer>, Consumer<String>> setterFactory = queue -> s -> queue.add(Integer.parseInt(s));

@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day7.structures;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.HashMap;
@@ -15,13 +14,13 @@ public class BagGraph {
   public static final int NOT_SEEN = -2;
   public static final int IN_PROGRESS = -1;
 
-  private final @NonNull Map<String, BagNode> nodes;
+  private final Map<String, BagNode> nodes;
 
-  public long countContained(@NonNull String color) {
+  public long countContained(String color) {
     return countContained(getBagNode(color), new HashMap<>());
   }
 
-  public long countContainers(@NonNull String color) {
+  public long countContainers(String color) {
     return countContainers(getBagNode(color), new HashSet<>());
   }
 
@@ -56,7 +55,7 @@ public class BagGraph {
 
   }
 
-  private @NonNull long countContainers(@NonNull BagNode node, @NonNull Set<BagNode> seen) {
+  private long countContainers(BagNode node, Set<BagNode> seen) {
     long count = 0;
     for (BagNode container : node.getContainers()) {
       if (seen.contains(container)) {
@@ -68,7 +67,7 @@ public class BagGraph {
     return count;
   }
 
-  private @NonNull BagNode getBagNode(@NonNull String colorName) {
+  private BagNode getBagNode(String colorName) {
     final BagNode node = nodes.get(colorName);
     if (node == null) {
       throw new AOCException("No bag with color '" + colorName + "'");

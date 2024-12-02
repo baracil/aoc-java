@@ -1,11 +1,10 @@
 package fpc.aoc.year2022.day15;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 public class Day15Part2Solver extends Day15Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day15Part2Solver();
   }
 
@@ -20,7 +19,7 @@ public class Day15Part2Solver extends Day15Solver {
   }
 
   @Override
-  public @NonNull Long doSolve(@NonNull Report report) {
+  public Long doSolve(Report report) {
     return report.computePart2(sup);
   }
 }

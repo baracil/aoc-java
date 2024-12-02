@@ -3,17 +3,16 @@ package fpc.aoc.year2023.day10;
 import fpc.aoc.api.Solver;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.GenericArray;
-import lombok.NonNull;
 
 public class Day10Part2Solver extends Day10Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day10Part2Solver();
   }
 
 
   @Override
-  public @NonNull Object doSolve(@NonNull Map input) {
+  public Object doSolve(Map input) {
     final var cleaned = input.cleaned();
     final var width = cleaned.width();
     final var height = cleaned.height();

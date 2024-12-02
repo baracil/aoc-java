@@ -19,20 +19,20 @@ import java.util.stream.Stream;
 public interface ArrayOfChar extends Array, ArrayOfCharReader {
 
 
-  static @NonNull ArrayOfChar from(@NonNull String data, char filling) {
+  static ArrayOfChar from(String data, char filling) {
     return Arrays.stream(data.split("\n"))
         .collect(ArrayOfChar.collector(filling));
   }
 
-  static @NonNull ArrayOfChar from(@NonNull List<String> data, char filling) {
+  static ArrayOfChar from(List<String> data, char filling) {
     return data.stream().collect(ArrayOfChar.collector(filling));
   }
 
-  static @NonNull ArrayOfChar of(char[] data, char filling, int width, int height) {
+  static ArrayOfChar of(char[] data, char filling, int width, int height) {
     return new BaseArrayOfChar(data, filling, width, height);
   }
 
-  static @NonNull ArrayOfChar from(Set<Position> positions, char withPosition, char withoutPosition, int margin) {
+  static ArrayOfChar from(Set<Position> positions, char withPosition, char withoutPosition, int margin) {
     final var minMax = positions.stream().collect(PositionMinMax.COLLECTOR);
     final var width = (minMax.maxX() - minMax.minX() + 1) + margin * 2;
     final var height = (minMax.maxY() - minMax.minY() + 1) + margin * 2;
@@ -47,13 +47,13 @@ public interface ArrayOfChar extends Array, ArrayOfCharReader {
     return of(data, withoutPosition, width, height);
   }
 
-  @NonNull Transformation transformation();
+  Transformation transformation();
 
   /**
    * @param position the seek position
    * @return the char at the provided position
    */
-  char get(@NonNull Position position);
+  char get(Position position);
 
   /**
    * @return the char at x and y
@@ -84,37 +84,37 @@ public interface ArrayOfChar extends Array, ArrayOfCharReader {
   }
 
   @NonNull
-  <T> T[] convert(@NonNull Function<? super Character, ? extends T> converter, @NonNull IntFunction<T[]> arrayCreator);
+  <T> T[] convert(Function<? super Character, ? extends T> converter, IntFunction<T[]> arrayCreator);
 
-  @NonNull String asString();
+  String asString();
 
-  @NonNull ArrayOfChar rotate(@NonNull Rotation rotation);
+  ArrayOfChar rotate(Rotation rotation);
 
-  @NonNull ArrayOfChar flip(@NonNull Flipping flipping);
+  ArrayOfChar flip(Flipping flipping);
 
-  default @NonNull String upperBorder() {
+  default String upperBorder() {
     return extract(i -> i, i -> 0, width());
   }
 
-  default @NonNull String lowerBorder() {
+  default String lowerBorder() {
     final int width = width();
     final int height = height();
     return extract(i -> width - 1 - i, i -> height - 1, width);
   }
 
-  default @NonNull String leftBorder() {
+  default String leftBorder() {
     final int width = width();
     final int height = height();
     return extract(i -> 0, i -> height - 1 - i, height);
   }
 
-  default @NonNull String rightBorder() {
+  default String rightBorder() {
     final int width = width();
     final int height = height();
     return extract(i -> width - 1, i -> i, height);
   }
 
-  default @NonNull String extract(IntUnaryOperator xGetter, IntUnaryOperator yGetter, int length) {
+  default String extract(IntUnaryOperator xGetter, IntUnaryOperator yGetter, int length) {
     final StringBuilder sb = new StringBuilder();
     for (int i = 0; i < length; i++) {
       final int x = xGetter.applyAsInt(i);
@@ -126,8 +126,8 @@ public interface ArrayOfChar extends Array, ArrayOfCharReader {
 
   <T> Stream<T> where(char value, BiFunction<Integer,Integer,T> pointFactory);
 
-  @NonNull ArrayOfChar transform(@NonNull Transformation transformation);
+  ArrayOfChar transform(Transformation transformation);
 
-  @NonNull Optional<Position> findMatching(char s);
+  Optional<Position> findMatching(char s);
 
 }

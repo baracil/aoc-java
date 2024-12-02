@@ -4,7 +4,6 @@ import fpc.aoc.api.Solver;
 import fpc.aoc.year2019.day24._private.BugColony;
 import fpc.aoc.year2019.day24._private.Position;
 import fpc.aoc.year2019.day24._private.part1.Nature;
-import lombok.NonNull;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +19,7 @@ public class Day24Part1Solver extends Day24Solver {
 
 
     @Override
-    protected Object doSolve(@NonNull BugColony colony) {
+    protected Object doSolve(BugColony colony) {
         final Nature nature = Nature.create();
         final Set<Integer> seens = new HashSet<>();
         int current = colony.bugPositionsStream().mapToInt(this::positionToPower).reduce(0, Day24Part1Solver::or);
@@ -33,7 +32,7 @@ public class Day24Part1Solver extends Day24Solver {
 
     }
 
-    private int positionToPower(@NonNull Position position) {
+    private int positionToPower(Position position) {
         return 1<<(position.x()+5*position.y());
     }
 

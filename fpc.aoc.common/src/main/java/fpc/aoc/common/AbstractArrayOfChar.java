@@ -1,17 +1,15 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
-
 public abstract class AbstractArrayOfChar implements ArrayOfChar {
 
   private final LazyString asString = LazyString.of(this::computeAsString);
 
   @Override
-  public @NonNull String asString() {
+  public String asString() {
     return asString.toString();
   }
 
-  public @NonNull String computeAsString() {
+  public String computeAsString() {
     final int height = height();
     final int width = width();
     final StringBuilder sb = new StringBuilder();

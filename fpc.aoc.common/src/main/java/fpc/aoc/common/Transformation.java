@@ -1,6 +1,9 @@
 package fpc.aoc.common;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
 import java.util.List;
 import java.util.function.IntBinaryOperator;
@@ -14,27 +17,27 @@ import java.util.stream.Stream;
 @EqualsAndHashCode(of = "id")
 public class Transformation {
 
-  @NonNull Rotation rotation;
+  Rotation rotation;
 
-  @NonNull Flipping flipping;
+  Flipping flipping;
   int id;
 
-  public Transformation(@NonNull Rotation rotation, @NonNull Flipping flipping) {
+  public Transformation(Rotation rotation, Flipping flipping) {
     this.rotation = rotation;
     this.flipping = flipping;
     this.id = computeId(rotation, flipping);
   }
 
 
-  public @NonNull IntBinaryOperator xTransformer() {
+  public IntBinaryOperator xTransformer() {
     return Holder.X_TRANSFORMERS.get(id);
   }
 
-  public @NonNull IntBinaryOperator yTransformer() {
+  public IntBinaryOperator yTransformer() {
     return Holder.Y_TRANSFORMERS.get(id);
   }
 
-  public @NonNull Transformation compose(@NonNull Rotation after) {
+  public Transformation compose(Rotation after) {
     final Rotation composed = this.rotation.compose(after);
     final Flipping flipping = switch (after) {
       case _000, _180 -> this.flipping;
@@ -43,7 +46,7 @@ public class Transformation {
     return new Transformation(composed, flipping);
   }
 
-  public @NonNull Transformation compose(@NonNull Flipping flipping) {
+  public Transformation compose(Flipping flipping) {
     if (flipping == this.flipping) {
       return new Transformation(rotation, Flipping.NONE);
     }
@@ -64,7 +67,7 @@ public class Transformation {
    * 2      _180        6   _180,V
    * 3      _270        7   _270,V
    */
-  private static int computeId(@NonNull Rotation rotation, @NonNull Flipping flipping) {
+  private static int computeId(Rotation rotation, Flipping flipping) {
     final int idx = rotation.index();
     return switch (flipping) {
       case NONE -> idx;
@@ -73,17 +76,17 @@ public class Transformation {
     };
   }
 
-  public @NonNull Transformation compose(@NonNull Transformation transformation) {
+  public Transformation compose(Transformation transformation) {
     return this.compose(transformation.rotation).compose(transformation.flipping);
   }
 
   public static final Transformation IDENTITY = new Transformation(Rotation._000, Flipping.NONE);
 
-  public static @NonNull Transformation of(@NonNull Rotation rotation, @NonNull Flipping flipping) {
+  public static Transformation of(Rotation rotation, Flipping flipping) {
     return new Transformation(rotation, flipping);
   }
 
-  public static @NonNull Stream<Transformation> all() {
+  public static Stream<Transformation> all() {
     return Holder.ALL.stream();
   }
 

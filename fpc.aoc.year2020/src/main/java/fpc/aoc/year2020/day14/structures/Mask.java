@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day14.structures;
 
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.stream.LongStream;
@@ -19,12 +18,12 @@ public class Mask implements Instruction {
 
 
   @Override
-  public void applyToMemory(@NonNull Memory memory) {
+  public void applyToMemory(Memory memory) {
     memory.setActiveMask(this);
   }
 
 
-  public static @NonNull Mask parse(@NonNull String line) {
+  public static Mask parse(String line) {
     final String mask = line.substring("mask = ".length()).trim();
     long maskValue = 0;
     long floatingMask = 0;
@@ -41,7 +40,7 @@ public class Mask implements Instruction {
   }
 
 
-  public @NonNull LongStream generateFloatingAddresses(int address) {
+  public LongStream generateFloatingAddresses(int address) {
     final long root = (address | maskValue) & notFloatingMask;
     return FloatingGenerator.generate(floatingMask).map(m -> m | root);
   }

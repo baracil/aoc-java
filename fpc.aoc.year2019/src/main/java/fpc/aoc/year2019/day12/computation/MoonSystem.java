@@ -29,7 +29,7 @@ public class MoonSystem {
   private final int hascode;
 
   public MoonSystem(int time,
-                    @NonNull List<Moon> moons) {
+                    List<Moon> moons) {
     this.time = time;
     this.moons = moons;
     hascode = moons.hashCode();

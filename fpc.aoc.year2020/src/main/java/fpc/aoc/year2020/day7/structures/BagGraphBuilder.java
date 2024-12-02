@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day7.structures;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.HashMap;
@@ -11,15 +10,15 @@ import java.util.Map;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class BagGraphBuilder {
 
-  public static @NonNull BagGraph build(@NonNull List<String> lines) {
+  public static BagGraph build(List<String> lines) {
     return new BagGraphBuilder(lines).build();
   }
 
-  private final @NonNull List<String> lines;
+  private final List<String> lines;
 
-  private final @NonNull Map<String, BagNode> nodes = new HashMap<>();
+  private final Map<String, BagNode> nodes = new HashMap<>();
 
-  private @NonNull BagGraph build() {
+  private BagGraph build() {
     for (String line : lines) {
       handleOneLine(line);
     }
@@ -36,7 +35,7 @@ public class BagGraphBuilder {
     }
   }
 
-  private @NonNull BagNode getBagNodeFromColorName(@NonNull String colorName) {
+  private BagNode getBagNodeFromColorName(String colorName) {
     return nodes.computeIfAbsent(colorName, BagNode::new);
   }
 

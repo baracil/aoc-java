@@ -36,7 +36,7 @@ public class Tools {
     return l1 * l2;
   }
 
-  public static @NonNull String reverse(@NonNull String string) {
+  public static String reverse(String string) {
     return new StringBuilder(string).reverse().toString();
   }
 
@@ -58,16 +58,16 @@ public class Tools {
     return source;
   }
 
-  public static <E> @NonNull E getOneElement(@NonNull Collection<E> collection) {
+  public static <E> E getOneElement(Collection<E> collection) {
     return collection.iterator().next();
   }
 
   @SuppressWarnings("unchecked")
-  public static <E> E[] createArray(@NonNull Class<E> elementType, int size) {
+  public static <E> E[] createArray(Class<E> elementType, int size) {
     return (E[]) Array.newInstance(elementType, size);
   }
 
-  public static <T> @NonNull List<T> replaceAt(@NonNull List<T> source, int index, @NonNull Function<? super T, ? extends T> transformer) {
+  public static <T> List<T> replaceAt(List<T> source, int index, Function<? super T, ? extends T> transformer) {
     final List<T> code = new ArrayList<>(source.size());
 
     if (index > 0) {
@@ -104,17 +104,17 @@ public class Tools {
   }
 
   @NonNull
-  public static <K, V> Collector<V, ?, Map<K, V>> toMap(@NonNull Function<? super V, ? extends K> keyGetter) {
+  public static <K, V> Collector<V, ?, Map<K, V>> toMap(Function<? super V, ? extends K> keyGetter) {
     return Collectors.toMap(keyGetter, v -> v);
   }
 
-  public static <K, V> @NonNull Collector<Pair<K, V>, ?, Map<K, V>> pairsToMap() {
+  public static <K, V> Collector<Pair<K, V>, ?, Map<K, V>> pairsToMap() {
     return Collectors.toMap(Pair::first, Pair::second);
   }
 
 
   @NonNull
-  public static Optional<Integer> parseInteger(@NonNull String integer) {
+  public static Optional<Integer> parseInteger(String integer) {
     try {
       return Optional.of(Integer.parseInt(integer));
     } catch (NumberFormatException nfe) {
@@ -123,7 +123,7 @@ public class Tools {
   }
 
   @NonNull
-  public static <K, V> Map<K, V> removeKey(@NonNull Map<K, V> target, @NonNull K key) {
+  public static <K, V> Map<K, V> removeKey(Map<K, V> target, K key) {
     if (!target.containsKey(key)) {
       return target;
     }
@@ -133,7 +133,7 @@ public class Tools {
   }
 
   @NonNull
-  public static <K, V> Map<K, V> addValue(@NonNull Map<K, V> target, @NonNull K key, @NonNull V value) {
+  public static <K, V> Map<K, V> addValue(Map<K, V> target, K key, V value) {
     if (value.equals(target.get(key))) {
       return target;
     }
@@ -143,7 +143,7 @@ public class Tools {
   }
 
   @NonNull
-  public static <K> Set<K> addValue(@NonNull Set<K> target, @NonNull K value) {
+  public static <K> Set<K> addValue(Set<K> target, K value) {
     if (target.contains(value)) {
       return target;
     }
@@ -153,7 +153,7 @@ public class Tools {
   }
 
   @NonNull
-  public static <V> List<V> addValue(@NonNull List<V> target, @NonNull V value) {
+  public static <V> List<V> addValue(List<V> target, V value) {
     final List<V> result = new ArrayList<V>(target.size() + 1);
     result.addAll(target);
     result.add(value);
@@ -162,7 +162,7 @@ public class Tools {
 
   @SafeVarargs
   @NonNull
-  public static <V> List<V> addValues(@NonNull List<V> target, @NonNull V... values) {
+  public static <V> List<V> addValues(List<V> target, V... values) {
     final List<V> result = new ArrayList<V>(target.size() + values.length);
     result.addAll(target);
     result.addAll(Arrays.asList(values));
@@ -171,7 +171,7 @@ public class Tools {
 
 
   @NonNull
-  public static <K, A, B> Map<K, B> mapValues(@NonNull Map<K, A> input, @NonNull Function<? super A, ? extends B> mapper) {
+  public static <K, A, B> Map<K, B> mapValues(Map<K, A> input, Function<? super A, ? extends B> mapper) {
     return input
         .entrySet()
         .stream()
@@ -180,12 +180,12 @@ public class Tools {
 
 
   @NonNull
-  public static <A, B> List<B> map(@NonNull Collection<A> input, @NonNull Function<? super A, ? extends B> mapper) {
+  public static <A, B> List<B> map(Collection<A> input, Function<? super A, ? extends B> mapper) {
     return input.stream().<B>map(mapper).toList();
   }
 
   @NonNull
-  public static <T> List<T> mergeLists(@NonNull List<T> firstPart, @NonNull List<T> secondPart) {
+  public static <T> List<T> mergeLists(List<T> firstPart, List<T> secondPart) {
     final List<T> result = new ArrayList<>(firstPart.size() + secondPart.size());
     result.addAll(firstPart);
     result.addAll(secondPart);
@@ -193,7 +193,7 @@ public class Tools {
   }
 
   @NonNull
-  public static <T> Map<T, Integer> mapSmallestIndexInList(@NonNull List<T> values) {
+  public static <T> Map<T, Integer> mapSmallestIndexInList(List<T> values) {
     final Map<T, Integer> map = new HashMap<>();
     for (int i = 0; i < values.size(); i++) {
       final T value = values.get(i);
@@ -203,7 +203,7 @@ public class Tools {
   }
 
   @NonNull
-  public static List<String> convertToAscii(@NonNull String str) {
+  public static List<String> convertToAscii(String str) {
     return str.chars().mapToObj(Long::toString).toList();
   }
 
@@ -216,7 +216,7 @@ public class Tools {
     return (int) Math.round(Math.sqrt(value));
   }
 
-  public static <E extends Enum<E>> @NonNull Collector<E, ?, EnumSet<E>> enumSetCollector(@NonNull Class<E> enumType) {
+  public static <E extends Enum<E>> Collector<E, ?, EnumSet<E>> enumSetCollector(Class<E> enumType) {
     return Collector.of(
         () -> EnumSet.noneOf(enumType),
         AbstractCollection::add,

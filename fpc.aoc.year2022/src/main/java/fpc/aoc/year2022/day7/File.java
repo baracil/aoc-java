@@ -2,7 +2,6 @@ package fpc.aoc.year2022.day7;
 
 import fpc.aoc.common.AOCException;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
@@ -13,13 +12,13 @@ import java.util.stream.Stream;
 
 public sealed interface File permits File.Folder, File.RegularFile {
 
-  @NonNull Folder root();
+  Folder root();
 
-  @NonNull Folder parent();
+  Folder parent();
 
-  @NonNull String name();
+  String name();
 
-  @NonNull Optional<File> findChild(String folderName);
+  Optional<File> findChild(String folderName);
 
   void addFolder(String token);
 
@@ -29,10 +28,10 @@ public sealed interface File permits File.Folder, File.RegularFile {
   @RequiredArgsConstructor
   @Getter
   final class Folder implements File {
-    private final @NonNull String name;
-    private final @NonNull Folder root;
-    private final @NonNull Folder parent;
-    private final @NonNull List<File> children = new ArrayList<>();
+    private final String name;
+    private final Folder root;
+    private final Folder parent;
+    private final List<File> children = new ArrayList<>();
     private int size = 0;
 
     public Folder() {
@@ -48,7 +47,7 @@ public sealed interface File permits File.Folder, File.RegularFile {
     }
 
     @Override
-    public @NonNull Optional<File> findChild(String folderName) {
+    public Optional<File> findChild(String folderName) {
       return children.stream().filter(c -> c.name().equals(folderName)).findAny();
     }
 
@@ -78,12 +77,12 @@ public sealed interface File permits File.Folder, File.RegularFile {
 
   @Value
   class RegularFile implements File {
-    @NonNull String name;
+    String name;
     int size;
-    @NonNull Folder root;
-    @NonNull Folder parent;
+    Folder root;
+    Folder parent;
 
-    public @NonNull Optional<File> findChild(String folderName) {
+    public Optional<File> findChild(String folderName) {
       return Optional.empty();
     }
 

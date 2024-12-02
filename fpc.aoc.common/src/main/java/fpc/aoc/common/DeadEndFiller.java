@@ -12,11 +12,11 @@ import java.util.function.Predicate;
 public class DeadEndFiller<T> {
 
     public static <T> T[] fill(
-            @NonNull T[] array,
+            T[] array,
             int width, int height,
-            @NonNull Predicate<T> emptyPredicate,
-            @NonNull Predicate<T> wallPredicate,
-            @NonNull T wall) {
+            Predicate<T> emptyPredicate,
+            Predicate<T> wallPredicate,
+            T wall) {
         new DeadEndFiller<>(array,width,height,emptyPredicate,wallPredicate,wall).fill();
         return array;
     }

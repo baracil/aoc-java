@@ -13,12 +13,12 @@ import java.util.stream.IntStream;
 
 public class Day2Part2Solver extends ProgramBasedSolver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day2Part2Solver();
   }
 
   @Override
-  protected Object doSolve(@NonNull Program program) {
+  protected Object doSolve(Program program) {
     return new PSolver(program, "19690720").launch().orElseThrow();
   }
 

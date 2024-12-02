@@ -1,6 +1,5 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -9,7 +8,7 @@ import java.util.function.Supplier;
 @RequiredArgsConstructor
 public class LazyString implements CharSequence {
 
-  public static LazyString of(@NonNull Supplier<? extends CharSequence> heavyComputation) {
+  public static LazyString of(Supplier<? extends CharSequence> heavyComputation) {
     return new LazyString(heavyComputation);
   }
 
@@ -33,11 +32,11 @@ public class LazyString implements CharSequence {
   }
 
   @Override
-  public @NonNull String toString() {
+  public String toString() {
     return getValue().toString();
   }
 
-  private @NonNull CharSequence getValue() {
+  private CharSequence getValue() {
     return value.updateAndGet(c -> c == null ? heavyComputation.get() : c);
   }
 }

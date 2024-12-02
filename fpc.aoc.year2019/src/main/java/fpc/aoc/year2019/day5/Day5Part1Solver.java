@@ -4,7 +4,6 @@ import fpc.aoc.api.Solver;
 import fpc.aoc.computer.Program;
 import fpc.aoc.computer.ProgramBasedSolver;
 import fpc.aoc.computer.io.ProgramIO;
-import lombok.NonNull;
 
 public class Day5Part1Solver extends ProgramBasedSolver {
 
@@ -13,7 +12,7 @@ public class Day5Part1Solver extends ProgramBasedSolver {
   }
 
   @Override
-  protected String doSolve(@NonNull Program program) {
+  protected String doSolve(Program program) {
     return program.launchAndWait("Day5 Part 1", ProgramIO.fromList("1").ignoreOutput()).getLastOutput();
   }
 

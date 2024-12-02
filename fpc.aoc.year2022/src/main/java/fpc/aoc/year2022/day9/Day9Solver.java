@@ -3,7 +3,6 @@ package fpc.aoc.year2022.day9;
 import fpc.aoc.common.Position;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
-import lombok.NonNull;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -12,7 +11,7 @@ import java.util.stream.Stream;
 public abstract class Day9Solver extends SmartSolver<Stream<Command>> {
 
   @Override
-  protected @NonNull Converter<Stream<Command>> getConverter() {
+  protected Converter<Stream<Command>> getConverter() {
     return s -> s.stream().map(Command::parse);
   }
 
@@ -23,7 +22,7 @@ public abstract class Day9Solver extends SmartSolver<Stream<Command>> {
   }
 
   @Override
-  public @NonNull Integer doSolve(@NonNull Stream<Command> commands) {
+  public Integer doSolve(Stream<Command> commands) {
     final Set<Position> visitedPositions = new HashSet<>();
     final var rope = new Rope(nbKnots);
     visitedPositions.add(rope.tailPosition());

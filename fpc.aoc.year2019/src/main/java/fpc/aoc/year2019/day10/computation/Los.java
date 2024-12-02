@@ -19,14 +19,14 @@ public class Los {
   };
 
   @NonNull
-  public static Los create(@NonNull Direction direction, @NonNull List<RadialRelativePosition> radialRelativePositions) {
+  public static Los create(Direction direction, List<RadialRelativePosition> radialRelativePositions) {
     final List<RadialRelativePosition> asteroids = radialRelativePositions.stream()
         .sorted(RadialRelativePosition.COMPARE_RADIUS).toList();
     return new Los(direction, asteroids);
   }
 
   @NonNull
-  public static Los create(@NonNull Map.Entry<Direction, List<RadialRelativePosition>> entry) {
+  public static Los create(Map.Entry<Direction, List<RadialRelativePosition>> entry) {
     return create(entry.getKey(), entry.getValue());
   }
 

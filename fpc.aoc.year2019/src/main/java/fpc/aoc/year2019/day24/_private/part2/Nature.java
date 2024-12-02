@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 public class Nature {
 
     @NonNull
-    public static BugColony evolve(@NonNull BugColony colony) {
+    public static BugColony evolve(BugColony colony) {
         return new Nature(colony).evolve();
     }
 
@@ -41,7 +41,7 @@ public class Nature {
                .forEach(p -> p.forEachNeighbour(this::increaseCount));
     }
 
-    private void increaseCount(@NonNull Position position) {
+    private void increaseCount(Position position) {
         census.merge(position, 1, Integer::sum);
     }
 
@@ -52,7 +52,7 @@ public class Nature {
               .collect(Collectors.collectingAndThen(Collectors.toUnmodifiableSet(),BugColony::new));
     }
 
-    private boolean isBugAliveAt(@NonNull Position position) {
+    private boolean isBugAliveAt(Position position) {
         final int numberOfNeighbours = census.getOrDefault(position,0);
       return switch (numberOfNeighbours) {
         case 1 -> true;

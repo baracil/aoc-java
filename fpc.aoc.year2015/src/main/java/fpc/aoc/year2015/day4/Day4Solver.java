@@ -2,7 +2,6 @@ package fpc.aoc.year2015.day4;
 
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
-import lombok.NonNull;
 import lombok.SneakyThrows;
 
 import java.nio.charset.StandardCharsets;
@@ -11,7 +10,7 @@ import java.security.MessageDigest;
 public abstract class Day4Solver extends SmartSolver<String> {
 
   @Override
-  protected @NonNull Converter<String> getConverter() {
+  protected Converter<String> getConverter() {
     return Converter.FIRST_LINE;
   }
 

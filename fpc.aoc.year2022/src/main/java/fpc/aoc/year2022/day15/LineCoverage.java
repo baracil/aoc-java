@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day15;
 
 import fpc.aoc.common.Sets;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.Set;
@@ -9,7 +8,7 @@ import java.util.Set;
 @Value
 public class LineCoverage {
 
-  @NonNull Set<Integer> beacons;
+  Set<Integer> beacons;
   int lineIndex;
   int inf;
   int sup;

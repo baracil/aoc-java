@@ -3,24 +3,23 @@ package fpc.aoc.year2020.day11.structures;
 import fpc.aoc.common.ArrayOfChar;
 import fpc.aoc.common.GridHelper;
 import lombok.Getter;
-import lombok.NonNull;
 
 import java.util.Arrays;
 
 public class SeatLayoutLife {
 
-  private final @NonNull StateEvolutionRule stateEvolutionRule;
-  private final @NonNull AdjacentCounter adjacentCounter;
-  private final @NonNull State[] states;
+  private final StateEvolutionRule stateEvolutionRule;
+  private final AdjacentCounter adjacentCounter;
+  private final State[] states;
   @Getter
-  private final @NonNull SeatLayout layout;
+  private final SeatLayout layout;
 
   private final long[] nbOccupiedBuffer;
 
-  public SeatLayoutLife(@NonNull GridHelper gridHelper,
-                        @NonNull StateEvolutionRule stateEvolutionRule,
-                        @NonNull AdjacentCounter adjacentCounter,
-                        @NonNull ArrayOfChar input) {
+  public SeatLayoutLife(GridHelper gridHelper,
+                        StateEvolutionRule stateEvolutionRule,
+                        AdjacentCounter adjacentCounter,
+                        ArrayOfChar input) {
     this.stateEvolutionRule = stateEvolutionRule;
     this.adjacentCounter = adjacentCounter;
     final var width = input.width();

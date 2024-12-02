@@ -4,7 +4,6 @@ import fpc.aoc.api.Solver;
 import fpc.aoc.computer.Program;
 import fpc.aoc.computer.ProgramBasedSolver;
 import fpc.aoc.year2019.day23._private.FirstYNetwork;
-import lombok.NonNull;
 
 /**
  * @author Bastien Aracil
@@ -17,7 +16,7 @@ public class Day23Part1Solver extends ProgramBasedSolver {
 
 
     @Override
-    protected String doSolve(@NonNull Program program) {
+    protected String doSolve(Program program) {
         return new FirstYNetwork(program).waitForResult();
     }
 }

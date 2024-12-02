@@ -1,6 +1,5 @@
 package fpc.aoc.year2021.day14.struct;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.stream.IntStream;
@@ -8,9 +7,9 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor
 public class Counter {
 
-  private final @NonNull String template;
-  private final @NonNull Rules rules;
-  private final @NonNull Cache cache = new DefaultCache();
+  private final String template;
+  private final Rules rules;
+  private final Cache cache = new DefaultCache();
 
   public long compute(int generation) {
     return IntStream.range(0, template.length() - 1)
@@ -23,11 +22,11 @@ public class Counter {
         .getAmplitude();
   }
 
-  private @NonNull Distribution count(@NonNull Couple couple, int generation) {
+  private Distribution count(Couple couple, int generation) {
     return cache.fromCache(couple, generation).orElseGet(() -> computeDistribution(couple, generation));
   }
 
-  private @NonNull Distribution computeDistribution(@NonNull Couple couple, int generation) {
+  private Distribution computeDistribution(Couple couple, int generation) {
     final Character middle = rules.getInsertion(couple).orElse(null);
 
     final Distribution distribution;

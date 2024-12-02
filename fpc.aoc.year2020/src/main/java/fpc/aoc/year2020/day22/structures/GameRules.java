@@ -5,6 +5,6 @@ import lombok.NonNull;
 public interface GameRules {
 
   @NonNull
-  Player getWinnerOfRound(@NonNull GameState gameState);
+  Player getWinnerOfRound(GameState gameState);
 
 }

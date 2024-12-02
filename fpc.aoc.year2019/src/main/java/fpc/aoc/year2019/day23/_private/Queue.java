@@ -46,7 +46,7 @@ public class Queue {
         }
     }
 
-    public void write(@NonNull Packet packet) {
+    public void write(Packet packet) {
         queue.offerLast(packet);
     }
 
@@ -77,14 +77,14 @@ public class Queue {
 
         @NonNull
         @Override
-        public String visit(@NonNull AddressPacket addressPacket) {
+        public String visit(AddressPacket addressPacket) {
             pendingData = null;
             return String.valueOf(addressPacket.networkAddress());
         }
 
         @NonNull
         @Override
-        public String visit(@NonNull DataPacket dataPacket) {
+        public String visit(DataPacket dataPacket) {
             pendingData = dataPacket.y();
             return dataPacket.x();
         }

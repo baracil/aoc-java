@@ -2,7 +2,6 @@ package fpc.aoc.year2022.day19;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NonNull;
 
 import java.util.Objects;
 import java.util.stream.Stream;
@@ -31,7 +30,7 @@ public class State {
     return resources[Type.GEODE.index];
   }
 
-  public static State initial(@NonNull BluePrint bluePrint) {
+  public static State initial(BluePrint bluePrint) {
     final var nbTypes = Type.values().length;
     final var resources = new int[nbTypes];
     final var robots = new int[nbTypes];
@@ -96,7 +95,7 @@ public class State {
   }
 
 
-  public int atMost(@NonNull Type type, int nbRound) {
+  public int atMost(Type type, int nbRound) {
     int left = nbRound - time;
     return resources[type.index] + left * robots[type.index] + left * (left - 1) / 2;
 

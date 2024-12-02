@@ -1,14 +1,13 @@
 package fpc.aoc.year2020.day18.structures;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 
 import java.util.Deque;
 
 public class ExpressionEvaluatorPart1 implements ExpressionEvaluator {
 
   @Override
-  public long getFinalResultFromQueue(@NonNull Deque<Token> tokenQueue) {
+  public long getFinalResultFromQueue(Deque<Token> tokenQueue) {
     final Token lastToken = tokenQueue.poll();
     if (!tokenQueue.isEmpty() || lastToken == null || lastToken.type() != TokenType.NUMBER) {
       throw new AOCException("Invalid queue state to extract final result");
@@ -17,7 +16,7 @@ public class ExpressionEvaluatorPart1 implements ExpressionEvaluator {
   }
 
   @Override
-  public boolean performOnePass(@NonNull Deque<Token> tokenQueue) {
+  public boolean performOnePass(Deque<Token> tokenQueue) {
     if (tokenQueue.size() < 3) {
       return false;
     }
@@ -30,7 +29,7 @@ public class ExpressionEvaluatorPart1 implements ExpressionEvaluator {
     };
   }
 
-  private boolean evaluateSubExpression(@NonNull Deque<Token> tokenQueue) {
+  private boolean evaluateSubExpression(Deque<Token> tokenQueue) {
     if (tokenQueue.size() < 3) {
       throw new AOCException("Queue too small for sub expression");
     }
@@ -44,7 +43,7 @@ public class ExpressionEvaluatorPart1 implements ExpressionEvaluator {
     return true;
   }
 
-  private boolean evaluateWithNumber(@NonNull Deque<Token> tokenQueue) {
+  private boolean evaluateWithNumber(Deque<Token> tokenQueue) {
     if (tokenQueue.size() < 3) {
       throw new AOCException("Queue too small for number evaluation");
     }

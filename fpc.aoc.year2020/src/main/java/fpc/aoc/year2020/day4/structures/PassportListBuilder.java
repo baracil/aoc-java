@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day4.structures;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -10,17 +9,17 @@ import java.util.List;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class PassportListBuilder {
 
-  public static @NonNull List<Passport> build(@NonNull List<String> input) {
+  public static List<Passport> build(List<String> input) {
     return new PassportListBuilder(input).build();
   }
 
-  private final @NonNull List<String> input;
+  private final List<String> input;
 
-  private final @NonNull List<Passport> listBuilder = new ArrayList<>();
+  private final List<Passport> listBuilder = new ArrayList<>();
 
   private PassportBuilder passportBuilder = null;
 
-  public @NonNull List<Passport> build() {
+  public List<Passport> build() {
     for (String line : input) {
       if (line.isBlank()) {
         this.handleBlankLine();
@@ -37,7 +36,7 @@ public class PassportListBuilder {
     this.appendBuilderInProgressToList();
   }
 
-  private void handleNotBlankLine(@NonNull String line) {
+  private void handleNotBlankLine(String line) {
     this.createPassportBuilderIfNecessary();
     this.passportBuilder.addLine(line);
   }

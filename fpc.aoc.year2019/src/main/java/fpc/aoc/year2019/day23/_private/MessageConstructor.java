@@ -20,7 +20,7 @@ public class MessageConstructor {
     private String y;
 
     @NonNull
-    public Optional<Message> pushValue(@NonNull String value) {
+    public Optional<Message> pushValue(String value) {
         final Message result;
         if (destinationAddress < 0) {
             destinationAddress = Integer.parseInt(value);

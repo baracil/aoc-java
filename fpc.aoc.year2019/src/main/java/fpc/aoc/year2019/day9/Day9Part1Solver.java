@@ -6,7 +6,6 @@ import fpc.aoc.computer.ExecutionResult;
 import fpc.aoc.computer.Program;
 import fpc.aoc.computer.ProgramBasedSolver;
 import fpc.aoc.computer.io.ProgramIO;
-import lombok.NonNull;
 
 public class Day9Part1Solver extends ProgramBasedSolver {
 
@@ -16,7 +15,7 @@ public class Day9Part1Solver extends ProgramBasedSolver {
 
 
     @Override
-    protected String doSolve(@NonNull Program program) {
+    protected String doSolve(Program program) {
         final ExecutionResult result = program.launch(id().toString(), ProgramIO.fromList("1").ignoreOutput()).waitTermination();
 
         if (result.numberOfOutput() != 1) {

@@ -1,6 +1,5 @@
 package fpc.aoc.computer.common;
 
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
@@ -9,7 +8,7 @@ public class Instruction {
   String opCode;
   Modes modes;
 
-  public Instruction(@NonNull String instructionCode) {
+  public Instruction(String instructionCode) {
     final int length = instructionCode.length();
     if (length <= 2) {
       this.opCode = instructionCode;

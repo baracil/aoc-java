@@ -12,7 +12,7 @@ public abstract class BaseOutputPort<I,W> implements OutputPort<I,W> {
     private final OutputTransformer<W> outputTransformer;
 
     @Override
-    public void transformAndWrite(@NonNull String value) {
+    public void transformAndWrite(String value) {
         write(outputTransformer.apply(value));
     }
 }

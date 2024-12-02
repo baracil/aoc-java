@@ -32,7 +32,7 @@ public class ChemicalReaction {
     }
 
 
-    public void forEachReactant(@NonNull Consumer<Reactant> reactantConsumer) {
+    public void forEachReactant(Consumer<Reactant> reactantConsumer) {
         reactants.forEach(reactantConsumer);
     }
 }

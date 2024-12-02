@@ -17,7 +17,7 @@ public class VisibilityMap {
     private final Lazy<List<Position>> destructionOrder = new Lazy<>(this::computeDestructionOrder);
 
 
-    public VisibilityMap(@NonNull Position reference, @NonNull List<Los> lineOfSights) {
+    public VisibilityMap(Position reference, List<Los> lineOfSights) {
         this.reference = reference;
         this.lineOfSights = lineOfSights.stream().sorted(Los.COMPARE_DIRECTION).toList();
     }

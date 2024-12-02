@@ -14,7 +14,7 @@ public class Day21Part1Solver extends Day21Solver {
 
 
   @Override
-  int solve(@NonNull Function<List<String>, Day21Solver.Result> executor) {
+  int solve(Function<List<String>, Day21Solver.Result> executor) {
     final Result result = executor.apply(getLogicalProgram());
     return result.damage();
   }

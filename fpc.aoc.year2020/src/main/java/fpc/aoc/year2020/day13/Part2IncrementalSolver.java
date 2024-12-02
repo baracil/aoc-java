@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day13;
 
 import fpc.aoc.common.Tools;
-import lombok.NonNull;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.List;
 public class Part2IncrementalSolver implements Part2Solver {
 
   @Override
-  public @NonNull BigInteger doSolve(@NonNull List<Bus> buses) {
+  public BigInteger doSolve(List<Bus> buses) {
     var factor = BigInteger.ONE;
     var timeStamp = BigInteger.ZERO;
     for (int i = 0; i < buses.size(); i++) {

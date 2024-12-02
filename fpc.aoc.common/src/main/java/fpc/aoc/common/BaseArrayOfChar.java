@@ -20,16 +20,16 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
 
   private final char filling;
 
-  private final @NonNull LazyString asString = LazyString.of(this::computeAsString);
+  private final LazyString asString = LazyString.of(this::computeAsString);
 
-  public BaseArrayOfChar(@NonNull char[] data, char filling, int width, int height) {
+  public BaseArrayOfChar(char[] data, char filling, int width, int height) {
     super(width, height);
     this.data = data;
     this.filling = filling;
   }
 
   @Override
-  public @NonNull Transformation transformation() {
+  public Transformation transformation() {
     return Transformation.IDENTITY;
   }
 
@@ -42,7 +42,7 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
    * @param position the seek position
    * @return the char at the provided position
    */
-  public char get(@NonNull Position position) {
+  public char get(Position position) {
     if (isPositionInRange(position)) {
       return data[positionToIndex(position)];
     }
@@ -60,32 +60,32 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
   }
 
   @NonNull
-  public <T> T[] convert(@NonNull Function<? super Character, ? extends T> converter, @NonNull IntFunction<T[]> arrayCreator) {
+  public <T> T[] convert(Function<? super Character, ? extends T> converter, IntFunction<T[]> arrayCreator) {
     return IntStream.range(0, width() * height()).mapToObj(i -> converter.apply(data[i])).toArray(arrayCreator);
   }
 
   @Override
-  protected void printSingleElement(@NonNull PrintStream printStream, int elementIndex) {
+  protected void printSingleElement(PrintStream printStream, int elementIndex) {
     printStream.print(data[elementIndex]);
   }
 
-  public @NonNull String asString() {
+  public String asString() {
     return asString.toString();
   }
 
 
   @Override
-  public @NonNull ArrayOfChar rotate(@NonNull Rotation rotation) {
+  public ArrayOfChar rotate(Rotation rotation) {
     return new TransformedArrayOfChar(Transformation.of(rotation, Flipping.NONE), this);
   }
 
   @Override
-  public @NonNull ArrayOfChar flip(@NonNull Flipping flipping) {
+  public ArrayOfChar flip(Flipping flipping) {
     return new TransformedArrayOfChar(Transformation.of(Rotation._000, flipping), this);
   }
 
   @Override
-  public @NonNull ArrayOfChar transform(@NonNull Transformation transformation) {
+  public ArrayOfChar transform(Transformation transformation) {
     return new TransformedArrayOfChar(transformation, this);
   }
 
@@ -94,7 +94,7 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
     this.data[xyToIndex(x, y)] = value;
   }
 
-  public @NonNull String computeAsString() {
+  public String computeAsString() {
     final int width = width();
     final StringBuilder sb = new StringBuilder();
     for (int i = 0; i < data.length; i++) {
@@ -112,7 +112,7 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
   }
 
   @Override
-  public @NonNull Optional<Position> findMatching(char s) {
+  public Optional<Position> findMatching(char s) {
     for (int i = 0; i < data.length; i++) {
       if (data[i] == s) {
         return Optional.of(Position.of(i % width(), i / width()));

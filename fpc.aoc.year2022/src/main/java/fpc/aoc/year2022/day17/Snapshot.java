@@ -1,7 +1,5 @@
 package fpc.aoc.year2022.day17;
 
-import lombok.NonNull;
-
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -14,7 +12,7 @@ public class Snapshot {
 
   private final int hashCode;
 
-  public Snapshot(int[] levels, @NonNull ShapeType shapeType, int jetIndex) {
+  public Snapshot(int[] levels, ShapeType shapeType, int jetIndex) {
     this.shapeType = shapeType;
     this.levels = levels;
     this.jetIndex = jetIndex;

@@ -3,7 +3,6 @@ package fpc.aoc.year2020.day12.structures;
 import fpc.aoc.common.Orientation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -11,48 +10,48 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Ferry {
 
-  private @NonNull Orientation orientation;
+  private Orientation orientation;
   private int x;
   private int y;
 
-  //    public @NonNull Ferry x(int x) {
+  //    public Ferry x(int x) {
 //        this.x = x;
 //        return this;
 //    }
 //
-//    public @NonNull Ferry y(int y) {
+//    public Ferry y(int y) {
 //        this.y = y;
 //        return this;
 //    }
 //
-//    public @NonNull Ferry increaseX(int quantity) {
+//    public Ferry increaseX(int quantity) {
 //        this.x += quantity;
 //        return this;
 //    }
 //
-//    public @NonNull Ferry decreaseX(int quantity) {
+//    public Ferry decreaseX(int quantity) {
 //        return increaseX(-quantity);
 //    }
 //
-//    public @NonNull Ferry increaseY(int quantity) {
+//    public Ferry increaseY(int quantity) {
 //        this.y += quantity;
 //        return this;
 //    }
 //
-//    public @NonNull Ferry decreaseY(int quantity) {
+//    public Ferry decreaseY(int quantity) {
 //        return increaseY(-quantity);
 //    }
 //
-//    public @NonNull Ferry turnLeft(int angle) {
+//    public Ferry turnLeft(int angle) {
 //        return turnRight(-angle);
 //    }
 //
-//    public @NonNull Ferry turnRight(int angle) {
+//    public Ferry turnRight(int angle) {
 //        this.orientation = this.orientation.turn(angle);
 //        return this;
 //    }
 //
-//    public @NonNull Ferry moveForward(int quantity) {
+//    public Ferry moveForward(int quantity) {
 //        return switch (orientation) {
 //            case E -> increaseX(quantity);
 //            case W -> decreaseX(quantity);
@@ -61,7 +60,7 @@ public class Ferry {
 //        };
 //    }
 //
-//    public void displace(@NonNull Movement movement) {
+//    public void displace(Movement movement) {
 //        final Operation operation = movement.operation();
 //        final int quantity = movement.quantity();
 //        operation.apply(this,quantity);

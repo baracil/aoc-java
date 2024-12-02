@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day9;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -72,9 +71,9 @@ public class Map {
   }
 
 
-  public static Map parse(@NonNull List<String> lines) {
+  public static Map parse(List<String> lines) {
     final var nbRows = lines.size() + 2;
-    final var nbColumns = lines.get(0).length() + 2;
+    final var nbColumns = lines.getFirst().length() + 2;
 
     final var heights = new int[nbRows * nbColumns];
     Arrays.fill(heights, 9);

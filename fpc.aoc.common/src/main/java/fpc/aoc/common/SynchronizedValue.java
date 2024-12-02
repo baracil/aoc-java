@@ -14,14 +14,14 @@ public interface SynchronizedValue<T> {
     T value();
 
     @NonNull
-    default T waitForValue(@NonNull T expectedValue) throws InterruptedException {
+    default T waitForValue(T expectedValue) throws InterruptedException {
         return waitForValueMatching(expectedValue::equals);
     }
 
     @NonNull
-    default T waitForValueMatching(@NonNull Predicate<T> valueTester) throws InterruptedException {
+    default T waitForValueMatching(Predicate<T> valueTester) throws InterruptedException {
         return transformAndWaitForValue(t -> valueTester.test(t) ? Optional.of(t) : Optional.empty());
     }
 
-    @NonNull <U> U transformAndWaitForValue(@NonNull Function<T,Optional<U>> valueTester) throws InterruptedException;
+    <U> U transformAndWaitForValue(Function<T,Optional<U>> valueTester) throws InterruptedException;
 }

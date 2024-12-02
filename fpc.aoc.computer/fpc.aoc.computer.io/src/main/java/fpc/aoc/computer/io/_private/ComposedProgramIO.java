@@ -11,18 +11,18 @@ public class ComposedProgramIO<I, O> implements ProgramIO<I,O> {
     @NonNull
     private final InputPort<I> inputPort;
 
-    public ComposedProgramIO(@NonNull InputPort<I> inputPort, @NonNull OutputPort<O,?> outputPort) {
+    public ComposedProgramIO(InputPort<I> inputPort, OutputPort<O,?> outputPort) {
         this.outputPort = outputPort;
         this.inputPort = inputPort;
     }
 
     @Override
-    public @NonNull String read() {
+    public String read() {
         return inputPort.read();
     }
 
     @Override
-    public void write(@NonNull String value) {
+    public void write(String value) {
         outputPort.transformAndWrite(value);
     }
 

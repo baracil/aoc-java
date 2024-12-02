@@ -4,10 +4,10 @@ import lombok.NonNull;
 
 public interface OrbitMap {
 
-    void depthFirstWalk(@NonNull OrbitWalker walker);
+    void depthFirstWalk(OrbitWalker walker);
 
     @NonNull
-    OrbitPath pathFromRoot(@NonNull String bodyId);
+    OrbitPath pathFromRoot(String bodyId);
 
-    int distanceFromRoot(@NonNull String bodyId);
+    int distanceFromRoot(String bodyId);
 }

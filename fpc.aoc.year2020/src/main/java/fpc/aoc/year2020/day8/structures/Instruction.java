@@ -12,7 +12,7 @@ public sealed interface Instruction permits Acc, Jmp, Nop {
 
   Instruction mutate();
 
-  static @NonNull Instruction parse(@NonNull String line) {
+  static Instruction parse(String line) {
     try {
       final String[] token = line.split(" ", 2);
       final Operation operation = Operation.find(token[0]);

@@ -6,7 +6,6 @@ import fpc.aoc.input.CachedRawInput;
 import fpc.aoc.input.SmartRawInput;
 import fpc.aoc.launcher._private.Launcher;
 import fpc.aoc.launcher._private.SolverService;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -18,7 +17,7 @@ public class Launch {
     System.out.printf("Last : %.3f ms%n", last);
   }
 
-  public static double bench(@NonNull Solver solver, int warmup, int bench) {
+  public static double bench(Solver solver, int warmup, int bench) {
     final var year = solver.id().year();
     final var day = solver.id().day();
     final RawInput input = new CachedRawInput(new SmartRawInput(year, day));

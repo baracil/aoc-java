@@ -5,19 +5,18 @@ import fpc.aoc.common.ArrayOfChar;
 import fpc.aoc.common.Orientation;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
-import lombok.NonNull;
 
 public abstract class Day17Solver extends SmartSolver<ArrayOfChar> {
 
   @Override
-  protected @NonNull Converter<ArrayOfChar> getConverter() {
+  protected Converter<ArrayOfChar> getConverter() {
     return Converter.TO_ARRAY_OF_CHAR;
   }
 
-  protected abstract Helper createHelper(@NonNull ArrayOfChar input);
+  protected abstract Helper createHelper(ArrayOfChar input);
 
   @Override
-  public @NonNull Object doSolve(@NonNull ArrayOfChar input) {
+  public Object doSolve(ArrayOfChar input) {
     return find(createHelper(input)).totalHeatLoss();
   }
 

@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day9;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.stream.IntStream;
@@ -9,7 +8,7 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor
 public class Day9Part2Solver extends Day9Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day9Part2Solver(25);
   }
 

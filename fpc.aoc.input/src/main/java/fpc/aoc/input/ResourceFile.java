@@ -4,7 +4,6 @@ import fpc.aoc.api.Day;
 import fpc.aoc.api.RawInput;
 import fpc.aoc.api.SolverId;
 import fpc.aoc.api.Year;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.io.BufferedReader;
@@ -21,12 +20,12 @@ public class ResourceFile implements RawInput {
   private final Day day;
 
 
-  public ResourceFile(@NonNull SolverId solverId) {
+  public ResourceFile(SolverId solverId) {
     this(solverId.year(), solverId.day());
   }
 
   @Override
-  public @NonNull List<String> read() {
+  public List<String> read() {
     final var moduleName = "fpc.aoc.year%04d".formatted(year.numericalValue());
     final var resourceName = "input_day_%02d.txt".formatted(day.numericalValue());
 

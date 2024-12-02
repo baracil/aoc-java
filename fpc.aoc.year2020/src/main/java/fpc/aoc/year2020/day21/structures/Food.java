@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day21.structures;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -12,7 +11,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class Food {
 
-  public static @NonNull Food parse(@NonNull String line) {
+  public static Food parse(String line) {
     final int idxOfAllergens = line.indexOf("(contains ");
     final String ingredientsPart;
     final String allergensPart;
@@ -33,8 +32,8 @@ public class Food {
     );
   }
 
-  private final @NonNull Set<Ingredient> ingredients;
-  private final @NonNull Set<Allergen> allergens;
+  private final Set<Ingredient> ingredients;
+  private final Set<Allergen> allergens;
 
   @Override
   public String toString() {

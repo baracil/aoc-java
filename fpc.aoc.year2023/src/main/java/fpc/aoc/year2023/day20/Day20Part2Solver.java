@@ -4,7 +4,6 @@ import fpc.aoc.api.Solver;
 import fpc.aoc.common.Tools;
 import fpc.aoc.year2023.day20.model.Circuit;
 import fpc.aoc.year2023.day20.model.state.CircuitState;
-import lombok.NonNull;
 
 import java.util.HashSet;
 
@@ -13,13 +12,13 @@ import java.util.HashSet;
  */
 public class Day20Part2Solver extends Day20Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day20Part2Solver();
   }
 
 
   @Override
-  public @NonNull Object doSolve(@NonNull Circuit circuit) {
+  public Object doSolve(Circuit circuit) {
     final var split = circuit.split();
 
     return split.stream()

@@ -5,7 +5,6 @@ import fpc.aoc.common.GridHelper;
 import fpc.aoc.common.Position;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
-import lombok.NonNull;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -13,7 +12,7 @@ import java.util.stream.Stream;
 public abstract class Day23Solver extends SmartSolver<Elves> {
 
   @Override
-  protected @NonNull Converter<Elves> getConverter() {
+  protected Converter<Elves> getConverter() {
     return Converter.TO_ARRAY_OF_CHAR
         .andThen(this::getElfPositions)
         .andThen(s -> s.collect(Collectors.toUnmodifiableSet()))

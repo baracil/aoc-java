@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day20;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.Setter;
 
 @Getter
@@ -25,7 +24,7 @@ public class Node {
     this.next = null;
   }
 
-  public void attachAfter(@NonNull Node newPrevious) {
+  public void attachAfter(Node newPrevious) {
     this.detach();
 
     this.previous = newPrevious;

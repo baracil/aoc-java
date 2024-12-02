@@ -1,23 +1,21 @@
 package fpc.aoc.year2021.day3;
 
-import lombok.NonNull;
-
 import java.util.function.BiFunction;
 
 public record LifeSupport(int oxygenGeneratorRating, int co2ScrubberRating) {
 
-  public @NonNull String getRatingProduct() {
+  public String getRatingProduct() {
     return String.valueOf(oxygenGeneratorRating * co2ScrubberRating);
   }
 
-  public static @NonNull LifeSupport from(@NonNull DiagnosticReport diagnosticReport) {
+  public static LifeSupport from(DiagnosticReport diagnosticReport) {
     final int oxygen = computeRating(diagnosticReport, (b, mask) -> (b == BitBalance.MORE_ZEROES) ? 0 : mask);
     final int co2 = computeRating(diagnosticReport, (b, mask) -> (b == BitBalance.MORE_ZEROES) ? mask : 0);
     return new LifeSupport(oxygen, co2);
   }
 
-  private static int computeRating(@NonNull DiagnosticReport diagnosticReport,
-                                   @NonNull BiFunction<? super BitBalance, ? super Integer, ? extends Integer> criteria) {
+  private static int computeRating(DiagnosticReport diagnosticReport,
+                                   BiFunction<? super BitBalance, ? super Integer, ? extends Integer> criteria) {
     final var masks = diagnosticReport.bitMaskStream().toArray();
     var sieveValue = 0;
     var sieveMask = 0;

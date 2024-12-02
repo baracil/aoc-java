@@ -4,7 +4,6 @@ import fpc.aoc.api.Day;
 import fpc.aoc.api.RawInput;
 import fpc.aoc.api.Year;
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.io.IOException;
@@ -23,7 +22,7 @@ public class AOCWebsite implements RawInput {
   private final String sessionId;
 
   @Override
-  public @NonNull List<String> read() {
+  public List<String> read() {
     try (final var client = HttpClient.newHttpClient()) {
       final var request = createRequest();
       return client.send(request, HttpResponse.BodyHandlers.ofLines()).body().toList();

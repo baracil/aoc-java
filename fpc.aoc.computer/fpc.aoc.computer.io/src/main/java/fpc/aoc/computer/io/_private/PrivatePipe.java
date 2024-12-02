@@ -17,8 +17,8 @@ public class PrivatePipe<T> implements Pipe {
     private final Thread thread;
 
     public PrivatePipe(
-            @NonNull Consumer<? super T> input,
-            @NonNull InterruptableOutput<? extends T> output) {
+            Consumer<? super T> input,
+            InterruptableOutput<? extends T> output) {
         this.input = input;
         this.output = output;
         this.thread = new Thread(new Runner());

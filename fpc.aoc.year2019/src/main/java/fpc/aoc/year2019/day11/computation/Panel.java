@@ -15,7 +15,7 @@ public class Panel {
     @NonNull
     private Color color = Color.BLACK;
 
-    public void paint(@NonNull Color color) {
+    public void paint(Color color) {
         this.color = color;
     }
 }

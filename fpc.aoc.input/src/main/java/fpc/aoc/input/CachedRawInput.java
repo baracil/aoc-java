@@ -1,7 +1,6 @@
 package fpc.aoc.input;
 
 import fpc.aoc.api.RawInput;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -14,7 +13,7 @@ public class CachedRawInput implements RawInput {
   private final RawInput delegate;
 
   @Override
-  public @NonNull List<String> read() {
+  public List<String> read() {
     return lines.updateAndGet(list -> list != null ? list : delegate.read());
   }
 }

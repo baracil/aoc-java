@@ -9,12 +9,12 @@ public class LastValueOutputPort<T> extends BaseOutputPort<Optional<T>,T> {
 
     private T value = null;
 
-    public LastValueOutputPort(@NonNull OutputTransformer<T> outputTransformer) {
+    public LastValueOutputPort(OutputTransformer<T> outputTransformer) {
         super(outputTransformer);
     }
 
     @Override
-    public void write(@NonNull T value) {
+    public void write(T value) {
         this.value = value;
     }
 

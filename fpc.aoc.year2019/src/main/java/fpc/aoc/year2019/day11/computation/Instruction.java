@@ -19,21 +19,21 @@ public enum Instruction {
 
     private final BiFunction<RobotState,Hull,RobotState> execution;
 
-    Instruction(@NonNull Color color) {
+    Instruction(Color color) {
         this((s,h) -> paint(s,h,color));
     }
 
-    Instruction(@NonNull UnaryOperator<RobotState> stateModifier) {
+    Instruction(UnaryOperator<RobotState> stateModifier) {
         this.execution = (r,h) -> stateModifier.apply(r);
     }
 
     @NonNull
-    public RobotState execute(@NonNull RobotState robotState, @NonNull Hull hull) {
+    public RobotState execute(RobotState robotState, Hull hull) {
         return execution.apply(robotState,hull);
     }
 
     @NonNull
-    private static RobotState paint(@NonNull RobotState state,@NonNull Hull hull, @NonNull Color color) {
+    private static RobotState paint(RobotState state,Hull hull, Color color) {
         hull.paint(state.currentPosition(),color);
         return state.setCurrentVisited();
     }

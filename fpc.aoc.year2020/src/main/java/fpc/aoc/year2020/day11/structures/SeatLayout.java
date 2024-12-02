@@ -10,18 +10,18 @@ public interface SeatLayout {
   int height();
 
   @NonNull
-  State stateAt(@NonNull Position position);
+  State stateAt(Position position);
 
   @NonNull
-  boolean isFloorAt(@NonNull Position position);
+  boolean isFloorAt(Position position);
 
   @NonNull
-  boolean isEmptySeat(@NonNull Position position);
+  boolean isEmptySeat(Position position);
 
   @NonNull
-  boolean isOccupiedSeat(@NonNull Position position);
+  boolean isOccupiedSeat(Position position);
 
-  default @NonNull boolean isNotFloor(@NonNull Position position) {
+  default boolean isNotFloor(Position position) {
     return !isFloorAt(position);
   }
 

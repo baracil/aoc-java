@@ -10,7 +10,7 @@ public class InputPortWithSupplier extends BaseInputPort<Nil> {
     @NonNull
     private final Supplier<? extends String> supplier;
 
-    public InputPortWithSupplier(@NonNull Supplier<? extends String> supplier) {
+    public InputPortWithSupplier(Supplier<? extends String> supplier) {
         this.supplier = supplier;
     }
 

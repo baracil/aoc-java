@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day22.structures;
 
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.ArrayList;
@@ -15,11 +14,11 @@ public class Deck {
     return cards.getFirst();
   }
 
-  public @NonNull Deck newDeckIfLostRound() {
+  public Deck newDeckIfLostRound() {
     return new Deck(cards.subList(1, cards.size()));
   }
 
-  public @NonNull Deck newDeckIfWonRound(int cardOfLooser) {
+  public Deck newDeckIfWonRound(int cardOfLooser) {
     final List<Integer> card = new ArrayList<>(cards.subList(1, cards.size()));
     card.add(firstCard());
     card.add(cardOfLooser);
@@ -30,7 +29,7 @@ public class Deck {
     return firstCard() <= (cards.size() - 1);
   }
 
-  public @NonNull Deck createSubDeck() {
+  public Deck createSubDeck() {
     assert canRecurse();
     return new Deck(cards.subList(1, 1 + firstCard()));
   }
@@ -40,7 +39,7 @@ public class Deck {
     return cards.isEmpty();
   }
 
-  public @NonNull Score score() {
+  public Score score() {
     return new Score(cards);
   }
 

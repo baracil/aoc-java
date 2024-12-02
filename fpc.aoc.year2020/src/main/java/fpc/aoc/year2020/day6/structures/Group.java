@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day6.structures;
 
 import fpc.aoc.common.LazyInt;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
@@ -12,7 +11,7 @@ import java.util.List;
 @ToString
 public class Group {
 
-  private final @NonNull List<Person> people;
+  private final List<Person> people;
 
   private final LazyInt numberOfDistinctQuestions = new LazyInt(this::countDistinctQuestions);
   private final LazyInt numberOfCommonQuestions = new LazyInt(this::countCommonQuestions);

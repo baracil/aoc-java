@@ -1,7 +1,5 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
-
 import java.util.stream.Stream;
 
 /**
@@ -9,7 +7,7 @@ import java.util.stream.Stream;
  */
 public interface GridHelper {
 
-  static @NonNull GridHelper create(int width, int height) {
+  static GridHelper create(int width, int height) {
     return new SimpleGridHelper(width, height);
   }
 
@@ -27,19 +25,19 @@ public interface GridHelper {
    * @param center the central position
    * @return all the position around the provided position (taking care of border)
    */
-  @NonNull Stream<Position> allAdjacentPosition(@NonNull Position center);
+  Stream<Position> allAdjacentPosition(Position center);
 
-  @NonNull Stream<Position> allCardinalNeighbours(@NonNull Position center);
+  Stream<Position> allCardinalNeighbours(Position center);
 
-  @NonNull Stream<Position> allPositionOnGrid();
+  Stream<Position> allPositionOnGrid();
 
-  int linearIndexFor(@NonNull Position position);
+  int linearIndexFor(Position position);
 
   int linearIndexFor(int x, int y);
 
-  @NonNull Position positionFor(int linearIndex);
+  Position positionFor(int linearIndex);
 
-  @NonNull Stream<Position> positionsInDirection(@NonNull Position center, @NonNull Displacement displacement);
+  Stream<Position> positionsInDirection(Position center, Displacement displacement);
 
   boolean isOnBorder(Position position);
 

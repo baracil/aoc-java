@@ -49,7 +49,7 @@ public class Maze {
 
 
   @NonNull
-  public static Maze create(@NonNull Map<Position, TileType> memory) {
+  public static Maze create(Map<Position, TileType> memory) {
     final IntSummaryStatistics statX = memory.keySet().stream().mapToInt(Position::x).summaryStatistics();
     final IntSummaryStatistics statY = memory.keySet().stream().mapToInt(Position::y).summaryStatistics();
 

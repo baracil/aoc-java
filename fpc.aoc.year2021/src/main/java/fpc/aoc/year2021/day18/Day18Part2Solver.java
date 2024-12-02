@@ -2,19 +2,18 @@ package fpc.aoc.year2021.day18;
 
 import fpc.aoc.api.Solver;
 import fpc.aoc.year2021.day18.struct.Number;
-import lombok.NonNull;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Day18Part2Solver extends Day18Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day18Part2Solver();
   }
 
   @Override
-  public @NonNull Long doSolve(@NonNull Stream<Number> input) {
+  public Long doSolve(Stream<Number> input) {
     final var numbers = input.toList();
 
 

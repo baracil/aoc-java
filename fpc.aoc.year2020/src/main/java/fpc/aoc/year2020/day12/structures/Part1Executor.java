@@ -1,12 +1,11 @@
 package fpc.aoc.year2020.day12.structures;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class Part1Executor implements Executor {
 
-  private final @NonNull Ferry ferry;
+  private final Ferry ferry;
 
   @Override
   public void executeEast(int quantity) {

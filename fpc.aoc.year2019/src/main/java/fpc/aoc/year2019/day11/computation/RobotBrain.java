@@ -36,7 +36,7 @@ public class RobotBrain {
         loop.start();
     }
 
-    public void onColorRead(@NonNull Color color) {
+    public void onColorRead(Color color) {
         loop.onColorRead(color);
     }
 
@@ -53,7 +53,7 @@ public class RobotBrain {
 
     private class BrainLoop extends Loop {
 
-        public void onColorRead(@NonNull Color color) {
+        public void onColorRead(Color color) {
             Optional.ofNullable(execution).ifPresent(e -> e.programInputAccessor().write(color));
         }
 

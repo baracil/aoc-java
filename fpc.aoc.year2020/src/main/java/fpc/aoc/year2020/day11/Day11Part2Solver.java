@@ -6,21 +6,20 @@ import fpc.aoc.year2020.day11.structures.AdjacentCounter;
 import fpc.aoc.year2020.day11.structures.StateEvolutionRule;
 import fpc.aoc.year2020.day11.structures.algo.OptimizedViewableCounter;
 import fpc.aoc.year2020.day11.structures.algo.WithLeavingThresholdRule;
-import lombok.NonNull;
 
 public class Day11Part2Solver extends Day11Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day11Part2Solver();
   }
 
   @Override
-  protected @NonNull AdjacentCounter createCounter(@NonNull GridHelper gridHelper) {
+  protected AdjacentCounter createCounter(GridHelper gridHelper) {
     return new OptimizedViewableCounter(gridHelper);
   }
 
   @Override
-  protected @NonNull StateEvolutionRule createEvolutionRule() {
+  protected StateEvolutionRule createEvolutionRule() {
     return new WithLeavingThresholdRule(5);
   }
 

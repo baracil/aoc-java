@@ -8,7 +8,7 @@ import lombok.NonNull;
 @EqualsAndHashCode(of = "id")
 public class Key {
 
-    public Key(@NonNull String id, long mask) {
+    public Key(String id, long mask) {
         this.id = id;
         this.mask = mask;
     }

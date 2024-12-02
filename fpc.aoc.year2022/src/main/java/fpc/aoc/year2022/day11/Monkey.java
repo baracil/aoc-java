@@ -1,7 +1,5 @@
 package fpc.aoc.year2022.day11;
 
-import lombok.NonNull;
-
 import java.util.*;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
@@ -19,7 +17,7 @@ public class Monkey {
     this.throwFunction = throwFunction;
   }
 
-  public @NonNull List<Throw> inspect() {
+  public List<Throw> inspect() {
     final List<Throw> throwBuild = new ArrayList<>();
     while (true) {
       final var item = items.pollFirst();
@@ -31,7 +29,7 @@ public class Monkey {
     }
   }
 
-  public void catchItem(@NonNull Item item) {
+  public void catchItem(Item item) {
     this.items.addLast(item);
   }
 

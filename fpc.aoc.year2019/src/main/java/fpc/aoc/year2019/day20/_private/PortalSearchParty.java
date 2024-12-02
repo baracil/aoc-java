@@ -32,7 +32,7 @@ public enum PortalSearchParty {
   private final UnaryOperator<Position> entrancePositionEstimator;
 
   @NonNull
-  public Optional<Portal> checkForPortal(@NonNull ArrayOfChar arrayOfChar, @NonNull Position searchedPosition) {
+  public Optional<Portal> checkForPortal(ArrayOfChar arrayOfChar, Position searchedPosition) {
     return new Search(arrayOfChar, searchedPosition).execute();
   }
 

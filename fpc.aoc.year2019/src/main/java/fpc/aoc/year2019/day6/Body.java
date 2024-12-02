@@ -33,7 +33,7 @@ public class Body {
         moons.add(moon);
     }
 
-    public void forEachMoon(@NonNull Consumer<Body> consumer) {
+    public void forEachMoon(Consumer<Body> consumer) {
         moons.forEach(consumer);
     }
 

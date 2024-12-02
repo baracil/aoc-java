@@ -1,6 +1,5 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.concurrent.atomic.AtomicReference;
@@ -11,7 +10,7 @@ public class LazyInt extends Number {
 
   private final AtomicReference<Integer> reference = new AtomicReference<>();
 
-  private final @NonNull IntSupplier computer;
+  private final IntSupplier computer;
 
   @Override
   public int intValue() {

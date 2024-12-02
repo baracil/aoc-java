@@ -1,11 +1,9 @@
 package fpc.aoc.year2021.day12.struct;
 
-import lombok.NonNull;
-
 public interface RecursiveMode {
-  void onEntering(@NonNull Node position);
+  void onEntering(Node position);
 
-  boolean canVisit(@NonNull Node connection);
+  boolean canVisit(Node connection);
 
-  void onLeaving(@NonNull Node position);
+  void onLeaving(Node position);
 }

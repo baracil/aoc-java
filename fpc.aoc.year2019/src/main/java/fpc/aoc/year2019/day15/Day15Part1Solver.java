@@ -3,7 +3,6 @@ package fpc.aoc.year2019.day15;
 import fpc.aoc.api.Solver;
 import fpc.aoc.year2019.day15.computation.DroidState;
 import fpc.aoc.year2019.day15.computation.FindPath;
-import lombok.NonNull;
 
 public class Day15Part1Solver extends Day15Solver {
 
@@ -13,7 +12,7 @@ public class Day15Part1Solver extends Day15Solver {
 
 
     @Override
-    int solve(@NonNull DroidState state) {
+    int solve(DroidState state) {
         final var start = state.startPosition();
         final var  oxygen = state.oxygenPosition();
 

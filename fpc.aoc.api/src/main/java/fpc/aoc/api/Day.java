@@ -46,7 +46,7 @@ public enum Day {
 
 
   @NonNull
-  public static Day parse(@NonNull String value) {
+  public static Day parse(String value) {
     final Predicate<Day> predicate = Tools.parseInteger(value)
         .map(Day::predicateOnNumericalValue)
         .orElseGet(() -> predicateOnName(value));
@@ -62,7 +62,7 @@ public enum Day {
   }
 
   @NonNull
-  private static Predicate<Day> predicateOnName(@NonNull String name) {
+  private static Predicate<Day> predicateOnName(String name) {
     return day -> day.name().equalsIgnoreCase(name);
   }
 

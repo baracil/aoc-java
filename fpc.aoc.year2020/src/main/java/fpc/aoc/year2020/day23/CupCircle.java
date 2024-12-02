@@ -1,7 +1,5 @@
 package fpc.aoc.year2020.day23;
 
-import lombok.NonNull;
-
 import java.math.BigDecimal;
 import java.util.stream.IntStream;
 
@@ -41,7 +39,7 @@ public class CupCircle {
     this.current = initialValues[0];
   }
 
-  public @NonNull String part1Result() {
+  public String part1Result() {
     final StringBuilder sb = new StringBuilder();
     int n = 0;
     do {
@@ -53,7 +51,7 @@ public class CupCircle {
     } while (true);
   }
 
-  public @NonNull String part2Result() {
+  public String part2Result() {
     final var b1 = new BigDecimal(nextByLabels[0] + 1);
     final var b2 = new BigDecimal(nextByLabels[nextByLabels[0]] + 1);
     return b1.multiply(b2).toString();

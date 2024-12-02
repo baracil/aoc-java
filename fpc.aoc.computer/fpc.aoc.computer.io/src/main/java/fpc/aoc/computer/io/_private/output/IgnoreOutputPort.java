@@ -16,7 +16,7 @@ public class IgnoreOutputPort extends BaseOutputPort<Nil,String> {
     }
 
     @Override
-    public void write(@NonNull String value) {
+    public void write(String value) {
         //ignored
     }
 

@@ -1,16 +1,15 @@
 package fpc.aoc.year2022.day7;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 
 public sealed interface Command permits Command.Cd, Command.Ls {
 
-  @NonNull File apply(@NonNull File current);
+  File apply(File current);
 
 
-  record Cd(@NonNull String folderName) implements Command {
+  record Cd(String folderName) implements Command {
     @Override
-    public @NonNull File apply(@NonNull File current) {
+    public File apply(File current) {
       return switch (folderName) {
         case "/" -> current.root();
         case ".." -> current.parent();
@@ -23,13 +22,13 @@ public sealed interface Command permits Command.Cd, Command.Ls {
 
   record Ls() implements Command {
     @Override
-    public @NonNull File apply(@NonNull File current) {
+    public File apply(File current) {
       return current;
     }
   }
 
 
-  static @NonNull Command parse(@NonNull String line) {
+  static Command parse(String line) {
     if (line.charAt(0) != '$') {
       throw new AOCException("Invalid line '" + line + "' for command");
     }

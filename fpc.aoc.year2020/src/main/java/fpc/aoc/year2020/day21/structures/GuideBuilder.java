@@ -4,7 +4,6 @@ import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Bag;
 import fpc.aoc.common.HashBag;
 import fpc.aoc.common.Tools;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.*;
@@ -14,9 +13,9 @@ import java.util.stream.Collectors;
 public class GuideBuilder {
 
 
-  private final @NonNull Map<Allergen, Set<Ingredient>> potentialAllergens = new HashMap<>();
+  private final Map<Allergen, Set<Ingredient>> potentialAllergens = new HashMap<>();
 
-  private final @NonNull Map<Ingredient, Set<Allergen>> ingredientAllergen = new HashMap<>();
+  private final Map<Ingredient, Set<Allergen>> ingredientAllergen = new HashMap<>();
 
   private final Bag<Ingredient> bagOfIngredients = new HashBag<>();
 
@@ -33,7 +32,7 @@ public class GuideBuilder {
     return new Guide(allergenIdentification, Set.copyOf(ingredientAllergen.keySet()), bagOfIngredients);
   }
 
-  public void addFood(@NonNull Food food) {
+  public void addFood(Food food) {
     food.allergens().forEach(a -> {
       final Set<Ingredient> existing = potentialAllergens.get(a);
       if (existing == null) {
@@ -63,7 +62,7 @@ public class GuideBuilder {
     }
   }
 
-  public @NonNull Set<Allergen> cleanOneAllergens(@NonNull Allergen allergen) {
+  public Set<Allergen> cleanOneAllergens(Allergen allergen) {
     final Set<Allergen> nextCandidateForCleanUp = new HashSet<>();
 
     final Ingredient associatedIngredient = potentialAllergens.get(allergen)
@@ -89,7 +88,7 @@ public class GuideBuilder {
 
   }
 
-  public @NonNull GuideBuilder combine(GuideBuilder builder) {
+  public GuideBuilder combine(GuideBuilder builder) {
     builder.potentialAllergens.forEach((a, s) -> potentialAllergens.computeIfAbsent(a, x -> new HashSet<>()).addAll(s));
     builder.ingredientAllergen.forEach((i, s) -> ingredientAllergen.computeIfAbsent(i, x -> new HashSet<>()).addAll(s));
     return this;

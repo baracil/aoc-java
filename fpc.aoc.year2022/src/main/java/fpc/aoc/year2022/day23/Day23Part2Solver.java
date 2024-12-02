@@ -1,17 +1,16 @@
 package fpc.aoc.year2022.day23;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 public class Day23Part2Solver extends Day23Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day23Part2Solver();
   }
 
 
   @Override
-  public @NonNull Integer doSolve(@NonNull Elves input) {
+  public Integer doSolve(Elves input) {
     var current = input;
     int nbRound = 0;
     do {

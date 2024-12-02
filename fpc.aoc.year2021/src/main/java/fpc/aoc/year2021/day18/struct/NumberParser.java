@@ -1,14 +1,13 @@
 package fpc.aoc.year2021.day18.struct;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class NumberParser {
 
-  public static Node parse(@NonNull String input) {
+  public static Node parse(String input) {
     return new NumberParser(input).parse();
   }
 

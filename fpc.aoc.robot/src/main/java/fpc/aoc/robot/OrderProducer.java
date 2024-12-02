@@ -11,5 +11,5 @@ public interface OrderProducer<T> {
     Order<T> stop();
 
     @NonNull
-    Order<T> sendData(@NonNull T data);
+    Order<T> sendData(T data);
 }

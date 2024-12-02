@@ -6,11 +6,10 @@ import fpc.aoc.computer.Alterations;
 import fpc.aoc.computer.ExecutionResult;
 import fpc.aoc.computer.Program;
 import fpc.aoc.computer.ProgramBasedSolver;
-import lombok.NonNull;
 
 public class Day2Part1Solver extends ProgramBasedSolver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day2Part1Solver();
   }
 

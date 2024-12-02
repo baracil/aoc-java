@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day13;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.math.BigInteger;
@@ -13,7 +12,7 @@ import java.util.Optional;
 @Value
 public class Notes {
 
-  public static @NonNull Notes parse(@NonNull List<String> lines) {
+  public static Notes parse(List<String> lines) {
     return switch (lines.size()) {
       case 0 -> throw new AOCException("Invalid input");
       case 1 -> parsePart2(lines.get(0));
@@ -21,7 +20,7 @@ public class Notes {
     };
   }
 
-  public static @NonNull Notes parsePart1(@NonNull String firstLine, @NonNull String secondLine) {
+  public static Notes parsePart1(String firstLine, String secondLine) {
     final long departTime = Long.parseLong(firstLine);
     final var ids = Arrays.stream(secondLine.split(","))
         .map(Bus::parse)
@@ -29,16 +28,16 @@ public class Notes {
     return new Notes(BigInteger.valueOf(departTime), ids);
   }
 
-  public static @NonNull Notes parsePart2(@NonNull String busIds) {
+  public static Notes parsePart2(String busIds) {
     return parsePart1("0", busIds);
   }
 
-  @NonNull BigInteger departTime;
+  BigInteger departTime;
 
-  @NonNull List<Bus> buses;
+  List<Bus> buses;
 
 
-  public @NonNull NextStop findNextStop() {
+  public NextStop findNextStop() {
     return buses.stream()
         .map(b -> b.findNextStop(departTime))
         .flatMap(Optional::stream)

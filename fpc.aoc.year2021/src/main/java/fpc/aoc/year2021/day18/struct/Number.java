@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day18.struct;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -20,7 +19,7 @@ public class Number {
   }
 
 
-  public Number add(@NonNull Number other) {
+  public Number add(Number other) {
     if (this.root == null) {
       return new Number(other.root.duplicate());
     } else if (other.root == null) {
@@ -86,7 +85,7 @@ public class Number {
     return true;
   }
 
-  private Optional<Node.Literal> findFirstLiteral(@NonNull Node node, @NonNull Side side) {
+  private Optional<Node.Literal> findFirstLiteral(Node node, Side side) {
     Node current = node;
     while (!current.isRoot()) {
       final Node.Pair parent = current.parent();
@@ -105,7 +104,7 @@ public class Number {
     return root == null ? "[]" : root.toString();
   }
 
-  private <T> @NonNull Optional<T> findDFS(Node node, @NonNull NodeVisitor<T> visitor, Side firstToCheck) {
+  private <T> Optional<T> findDFS(Node node, NodeVisitor<T> visitor, Side firstToCheck) {
     try {
       final var result = visitor.entering(node);
       if (result.isPresent()) {

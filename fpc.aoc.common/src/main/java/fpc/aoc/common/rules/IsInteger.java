@@ -1,6 +1,5 @@
 package fpc.aoc.common.rules;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -15,7 +14,7 @@ public class IsInteger implements Rule<String, Integer> {
   }
 
   @Override
-  public @NonNull Validation<Integer> validate(@NonNull String input) {
+  public Validation<Integer> validate(String input) {
     try {
       return Validation.valid(Integer.parseInt(input));
     } catch (NumberFormatException nfe) {

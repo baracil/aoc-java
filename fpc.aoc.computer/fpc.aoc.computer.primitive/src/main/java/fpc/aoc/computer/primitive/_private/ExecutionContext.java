@@ -57,7 +57,7 @@ public class ExecutionContext implements ParameterAccessor {
         memory.setValue(address,value);
     }
 
-    public void initBeforeExecution(@NonNull Addressing addressing, @NonNull Modes modes) {
+    public void initBeforeExecution(Addressing addressing, Modes modes) {
         this.modes = modes;
         this.addressing = addressing;
     }

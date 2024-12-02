@@ -1,7 +1,6 @@
 package fpc.aoc.year2019.day23._private;
 
 import fpc.aoc.year2019.day23._private.packet.DataPacket;
-import lombok.NonNull;
 import lombok.Value;
 /**
  * @author Bastien Aracil
@@ -13,7 +12,7 @@ public class Message {
 
     int destinationAddress;
 
-    @NonNull DataPacket packet;
+    DataPacket packet;
 
     @Override
     public String toString() {

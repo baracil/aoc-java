@@ -1,7 +1,5 @@
 package fpc.aoc.year2022.day10;
 
-import lombok.NonNull;
-
 public interface Command {
 
   int nbCycles();
@@ -9,7 +7,7 @@ public interface Command {
   int applyToRegister(int registerValue);
 
 
-  static @NonNull Command parse(@NonNull String line) {
+  static Command parse(String line) {
     if (line.equals("noop")) {
       return new Noop();
     }

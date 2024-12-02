@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day6.structures;
 
 import fpc.aoc.common.AOCException;
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -11,17 +10,17 @@ import java.util.List;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class GroupListBuilder {
 
-  public static @NonNull List<Group> build(@NonNull List<String> input) {
+  public static List<Group> build(List<String> input) {
     return new GroupListBuilder(input).build();
   }
 
-  private final @NonNull List<String> input;
+  private final List<String> input;
 
-  private final @NonNull List<Group> listBuilder = new ArrayList<>();
+  private final List<Group> listBuilder = new ArrayList<>();
 
   private GroupBuilder groupBuilder = null;
 
-  public @NonNull List<Group> build() {
+  public List<Group> build() {
     int i = 0;
     for (String line : input) {
       i++;
@@ -44,7 +43,7 @@ public class GroupListBuilder {
     this.appendBuilderInProgressToList();
   }
 
-  private void handleNotBlankLine(@NonNull String line) {
+  private void handleNotBlankLine(String line) {
     this.createGroupBuilderIfNecessary();
     this.groupBuilder.addLine(line);
   }

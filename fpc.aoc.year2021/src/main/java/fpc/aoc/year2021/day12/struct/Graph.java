@@ -2,7 +2,6 @@ package fpc.aoc.year2021.day12.struct;
 
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -28,7 +27,7 @@ public class Graph {
       GraphCollector::build
   );
 
-  public @NonNull List<Node> getConnections(@NonNull Node position) {
+  public List<Node> getConnections(Node position) {
     return connections.getOrDefault(position, List.of());
   }
 
@@ -39,11 +38,11 @@ public class Graph {
 
     private final Map<Node, List<Node>> connections = new HashMap<>();
 
-    private @NonNull Graph build() {
+    private Graph build() {
       return new Graph(start, connections.entrySet().stream().collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue)));
     }
 
-    private void pushConnection(@NonNull Connection connection) {
+    private void pushConnection(Connection connection) {
       final var node1 = connection.node1();
       final var node2 = connection.node2();
 
@@ -58,7 +57,7 @@ public class Graph {
       this.connections.computeIfAbsent(node2, n -> new ArrayList<>()).add(node1);
     }
 
-    public @NonNull GraphCollector combine(@NonNull GraphCollector a2) {
+    public GraphCollector combine(GraphCollector a2) {
       if (a2.start != null) {
         this.start = a2.start;
       }

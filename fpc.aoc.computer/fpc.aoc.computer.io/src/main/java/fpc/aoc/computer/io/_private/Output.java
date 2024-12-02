@@ -6,10 +6,10 @@ import java.util.function.Consumer;
 
 public interface Output {
 
-    void write(@NonNull String value);
+    void write(String value);
 
     @NonNull
-    default Output then(@NonNull Consumer<? super String> after) {
+    default Output then(Consumer<? super String> after) {
         return s->{this.write(s);after.accept(s);};
     }
 

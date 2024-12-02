@@ -25,7 +25,7 @@ public enum  TriBool {
     }
 
     @NonNull
-    public TriBool compose(@NonNull TriBool other) {
+    public TriBool compose(TriBool other) {
       return switch (other) {
         case TRUE -> TRUE;
         case FALSE -> FALSE;

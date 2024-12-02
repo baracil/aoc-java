@@ -14,7 +14,7 @@ public class Graph {
   private final Map<Trip, Route> fastestRoutes;
 
 
-  public Graph(@NonNull Maze maze) {
+  public Graph(Maze maze) {
     this.fastestRoutes = maze.findFastedRouteBetweenKeys();
   }
 

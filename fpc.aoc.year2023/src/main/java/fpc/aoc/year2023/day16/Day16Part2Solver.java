@@ -3,20 +3,19 @@ package fpc.aoc.year2023.day16;
 import fpc.aoc.api.Solver;
 import fpc.aoc.common.Orientation;
 import fpc.aoc.year2023.day16.model.BeamComputer;
-import lombok.NonNull;
 
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Day16Part2Solver extends Day16Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day16Part2Solver();
   }
 
 
   @Override
-  public @NonNull Object doSolve(@NonNull BeamComputer input) {
+  public Object doSolve(BeamComputer input) {
     final var height = input.height();
     final var width = input.width();
 

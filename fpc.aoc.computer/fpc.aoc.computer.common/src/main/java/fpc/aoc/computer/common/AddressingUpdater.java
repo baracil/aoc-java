@@ -5,7 +5,7 @@ import lombok.NonNull;
 public interface AddressingUpdater {
 
     @NonNull
-    Addressing updateAddressing(@NonNull Addressing currentPointer);
+    Addressing updateAddressing(Addressing currentPointer);
 
     @NonNull
     static AddressingUpdater nop() {

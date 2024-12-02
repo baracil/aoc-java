@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day16.struct;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -10,19 +9,19 @@ import java.util.List;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class PacketReader {
 
-  public static Packet read(@NonNull String hexaPacket) {
+  public static Packet read(String hexaPacket) {
     final var reader = Reader.fromHexaString(hexaPacket);
     return PacketReader.read(reader);
   }
 
-  private static Packet read(@NonNull Reader reader) {
+  private static Packet read(Reader reader) {
     return new PacketReader(reader).read();
   }
 
 
-  private final @NonNull Reader reader;
+  private final Reader reader;
 
-  private @NonNull Packet read() {
+  private Packet read() {
     final var version = reader.read(3);
     final var id = reader.read(3);
 
@@ -32,7 +31,7 @@ public class PacketReader {
     };
   }
 
-  private @NonNull Packet readLiteral(int version, int id) {
+  private Packet readLiteral(int version, int id) {
     var result = 0L;
     do {
       final var digit = reader.read(5);
@@ -46,7 +45,7 @@ public class PacketReader {
     } while (true);
   }
 
-  private @NonNull Packet readOperator(int version, int id) {
+  private Packet readOperator(int version, int id) {
     final var lengthTypeId = reader.read(1);
     final List<Packet> subPackets = new ArrayList<>();
     if (lengthTypeId == 0) {

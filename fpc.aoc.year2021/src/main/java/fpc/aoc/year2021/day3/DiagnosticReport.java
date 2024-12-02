@@ -1,6 +1,5 @@
 package fpc.aoc.year2021.day3;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -13,11 +12,11 @@ public class DiagnosticReport {
   private final int size;
   private final int[] values;
 
-  public static @NonNull DiagnosticReport fromLines(@NonNull List<String> lines) {
+  public static DiagnosticReport fromLines(List<String> lines) {
     if (lines.isEmpty()) {
       return new DiagnosticReport(0, new int[0]);
     }
-    final int size = lines.get(0).length();
+    final int size = lines.getFirst().length();
     final int[] values = lines.stream().mapToInt(s -> Integer.parseInt(s, 2)).toArray();
     return new DiagnosticReport(size, values);
   }
@@ -35,14 +34,14 @@ public class DiagnosticReport {
     return ((1 << size) - 1) ^ value;
   }
 
-  public @NonNull BitBalance computeBitBalance(int mask) {
+  public BitBalance computeBitBalance(int mask) {
     final int balanceCount = Arrays.stream(values)
         .map(v -> (v & mask) == 0 ? -1 : 1)
         .sum();
     return BitBalance.fromBalanceCount(balanceCount);
   }
 
-  public @NonNull SieveResult computeSieveBitBalance(int sieveValue, int sieveMask, int bitMask) {
+  public SieveResult computeSieveBitBalance(int sieveValue, int sieveMask, int bitMask) {
     return Arrays.stream(values).boxed().collect(SieveResult.collector(sieveValue, sieveMask, bitMask));
   }
 }

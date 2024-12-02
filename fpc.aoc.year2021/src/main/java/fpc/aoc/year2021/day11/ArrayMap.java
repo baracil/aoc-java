@@ -1,7 +1,5 @@
 package fpc.aoc.year2021.day11;
 
-import lombok.NonNull;
-
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
@@ -90,9 +88,9 @@ public class ArrayMap implements Map {
   }
 
 
-  public static ArrayMap parse(@NonNull List<String> lines) {
+  public static ArrayMap parse(List<String> lines) {
     final var nbRows = lines.size() + 2;
-    final var nbCols = lines.get(0).length() + 2;
+    final var nbCols = lines.getFirst().length() + 2;
 
 
     final var levels = new int[nbCols * nbRows];

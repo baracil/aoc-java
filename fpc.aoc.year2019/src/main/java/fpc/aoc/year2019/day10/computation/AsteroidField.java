@@ -12,7 +12,7 @@ public class AsteroidField {
     @NonNull
     private final List<Position> asteroidPositions;
 
-    public AsteroidField(@NonNull SpaceMap<Type> spaceMap) {
+    public AsteroidField(SpaceMap<Type> spaceMap) {
         this.asteroidPositions = spaceMap.listPositionsMatching(Type.ASTEROID::equals);
     }
 
@@ -25,12 +25,12 @@ public class AsteroidField {
     }
 
     @NonNull
-    private Base createBase(@NonNull Position position) {
+    private Base createBase(Position position) {
         return new Base(position,countVisibleAsteroid(position));
     }
 
 
-    public int countVisibleAsteroid(@NonNull Position position) {
+    public int countVisibleAsteroid(Position position) {
         return Tools.toInt(asteroidPositions.stream()
                                             .filter(position::notEqual)
                                             .map(p -> p.subtract(position))
@@ -39,7 +39,7 @@ public class AsteroidField {
         );
     }
 
-    public VisibilityMap createVisibilityMapFrom(@NonNull Position position) {
+    public VisibilityMap createVisibilityMapFrom(Position position) {
         final Map<Direction,List<RadialRelativePosition>> positionByDirection;
         positionByDirection = asteroidPositions.stream ()
                                                .filter(p -> p.notEqual(position))

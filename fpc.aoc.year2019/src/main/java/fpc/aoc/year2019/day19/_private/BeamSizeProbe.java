@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class BeamSizeProbe {
 
-    public static int probe(@NonNull Program program) {
+    public static int probe(Program program) {
         return new BeamSizeProbe(program).probe();
     }
 
@@ -37,7 +37,7 @@ public class BeamSizeProbe {
         return count;
     }
 
-    public BeamSlice probeSlice(@NonNull Position start) {
+    public BeamSlice probeSlice(Position start) {
         return BeamSliceProbe.probe(program,start);
     }
 

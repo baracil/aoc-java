@@ -2,7 +2,6 @@ package fpc.aoc.input;
 
 import fpc.aoc.api.*;
 import lombok.Getter;
-import lombok.NonNull;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -12,9 +11,9 @@ public abstract class SmartSolver<I> implements Solver {
 
   private static final Pattern DAY_PART = Pattern.compile("fpc\\.aoc\\.year(?<year>[0-9]+)\\..+\\.Day(?<day>[0-9]+)Part(?<part>[12]).+");
 
-  private final @NonNull SolverId id;
+  private final SolverId id;
 
-  public SmartSolver(@NonNull Year year, @NonNull Day day, @NonNull Part part) {
+  public SmartSolver(Year year, Day day, Part part) {
     this.id = new SolverId(year, day, part);
   }
 
@@ -33,12 +32,12 @@ public abstract class SmartSolver<I> implements Solver {
   /**
    * @return the converter required to convert the input data of the problem to the required type
    */
-  protected abstract @NonNull Converter<I> getConverter();
+  protected abstract Converter<I> getConverter();
 
-  protected abstract @NonNull Object doSolve(@NonNull I input);
+  protected abstract Object doSolve(I input);
 
   @Override
-  public @NonNull Object solve(@NonNull RawInput input) {
+  public Object solve(RawInput input) {
     final var converter = getConverter();
     return doSolve(converter.convert(input.read()));
   }

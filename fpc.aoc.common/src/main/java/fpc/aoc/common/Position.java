@@ -13,23 +13,23 @@ public class Position {
 
   int y;
 
-  public static @NonNull Position of(int x, int y) {
+  public static Position of(int x, int y) {
     return new Position(x, y);
   }
 
-  public @NonNull Position displaced(@NonNull Translation translation) {
+  public Position displaced(Translation translation) {
     return translate(translation.dx(), translation.dy());
   }
 
-  public @NonNull Position translate(int dx, int dy) {
+  public Position translate(int dx, int dy) {
     return of(x + dx, y + dy);
   }
 
-  public @NonNull Position translateX(int dx) {
+  public Position translateX(int dx) {
     return translate(dx, 0);
   }
 
-  public @NonNull Position translateY(int dy) {
+  public Position translateY(int dy) {
     return translate(0, dy);
   }
 
@@ -64,7 +64,7 @@ public class Position {
   }
 
   @NonNull
-  public Orientation orientationOf(@NonNull Position target) {
+  public Orientation orientationOf(Position target) {
     if (this.equals(target)) {
       throw new IllegalArgumentException("Same position");
     }
@@ -81,7 +81,7 @@ public class Position {
     return Stream.of(right(), up(), down(), left());
   }
 
-  public @NonNull Position wrap(int width, int height) {
+  public Position wrap(int width, int height) {
     final int nx = Tools.mod(x, width);
     final int ny = Tools.mod(y, height);
     if (nx == x && ny == y) {
@@ -103,7 +103,7 @@ public class Position {
     return Math.abs(this.x - beacon.x) + Math.abs(this.y - beacon.y);
   }
 
-  public static @NonNull Position parseCommaSeparated(@NonNull String value) {
+  public static Position parseCommaSeparated(String value) {
     final var idx = value.indexOf(",");
     return Position.of(Integer.parseInt(value.substring(0, idx)), Integer.parseInt(value.substring(idx + 1)));
   }

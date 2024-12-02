@@ -24,12 +24,12 @@ public class PrimitiveComputer implements Computer {
     private final Function<long[],Memory> memoryAllocator;
 
     @Override
-    public @NonNull Program compile(@NonNull String code) {
+    public Program compile(String code) {
         return new ProgramUsingLong(this,code);
     }
 
     @NonNull
-    public <I,O> Execution<O,I> executeAsync(String executionName, long[] code, @NonNull ProgramIO<O,I> programIO, Alterations alterations) {
+    public <I,O> Execution<O,I> executeAsync(String executionName, long[] code, ProgramIO<O,I> programIO, Alterations alterations) {
         final Memory memory = prepareMemory(code,alterations);
         final Future<ExecutionResult> future = submitProgram(executionName,memory,programIO);
 
@@ -37,14 +37,14 @@ public class PrimitiveComputer implements Computer {
     }
 
     @NonNull
-    private Memory prepareMemory(long[] values, @NonNull Alterations alterations) {
+    private Memory prepareMemory(long[] values, Alterations alterations) {
         final Memory memory = memoryAllocator.apply(values);
         memory.alter(alterations);
         return memory;
     }
 
     @NonNull
-    private Future<ExecutionResult> submitProgram(String executionName, Memory memory, @NonNull ProgramIO<?,?> programIO) {
+    private Future<ExecutionResult> submitProgram(String executionName, Memory memory, ProgramIO<?,?> programIO) {
         return EXECUTOR_SERVICE.submit(()->Processor.execute(executionName, memory, programIO));
     }
 

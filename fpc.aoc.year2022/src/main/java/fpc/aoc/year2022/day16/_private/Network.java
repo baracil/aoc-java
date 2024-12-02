@@ -3,7 +3,6 @@ package fpc.aoc.year2022.day16._private;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Pair;
 import fpc.aoc.year2022.day16.Valves;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Value;
 
@@ -19,7 +18,7 @@ public class Network {
   private final Map<String, Set<String>> connections; //connection for each valve
 
 
-  public @NonNull Valves buildValves() {
+  public Valves buildValves() {
     final var names = rates.entrySet()
         .stream()
         .filter(e -> e.getKey().equals("AA") || e.getValue() > 0)
@@ -86,7 +85,7 @@ public class Network {
     Map<String, Set<String>> connections = new HashMap<>();
 
 
-    public void addLine(@NonNull String line) {
+    public void addLine(String line) {
       final var matcher = PATTERN.matcher(line);
       if (!matcher.matches()) {
         throw new AOCException("Cannot parse line '" + line + "'");
@@ -100,7 +99,7 @@ public class Network {
       connections.put(name, connected);
     }
 
-    public NetworkAggregator combine(@NonNull Network.NetworkAggregator other) {
+    public NetworkAggregator combine(Network.NetworkAggregator other) {
       throw new AOCException("Dunno");
     }
 

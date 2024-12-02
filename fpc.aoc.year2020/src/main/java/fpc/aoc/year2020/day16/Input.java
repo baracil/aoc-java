@@ -1,7 +1,10 @@
 package fpc.aoc.year2020.day16;
 
 import fpc.aoc.common.AOCException;
-import lombok.*;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Singular;
 
 import java.util.List;
 import java.util.Set;
@@ -14,16 +17,16 @@ public class Input {
 
   @Singular
   @Getter
-  private final @NonNull Set<Field> fields;
+  private final Set<Field> fields;
   @Singular
-  private final @NonNull List<Ticket> tickets;
+  private final List<Ticket> tickets;
 
 
-  public @NonNull List<Ticket> allTickets() {
+  public List<Ticket> allTickets() {
     return tickets;
   }
 
-  public @NonNull Ticket myTicket() {
+  public Ticket myTicket() {
     return tickets.getFirst();
   }
 
@@ -31,11 +34,11 @@ public class Input {
     return fields.size();
   }
 
-  public @NonNull Stream<Ticket> streamNearByTickets() {
+  public Stream<Ticket> streamNearByTickets() {
     return tickets.stream().skip(1);
   }
 
-  public static @NonNull Input parse(@NonNull List<String> lines) {
+  public static Input parse(List<String> lines) {
     final var builder = Input.builder();
 
     Consumer<String> parser = l -> builder.field(Field.parse(l));

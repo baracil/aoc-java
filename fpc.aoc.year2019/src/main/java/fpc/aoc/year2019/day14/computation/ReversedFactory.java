@@ -32,7 +32,7 @@ public class ReversedFactory {
         this.requiredOre = 0L;
     }
 
-    public long getProduced(@NonNull Chemical chemical) {
+    public long getProduced(Chemical chemical) {
         return produced.getOrDefault(chemical,0L);
     }
 
@@ -50,7 +50,7 @@ public class ReversedFactory {
         }
     }
 
-    private void decompose(@NonNull Chemical chemical, long requiredAmount) {
+    private void decompose(Chemical chemical, long requiredAmount) {
         final ChemicalReaction reaction = chemicalBook.getReactionProducing(chemical);
         final long nbReactions = 1+(requiredAmount-1)/reaction.producedAmount();
 
@@ -67,7 +67,7 @@ public class ReversedFactory {
     }
 
 
-    private void addRequirement(@NonNull Chemical chemical, long requiredAmount) {
+    private void addRequirement(Chemical chemical, long requiredAmount) {
         if (chemical.isOre()) {
             requiredOre = requiredOre + requiredAmount;
         } else {
@@ -75,7 +75,7 @@ public class ReversedFactory {
         }
     }
 
-    private long getSomeChemicalFromLeftOvers(@NonNull Chemical chemical, long requestedAmount) {
+    private long getSomeChemicalFromLeftOvers(Chemical chemical, long requestedAmount) {
         final long amountAvailableFromLeftOver = leftOvers.getOrDefault(chemical,0L);
 
 

@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day2;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -13,7 +12,7 @@ public enum OutCome {
   ;
   private final int score;
 
-  public @NonNull Shape getCorrespondingShape(Shape adversaryShape) {
+  public Shape getCorrespondingShape(Shape adversaryShape) {
     return switch (this) {
       case DRAW -> adversaryShape;
       case WIN -> adversaryShape.getBetter();

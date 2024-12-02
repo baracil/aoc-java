@@ -10,7 +10,7 @@ public class OrbitPath {
     @NonNull
     private final List<String> pathFromRoot;
 
-    public OrbitPath(@NonNull List<String> pathFromRoot) {
+    public OrbitPath(List<String> pathFromRoot) {
         this.pathFromRoot = pathFromRoot;
     }
 
@@ -24,7 +24,7 @@ public class OrbitPath {
     }
 
     @NonNull
-    public static String lastCommonBody(@NonNull OrbitPath path1,@NonNull OrbitPath path2) {
+    public static String lastCommonBody(OrbitPath path1,OrbitPath path2) {
         final int size1 = path1.pathFromRoot.size();
         final int size2 = path2.pathFromRoot.size();
 

@@ -1,16 +1,15 @@
 package fpc.aoc.year2015.day11;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 public class Day11Part2Solver extends Day11Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day11Part2Solver();
   }
 
   @Override
-  protected @NonNull Object doSolve(@NonNull String input) {
+  protected Object doSolve(String input) {
     final var p = Password.of(input);
     int nb = 0;
     do {

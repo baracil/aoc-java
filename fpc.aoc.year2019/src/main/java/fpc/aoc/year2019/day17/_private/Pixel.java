@@ -19,7 +19,7 @@ public enum Pixel {
 
   private final Orientation orientation;
 
-  Pixel(@NonNull String representation, @NonNull Orientation orientation) {
+  Pixel(String representation, Orientation orientation) {
     this.representation = representation;
     this.scaffold = true;
     this.orientation = orientation;
@@ -43,7 +43,7 @@ public enum Pixel {
   }
 
   @NonNull
-  public static Pixel decode(@NonNull String pixel) {
+  public static Pixel decode(String pixel) {
     return Holder.HELPER.get(pixel);
   }
 

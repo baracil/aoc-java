@@ -30,7 +30,7 @@ public class ParsedReaction {
     }
 
     @NonNull
-    public ChemicalReaction toChemicalReaction(@NonNull Map<String, Chemical> chemicalByName) {
+    public ChemicalReaction toChemicalReaction(Map<String, Chemical> chemicalByName) {
         return new ChemicalReaction(
                 chemicalByName.get(produced.name()),
                 produced.amount(),

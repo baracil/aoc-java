@@ -13,7 +13,7 @@ public class ChainedOutput implements Output {
     private final Output second;
 
     @Override
-    public void write(@NonNull String value) {
+    public void write(String value) {
         first.write(value);
         second.write(value);
     }

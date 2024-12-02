@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day13;
 
 import fpc.aoc.common.Tools;
-import lombok.NonNull;
 
 import java.math.BigInteger;
 import java.util.List;
@@ -9,7 +8,7 @@ import java.util.stream.IntStream;
 
 public class Part2FermatSolver implements Part2Solver {
 
-  public @NonNull BigInteger doSolve(@NonNull List<Bus> buses) {
+  public BigInteger doSolve(List<Bus> buses) {
 
     //assume all numbers are primes
     final var product = buses.stream()
@@ -42,7 +41,7 @@ public class Part2FermatSolver implements Part2Solver {
   }
 
   //we use the Fermat's little theorem
-  public @NonNull BigInteger solveForOneBus(@NonNull Bus bus, @NonNull BigInteger productOfAllIds, int index) {
+  public BigInteger solveForOneBus(Bus bus, BigInteger productOfAllIds, int index) {
     if (bus.isOutOfService()) {
       return BigInteger.ZERO;
     }

@@ -1,14 +1,12 @@
 package fpc.aoc.year2020.day2.structures;
 
-import lombok.NonNull;
-
 public class Password {
 
   private final int[] charOccurrences = new int['z' - 'a' + 1];
 
-  private final @NonNull String literal;
+  private final String literal;
 
-  public Password(@NonNull String value) {
+  public Password(String value) {
     this.literal = value;
     value.chars().map(c -> c - 'a').forEach(i -> charOccurrences[i]++);
   }

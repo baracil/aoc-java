@@ -3,7 +3,6 @@ package fpc.aoc.year2020.day20.structures;
 import fpc.aoc.common.ArrayOfChar;
 import fpc.aoc.common.BaseGenericArray;
 import fpc.aoc.common.Tools;
-import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,16 +10,16 @@ import java.util.stream.Stream;
 
 public class ImageArray extends BaseGenericArray<ImageTile> {
 
-  public static ImageArray with(@NonNull List<ImageTile> tiles) {
+  public static ImageArray with(List<ImageTile> tiles) {
     final int width = Tools.sqrt(tiles.size());
     return new ImageArray(tiles.toArray(new ImageTile[0]), width, width);
   }
 
-  private ImageArray(@NonNull ImageTile[] data, int width, int height) {
+  private ImageArray(ImageTile[] data, int width, int height) {
     super(data, width, height);
   }
 
-  public @NonNull Stream<ImageTile> corners() {
+  public Stream<ImageTile> corners() {
     return Stream.of(
         get(0, 0),
         get(0, height() - 1),
@@ -29,7 +28,7 @@ public class ImageArray extends BaseGenericArray<ImageTile> {
     );
   }
 
-  public @NonNull ArrayOfChar buildImageArray() {
+  public ArrayOfChar buildImageArray() {
     final ImageTile any = get(0, 0);
     final int tileWidth = any.width();
     final int imageWidth = (tileWidth + 1) * width() - 1;
@@ -50,7 +49,7 @@ public class ImageArray extends BaseGenericArray<ImageTile> {
     return ArrayOfChar.of(data, '.', imageWidth, imageWidth);
   }
 
-  public @NonNull ArrayOfChar buildImage() {
+  public ArrayOfChar buildImage() {
     final ImageTile any = get(0, 0);
     final int tileWidth = any.width();
 

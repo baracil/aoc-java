@@ -23,7 +23,7 @@ import java.util.stream.Stream;
 public class KeyCollector {
 
 
-    public static int collectAll(@NonNull Maze maze) {
+    public static int collectAll(Maze maze) {
         return new KeyCollector(maze).collectAll();
     }
 
@@ -45,7 +45,7 @@ public class KeyCollector {
 
     private final Stack stack;
 
-    public KeyCollector(@NonNull Maze maze) {
+    public KeyCollector(Maze maze) {
         this.startingKeys = maze.startingKeys().toArray(Key[]::new);
         this.nbRobots = startingKeys.length;
         this.graph = new Graph(maze);
@@ -102,7 +102,7 @@ public class KeyCollector {
                       .collect(Collectors.toList());
     }
 
-    private Optional<RouteWithRobotIndex> findTravelableRoute(@NonNull Key destination) {
+    private Optional<RouteWithRobotIndex> findTravelableRoute(Key destination) {
         final StackItem item = stack.current();
 
         return IntStream.range(0, nbRobots)
@@ -187,7 +187,7 @@ public class KeyCollector {
             this.size = 0;
         }
 
-        public void push(@NonNull KeyCollector.RouteWithRobotIndex routeWithRobotIndex) {
+        public void push(KeyCollector.RouteWithRobotIndex routeWithRobotIndex) {
             final StackItem current = current();
             final StackItem next = items[size++];
             next.initializeWith(current,routeWithRobotIndex);
@@ -220,7 +220,7 @@ public class KeyCollector {
 
     private class StackItem {
 
-        private Key[] keys;
+        private final Key[] keys;
 
         private int modifiedIndex;
 
@@ -265,7 +265,7 @@ public class KeyCollector {
             return keys[modifiedIndex].displayedId() +"("+length+")";
         }
 
-        public void initializeWith(StackItem source,@NonNull RouteWithRobotIndex routeWithRobotIndex) {
+        public void initializeWith(StackItem source,RouteWithRobotIndex routeWithRobotIndex) {
             final int robotIndex = routeWithRobotIndex.robotIndex();
             final Route route = routeWithRobotIndex.route();
 

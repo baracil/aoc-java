@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day10;
 
 import lombok.Getter;
-import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +12,9 @@ public class VideoSystem {
   private final Crt crt = new Crt();
 
   @Getter
-  private final @NonNull List<Integer> signalStrength = new ArrayList<>(220);
+  private final List<Integer> signalStrength = new ArrayList<>(220);
 
-  public void execute(@NonNull CommandProvider commandProvider) {
+  public void execute(CommandProvider commandProvider) {
     Command pending = null;
     int nbCycleBeforeExecution = 0;
 

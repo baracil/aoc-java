@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day17;
 
 import fpc.aoc.common.NeighbourProvider;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.stream.Stream;
@@ -14,7 +13,7 @@ public class Point4D implements NeighbourProvider<Point4D> {
   int w;
 
 
-  public @NonNull Stream<Point4D> neighbours() {
+  public Stream<Point4D> neighbours() {
     final int wp1 = w + 1;
     final int wm1 = w - 1;
     final int zp1 = z + 1;
@@ -63,7 +62,7 @@ public class Point4D implements NeighbourProvider<Point4D> {
     );
   }
 
-  public static @NonNull Point4D of(int x, int y, int z, int w) {
+  public static Point4D of(int x, int y, int z, int w) {
     return new Point4D(x, y, z, w);
   }
 

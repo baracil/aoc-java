@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day21.structures;
 
 import fpc.aoc.common.Bag;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
@@ -13,11 +12,11 @@ import java.util.stream.Collector;
 @RequiredArgsConstructor
 public class Guide {
 
-  private final @NonNull Map<Allergen, Ingredient> allergenIdentification;
+  private final Map<Allergen, Ingredient> allergenIdentification;
 
-  private final @NonNull Set<Ingredient> safeIngredients;
+  private final Set<Ingredient> safeIngredients;
 
-  private final @NonNull Bag<Ingredient> bagOfIngredients;
+  private final Bag<Ingredient> bagOfIngredients;
 
   public static Collector<String, ?, Guide> collector() {
     return Collector.of(

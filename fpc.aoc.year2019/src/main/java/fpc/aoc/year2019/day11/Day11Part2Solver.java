@@ -7,7 +7,6 @@ import fpc.aoc.computer.ProgramBasedSolver;
 import fpc.aoc.year2019.day11.computation.Color;
 import fpc.aoc.year2019.day11.computation.Hull;
 import fpc.aoc.year2019.day11.computation.Robot;
-import lombok.NonNull;
 
 import java.util.stream.Collectors;
 
@@ -19,7 +18,7 @@ public class Day11Part2Solver extends ProgramBasedSolver {
 
 
     @Override
-    protected String doSolve(@NonNull Program program) {
+    protected String doSolve(Program program) {
         final Hull hull = new Hull();
         final Robot robot = Robot.create(program);
 

@@ -1,6 +1,5 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
@@ -9,7 +8,7 @@ public class Submarine {
   Position position;
   int aim;
 
-  public static @NonNull Submarine startPosition() {
+  public static Submarine startPosition() {
     return new Submarine(new Position(0, 0), 0);
   }
 
@@ -21,7 +20,7 @@ public class Submarine {
     return -position.y();
   }
 
-  public @NonNull Submarine withStupidCommand(@NonNull SubCommand command) {
+  public Submarine withStupidCommand(SubCommand command) {
     return switch (command) {
       case SubCommand.Forward forward -> new Submarine(position.translate(forward.amount(), 0), aim);
       case SubCommand.Down down -> new Submarine(position.translate(0, -down.amount()), aim);
@@ -29,7 +28,7 @@ public class Submarine {
     };
   }
 
-  public @NonNull Submarine withCommand(@NonNull SubCommand command) {
+  public Submarine withCommand(SubCommand command) {
     return switch (command) {
       case SubCommand.Forward forward ->
           new Submarine(position.translate(forward.amount(), aim * forward.amount()), aim);

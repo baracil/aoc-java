@@ -38,7 +38,7 @@ public class MovementRules {
         return Arrays.stream(MovementFunction.values()).map(functions::get).filter(Objects::nonNull);
     }
 
-    public void feedProgram(@NonNull ProgramInput<String> programInputAccessor) {
+    public void feedProgram(ProgramInput<String> programInputAccessor) {
         programInputAccessor.write(routineCommand());
         programInputAccessor.write("\n");
         functionCommand().forEach(f -> {

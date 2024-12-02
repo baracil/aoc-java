@@ -2,14 +2,13 @@ package fpc.aoc.year2022.day15;
 
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Position;
-import lombok.NonNull;
 
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.ToIntFunction;
 import java.util.regex.Pattern;
 
-public record SensorReport(@NonNull Position sensor, @NonNull Position beacon, int distanceCovered) {
+public record SensorReport(Position sensor, Position beacon, int distanceCovered) {
 
 
   public Optional<LineCoverage> getCoverage(int lineIndex) {
@@ -25,7 +24,7 @@ public record SensorReport(@NonNull Position sensor, @NonNull Position beacon, i
   private static final Pattern PATTERN = Pattern.compile(".* x=(?<sx>[-0-9]+), y=(?<sy>[-0-9]+).* x=(?<bx>[-0-9]+), y=(?<by>[-0-9]+)");
 
 
-  public static SensorReport parse(@NonNull String line) {
+  public static SensorReport parse(String line) {
     final var match = PATTERN.matcher(line);
     if (!match.matches()) {
       throw new AOCException("Cannot parse record line '" + line + "'");

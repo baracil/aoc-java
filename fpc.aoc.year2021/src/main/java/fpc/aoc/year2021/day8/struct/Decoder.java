@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day8.struct;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.Map;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Decoder {
 
-  public static @NonNull WiringInfo<Integer> decode(@NonNull WiringInfo<String> encoded) {
+  public static WiringInfo<Integer> decode(WiringInfo<String> encoded) {
     return new Decoder(encoded).decode();
   }
 
@@ -28,8 +27,8 @@ public class Decoder {
   // 8  1 1 1 1 1 1 1
   // 9  1 1 1 1 0 1 1
 
-  private static int[] BITMASK = {4, 32, 1, 16, 2, 8, 64};
-  private static Map<Integer, Integer> DIGIT_MAPPER = Map.of(
+  private static final int[] BITMASK = {4, 32, 1, 16, 2, 8, 64};
+  private static final Map<Integer, Integer> DIGIT_MAPPER = Map.of(
       36, 1,
       93, 2,
       109, 3,
@@ -48,7 +47,7 @@ public class Decoder {
   private List<Integer> numbers;
   private List<Integer> digits;
 
-  private @NonNull WiringInfo<Integer> decode() {
+  private WiringInfo<Integer> decode() {
     this.computeHistogram();
     this.decodeNumbers();
     this.decodeDigits();
@@ -64,7 +63,7 @@ public class Decoder {
     digits = decode(encoded.digits());
   }
 
-  private @NonNull List<Integer> decode(@NonNull List<String> encodedNumbers) {
+  private List<Integer> decode(List<String> encodedNumbers) {
     return encodedNumbers.stream().map(this::decodeNumber).toList();
   }
 
@@ -72,7 +71,7 @@ public class Decoder {
     encoded.numbers().forEach(this::addToHistogram);
   }
 
-  private void addToHistogram(@NonNull String number) {
+  private void addToHistogram(String number) {
     final var weight = switch (number.length()) {
       case 3 -> -4;
       case 5, 6 -> 1;

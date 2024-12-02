@@ -1,7 +1,5 @@
 package fpc.aoc.year2021.day15.struct;
 
-import lombok.NonNull;
-
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
@@ -9,7 +7,7 @@ import java.util.Deque;
 public class PathFinder {
 
 
-  public long findLowestRisk(@NonNull Map map) {
+  public long findLowestRisk(Map map) {
     final Deque<Path> toVisit = new ArrayDeque<>();
     final long[] lowestSoFar = new long[map.nbElements()];
 
@@ -39,6 +37,6 @@ public class PathFinder {
 
   }
 
-  private static record Path(int position, long risk) {
+  private record Path(int position, long risk) {
   }
 }

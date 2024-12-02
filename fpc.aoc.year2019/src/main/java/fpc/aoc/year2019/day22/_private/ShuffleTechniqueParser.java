@@ -19,7 +19,7 @@ public class ShuffleTechniqueParser {
     }
 
     @NonNull
-    public PermutationFactors parse(@NonNull String line) {
+    public PermutationFactors parse(String line) {
         if (line.equals("deal into new stack")) {
             return dealToNewStack();
         } else if (line.startsWith("deal with increment ")) {

@@ -18,12 +18,12 @@ import java.util.stream.Stream;
 public class Picture {
 
   @NonNull
-  public static Picture withRobot(@NonNull List<Pixel> pixels, int width, int height, @NonNull Position robotPosition) {
+  public static Picture withRobot(List<Pixel> pixels, int width, int height, Position robotPosition) {
     return new Picture(pixels, width, height, robotPosition);
   }
 
   @NonNull
-  public static Picture withoutRobot(@NonNull List<Pixel> pixels, int width, int height) {
+  public static Picture withoutRobot(List<Pixel> pixels, int width, int height) {
     return new Picture(pixels, width, height, null);
   }
 
@@ -44,12 +44,12 @@ public class Picture {
     return Optional.ofNullable(vacuumPosition);
   }
 
-  public boolean isScaffoldPresentAt(@NonNull Position position) {
+  public boolean isScaffoldPresentAt(Position position) {
     return pixelAt(position).scaffold();
   }
 
   @NonNull
-  public Stream<Position> scaffoldNextTo(@NonNull Position position) {
+  public Stream<Position> scaffoldNextTo(Position position) {
     return position.neighbourStream().filter(this::isScaffoldPresentAt);
   }
 
@@ -64,7 +64,7 @@ public class Picture {
     print(System.out);
   }
 
-  public void print(@NonNull PrintStream printStream) {
+  public void print(PrintStream printStream) {
     int x = 0;
     for (Pixel pixel : pixels) {
       System.out.print(pixel.representation());
@@ -115,9 +115,9 @@ public class Picture {
 
     private int height = 0;
 
-    private List<Pixel> builder = new ArrayList<>();
+    private final List<Pixel> builder = new ArrayList<>();
 
-    public Builder appendData(@NonNull String data) {
+    public Builder appendData(String data) {
       if ("10".equals(data)) {
         y++;
       } else {

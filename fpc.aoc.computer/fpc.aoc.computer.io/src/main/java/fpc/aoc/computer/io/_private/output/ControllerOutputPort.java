@@ -11,12 +11,12 @@ public class ControllerOutputPort<T> extends BaseOutputPort<ProgramOutput<T>,T> 
 
     private final BlockingDeque<T> bridge = new LinkedBlockingDeque<>();
 
-    public ControllerOutputPort(@NonNull OutputTransformer<T> outputTransformer) {
+    public ControllerOutputPort(OutputTransformer<T> outputTransformer) {
         super(outputTransformer);
     }
 
     @Override
-    public void write(@NonNull T value) {
+    public void write(T value) {
         bridge.addLast(value);
     }
 

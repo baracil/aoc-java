@@ -1,6 +1,5 @@
 package fpc.aoc.year2021.day13.struct;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Set;
@@ -12,7 +11,7 @@ public class Sheet {
 
   private final Set<Dot> dots;
 
-  public @NonNull Sheet fold(@NonNull Fold fold) {
+  public Sheet fold(Fold fold) {
     final var operator = fold.operator();
 
     return dots.stream()

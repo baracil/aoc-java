@@ -42,7 +42,7 @@ public class Input {
 
 
   public static Input parse(List<String> lines) {
-    final var firstLine = lines.get(0);
+    final var firstLine = lines.getFirst();
     final var right = new boolean[firstLine.length()];
 
     for (int i = 0; i < firstLine.length(); i++) {

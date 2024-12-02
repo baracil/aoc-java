@@ -19,7 +19,7 @@ public class SolverService {
         .filter(p -> !p.isSkipped());
   }
 
-  public static Stream<Solver> loadSolvers(@NonNull Predicate<SolverId> filter) {
+  public static Stream<Solver> loadSolvers(Predicate<SolverId> filter) {
     return loadSolvers().filter(p -> filter.test(p.id()));
   }
 
@@ -52,38 +52,38 @@ public class SolverService {
         .max(DayId::compareTo);
   }
 
-  public static Optional<Solver> findSolverById(@NonNull SolverId id) {
+  public static Optional<Solver> findSolverById(SolverId id) {
     return loadSolvers()
         .filter(p -> id.equals(p.id()))
         .findFirst();
   }
 
-  public static Optional<Solver> findSolverById(@NonNull Year year, @NonNull Day day, @NonNull Part part) {
+  public static Optional<Solver> findSolverById(Year year, Day day, Part part) {
     return findSolverById(year.createIdWith(day, part));
   }
 
-  public static Optional<Solver> findSolverById(@NonNull String yearAsString, @NonNull String dayAsString, @NonNull String partAsString) {
+  public static Optional<Solver> findSolverById(String yearAsString, String dayAsString, String partAsString) {
     final Year year = Year.parse(yearAsString);
     final Day day = Day.parse(dayAsString);
     final Part part = Part.parse(partAsString);
     return findSolverById(year, day, part);
   }
 
-  public static Solver getSolverById(@NonNull SolverId solverId) {
+  public static Solver getSolverById(SolverId solverId) {
     return findSolverById(solverId).orElseThrow(() -> new AOCException("Could not find a problem with id " + solverId));
   }
 
-  public static Solver getSolverById(@NonNull Year year, @NonNull Day day, @NonNull Part part) {
+  public static Solver getSolverById(Year year, Day day, Part part) {
     final var solverId = new SolverId(year, day, part);
     return getSolverById(solverId);
   }
 
 
-  public static Stream<Solver> loadSolversOfADay(@NonNull DayId dayId) {
+  public static Stream<Solver> loadSolversOfADay(DayId dayId) {
     return loadSolvers(id -> id.matches(dayId));
   }
 
-  public static Solver getSolverById(@NonNull String yearAsString, @NonNull String dayAsString, @NonNull String partAsString) {
+  public static Solver getSolverById(String yearAsString, String dayAsString, String partAsString) {
     final Year year = Year.parse(yearAsString);
     final Day day = Day.parse(dayAsString);
     final Part part = Part.parse(partAsString);

@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day14.structures;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.regex.Pattern;
@@ -13,14 +12,14 @@ public class Setter implements Instruction {
   long value;
 
   @Override
-  public void applyToMemory(@NonNull Memory memory) {
+  public void applyToMemory(Memory memory) {
     memory.setValue(addr, value);
   }
 
 
   private static final Pattern SETTER_PATTERN = Pattern.compile("mem\\[(\\d+)] = (\\d+)");
 
-  public static @NonNull Setter parse(@NonNull String line) {
+  public static Setter parse(String line) {
     final var matcher = SETTER_PATTERN.matcher(line);
     if (matcher.matches()) {
       return new Setter(Integer.parseInt(matcher.group(1)),

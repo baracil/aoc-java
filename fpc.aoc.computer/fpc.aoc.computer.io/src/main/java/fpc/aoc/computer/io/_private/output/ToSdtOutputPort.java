@@ -6,12 +6,12 @@ import lombok.NonNull;
 
 public class ToSdtOutputPort<T> extends BaseOutputPort<Nil,T> {
 
-    public ToSdtOutputPort(@NonNull OutputTransformer<T> outputTransformer) {
+    public ToSdtOutputPort(OutputTransformer<T> outputTransformer) {
         super(outputTransformer);
     }
 
     @Override
-    public void write(@NonNull T value) {
+    public void write(T value) {
         System.out.print(value);
     }
 

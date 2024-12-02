@@ -1,16 +1,15 @@
 package fpc.aoc.year2022.day7;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 public class Day7Part1Solver extends Day7Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day7Part1Solver();
   }
 
   @Override
-  public @NonNull Integer doSolve(@NonNull FileSystem fileSystem) {
+  public Integer doSolve(FileSystem fileSystem) {
 
     return fileSystem.streamDirectories()
         .mapToInt(File.Folder::size)

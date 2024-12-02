@@ -1,12 +1,11 @@
 package fpc.aoc.year2019.day14.computation;
 
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
 public class Chemical implements Comparable<Chemical> {
 
-    @NonNull String name;
+    String name;
 
     int complexity;
 

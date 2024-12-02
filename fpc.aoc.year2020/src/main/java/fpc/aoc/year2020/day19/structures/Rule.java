@@ -1,7 +1,5 @@
 package fpc.aoc.year2020.day19.structures;
 
-import lombok.NonNull;
-
 import java.util.stream.Stream;
 
 public interface Rule {
@@ -12,10 +10,10 @@ public interface Rule {
    * @return a stream of indexed string obtained after matching the provided string
    * to this rule (this is a stream because the string might matches in several ways)
    */
-  Stream<IndexedString> matches(@NonNull IndexedString string, @NonNull RuleProvider ruleProvider);
+  Stream<IndexedString> matches(IndexedString string, RuleProvider ruleProvider);
 
 
-  static @NonNull Rule parse(@NonNull String line) {
+  static Rule parse(String line) {
     final int indexOfPipe = line.indexOf('|');
     final int indexOfQuote = line.indexOf('"');
     if (indexOfPipe >= 0) {

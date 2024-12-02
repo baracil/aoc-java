@@ -22,12 +22,12 @@ public class Position {
     int y;
 
     @NonNull
-    public Direction subtract(@NonNull Position reference) {
+    public Direction subtract(Position reference) {
         return Direction.create(this.x-reference.x, this.y - reference.y);
     }
 
     @NonNull
-    public RadialRelativePosition positionRelativeTo(@NonNull Position reference) {
+    public RadialRelativePosition positionRelativeTo(Position reference) {
         return RadialRelativePosition.create(x - reference.x, y - reference.y);
     }
 

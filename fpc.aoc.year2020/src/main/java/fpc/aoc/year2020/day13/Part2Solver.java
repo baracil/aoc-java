@@ -8,5 +8,5 @@ import java.util.List;
 public interface Part2Solver {
 
   @NonNull
-  BigInteger doSolve(@NonNull List<Bus> buses);
+  BigInteger doSolve(List<Bus> buses);
 }

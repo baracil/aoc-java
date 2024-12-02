@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day4.struct;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -23,7 +22,7 @@ public class Day04Input {
     if (numbers.isEmpty()) {
       return Optional.empty();
     }
-    final var number = this.numbers.get(0);
+    final var number = this.numbers.getFirst();
     final var numbers = this.numbers.stream().skip(1).toList();
 
     final var grids = this.grids.stream()
@@ -43,7 +42,7 @@ public class Day04Input {
     if (numbers.isEmpty()) {
       return Optional.empty();
     }
-    final var number = this.numbers.get(0);
+    final var number = this.numbers.getFirst();
     final var numbers = this.numbers.stream().skip(1).toList();
 
     final var grids = this.grids.stream()
@@ -69,10 +68,10 @@ public class Day04Input {
   private static class Agglomerator {
 
     private List<Integer> numbers;
-    private List<Grid> grids = new ArrayList<>();
-    private List<String> gridRows = new ArrayList<>();
+    private final List<Grid> grids = new ArrayList<>();
+    private final List<String> gridRows = new ArrayList<>();
 
-    public void accumulate(@NonNull String line) {
+    public void accumulate(String line) {
       if (line.isEmpty()) {
         buildGrid();
         gridRows.clear();
@@ -85,7 +84,7 @@ public class Day04Input {
       }
     }
 
-    public Agglomerator combiner(@NonNull Agglomerator agglomerator) {
+    public Agglomerator combiner(Agglomerator agglomerator) {
       throw new UnsupportedOperationException();
     }
 

@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day1;
 
 import fpc.aoc.api.Solver;
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 
 import java.util.Optional;
 
@@ -13,7 +12,7 @@ public class Day1Part1Solver extends Day1Solver {
   }
 
   @Override
-  public @NonNull Integer doSolve(@NonNull int[] input) {
+  public Integer doSolve(int[] input) {
     final var finder = new ProductFinder();
 
     for (int value : input) {
@@ -29,7 +28,7 @@ public class Day1Part1Solver extends Day1Solver {
 
     private final boolean[] seen = new boolean[2021];
 
-    public @NonNull Optional<Integer> onNewValue(int value) {
+    public Optional<Integer> onNewValue(int value) {
       if (value < 0 || value > 2020) {
         return Optional.empty();
       }

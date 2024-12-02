@@ -2,7 +2,6 @@ package fpc.aoc.computer.primitive._private;
 
 import fpc.aoc.computer.Alterations;
 import fpc.aoc.computer.MemoryAccessors;
-import lombok.NonNull;
 
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
@@ -16,16 +15,16 @@ public abstract class BaseMemory implements Memory {
     }
 
     @Override
-    public @NonNull MemoryAccessors hasMemoryAccessors() {
+    public MemoryAccessors hasMemoryAccessors() {
         return accessors;
     }
 
     @Override
-    public void alter(@NonNull Alterations alterations) {
+    public void alter(Alterations alterations) {
         alterations.handleAlterations(this::alter);
     }
 
-    private void alter(int address, @NonNull String value) {
+    private void alter(int address, String value) {
         setValue(address, Long.parseLong(value));
     }
 

@@ -7,7 +7,7 @@ import lombok.NonNull;
 public interface Operation {
 
     @NonNull
-    AddressingUpdater perform(@NonNull ExecutionContext context);
+    AddressingUpdater perform(ExecutionContext context);
 
     @NonNull
     static Operation nop() {

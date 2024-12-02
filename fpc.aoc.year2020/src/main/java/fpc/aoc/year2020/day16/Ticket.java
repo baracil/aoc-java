@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day16;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -9,9 +8,9 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor
 public class Ticket {
 
-  private final @NonNull int[] values;
+  private final int[] values;
 
-  public static @NonNull Ticket parse(@NonNull String line) {
+  public static Ticket parse(String line) {
     final var values = Arrays.stream(line.split(","))
         .mapToInt(Integer::parseInt)
         .toArray();
@@ -22,7 +21,7 @@ public class Ticket {
     return values[index];
   }
 
-  public @NonNull IntStream values() {
+  public IntStream values() {
     return Arrays.stream(values);
   }
 

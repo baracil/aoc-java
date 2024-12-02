@@ -1,6 +1,5 @@
 package fpc.aoc.year2022.day5;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Deque;
@@ -13,7 +12,7 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor
 public class Stacks {
 
-  private final @NonNull List<Deque<String>> stacks;
+  private final List<Deque<String>> stacks;
 
   private Stacks(int nbStacks) {
     this.stacks = IntStream.range(0, nbStacks)
@@ -21,15 +20,15 @@ public class Stacks {
         .toList();
   }
 
-  public @NonNull String pick(int stackNumber) {
+  public String pick(int stackNumber) {
     return stacks.get(stackNumber - 1).removeLast();
   }
 
-  public void put(int stackNumber, @NonNull String crate) {
+  public void put(int stackNumber, String crate) {
     stacks.get(stackNumber - 1).addLast(crate);
   }
 
-  public @NonNull String listTopOfStacks() {
+  public String listTopOfStacks() {
     return stacks.stream()
         .map(Deque::peekLast)
         .filter(Objects::nonNull)
@@ -37,7 +36,7 @@ public class Stacks {
         .collect(Collectors.joining());
   }
 
-  public static @NonNull Stacks parse(@NonNull List<String> header) {
+  public static Stacks parse(List<String> header) {
     final var lastIndex = header.size() - 1;
     final var indices = header.get(lastIndex);
 

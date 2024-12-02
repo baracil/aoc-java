@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day24.structures;
 
 import fpc.aoc.common.AOCException;
 import lombok.Builder;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Singular;
 
@@ -13,9 +12,9 @@ import java.util.List;
 public class Path {
 
   @Singular
-  private final @NonNull List<Direction> steps;
+  private final List<Direction> steps;
 
-  public @NonNull HexaPoint pointAtEndOfPath(@NonNull HexaPoint startingPoint) {
+  public HexaPoint pointAtEndOfPath(HexaPoint startingPoint) {
     final var mutable = startingPoint.toMutable();
     for (Direction step : steps) {
       mutable.move(step);
@@ -23,7 +22,7 @@ public class Path {
     return mutable.toImmutable();
   }
 
-  public static @NonNull Path parse(@NonNull String line) {
+  public static Path parse(String line) {
     final var builder = Path.builder();
     int i = 0;
     while (i < line.length()) {

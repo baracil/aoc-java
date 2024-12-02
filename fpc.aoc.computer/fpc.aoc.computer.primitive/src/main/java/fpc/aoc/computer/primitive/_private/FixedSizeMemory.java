@@ -10,7 +10,7 @@ public class FixedSizeMemory extends BaseMemory {
     @NonNull
     private final long[] values;
 
-    public FixedSizeMemory(@NonNull long[] values) {
+    public FixedSizeMemory(long[] values) {
         this.values = values;
     }
 

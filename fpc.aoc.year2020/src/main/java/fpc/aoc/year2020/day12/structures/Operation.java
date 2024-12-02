@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day12.structures;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.function.BiConsumer;
@@ -17,13 +16,13 @@ public enum Operation {
   F(Executor::executeForward),
   ;
 
-  private final @NonNull BiConsumer<Executor, Integer> action;
+  private final BiConsumer<Executor, Integer> action;
 
-  public void execute(@NonNull Executor executor, int quantity) {
+  public void execute(Executor executor, int quantity) {
     action.accept(executor, quantity);
   }
 
-  public static @NonNull Operation parse(@NonNull String oper) {
+  public static Operation parse(String oper) {
     return switch (oper) {
       case "E" -> E;
       case "W" -> W;

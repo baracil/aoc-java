@@ -1,13 +1,12 @@
 package fpc.aoc.year2021.day12.struct;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class PathCounter {
 
-  public static long count(@NonNull Graph graph, @NonNull RecursiveMode recursiveMode) {
+  public static long count(Graph graph, RecursiveMode recursiveMode) {
     return new PathCounter(graph, recursiveMode).count();
   }
 
@@ -24,7 +23,7 @@ public class PathCounter {
     // invariant: position is not visited and not end
     recursiveMode.onEntering(position);
 
-    for (@NonNull Node connection : graph.getConnections(position)) {
+    for (Node connection : graph.getConnections(position)) {
       if (connection.end()) {
         nbPaths += 1;
       } else if (recursiveMode.canVisit(connection)) {

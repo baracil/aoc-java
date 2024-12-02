@@ -29,7 +29,7 @@ public class ChemicalBook {
     }
 
     @NonNull
-    public ChemicalReaction getReactionProducing(@NonNull Chemical chemical) {
+    public ChemicalReaction getReactionProducing(Chemical chemical) {
         return reactions.get(chemical);
     }
 

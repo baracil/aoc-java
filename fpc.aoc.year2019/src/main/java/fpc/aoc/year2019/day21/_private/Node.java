@@ -22,14 +22,14 @@ public class Node {
         this(truthTable, 0, 0);
     }
 
-    public Node(int param, @NonNull TriBool value) {
+    public Node(int param, TriBool value) {
         this.param = param;
         this.trueNode = null;
         this.falseNode = null;
         this.value = value;
     }
 
-    public Node(int param, @NonNull Node trueNode, @NonNull Node falseNode) {
+    public Node(int param, Node trueNode, Node falseNode) {
         this.param = param;
         this.trueNode = trueNode;
         this.falseNode = falseNode;
@@ -51,14 +51,14 @@ public class Node {
     }
 
     @NonNull
-    public String expression(@NonNull ParameterNames parameterNames) {
+    public String expression(ParameterNames parameterNames) {
         if (isLeaf()) {
             return value+"";
         }
         return String.join("+", gatherTerms(parameterNames, "", new ArrayList<>()));
     }
 
-    private List<String> gatherTerms(@NonNull ParameterNames parameterNames, @NonNull String str, @NonNull List<String> terms) {
+    private List<String> gatherTerms(ParameterNames parameterNames, String str, List<String> terms) {
         if (this.isLeaf()) {
             if (value == TriBool.TRUE) {
                 terms.add(str);

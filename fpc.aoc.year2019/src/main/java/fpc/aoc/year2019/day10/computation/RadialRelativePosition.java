@@ -20,14 +20,14 @@ public class RadialRelativePosition {
 
     int radius;
 
-    @NonNull Direction direction;
+    Direction direction;
 
     public boolean isNotNil() {
         return radius != 0;
     }
 
     @NonNull
-    public Position add(@NonNull Position reference) {
+    public Position add(Position reference) {
         return Position.create(
                 reference.x()+radius*direction.dx(),
                 reference.y()+radius*direction.dy()

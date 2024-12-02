@@ -19,7 +19,7 @@ public enum Color {
     private final Instruction instruction;
 
     @NonNull
-    public static Color decode(@NonNull String code) {
+    public static Color decode(String code) {
         return Holder.HELPER.get(code);
     }
 

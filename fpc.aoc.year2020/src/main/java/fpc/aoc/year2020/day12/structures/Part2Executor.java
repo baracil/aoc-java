@@ -2,14 +2,13 @@ package fpc.aoc.year2020.day12.structures;
 
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Tools;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class Part2Executor implements Executor {
 
-  private final @NonNull Ferry ferry;
-  private final @NonNull Waypoint waypoint;
+  private final Ferry ferry;
+  private final Waypoint waypoint;
 
   @Override
   public void executeEast(int quantity) {
@@ -73,7 +72,7 @@ public class Part2Executor implements Executor {
   }
 
   @Override
-  public void execute(@NonNull Movement movement) {
+  public void execute(Movement movement) {
     movement.operation().execute(this, movement.quantity());
   }
 

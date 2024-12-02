@@ -1,13 +1,11 @@
 package fpc.aoc.year2021.day17.struct;
 
 
-import lombok.NonNull;
-
 public record Vec(int x, int y) {
 
   public static final Vec ZERO = new Vec(0, 0);
 
-  public Vec add(@NonNull Vec other) {
+  public Vec add(Vec other) {
     return new Vec(this.x + other.x, this.y + other.y);
   }
 

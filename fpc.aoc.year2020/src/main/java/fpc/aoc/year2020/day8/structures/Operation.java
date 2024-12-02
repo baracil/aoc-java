@@ -4,7 +4,6 @@ import fpc.aoc.common.AOCException;
 import fpc.aoc.year2020.day8.structures.instruction.Acc;
 import fpc.aoc.year2020.day8.structures.instruction.Jmp;
 import fpc.aoc.year2020.day8.structures.instruction.Nop;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -21,7 +20,7 @@ public enum Operation {
 
   private final Function<? super String, ? extends Instruction> factory;
 
-  public static @NonNull Operation find(@NonNull String name) {
+  public static Operation find(String name) {
     final var operation = Holder.OPERATION_BY_NAME.get(name.toLowerCase());
     if (operation == null) {
       throw new AOCException("No operation found with name '" + name + "'");
@@ -29,7 +28,7 @@ public enum Operation {
     return operation;
   }
 
-  public @NonNull Instruction createInstruction(@NonNull String argument) {
+  public Instruction createInstruction(String argument) {
     return factory.apply(argument);
   }
 

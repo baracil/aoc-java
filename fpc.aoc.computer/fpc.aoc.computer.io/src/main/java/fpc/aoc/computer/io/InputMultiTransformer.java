@@ -13,12 +13,12 @@ public interface InputMultiTransformer<R> extends Function<R,List<String>> {
 
     @Override
     @NonNull
-    default List<String> apply(@NonNull R r) {
+    default List<String> apply(R r) {
         return transform(r);
     }
 
     @NonNull
-    List<String> transform(@NonNull R r);
+    List<String> transform(R r);
 
     @NonNull
     default InputMultiTransformer<R> before(UnaryOperator<R> preparator) {

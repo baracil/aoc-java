@@ -1,20 +1,19 @@
 package fpc.aoc.year2023.day04;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Day4Part2Solver extends Day4Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day4Part2Solver();
   }
 
 
   @Override
-  public @NonNull Object doSolve(@NonNull List<Card> input) {
+  public Object doSolve(List<Card> input) {
     final long[] counts = new long[input.size()];
     Arrays.fill(counts, 1);
 

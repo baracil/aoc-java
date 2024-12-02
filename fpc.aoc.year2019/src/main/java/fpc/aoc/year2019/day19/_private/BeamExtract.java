@@ -1,7 +1,5 @@
 package fpc.aoc.year2019.day19._private;
 
-import lombok.NonNull;
-
 /**
  * @author Bastien Aracil
  **/
@@ -19,7 +17,7 @@ public class BeamExtract {
         this.slices = new BeamSlice[shipSize];
     }
 
-    public void push(@NonNull BeamSlice slice) {
+    public void push(BeamSlice slice) {
         if (size<shipSize) {
             size++;
         }

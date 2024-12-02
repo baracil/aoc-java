@@ -4,7 +4,7 @@ import lombok.NonNull;
 
 public class Door {
 
-    public Door(@NonNull Key keyOfTheDoor) {
+    public Door(Key keyOfTheDoor) {
         this.id = keyOfTheDoor.id().toLowerCase();
         this.keyOfTheDoor = keyOfTheDoor;
     }

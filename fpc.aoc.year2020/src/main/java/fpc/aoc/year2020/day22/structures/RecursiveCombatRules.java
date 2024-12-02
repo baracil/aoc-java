@@ -1,7 +1,5 @@
 package fpc.aoc.year2020.day22.structures;
 
-import lombok.NonNull;
-
 public class RecursiveCombatRules implements GameRules {
 
   private final GameExecutor gameExecutor;
@@ -13,7 +11,7 @@ public class RecursiveCombatRules implements GameRules {
   }
 
   @Override
-  public @NonNull Player getWinnerOfRound(@NonNull GameState gameState) {
+  public Player getWinnerOfRound(GameState gameState) {
     return gameState.subGameState()
         .map(r -> gameExecutor.play(r).winner())
         .orElseGet(() -> defaultRules.getWinnerOfRound(gameState));

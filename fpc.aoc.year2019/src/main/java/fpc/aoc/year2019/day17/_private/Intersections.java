@@ -11,7 +11,7 @@ public class Intersections {
 
 
   @NonNull
-  public static Intersections findOnPicture(@NonNull Picture picture) {
+  public static Intersections findOnPicture(Picture picture) {
     final var intersections = picture.allScaffoldPositions()
         .filter(p -> picture.scaffoldNextTo(p).count() == 4)
         .toList();

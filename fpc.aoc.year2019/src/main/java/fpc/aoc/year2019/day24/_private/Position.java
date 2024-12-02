@@ -49,7 +49,7 @@ public class Position {
 
     int y;
 
-    public void forEachNeighbour(@NonNull Consumer<Position> consumer) {
+    public void forEachNeighbour(Consumer<Position> consumer) {
         forEachOnTheLeft(consumer);
         forEachOnTheRight(consumer);
         forEachAbove(consumer);
@@ -57,7 +57,7 @@ public class Position {
     }
 
 
-    private void forEachOnTheLeft(@NonNull Consumer<Position> consumer) {
+    private void forEachOnTheLeft(Consumer<Position> consumer) {
         if (x==0) {
             consumer.accept(create(level-1,1,2));
         } else if (x == 3 && y == 2) {
@@ -70,7 +70,7 @@ public class Position {
     }
 
 
-    private void forEachOnTheRight(@NonNull Consumer<Position> consumer) {
+    private void forEachOnTheRight(Consumer<Position> consumer) {
         if (x==4) {
             consumer.accept(create(level-1,3,2));
         } else if (x == 1 && y == 2) {
@@ -82,7 +82,7 @@ public class Position {
         }
     }
 
-    private void forEachBelow(@NonNull Consumer<Position> consumer) {
+    private void forEachBelow(Consumer<Position> consumer) {
         if (y == 4) {
             consumer.accept(create(level-1,2,3));
         } else if (x == 2 && y == 1) {
@@ -93,7 +93,7 @@ public class Position {
             consumer.accept(create(level,x,y+1));
         }
     }
-    private void forEachAbove(@NonNull Consumer<Position> consumer) {
+    private void forEachAbove(Consumer<Position> consumer) {
         if (y == 0) {
             consumer.accept(create(level-1,2,1));
         } else if (x == 2 && y == 3) {

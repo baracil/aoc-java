@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day6.struct;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.math.BigInteger;
@@ -24,7 +23,7 @@ public class School {
     return result;
   }
 
-  public static @NonNull School parse(@NonNull String line) {
+  public static School parse(String line) {
     return Arrays.stream(line.split(","))
         .map(Integer::parseInt)
         .collect(Collector.of(SchoolCollector::new, SchoolCollector::addFish,

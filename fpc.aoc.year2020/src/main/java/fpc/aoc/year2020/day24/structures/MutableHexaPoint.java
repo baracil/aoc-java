@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day24.structures;
 
 import lombok.AllArgsConstructor;
-import lombok.NonNull;
 
 
 @AllArgsConstructor
@@ -10,11 +9,11 @@ public class MutableHexaPoint {
   private int x;
   private int y;
 
-  public @NonNull HexaPoint toImmutable() {
+  public HexaPoint toImmutable() {
     return new HexaPoint(x, y);
   }
 
-  public @NonNull void move(@NonNull Direction direction) {
+  public void move(Direction direction) {
     switch (direction) {
       case E -> x = x + 2;
       case NE -> {
@@ -35,6 +34,5 @@ public class MutableHexaPoint {
         y--;
       }
     }
-    ;
   }
 }

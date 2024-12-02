@@ -7,32 +7,32 @@ public interface Program {
 
     @NonNull
     <I,O> Execution<O,I> launch(
-            @NonNull String executionName,
-            @NonNull ProgramIO<O,I> pipe,
-            @NonNull Alterations alterations
+            String executionName,
+            ProgramIO<O,I> pipe,
+            Alterations alterations
     );
 
     @NonNull
     default <I,O> Execution<O,I> launch(
-            @NonNull String executionName,
-            @NonNull ProgramIO<O,I> programIO
+            String executionName,
+            ProgramIO<O,I> programIO
             ) {
         return launch(executionName, programIO, Alterations.none());
     }
 
     @NonNull
     default ExecutionResult launchAndWait(
-            @NonNull String executionName,
-            @NonNull ProgramIO<?,?> programIO,
-            @NonNull Alterations alterations
+            String executionName,
+            ProgramIO<?,?> programIO,
+            Alterations alterations
     ) {
         return launch(executionName, programIO, alterations).waitTermination();
     }
 
     @NonNull
     default ExecutionResult launchAndWait(
-            @NonNull String executionName,
-            @NonNull ProgramIO<?,?> programIO
+            String executionName,
+            ProgramIO<?,?> programIO
             ) {
         return launch(executionName, programIO, Alterations.none()).waitTermination();
     }
@@ -40,15 +40,15 @@ public interface Program {
 
     @NonNull
     default ExecutionResult launchAndWait(
-            @NonNull String executionName,
-            @NonNull Alterations alterations
+            String executionName,
+            Alterations alterations
             ) {
         return launch(executionName, ProgramIO.noInput().ignoreOutput(), alterations).waitTermination();
     }
 
     @NonNull
     default ExecutionResult launchAndWait(
-            @NonNull String executionName
+            String executionName
             ) {
         return launch(executionName, ProgramIO.noInput().ignoreOutput(), Alterations.none()).waitTermination();
     }

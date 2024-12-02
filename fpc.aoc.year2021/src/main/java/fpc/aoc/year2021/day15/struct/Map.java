@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day15.struct;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -33,15 +32,15 @@ public class Map {
     return risks[position];
   }
 
-  public @NonNull IntStream neighbors(int position) {
+  public IntStream neighbors(int position) {
     return IntStream.of(position - 1, position + 1, position - nbCols, position + nbCols)
         .filter(i -> risks[i] != SENTINEL);
   }
 
 
-  public static Map parse(@NonNull List<String> lines, int repetition) {
+  public static Map parse(List<String> lines, int repetition) {
     final var nbRows = lines.size();
-    final var nbCols = lines.get(0).length();
+    final var nbCols = lines.getFirst().length();
 
     final var nbMapRows = nbRows * repetition + 2;
     final var nbMapCols = nbCols * repetition + 2;

@@ -2,7 +2,6 @@ package fpc.aoc.year2022.day22;
 
 import fpc.aoc.common.ArrayOfChar;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class Input22 {
 
   private static final Pattern PATTERN = Pattern.compile("(?<length>[0-9]+)(?<op>[LRF])");
 
-  public static Input22 parse(List<String> lines, @NonNull NavigationFactory navigationFactory) {
+  public static Input22 parse(List<String> lines, NavigationFactory navigationFactory) {
     final var idx = IntStream.range(0, lines.size()).filter(i -> lines.get(i).isEmpty()).findAny().orElseThrow();
     final var map = ArrayOfChar.from(lines.subList(0, idx), ' ');
 

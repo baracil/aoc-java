@@ -3,7 +3,6 @@ package fpc.aoc.year2022.day17;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Position;
 import lombok.Getter;
-import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.stream.Collectors;
@@ -20,12 +19,12 @@ public class Chamber {
     this.highestRock = 0;
   }
 
-  public @NonNull Position getStartingPosition() {
+  public Position getStartingPosition() {
     return Position.of(2, highestRock + 4);
   }
 
 
-  public @NonNull Snapshot peekSnapshot(@NonNull ShapeType shapeType, int jetIndex) {
+  public Snapshot peekSnapshot(ShapeType shapeType, int jetIndex) {
     final int top = highestRock;
     int idx = top;
 

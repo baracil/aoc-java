@@ -6,17 +6,16 @@ import fpc.aoc.computer.ComputerFactory;
 import fpc.aoc.computer.MemoryType;
 import fpc.aoc.computer.primitive._private.PrimitiveComputer;
 import fpc.aoc.computer.primitive._private.VariableSizeMemory;
-import lombok.NonNull;
 
 public class VariableSizeLongValueComputerFactory implements ComputerFactory {
 
     @Override
-    public boolean verifyAllProperties(@NonNull BitSize minimalBitSize,@NonNull MemoryType memoryType) {
+    public boolean verifyAllProperties(BitSize minimalBitSize,MemoryType memoryType) {
         return (minimalBitSize == BitSize.BIT_32 || minimalBitSize == BitSize.BIT_64) && memoryType == MemoryType.VARIABLE;
     }
 
     @Override
-    public @NonNull Computer create() {
+    public Computer create() {
         return new PrimitiveComputer(VariableSizeMemory::new);
     }
 }

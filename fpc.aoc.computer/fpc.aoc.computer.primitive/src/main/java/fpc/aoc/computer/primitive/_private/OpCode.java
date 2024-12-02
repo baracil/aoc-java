@@ -35,7 +35,7 @@ public enum OpCode implements Operation, Encoded {
     }
 
     @Override
-    public @NonNull AddressingUpdater perform(@NonNull ExecutionContext context) {
+    public AddressingUpdater perform(ExecutionContext context) {
         return operation.perform(context);
     }
 

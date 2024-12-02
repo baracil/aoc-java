@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day22.structures;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.HashSet;
@@ -9,9 +8,9 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class GameExecutor {
 
-  private final @NonNull GameRules gameRules;
+  private final GameRules gameRules;
 
-  public @NonNull GameOutcome play(@NonNull GameState initialState) {
+  public GameOutcome play(GameState initialState) {
     return new Execution(initialState).play();
   }
 
@@ -19,11 +18,11 @@ public class GameExecutor {
   private class Execution {
 
     private final Set<GameState> seenStates = new HashSet<>();
-    private final @NonNull GameState initialState;
+    private final GameState initialState;
     private GameState currentState;
     private Player currentWinner;
 
-    private @NonNull GameOutcome play() {
+    private GameOutcome play() {
       this.initializeCurrentStateToInitialState();
       while (thereIsNoWinner()) {
         if (currentStateHasBeenSeenAlready()) {
@@ -44,7 +43,7 @@ public class GameExecutor {
       return seenStates.contains(currentState);
     }
 
-    private @NonNull GameOutcome outcomeOnLoop() {
+    private GameOutcome outcomeOnLoop() {
       return new GameOutcome(Player.ONE, Score.NAS);
     }
 
@@ -64,7 +63,7 @@ public class GameExecutor {
       this.currentState = this.currentState.nextState(this.currentWinner);
     }
 
-    private @NonNull GameOutcome outcomeOfCurrentState() {
+    private GameOutcome outcomeOfCurrentState() {
       return this.currentState.outcome();
     }
 

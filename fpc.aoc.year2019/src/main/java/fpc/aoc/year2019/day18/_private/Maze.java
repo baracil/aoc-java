@@ -45,7 +45,7 @@ public class Maze {
   @NonNull
   private final List<Key> startingKeys;
 
-  public Maze(@NonNull boolean[] walls, int width, int height, Map<Door, Integer> doorIndexes, Map<Key, Integer> keyIndexes) {
+  public Maze(boolean[] walls, int width, int height, Map<Door, Integer> doorIndexes, Map<Key, Integer> keyIndexes) {
     this.cache = IntStream.range(0, width * height).mapToObj(i -> new Pos(this, i)).toArray(Pos[]::new);
     this.walls = walls;
     this.width = width;
@@ -67,7 +67,7 @@ public class Maze {
     print(System.out);
   }
 
-  public void print(@NonNull PrintStream ps) {
+  public void print(PrintStream ps) {
     for (int h = 0; h < height; h++) {
       for (int w = 0; w < width; w++) {
         final int idx = h * width + w;
@@ -104,35 +104,35 @@ public class Maze {
     return cache[pos.idx() + width];
   }
 
-  public Pos rightTo(@NonNull Pos pos) {
+  public Pos rightTo(Pos pos) {
     return cache[pos.idx() + 1];
   }
 
-  public Pos leftTo(@NonNull Pos pos) {
+  public Pos leftTo(Pos pos) {
     return cache[pos.idx() - 1];
   }
 
-  public boolean isWall(@NonNull Pos pos) {
+  public boolean isWall(Pos pos) {
     return walls[pos.idx()];
   }
 
-  public boolean isKeyAndNotStartingPoint(@NonNull Pos pos) {
+  public boolean isKeyAndNotStartingPoint(Pos pos) {
     final Key key = keyPositions.get(pos);
     return key != null && !key.isStart();
   }
 
-  public boolean isNotAStartingPoint(@NonNull Pos pos) {
+  public boolean isNotAStartingPoint(Pos pos) {
     final Key key = keyPositions.get(pos);
     return key == null || !key.isStart();
 
   }
 
-  public boolean isDoor(@NonNull Pos pos) {
+  public boolean isDoor(Pos pos) {
     return doorPositions.containsKey(pos);
   }
 
   @NonNull
-  public Optional<Door> getDoorAt(@NonNull Pos pos) {
+  public Optional<Door> getDoorAt(Pos pos) {
     final Door door = doorPositions.get(pos);
     return Optional.ofNullable(door);
   }
@@ -153,7 +153,7 @@ public class Maze {
   }
 
   @NonNull
-  private List<Route> findFastestRouteToOtherKeys(@NonNull Key reference) {
+  private List<Route> findFastestRouteToOtherKeys(Key reference) {
     return FastestRouteFinder.findFastestRouteToOtherKeys(this, reference);
   }
 

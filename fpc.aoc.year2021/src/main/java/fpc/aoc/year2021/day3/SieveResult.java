@@ -1,7 +1,5 @@
 package fpc.aoc.year2021.day3;
 
-import lombok.NonNull;
-
 import java.util.stream.Collector;
 
 public sealed interface SieveResult {
@@ -11,7 +9,7 @@ public sealed interface SieveResult {
   record Balance(BitBalance bitBalance) implements SieveResult {
   }
 
-  static @NonNull Collector<Integer, ?, SieveResult> collector(int sieveValue, int sieveMask, int bitMask) {
+  static Collector<Integer, ?, SieveResult> collector(int sieveValue, int sieveMask, int bitMask) {
     class Aggregator {
       int nbMatching;
       int oneValue;

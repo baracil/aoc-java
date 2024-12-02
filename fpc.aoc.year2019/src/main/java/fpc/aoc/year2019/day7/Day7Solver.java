@@ -4,13 +4,12 @@ import fpc.aoc.common.NumericalStrings;
 import fpc.aoc.common.Permutation;
 import fpc.aoc.computer.Program;
 import fpc.aoc.computer.ProgramBasedSolver;
-import lombok.NonNull;
 
 public abstract class Day7Solver extends ProgramBasedSolver {
 
 
     @Override
-    protected Object doSolve(@NonNull Program program) {
+    protected Object doSolve(Program program) {
         final Circuit circuit = createCircuit(program);
         final Permutation<Phase> phases = Permutation.create(phaseValues(),Phase::new);
 
@@ -19,7 +18,7 @@ public abstract class Day7Solver extends ProgramBasedSolver {
             .orElseThrow();
     }
 
-    protected abstract Circuit createCircuit(@NonNull Program program);
+    protected abstract Circuit createCircuit(Program program);
 
     protected abstract String[] phaseValues();
 

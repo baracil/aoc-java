@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day11.structures;
 
 import fpc.aoc.common.Position;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -11,29 +10,29 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class SeatLayoutUsingArray implements SeatLayout {
 
-  private final @NonNull State[] layout;
+  private final State[] layout;
 
   private final int width;
 
   private final int height;
 
   @Override
-  public @NonNull State stateAt(@NonNull Position position) {
+  public State stateAt(Position position) {
     return layout[position.linearIndex(width)];
   }
 
   @Override
-  public @NonNull boolean isFloorAt(@NonNull Position position) {
+  public boolean isFloorAt(Position position) {
     return stateAt(position) == State.FLOOR;
   }
 
   @Override
-  public @NonNull boolean isEmptySeat(@NonNull Position position) {
+  public boolean isEmptySeat(Position position) {
     return stateAt(position) == State.EMPTY_SEAT;
   }
 
   @Override
-  public @NonNull boolean isOccupiedSeat(@NonNull Position position) {
+  public boolean isOccupiedSeat(Position position) {
     return stateAt(position) == State.OCCUPIED_SEAT;
   }
 

@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class PathBreaker {
 
-  public static MovementRules breakPath(@NonNull Path path) {
+  public static MovementRules breakPath(Path path) {
     return new PathBreaker(path.toTokens()).breakPath();
   }
 

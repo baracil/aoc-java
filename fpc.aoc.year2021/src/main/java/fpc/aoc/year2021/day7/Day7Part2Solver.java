@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day7;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.function.IntUnaryOperator;
@@ -9,12 +8,12 @@ import java.util.stream.IntStream;
 
 public class Day7Part2Solver extends Day7Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day7Part2Solver();
   }
 
   @Override
-  public @NonNull Integer doSolve(@NonNull int[] input) {
+  public Integer doSolve(int[] input) {
     final var mean = Arrays.stream(input).average().orElseThrow();
     final var targetInf = (int) Math.floor(mean);
     final var targetSup = (int) Math.ceil(mean);

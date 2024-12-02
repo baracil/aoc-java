@@ -3,13 +3,12 @@ package fpc.aoc.year2020.day8.structures.instruction;
 import fpc.aoc.year2020.day8.structures.ExecutionContext;
 import fpc.aoc.year2020.day8.structures.Instruction;
 import fpc.aoc.year2020.day8.structures.Operation;
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
 public class Acc implements Instruction {
 
-  public static Acc parse(@NonNull String argument) {
+  public static Acc parse(String argument) {
     return new Acc(Integer.parseInt(argument));
   }
 
@@ -26,7 +25,7 @@ public class Acc implements Instruction {
     }
 
   @Override
-  public @NonNull Operation getOperation() {
+  public Operation getOperation() {
     return Operation.ACC;
   }
 }

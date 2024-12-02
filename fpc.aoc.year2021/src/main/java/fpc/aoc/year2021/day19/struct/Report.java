@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day19.struct;
 
 import lombok.Builder;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Singular;
 
@@ -16,29 +15,29 @@ public class Report {
   private final Set<Vector> beacons;
 
 
-  public @NonNull Report merge(@NonNull Report report) {
+  public Report merge(Report report) {
     final Set<Vector> vectors = new HashSet<>();
     vectors.addAll(this.beacons);
     vectors.addAll(report.beacons);
     return new Report(vectors);
   }
 
-  public @NonNull Report applyTransformation(Match match) {
+  public Report applyTransformation(Match match) {
     return this.rotate(match.rotationIdx()).translate(match.offset());
   }
 
-  public @NonNull Report rotate(int rotationIdx) {
+  public Report rotate(int rotationIdx) {
     final var beacons = this.beacons.stream().map(p -> p.rotate(rotationIdx)).collect(Collectors.toSet());
     return new Report(beacons);
   }
 
-  public @NonNull Report translate(@NonNull Vector offset) {
+  public Report translate(Vector offset) {
     final var beacons = this.beacons.stream().map(p -> p.add(offset)).collect(Collectors.toSet());
     return new Report(beacons);
   }
 
 
-  public Optional<Match> findMatching(@NonNull Report other) {
+  public Optional<Match> findMatching(Report other) {
     return IntStream.range(0, 24)
         .mapToObj(rotation -> findMatching(other, rotation))
         .flatMap(Optional::stream)

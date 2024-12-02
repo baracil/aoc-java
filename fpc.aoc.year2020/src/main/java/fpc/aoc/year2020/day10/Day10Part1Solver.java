@@ -1,18 +1,17 @@
 package fpc.aoc.year2020.day10;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 import java.util.Arrays;
 
 public class Day10Part1Solver extends Day10Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day10Part1Solver();
   }
 
   @Override
-  public @NonNull Long doSolve(int[] input) {
+  public Long doSolve(int[] input) {
     Arrays.sort(input);
     final var counter = new Counter();
 

@@ -19,7 +19,7 @@ public class ControllerInputPort<T> implements InputPort<ProgramInput<T>> {
 
     private final InputMultiTransformer<T> inputTransform;
 
-    public ControllerInputPort(@NonNull InputTransform<T> singleValueTransformer) {
+    public ControllerInputPort(InputTransform<T> singleValueTransformer) {
         this(singleValueTransformer.toMulti());
     }
 

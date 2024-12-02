@@ -1,7 +1,6 @@
 package fpc.aoc.year2023.day10;
 
 import fpc.aoc.common.*;
-import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +15,7 @@ public class Map {
   private final int startIdx;
   private final GenericArray<Tile> tiles;
 
-  public Map(@NonNull GenericArray<Tile> tiles, int startIdx) {
+  public Map(GenericArray<Tile> tiles, int startIdx) {
     this.helper = GridHelper.create(tiles.width(), tiles.height());
     this.startIdx = startIdx;
     this.tiles = tiles;

@@ -1,13 +1,11 @@
 package fpc.aoc.year2020.day10.structures;
 
-import lombok.NonNull;
-
 import java.util.Arrays;
 
 public class LinearCounter implements Part2Counter {
 
   @Override
-  public long count(@NonNull int[] input) {
+  public long count(int[] input) {
     return new Execution(input).count();
   }
 

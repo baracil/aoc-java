@@ -1,14 +1,13 @@
 package fpc.aoc.year2021.day14.struct;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
 
 @RequiredArgsConstructor
 public class Distribution {
-  private final @NonNull Couple couple;
-  private final @NonNull long[] counts;
+  private final Couple couple;
+  private final long[] counts;
 
 
   public long getAmplitude() {
@@ -16,7 +15,7 @@ public class Distribution {
     return statistics.getMax() - statistics.getMin();
   }
 
-  public @NonNull Distribution add(@NonNull Distribution right) {
+  public Distribution add(Distribution right) {
     final var merged = this.couple.merge(right.couple);
 
     final var counts = this.counts.clone();
@@ -28,7 +27,7 @@ public class Distribution {
     return new Distribution(merged, counts);
   }
 
-  public static @NonNull Distribution singleCouple(@NonNull Couple couple) {
+  public static Distribution singleCouple(Couple couple) {
     final var counts = new long[26];
 
     counts[couple.leftIndex()] += 1;

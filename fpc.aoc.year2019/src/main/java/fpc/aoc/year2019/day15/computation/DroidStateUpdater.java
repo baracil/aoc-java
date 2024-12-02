@@ -17,9 +17,9 @@ public class DroidStateUpdater implements StateUpdater<Orientation,DroidState> {
     @NonNull
     @Override
     public DroidState updateStateOnReply(
-            @NonNull DroidState current,
-            @NonNull Order<Orientation> lastSendOrder,
-            @NonNull String replyAsString) {
+            DroidState current,
+            Order<Orientation> lastSendOrder,
+            String replyAsString) {
         final Orientation orientation = lastSendOrder.source().orElse(null);
 
         if (orientation != null) {

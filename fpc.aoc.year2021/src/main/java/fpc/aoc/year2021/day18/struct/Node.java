@@ -1,6 +1,9 @@
 package fpc.aoc.year2021.day18.struct;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
@@ -63,10 +66,10 @@ public sealed abstract class Node {
 
   @Getter
   public static final class Pair extends Node {
-    private @NonNull Node left;
-    private @NonNull Node right;
+    private Node left;
+    private Node right;
 
-    public Pair(@NonNull Node left, @NonNull Node right) {
+    public Pair(Node left, Node right) {
       this.left = left;
       this.right = right;
       this.left.parent = this;

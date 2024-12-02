@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Signal {
 
-    public Signal(@NonNull String signal) {
+    public Signal(String signal) {
         this.values = signal.chars().map(c -> c-'0').toArray();
         this.offset = 0;
     }

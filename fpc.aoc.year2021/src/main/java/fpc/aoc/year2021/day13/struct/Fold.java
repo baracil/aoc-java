@@ -1,7 +1,5 @@
 package fpc.aoc.year2021.day13.struct;
 
-import lombok.NonNull;
-
 import java.util.function.UnaryOperator;
 
 public sealed interface Fold {
@@ -22,7 +20,7 @@ public sealed interface Fold {
     }
   }
 
-  static @NonNull Fold parse(@NonNull String line) {
+  static Fold parse(String line) {
     final var tokens = line.split(" ")[2].split("=");
     final var pos = Integer.parseInt(tokens[1]);
     return switch (tokens[0]) {

@@ -32,7 +32,7 @@ public class ExecutionResult {
         if (outputs.isEmpty()) {
             throw new AOCException("No output");
         }
-        return outputs.get(outputs.size()-1);
+        return outputs.getLast();
     }
 
     @NonNull
@@ -40,7 +40,7 @@ public class ExecutionResult {
         return memoryAccessors.dumpMemory();
     }
 
-    public void forEachOutput(@NonNull Consumer<? super String> consumer) {
+    public void forEachOutput(Consumer<? super String> consumer) {
         outputs.forEach(consumer);
     }
 }

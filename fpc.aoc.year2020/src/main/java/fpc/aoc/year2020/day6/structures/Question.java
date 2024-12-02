@@ -1,7 +1,5 @@
 package fpc.aoc.year2020.day6.structures;
 
-import lombok.NonNull;
-
 public enum Question {
   A,
   B,
@@ -30,7 +28,7 @@ public enum Question {
   Y,
   Z;
 
-  public static @NonNull Question parse(int character) {
+  public static Question parse(int character) {
     final int idx = character - 'a';
     return Holder.VALUES[idx];
   }

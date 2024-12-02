@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day2;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -28,7 +27,7 @@ public class Turn {
     return new Turn(elfShape, outCome.getCorrespondingShape(elfShape));
   }
 
-  private static Shape parseShape(@NonNull String letter) {
+  private static Shape parseShape(String letter) {
     return switch (letter) {
       case "A", "X" -> Shape.ROCK;
       case "B", "Y" -> Shape.PAPER;
@@ -37,7 +36,7 @@ public class Turn {
     };
   }
 
-  private static OutCome parseOutCome(@NonNull String letter) {
+  private static OutCome parseOutCome(String letter) {
     return switch (letter) {
       case "X" -> OutCome.LOSS;
       case "Y" -> OutCome.DRAW;

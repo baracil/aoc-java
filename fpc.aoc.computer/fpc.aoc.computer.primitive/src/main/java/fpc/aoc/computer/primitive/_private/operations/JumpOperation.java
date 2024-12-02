@@ -15,7 +15,7 @@ public class JumpOperation implements Operation {
     private final LongPredicate predicate;
 
     @Override
-    public @NonNull AddressingUpdater perform(@NonNull ExecutionContext context) {
+    public AddressingUpdater perform(ExecutionContext context) {
         final long p0 = context.getParameter(0);
         final long p1 = context.getParameter(1);
         final int address = Tools.toInt(p1);

@@ -22,12 +22,12 @@ public class PrivateOrderProducer<T> implements OrderProducer<T> {
         }
 
         @Override
-        public @NonNull Optional<Object> source() {
+        public Optional<Object> source() {
             return Optional.empty();
         }
 
         @Override
-        public @NonNull List<String> dataToSend() {
+        public List<String> dataToSend() {
             return List.of();
         }
     };
@@ -38,12 +38,12 @@ public class PrivateOrderProducer<T> implements OrderProducer<T> {
 
     @SuppressWarnings("unchecked")
     @Override
-    public @NonNull Order<T> stop() {
+    public Order<T> stop() {
         return (Order<T>)STOP_ORDER;
     }
 
     @Override
-    public @NonNull Order<T> sendData(@NonNull T data) {
+    public Order<T> sendData(T data) {
         return new Order<T>() {
             @Override
             public boolean stopRobot() {
@@ -51,12 +51,12 @@ public class PrivateOrderProducer<T> implements OrderProducer<T> {
             }
 
             @Override
-            public @NonNull Optional<T> source() {
+            public Optional<T> source() {
                 return Optional.of(data);
             }
 
             @Override
-            public @NonNull List<String> dataToSend() {
+            public List<String> dataToSend() {
                 return PrivateOrderProducer.this.dataTransformer.apply(data);
             }
         };

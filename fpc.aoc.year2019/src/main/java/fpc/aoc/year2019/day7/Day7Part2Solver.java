@@ -2,7 +2,6 @@ package fpc.aoc.year2019.day7;
 
 import fpc.aoc.api.Solver;
 import fpc.aoc.computer.Program;
-import lombok.NonNull;
 
 public class Day7Part2Solver extends Day7Solver {
 
@@ -12,7 +11,7 @@ public class Day7Part2Solver extends Day7Solver {
 
 
     @Override
-    protected Circuit createCircuit(@NonNull Program program) {
+    protected Circuit createCircuit(Program program) {
         return new CircuitWithFeedback(program);
     }
 

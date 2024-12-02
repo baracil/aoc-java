@@ -1,6 +1,5 @@
 package fpc.aoc.common.rules;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -10,16 +9,16 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class StartsWith implements Rule<String, String> {
 
-  public static StartsWith prefix(@NonNull String prefix) {
+  public static StartsWith prefix(String prefix) {
     return new StartsWith(prefix);
   }
 
-  private final @NonNull String suffix;
+  private final String suffix;
 
   @Override
-  public @NonNull Validation<String> validate(@NonNull String input) {
+  public Validation<String> validate(String input) {
     if (input.startsWith(suffix)) {
-      return Validation.valid(input.substring(suffix.length(), input.length()));
+      return Validation.valid(input.substring(suffix.length()));
     }
     return Validation.invalid();
   }

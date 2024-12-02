@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day16;
 
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Tools;
-import lombok.NonNull;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -10,11 +9,11 @@ import java.util.stream.IntStream;
 
 public class FieldsMatcher {
 
-  private final @NonNull Set<Field> fields;
+  private final Set<Field> fields;
 
-  private final @NonNull Mask mask;
+  private final Mask mask;
 
-  private final @NonNull Map<Field, Set<Integer>> matchingPositions;
+  private final Map<Field, Set<Integer>> matchingPositions;
 
   private final int numberOfFields;
 
@@ -30,7 +29,7 @@ public class FieldsMatcher {
     return IntStream.range(0, numberOfFields).boxed().collect(Collectors.toSet());
   }
 
-  public void testTicket(@NonNull Ticket ticket) {
+  public void testTicket(Ticket ticket) {
     if (!mask.isValid(ticket)) {
       return;
     }
@@ -49,7 +48,7 @@ public class FieldsMatcher {
     }
   }
 
-  public @NonNull Optional<Map<Field, Integer>> getSolution() {
+  public Optional<Map<Field, Integer>> getSolution() {
     final Map<Field, Integer> solution = new HashMap<>();
     for (Field field : matchingPositions.keySet()) {
       final var matchingPosition = matchingPositions.get(field);
@@ -68,14 +67,14 @@ public class FieldsMatcher {
     }
   }
 
-  private @NonNull Set<Field> getInitialFieldsToCheck() {
+  private Set<Field> getInitialFieldsToCheck() {
     return matchingPositions.keySet()
         .stream()
         .filter(f -> matchingPositions.get(f).size() == 1)
         .collect(Collectors.toSet());
   }
 
-  private Set<Field> cleanUp(@NonNull Set<Field> fieldToCheck) {
+  private Set<Field> cleanUp(Set<Field> fieldToCheck) {
     final Set<Field> changedFields = new HashSet<>();
     for (Field field : fieldToCheck) {
       final var matchingPosition = matchingPositions.get(field);
@@ -88,7 +87,7 @@ public class FieldsMatcher {
     return changedFields;
   }
 
-  private void removeOnePosition(@NonNull Field fieldToSkip, int positionToRemove, @NonNull Set<Field> changedFields) {
+  private void removeOnePosition(Field fieldToSkip, int positionToRemove, Set<Field> changedFields) {
     for (var fieldSetEntry : matchingPositions.entrySet()) {
       final var field = fieldSetEntry.getKey();
       final var positions = fieldSetEntry.getValue();

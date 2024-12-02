@@ -8,7 +8,7 @@ import lombok.*;
 @ToString(of = {"name"})
 public class Node {
 
-  public static Node create(@NonNull String name) {
+  public static Node create(String name) {
     if (name.equals("start")) {
       return new Node(name, true, false, false, false);
     } else if (name.equals("end")) {

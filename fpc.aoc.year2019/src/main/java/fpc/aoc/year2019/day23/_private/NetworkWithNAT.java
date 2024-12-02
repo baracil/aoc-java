@@ -2,7 +2,6 @@ package fpc.aoc.year2019.day23._private;
 
 import fpc.aoc.computer.Program;
 import fpc.aoc.year2019.day23._private.packet.DataPacket;
-import lombok.NonNull;
 
 /**
  * @author Bastien Aracil
@@ -10,11 +9,11 @@ import lombok.NonNull;
 public class NetworkWithNAT extends AbstractNetwork {
 
 
-    public NetworkWithNAT(@NonNull Program program) {
+    public NetworkWithNAT(Program program) {
         super(program);
     }
 
-    public NetworkWithNAT(@NonNull Program program, int networkSize) {
+    public NetworkWithNAT(Program program, int networkSize) {
         super(program,networkSize);
     }
 
@@ -25,7 +24,7 @@ public class NetworkWithNAT extends AbstractNetwork {
     private boolean resultAlreadySet = false;
 
     @Override
-    protected void handlePort255(@NonNull DataPacket packet) {
+    protected void handlePort255(DataPacket packet) {
         lastReceived = packet;
     }
 
@@ -49,7 +48,7 @@ public class NetworkWithNAT extends AbstractNetwork {
     }
 
     @Override
-    protected void setResult(@NonNull String value) {
+    protected void setResult(String value) {
         if (resultAlreadySet) {
             return;
         }

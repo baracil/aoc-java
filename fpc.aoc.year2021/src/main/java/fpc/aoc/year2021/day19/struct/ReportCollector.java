@@ -1,7 +1,5 @@
 package fpc.aoc.year2021.day19.struct;
 
-import lombok.NonNull;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collector;
@@ -18,7 +16,7 @@ public class ReportCollector {
   private Report.ReportBuilder builder = null;
   private final List<Report> reports = new ArrayList<>();
 
-  public void accumulate(@NonNull String line) {
+  public void accumulate(String line) {
     if (line.startsWith("---")) {
       this.finishBuilderIfAny();
       this.builder = new Report.ReportBuilder();
@@ -28,7 +26,7 @@ public class ReportCollector {
   }
 
 
-  public ReportCollector combine(@NonNull ReportCollector other) {
+  public ReportCollector combine(ReportCollector other) {
     throw new UnsupportedOperationException();
   }
 

@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day17;
 
 import fpc.aoc.common.NeighbourProvider;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.stream.Stream;
@@ -13,7 +12,7 @@ public class Point3D implements NeighbourProvider<Point3D> {
   int z;
 
 
-  public @NonNull Stream<Point3D> neighbours() {
+  public Stream<Point3D> neighbours() {
     final int zp1 = z + 1;
     final int zm1 = z - 1;
     final int yp1 = y + 1;
@@ -36,7 +35,7 @@ public class Point3D implements NeighbourProvider<Point3D> {
   }
 
 
-  public static @NonNull Point3D of(int x, int y, int z) {
+  public static Point3D of(int x, int y, int z) {
     return new Point3D(x, y, z);
   }
 }

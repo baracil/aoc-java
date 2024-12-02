@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day10.structures;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayDeque;
@@ -29,7 +28,7 @@ public enum SyntaxChecker {
       '}', 1197,
       '>', 25137);
 
-  public int check(@NonNull String line) {
+  public int check(String line) {
     final Deque<Character> pile = new ArrayDeque<>(line.length());
 
     for (int i = 0; i < line.length(); i++) {

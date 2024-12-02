@@ -9,18 +9,18 @@ import java.util.stream.IntStream;
 public class Code implements Comparable<Code> {
 
     @NonNull
-    public static Code create(@NonNull String code) {
+    public static Code create(String code) {
         return new Code(code);
     }
 
     @NonNull
-    public static Code normalized(@NonNull String code) {
+    public static Code normalized(String code) {
         return new Code(code).normalize();
     }
 
     private final int[] digits;
 
-    private Code(@NonNull String first) {
+    private Code(String first) {
         this.digits = IntStream.range(0,first.length())
                                .map(i -> Integer.parseInt(first.substring(i,i+1)))
                                .toArray();
@@ -89,7 +89,7 @@ public class Code implements Comparable<Code> {
     }
 
     @Override
-    public int compareTo(@NonNull Code code) {
+    public int compareTo(Code code) {
         int result = 0;
         for (int i = 0; i < digits.length && result == 0; i++) {
             result = this.digits[i] - code.digits[i];

@@ -1,7 +1,5 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
-
 import java.io.PrintStream;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -10,16 +8,16 @@ import java.util.function.IntFunction;
 
 public interface GenericArray<T> extends Array {
 
-  @NonNull T get(@NonNull Position position);
+  T get(Position position);
 
-  @NonNull T get(int x, int y);
+  T get(int x, int y);
 
 
   <U> GenericArray<U> map(BiFunction<? super Position, ? super T, ? extends U> mapper, IntFunction<U[]> arrayCreator);
 
-  void print(@NonNull PrintStream printStream, BiFunction<? super Position, ? super T, ? extends String> toString);
+  void print(PrintStream printStream, BiFunction<? super Position, ? super T, ? extends String> toString);
 
-  default void print(@NonNull PrintStream printStream, Function<? super T, ? extends String> toString) {
+  default void print(PrintStream printStream, Function<? super T, ? extends String> toString) {
     print(printStream, (p, t) -> toString.apply(t));
   }
 
@@ -32,7 +30,7 @@ public interface GenericArray<T> extends Array {
   }
 
   @Override
-  default void print(@NonNull PrintStream printStream) {
+  default void print(PrintStream printStream) {
     print(printStream, String::valueOf);
   }
 

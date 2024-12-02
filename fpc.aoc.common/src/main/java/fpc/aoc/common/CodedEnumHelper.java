@@ -9,7 +9,7 @@ import java.util.function.ToIntFunction;
 public class CodedEnumHelper<E extends Enum<E>> {
 
     @NonNull
-    public static <E extends Enum<E> & Encoded> CodedEnumHelper<E> create(@NonNull Class<E> enumType)  {
+    public static <E extends Enum<E> & Encoded> CodedEnumHelper<E> create(Class<E> enumType)  {
         return new CodedEnumHelper<>(enumType, Encoded::code);
     }
 
@@ -20,7 +20,7 @@ public class CodedEnumHelper<E extends Enum<E>> {
 
     private final int offset;
 
-    private CodedEnumHelper(@NonNull Class<E> enumType, @NonNull ToIntFunction<? super E> codeGetter) {
+    private CodedEnumHelper(Class<E> enumType, ToIntFunction<? super E> codeGetter) {
         this.enumType = enumType;
         final IntSummaryStatistics statistics = Arrays.stream(enumType.getEnumConstants()).mapToInt(codeGetter).summaryStatistics();
 

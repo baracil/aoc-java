@@ -5,6 +5,6 @@ import lombok.NonNull;
 public interface Circuit {
 
     @NonNull
-    String launch(@NonNull Phase phase);
+    String launch(Phase phase);
 
 }

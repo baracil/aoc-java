@@ -1,7 +1,5 @@
 package fpc.aoc.year2022.day7;
 
-import lombok.NonNull;
-
 import java.util.stream.Collector;
 
 public class FileSystemCollector {
@@ -20,7 +18,7 @@ public class FileSystemCollector {
     this.current = root;
   }
 
-  public void handle(@NonNull String line) {
+  public void handle(String line) {
     if (line.startsWith("$")) {
       this.handleCommand(line);
     } else {
@@ -28,11 +26,11 @@ public class FileSystemCollector {
     }
   }
 
-  public FileSystemCollector combine(@NonNull FileSystemCollector aggregator) {
+  public FileSystemCollector combine(FileSystemCollector aggregator) {
     throw new IllegalStateException("Cannot aggregate in parallel");
   }
 
-  public @NonNull FileSystem build() {
+  public FileSystem build() {
     return new FileSystem(root);
   }
 

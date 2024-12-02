@@ -4,7 +4,6 @@ import fpc.aoc.api.DayId;
 import fpc.aoc.api.Year;
 import fpc.aoc.launcher._private.Launcher;
 import fpc.aoc.launcher._private.SolverService;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Optional;
@@ -25,7 +24,7 @@ public class LaunchLastDay {
 
   }
 
-  private final @NonNull DayId dayId;
+  private final DayId dayId;
 
   public void launch() {
     SolverService.loadSolversOfADay(dayId)

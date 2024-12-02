@@ -1,6 +1,5 @@
 package fpc.aoc.common.rules;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -10,14 +9,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class EndsWith implements Rule<String, String> {
 
-  public static EndsWith suffix(@NonNull String suffix) {
+  public static EndsWith suffix(String suffix) {
     return new EndsWith(suffix);
   }
 
-  private final @NonNull String suffix;
+  private final String suffix;
 
   @Override
-  public @NonNull Validation<String> validate(@NonNull String input) {
+  public Validation<String> validate(String input) {
     if (input.endsWith(suffix)) {
       return Validation.valid(input.substring(0, input.length() - suffix.length()));
     }

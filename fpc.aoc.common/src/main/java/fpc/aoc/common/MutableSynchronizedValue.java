@@ -20,7 +20,7 @@ public class MutableSynchronizedValue<T> implements SynchronizedValue<T> {
     private final Lock lock = new ReentrantLock();
     private final Condition holderChanged = lock.newCondition();
 
-    public MutableSynchronizedValue(@NonNull T value) {
+    public MutableSynchronizedValue(T value) {
         this.holder = Holder.withValue(value);
     }
 
@@ -29,15 +29,15 @@ public class MutableSynchronizedValue<T> implements SynchronizedValue<T> {
         return holder.get();
     }
 
-    public void onError(@NonNull String errorMessage) {
+    public void onError(String errorMessage) {
         setHolder(Holder.error(errorMessage));
     }
 
-    public void setValue(@NonNull T value) {
+    public void setValue(T value) {
         setHolder(Holder.withValue(value));
     }
 
-    private void setHolder(@NonNull Holder<T> holder) {
+    private void setHolder(Holder<T> holder) {
         lock.lock();
         try {
             this.holder = holder;
@@ -49,7 +49,7 @@ public class MutableSynchronizedValue<T> implements SynchronizedValue<T> {
 
     @NonNull
     @Override
-    public <U> U transformAndWaitForValue(@NonNull Function<T,Optional<U>> valueTester) throws InterruptedException {
+    public <U> U transformAndWaitForValue(Function<T,Optional<U>> valueTester) throws InterruptedException {
         lock.lock();
         try {
             while (true) {
@@ -67,11 +67,11 @@ public class MutableSynchronizedValue<T> implements SynchronizedValue<T> {
     @RequiredArgsConstructor
     private static class Holder<T> {
 
-        public static <T> Holder<T> withValue(@NonNull T value) {
+        public static <T> Holder<T> withValue(T value) {
             return new Holder<T>(value,null);
         }
 
-        public static <T> Holder<T> error(@NonNull String errorMessage) {
+        public static <T> Holder<T> error(String errorMessage) {
             return new Holder<>(null,errorMessage);
         }
 

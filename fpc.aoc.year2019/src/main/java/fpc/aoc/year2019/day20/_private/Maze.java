@@ -3,7 +3,6 @@ package fpc.aoc.year2019.day20._private;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.ArrayOfChar;
 import fpc.aoc.common.Position;
-import lombok.NonNull;
 
 import java.util.*;
 import java.util.function.Function;
@@ -42,7 +41,7 @@ public class Maze {
   private final IntUnaryOperator moveRight;
 
 
-  public Maze(boolean[] walls, int width, int height, boolean recursive, @NonNull Position start, @NonNull Position end, @NonNull List<Teletransporter> teletransporters) {
+  public Maze(boolean[] walls, int width, int height, boolean recursive, Position start, Position end, List<Teletransporter> teletransporters) {
     this.walls = walls;
     this.width = width;
     this.height = height;
@@ -109,7 +108,7 @@ public class Maze {
     return getPos(pos, moveRight);
   }
 
-  public Pos toPos(@NonNull Position position) {
+  public Pos toPos(Position position) {
     final int x = position.x();
     final int y = position.y();
     if (x < 0 || y < 0 || x >= width || y >= height) {
@@ -119,7 +118,7 @@ public class Maze {
   }
 
 
-  public int findPathLength(@NonNull Position start, @NonNull Position end) {
+  public int findPathLength(Position start, Position end) {
     return findPathLength(toPos(start), toPos(end));
 
   }
@@ -136,7 +135,7 @@ public class Maze {
       Pos::right
   );
 
-  private int findPathLength(@NonNull Pos start, @NonNull Pos end) {
+  private int findPathLength(Pos start, Pos end) {
     final Map<Pos, Integer> distances = new HashMap<>();
     final Deque<Pos> queue = new LinkedList<>();
 

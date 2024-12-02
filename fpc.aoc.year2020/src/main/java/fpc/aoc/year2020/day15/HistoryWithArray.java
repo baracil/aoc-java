@@ -1,7 +1,5 @@
 package fpc.aoc.year2020.day15;
 
-import lombok.NonNull;
-
 public class HistoryWithArray implements History {
 
   private final NumberHistory[] histories;
@@ -11,7 +9,7 @@ public class HistoryWithArray implements History {
   }
 
   @Override
-  public @NonNull NumberHistory get(int lastSpoken) {
+  public NumberHistory get(int lastSpoken) {
     return histories[lastSpoken];
   }
 

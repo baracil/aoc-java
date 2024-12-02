@@ -16,25 +16,25 @@ public class Keyring {
     @NonNull
     private final Set<Key> missingKeys;
 
-    public Keyring(@NonNull Set<Key> allKeys) {
+    public Keyring(Set<Key> allKeys) {
         this.missingKeys = new HashSet<>(allKeys);
     }
 
-    public boolean canOpen(@NonNull Collection<Door> doors) {
+    public boolean canOpen(Collection<Door> doors) {
         return doors.isEmpty() || doors.stream().allMatch(this::canOpen);
     }
 
-    public void addKey(@NonNull Key key) {
+    public void addKey(Key key) {
         this.obtainedKeys.add(key);
         this.missingKeys.remove(key);
     }
 
-    public void removeKey(@NonNull Key key) {
+    public void removeKey(Key key) {
         obtainedKeys.remove(key);
         this.missingKeys.add(key);
     }
 
-    public boolean isAlreadyObtained(@NonNull Key key) {
+    public boolean isAlreadyObtained(Key key) {
         return obtainedKeys.contains(key);
     }
 
@@ -42,7 +42,7 @@ public class Keyring {
         return missingKeys.isEmpty();
     }
 
-    public boolean canOpen(@NonNull Door door) {
+    public boolean canOpen(Door door) {
         return obtainedKeys.contains(door.key());
     }
 
@@ -50,7 +50,7 @@ public class Keyring {
         return missingKeys.stream();
     }
 
-    public boolean areAlreadyObtained(@NonNull Collection<Key> intermediaryKeys) {
+    public boolean areAlreadyObtained(Collection<Key> intermediaryKeys) {
         return intermediaryKeys.isEmpty() || intermediaryKeys.stream().allMatch(this::isAlreadyObtained);
     }
 

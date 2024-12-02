@@ -1,7 +1,6 @@
 package fpc.aoc.year2019.day8;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 import java.util.Comparator;
 import java.util.List;
@@ -15,7 +14,7 @@ public class Day8Part1Solver extends Day8Solver {
 
 
     @Override
-    protected Integer solve(@NonNull List<Layer> layers) {
+    protected Integer solve(List<Layer> layers) {
         return layers.stream()
                      .min(Comparator.comparingInt(Layer::numberOfZeroDigit))
                      .map(this::computeProductOfNumberOf1And2Digits)

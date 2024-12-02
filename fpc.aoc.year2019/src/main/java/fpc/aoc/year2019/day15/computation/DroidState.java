@@ -27,27 +27,27 @@ public class DroidState {
     }
 
     @NonNull
-    public DroidState updateWhenHittingWall(@NonNull Position position) {
+    public DroidState updateWhenHittingWall(Position position) {
         return update(this.position, position, TileType.WALL);
     }
 
     @NonNull
-    public DroidState updateWhenMovingOnEmptySpace(@NonNull Position position) {
+    public DroidState updateWhenMovingOnEmptySpace(Position position) {
         return update(position,position,TileType.EMPTY);
     }
 
     @NonNull
-    public DroidState updateWhenMovingOnOxygen(@NonNull Position position) {
+    public DroidState updateWhenMovingOnOxygen(Position position) {
         return update(position,position,TileType.OXYGEN);
     }
 
     @NonNull
-    private DroidState update(@NonNull Position newPosition, @NonNull Position position, @NonNull TileType newTile) {
+    private DroidState update(Position newPosition, Position position, TileType newTile) {
         return update(newPosition, Tools.addValue(memory,position,newTile));
     }
 
     @NonNull
-    private DroidState update(@NonNull Position newPosition, @NonNull Map<Position,TileType> memory) {
+    private DroidState update(Position newPosition, Map<Position,TileType> memory) {
         if (this.position.equals(newPosition) && this.memory.equals(memory)){
             return this;
         }
@@ -75,7 +75,7 @@ public class DroidState {
     }
 
     @NonNull
-    public TileType tileTypeFromMemory(@NonNull Position position) {
+    public TileType tileTypeFromMemory(Position position) {
         return memory.getOrDefault(position,TileType.UNKNOWN);
     }
 

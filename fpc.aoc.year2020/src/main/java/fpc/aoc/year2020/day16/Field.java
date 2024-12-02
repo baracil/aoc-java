@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day16;
 
 import fpc.aoc.common.AOCException;
 import lombok.EqualsAndHashCode;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.regex.Pattern;
@@ -10,9 +9,9 @@ import java.util.regex.Pattern;
 @Value
 @EqualsAndHashCode(of = "name")
 public class Field {
-  @NonNull String name;
-  @NonNull IntRange firstRange;
-  @NonNull IntRange secondRange;
+  String name;
+  IntRange firstRange;
+  IntRange secondRange;
 
   public boolean isValid(int value) {
     return firstRange.isInRange(value) || secondRange.isInRange(value);
@@ -31,7 +30,7 @@ public class Field {
 
   private static final Pattern PATTERN = Pattern.compile("([a-z ]+): (\\d+)-(\\d+) or (\\d+)-(\\d+)");
 
-  public static @NonNull Field parse(@NonNull String line) {
+  public static Field parse(String line) {
     final var matcher = PATTERN.matcher(line);
     if (!matcher.matches()) {
       throw new AOCException("Cannot parse field '" + line + "'");
@@ -43,7 +42,7 @@ public class Field {
   }
 
 
-  public boolean nameStartsWith(@NonNull String prefix) {
+  public boolean nameStartsWith(String prefix) {
     return name.startsWith(prefix);
   }
 }

@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day18.structures;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Deque;
@@ -10,21 +9,21 @@ import java.util.LinkedList;
 @RequiredArgsConstructor
 public class ExprEvaluatorTemplate {
 
-  private final @NonNull ExpressionEvaluator expressionEvaluator;
+  private final ExpressionEvaluator expressionEvaluator;
 
-  public long evaluate(@NonNull String expressionAsString) {
+  public long evaluate(String expressionAsString) {
     return new Execution(expressionAsString).evaluate();
   }
 
   private class Execution {
 
-    private final @NonNull String expressionAsString;
-    private final @NonNull ExpressionParser parser;
-    private final @NonNull Deque<Token> tokenQueue = new LinkedList<>();
+    private final String expressionAsString;
+    private final ExpressionParser parser;
+    private final Deque<Token> tokenQueue = new LinkedList<>();
 
     private Token currentToken = null;
 
-    public Execution(@NonNull String expressionAsString) {
+    public Execution(String expressionAsString) {
       this.expressionAsString = expressionAsString;
       this.parser = new ExpressionParser(expressionAsString);
     }

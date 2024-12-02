@@ -4,7 +4,6 @@ package fpc.aoc.year2020.day20.structures;
 import fpc.aoc.common.*;
 import lombok.AccessLevel;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Objects;
@@ -15,16 +14,16 @@ public class ImageTile implements ArrayOfCharReader {
   @Getter
   private final int id;
 
-  private final @NonNull ArrayOfChar arrayOfChar;
+  private final ArrayOfChar arrayOfChar;
 
-  private final @NonNull LazyString upperBorder;
-  private final @NonNull LazyString rightBorder;
-  private final @NonNull LazyString lowerBorder;
-  private final @NonNull LazyString leftBorder;
-  private final @NonNull LazyString reversedRightBorder;
-  private final @NonNull LazyString reversedLowerBorder;
+  private final LazyString upperBorder;
+  private final LazyString rightBorder;
+  private final LazyString lowerBorder;
+  private final LazyString leftBorder;
+  private final LazyString reversedRightBorder;
+  private final LazyString reversedLowerBorder;
 
-  public ImageTile(int id, @NonNull ArrayOfChar arrayOfChar) {
+  public ImageTile(int id, ArrayOfChar arrayOfChar) {
     this.id = id;
     this.arrayOfChar = arrayOfChar;
     this.upperBorder = LazyString.of(arrayOfChar::upperBorder);
@@ -35,7 +34,7 @@ public class ImageTile implements ArrayOfCharReader {
     this.reversedLowerBorder = LazyString.of(() -> Tools.reverse(lowerBorder.toString()));
   }
 
-  public @NonNull ImageTile transform(@NonNull Transformation transformation) {
+  public ImageTile transform(Transformation transformation) {
     final ArrayOfChar transformed = arrayOfChar.transform(transformation);
     if (transformed == arrayOfChar) {
       return this;
@@ -48,19 +47,19 @@ public class ImageTile implements ArrayOfCharReader {
     return arrayOfChar.get(x, y);
   }
 
-  public @NonNull String upperBorder() {
+  public String upperBorder() {
     return upperBorder.toString();
   }
 
-  public @NonNull String rightBorder() {
+  public String rightBorder() {
     return rightBorder.toString();
   }
 
-  public @NonNull String lowerBorder() {
+  public String lowerBorder() {
     return lowerBorder.toString();
   }
 
-  public @NonNull String leftBorder() {
+  public String leftBorder() {
     return leftBorder.toString();
   }
 

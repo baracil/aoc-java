@@ -16,11 +16,11 @@ public class Movement {
     return new Movement(direction, numberOfSteps);
   }
 
-  @NonNull Direction direction;
+  Direction direction;
   int numberOfSteps;
 
   @NonNull
-  public List<Point> getPointsFromThisMovement(@NonNull Point startingPoint) {
+  public List<Point> getPointsFromThisMovement(Point startingPoint) {
     final List<Point> points = new ArrayList<>();
     Point current = startingPoint;
     for (int i = 0; i < numberOfSteps; i++) {

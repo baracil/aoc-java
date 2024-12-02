@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 @EqualsAndHashCode
 public class Moon {
 
-    public static Moon create(@NonNull Vector position) {
+    public static Moon create(Vector position) {
         return new Moon(position,Vector.NIL);
     }
 
@@ -23,7 +23,7 @@ public class Moon {
     }
 
     @NonNull
-    public Moon update(@NonNull Vector force) {
+    public Moon update(Vector force) {
         final Vector newVelocity = velocity.add(force);
         final Vector newPosition = position.add(newVelocity);
         return new Moon(newPosition,newVelocity);

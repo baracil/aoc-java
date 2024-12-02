@@ -17,7 +17,7 @@ public class Day17Part2Solver extends ProgramBasedSolver {
     }
 
     @Override
-    protected Object doSolve(@NonNull Program program) {
+    protected Object doSolve(Program program) {
         final Camera camera = new Camera(program);
         final Picture picture = camera.takePicture();
         final Path path = FullPathConstructor.constructFrom(picture);

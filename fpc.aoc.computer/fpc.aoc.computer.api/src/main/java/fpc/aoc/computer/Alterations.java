@@ -6,12 +6,12 @@ import lombok.NonNull;
 public interface Alterations {
 
     @NonNull
-    static Alterations with(int address, @NonNull String value) {
+    static Alterations with(int address, String value) {
         return none().addAlterations(address, value);
     }
 
     @NonNull
-    static Alterations with(int address, @NonNull String value1, @NonNull String value2) {
+    static Alterations with(int address, String value1, String value2) {
         return none().addAlterations(address, value1, value2);
     }
 
@@ -20,12 +20,12 @@ public interface Alterations {
         return PrivateAlterations.none();
     }
 
-    void handleAlterations(@NonNull AlterationConsumer consumer);
+    void handleAlterations(AlterationConsumer consumer);
 
     @NonNull
-    Alterations addAlterations(int address, @NonNull String value);
+    Alterations addAlterations(int address, String value);
 
     @NonNull
-    Alterations addAlterations(int address, @NonNull String value1, @NonNull String value2);
+    Alterations addAlterations(int address, String value1, String value2);
 
 }

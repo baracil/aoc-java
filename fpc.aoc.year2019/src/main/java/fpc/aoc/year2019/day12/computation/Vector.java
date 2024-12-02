@@ -19,7 +19,7 @@ public class Vector {
     private static final Pattern VECTOR = Pattern.compile("<x=(-?\\d+), *y=(-?\\d+), *z=(-?\\d+)>");
 
     @NonNull
-    public static Vector parse(@NonNull String value) {
+    public static Vector parse(String value) {
         final Matcher matcher = VECTOR.matcher(value);
         if (!matcher.matches()) {
             throw new AOCException("Could not parse the vector : " + value);
@@ -46,13 +46,13 @@ public class Vector {
     private final int z;
 
     @NonNull
-    public Vector add(@NonNull Vector other) {
+    public Vector add(Vector other) {
         return of(x+other.x,y+other.y,
                   z+other.z);
     }
 
     @NonNull
-    public Vector forceBetween(@NonNull Vector vector) {
+    public Vector forceBetween(Vector vector) {
         return Vector.of(
                 Integer.signum(vector.x - x),
                 Integer.signum(vector.y - y),

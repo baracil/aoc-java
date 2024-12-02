@@ -1,10 +1,8 @@
 package fpc.aoc.api;
 
-import lombok.NonNull;
-
-public record SolverId(@NonNull Year year,
-                       @NonNull Day day,
-                       @NonNull Part part) implements Comparable<SolverId> {
+public record SolverId(Year year,
+                       Day day,
+                       Part part) implements Comparable<SolverId> {
 
 
   public DayId dayId() {

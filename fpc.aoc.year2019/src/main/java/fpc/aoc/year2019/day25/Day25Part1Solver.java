@@ -4,7 +4,6 @@ import fpc.aoc.api.Solver;
 import fpc.aoc.common.NotSolvedYet;
 import fpc.aoc.computer.Program;
 import fpc.aoc.computer.ProgramBasedSolver;
-import lombok.NonNull;
 
 /**
  * @author Bastien Aracil
@@ -17,7 +16,7 @@ public class Day25Part1Solver extends ProgramBasedSolver {
 
 
   @Override
-  protected Object doSolve(@NonNull Program program) {
+  protected Object doSolve(Program program) {
 //    final var io = program.launch("o", ProgramIO.duplex(InputTransform.ADD_NEW_LINE.then(InputMultiTransformer.TO_ASCII), OutputTransformer.TO_ASCII));
     throw new NotSolvedYet();
   }

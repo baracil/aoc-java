@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day11;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ParsedMonkeyAgg {
 
-  public static Collector<String, ?, MonkeyGame> collect(@NonNull Function<List<ParsedMonkey>, LongUnaryOperator> postOperationFactory) {
+  public static Collector<String, ?, MonkeyGame> collect(Function<List<ParsedMonkey>, LongUnaryOperator> postOperationFactory) {
     return Collector.of(() -> new ParsedMonkeyAgg(postOperationFactory), ParsedMonkeyAgg::addLine, ParsedMonkeyAgg::combine, ParsedMonkeyAgg::build);
 
   }
@@ -27,7 +26,7 @@ public class ParsedMonkeyAgg {
   private final List<ParsedMonkey> builder = new ArrayList<>();
   private ParsedMonkey.Builder monkeyBuilder = null;
 
-  public void addLine(@NonNull String line) {
+  public void addLine(String line) {
     line = line.trim();
     if (line.isEmpty() || line.startsWith("Monkey")) {
       finalizeMonkeyBuilder();
@@ -48,7 +47,7 @@ public class ParsedMonkeyAgg {
     }
   }
 
-  public ParsedMonkeyAgg combine(@NonNull ParsedMonkeyAgg other) {
+  public ParsedMonkeyAgg combine(ParsedMonkeyAgg other) {
     throw new IllegalStateException("Not a parallel collector");
   }
 
@@ -72,7 +71,7 @@ public class ParsedMonkeyAgg {
   }
 
 
-  private int[] extractItems(@NonNull String line) {
+  private int[] extractItems(String line) {
     final var idx = line.indexOf(":");
     return Arrays.stream(line.substring(idx + 1).split("[, ]"))
         .filter(Predicate.not(String::isEmpty))
@@ -80,18 +79,18 @@ public class ParsedMonkeyAgg {
         .toArray();
   }
 
-  private int getMonkeyIndex(@NonNull String line) {
+  private int getMonkeyIndex(String line) {
     return Integer.parseInt(line.trim().substring("Monkey ".length(), line.length() - 1));
   }
 
-  private int parseIntAtEndOfLine(@NonNull String line) {
+  private int parseIntAtEndOfLine(String line) {
     final var idx = line.lastIndexOf(" ");
     return Integer.parseInt(line.substring(idx + 1));
   }
 
   private static final Pattern OPERATION_PATTERN = Pattern.compile(".* new = *(?<left>(old|[0-9]+)) *(?<op>[+*]) *(?<right>(old|[0-9]+))");
 
-  private LongUnaryOperator parseOperation(@NonNull String line) {
+  private LongUnaryOperator parseOperation(String line) {
     final var match = OPERATION_PATTERN.matcher(line);
     if (!match.matches()) {
       throw new AOCException("Could not parse operation from '" + line + "'");

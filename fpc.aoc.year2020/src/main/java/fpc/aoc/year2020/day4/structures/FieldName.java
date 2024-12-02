@@ -3,7 +3,6 @@ package fpc.aoc.year2020.day4.structures;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.rules.*;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -27,25 +26,25 @@ public enum FieldName {
   ;
 
   @Getter
-  private final @NonNull String description;
+  private final String description;
 
   private final Rule<String, ?> rule;
 
   @Getter
-  private final @NonNull String id;
+  private final String id;
 
-  FieldName(@NonNull String description, @NonNull Rule<String, ?> rule) {
+  FieldName(String description, Rule<String, ?> rule) {
     this.description = description;
     this.rule = rule;
     this.id = name().toLowerCase();
   }
 
-  public boolean isValid(@NonNull String fieldValue) {
+  public boolean isValid(String fieldValue) {
     return rule.validate(fieldValue).isValid();
   }
 
 
-  public static @NonNull FieldName fromId(@NonNull String id) {
+  public static FieldName fromId(String id) {
     final FieldName fieldName = Holder.FIELD_NAME_BY_ID.get(id.toLowerCase());
     if (fieldName == null) {
       throw new AOCException("Invalid id for password field : '" + id + "'");

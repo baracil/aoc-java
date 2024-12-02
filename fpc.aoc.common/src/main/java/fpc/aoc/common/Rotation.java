@@ -1,7 +1,6 @@
 package fpc.aoc.common;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @Getter
@@ -16,7 +15,7 @@ public enum Rotation {
   private final int index;
 
 
-  public @NonNull Rotation compose(@NonNull Rotation other) {
+  public Rotation compose(Rotation other) {
     final int idx = Tools.mod(this.index + other.index, Holder.ROTATIONS.length);
     return Holder.ROTATIONS[idx];
   }

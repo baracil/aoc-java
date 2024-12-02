@@ -1,20 +1,19 @@
 package fpc.aoc.year2023.day15;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class Day15Part2Solver extends Day15Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day15Part2Solver();
   }
 
 
   @Override
-  public @NonNull Object doSolve(@NonNull List<String> input) {
+  public Object doSolve(List<String> input) {
     final var computer = new HashComputer();
     final var boxes = new Box[256];
     for (int i = 0; i < boxes.length; i++) {

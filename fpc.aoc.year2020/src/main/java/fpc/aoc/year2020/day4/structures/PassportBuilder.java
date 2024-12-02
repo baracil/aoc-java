@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day4.structures;
 
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.Pair;
-import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -12,7 +11,7 @@ public class PassportBuilder {
 
   private final Map<FieldName, String> fields = new HashMap<>();
 
-  public void addLine(@NonNull String line) {
+  public void addLine(String line) {
     if (line.isBlank()) {
       throw new AOCException("Blank line not expected");
     }
@@ -22,11 +21,11 @@ public class PassportBuilder {
 
   }
 
-  public @NonNull Passport build() {
+  public Passport build() {
     return new Passport(Map.copyOf(fields));
   }
 
-  private static @NonNull Pair<FieldName, String> parseField(@NonNull String token) {
+  private static Pair<FieldName, String> parseField(String token) {
     final int idx = token.indexOf(":");
     if (idx <= 0) {
       throw new AOCException("Cannot parse field token '" + token + "'");

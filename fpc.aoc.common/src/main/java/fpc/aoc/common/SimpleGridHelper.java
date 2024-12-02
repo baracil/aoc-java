@@ -1,7 +1,6 @@
 package fpc.aoc.common;
 
 import lombok.Getter;
-import lombok.NonNull;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -36,7 +35,7 @@ public class SimpleGridHelper implements GridHelper {
   }
 
   @Override
-  public @NonNull Stream<Position> allAdjacentPosition(@NonNull Position center) {
+  public Stream<Position> allAdjacentPosition(Position center) {
     final int xc = center.x();
     final int yc = center.y();
     return Stream.of(
@@ -52,7 +51,7 @@ public class SimpleGridHelper implements GridHelper {
   }
 
   @Override
-  public @NonNull Stream<Position> allCardinalNeighbours(@NonNull Position center) {
+  public Stream<Position> allCardinalNeighbours(Position center) {
     final int xc = center.x();
     final int yc = center.y();
     return Stream.of(
@@ -65,7 +64,7 @@ public class SimpleGridHelper implements GridHelper {
 
 
   @Override
-  public @NonNull Stream<Position> positionsInDirection(@NonNull Position center, @NonNull Displacement displacement) {
+  public Stream<Position> positionsInDirection(Position center, Displacement displacement) {
     final int dx = displacement.dx();
     final int dy = displacement.dy();
     return IntStream.iterate(1, i -> i + 1)
@@ -85,12 +84,12 @@ public class SimpleGridHelper implements GridHelper {
     return x >= 0 && x < width && y >= 0 && y < height;
   }
 
-  public @NonNull Stream<Position> allPositionOnGrid() {
+  public Stream<Position> allPositionOnGrid() {
     return Arrays.stream(positions);
   }
 
   @Override
-  public int linearIndexFor(@NonNull Position position) {
+  public int linearIndexFor(Position position) {
     return position.linearIndex(width);
   }
 
@@ -100,7 +99,7 @@ public class SimpleGridHelper implements GridHelper {
   }
 
   @Override
-  public @NonNull Position positionFor(int linearIndex) {
+  public Position positionFor(int linearIndex) {
     return nullableAt(linearIndex % width, linearIndex / width);
   }
 }

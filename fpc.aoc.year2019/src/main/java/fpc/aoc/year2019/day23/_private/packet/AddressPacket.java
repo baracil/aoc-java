@@ -20,7 +20,7 @@ public class AddressPacket implements Packet {
 
     @NonNull
     @Override
-    public <T> T accept(@NonNull PacketVisitor<T> visitor) {
+    public <T> T accept(PacketVisitor<T> visitor) {
         return visitor.visit(this);
     }
 

@@ -1,6 +1,5 @@
 package fpc.aoc.year2022.day3;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -19,7 +18,7 @@ public class Compartment {
     return items[item];
   }
 
-  public static @NonNull Compartment parse(@NonNull String line) {
+  public static Compartment parse(String line) {
     final var items = new boolean[52];
     Arrays.fill(items, false);
     line.chars().map(Compartment::toItem).forEach(i -> items[i] = true);

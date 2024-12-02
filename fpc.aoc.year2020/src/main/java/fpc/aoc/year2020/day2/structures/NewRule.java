@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day2.structures;
 
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
@@ -9,7 +8,7 @@ public class NewRule implements Rule {
   int secondPosition;
   char character;
 
-  public static @NonNull NewRule parse(@NonNull String ruleAsString) {
+  public static NewRule parse(String ruleAsString) {
     final String[] token = ruleAsString.split("[- ]", 3);
     return new NewRule(
         Integer.parseInt(token[0]) - 1,
@@ -19,7 +18,7 @@ public class NewRule implements Rule {
   }
 
   @Override
-  public boolean isPasswordValid(@NonNull Password password) {
+  public boolean isPasswordValid(Password password) {
     final var charAtFirstPosition = password.getCharAt(firstPosition);
     final var charAtSecondPosition = password.getCharAt(secondPosition);
     return (charAtFirstPosition == character) != (charAtSecondPosition == character);

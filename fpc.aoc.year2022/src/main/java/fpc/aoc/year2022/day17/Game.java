@@ -1,12 +1,11 @@
 package fpc.aoc.year2022.day17;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class Game {
 
-  private final @NonNull Jet jet;
+  private final Jet jet;
   private final Chamber chamber = new Chamber();
   private final ShapeGenerator generator = new ShapeGenerator();
   private int turnIndex = 0;
@@ -21,7 +20,7 @@ public class Game {
   /**
    * @return the state before making the shape fall
    */
-  public @NonNull TurnInfo fallOnePiece() {
+  public TurnInfo fallOnePiece() {
     final var shapeType = generator.getShape(shapeIndex);
     final var turnInfo = new TurnInfo(shapeType, chamber.peekSnapshot(shapeType, jetIndex), turnIndex, chamber.highestRock());
 

@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day19;
 
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.stream.IntStream;
@@ -22,7 +21,7 @@ public class BluePrint {
   // Each clay robot costs 3 ore.
   // Each obsidian robot costs 3 ore and 16 clay.
   // Each geode robot costs 3 ore and 20 obsidian.
-  public static @NonNull BluePrint parse(@NonNull String line) {
+  public static BluePrint parse(String line) {
     final var tokens = line.split("[ :.]");
     final var ints = IntStream.of(1, 7, 14, 21, 24, 31, 34).map(i -> Integer.parseInt(tokens[i])).toArray();
 

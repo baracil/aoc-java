@@ -1,6 +1,5 @@
 package fpc.aoc.common.rules;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 /**
@@ -12,7 +11,7 @@ public class IsAtMost implements Rule<Integer, Integer> {
   private final int limit;
 
   @Override
-  public @NonNull Validation<Integer> validate(@NonNull Integer input) {
+  public Validation<Integer> validate(Integer input) {
     if (input <= limit) {
       return Validation.valid(input);
     }

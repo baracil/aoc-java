@@ -3,13 +3,12 @@ package fpc.aoc.year2020.day8.structures.instruction;
 import fpc.aoc.year2020.day8.structures.ExecutionContext;
 import fpc.aoc.year2020.day8.structures.Instruction;
 import fpc.aoc.year2020.day8.structures.Operation;
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
 public class Nop implements Instruction {
 
-  public static Nop parse(@NonNull String argument) {
+  public static Nop parse(String argument) {
     return new Nop(Integer.parseInt(argument));
   }
 
@@ -26,7 +25,7 @@ public class Nop implements Instruction {
   }
 
   @Override
-  public @NonNull Operation getOperation() {
+  public Operation getOperation() {
     return Operation.NOP;
   }
 }

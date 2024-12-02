@@ -6,7 +6,6 @@ import fpc.aoc.common.Position;
 import fpc.aoc.year2020.day11.structures.AdjacentCounter;
 import fpc.aoc.year2020.day11.structures.SeatLayout;
 import fpc.aoc.year2020.day11.structures.State;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Arrays;
@@ -17,10 +16,10 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class OptimizedViewableCounter implements AdjacentCounter {
 
-  private final @NonNull GridHelper gridHelper;
+  private final GridHelper gridHelper;
 
   @Override
-  public void updateOccupationMap(@NonNull SeatLayout seatLayout, long[] buffer) {
+  public void updateOccupationMap(SeatLayout seatLayout, long[] buffer) {
     assert buffer.length == seatLayout.height() * seatLayout.width();
     Arrays.fill(buffer, 0);
     for (int i = 0; i < buffer.length; i++) {
@@ -46,14 +45,14 @@ public class OptimizedViewableCounter implements AdjacentCounter {
     }
   }
 
-  private Position findSeatPosition(@NonNull SeatLayout seatLayout, @NonNull Position position, @NonNull Displacement displacement) {
+  private Position findSeatPosition(SeatLayout seatLayout, Position position, Displacement displacement) {
     return gridHelper.positionsInDirection(position, displacement)
         .filter(seatLayout::isNotFloor)
         .findFirst()
         .orElse(null);
   }
 
-  private long countOccupied(@NonNull SeatLayout seatLayout, @NonNull Position center) {
+  private long countOccupied(SeatLayout seatLayout, Position center) {
     final Predicate<Displacement> seatOccupiedInDirection = d -> isOccupied(seatLayout, center, d);
     return Stream.of(Displacement.N,
             Displacement.E,
@@ -67,7 +66,7 @@ public class OptimizedViewableCounter implements AdjacentCounter {
         .count();
   }
 
-  private boolean isOccupied(@NonNull SeatLayout seatLayout, @NonNull Position center, @NonNull Displacement displacement) {
+  private boolean isOccupied(SeatLayout seatLayout, Position center, Displacement displacement) {
     final var visibleState = gridHelper.positionsInDirection(center, displacement)
         .map(seatLayout::stateAt)
         .filter(s -> s != State.FLOOR)

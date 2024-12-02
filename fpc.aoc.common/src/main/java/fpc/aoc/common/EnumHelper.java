@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
 public class EnumHelper<K, E extends Enum<E>> {
 
   @NonNull
-  public static <K, E extends Enum<E>> EnumHelper<K, E> create(@NonNull Class<E> enumType, @NonNull Function<? super E, ? extends K> keyGetter) {
+  public static <K, E extends Enum<E>> EnumHelper<K, E> create(Class<E> enumType, Function<? super E, ? extends K> keyGetter) {
     return new EnumHelper<>(enumType, keyGetter);
   }
 
@@ -19,7 +19,7 @@ public class EnumHelper<K, E extends Enum<E>> {
 
   private final Map<K, E> valueById;
 
-  private EnumHelper(@NonNull Class<E> enumType, @NonNull Function<? super E, ? extends K> keyGetter) {
+  private EnumHelper(Class<E> enumType, Function<? super E, ? extends K> keyGetter) {
     this.enumType = enumType;
     this.valueById = Arrays.stream(enumType.getEnumConstants())
         .collect(Collectors.toMap(keyGetter, Function.identity()));

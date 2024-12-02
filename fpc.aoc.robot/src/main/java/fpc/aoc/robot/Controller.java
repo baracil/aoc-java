@@ -5,9 +5,9 @@ import lombok.NonNull;
 public interface Controller<O,S> {
 
     @NonNull
-    Order<O> evaluateNextOrders(@NonNull S currentState);
+    Order<O> evaluateNextOrders(S currentState);
 
-    void updateOnReply(@NonNull String reply,@NonNull S previousState,@NonNull S currentState);
+    void updateOnReply(String reply,S previousState,S currentState);
 
     default void controlStarting() {}
 

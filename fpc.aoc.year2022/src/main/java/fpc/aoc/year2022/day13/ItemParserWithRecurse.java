@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day13;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ public class ItemParserWithRecurse {
 
 
   //invariant line is a int or the full content of a list without the []
-  private final @NonNull String line;
+  private final String line;
 
   private Item parse() {
     if (!line.startsWith("[")) {

@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day19.structures;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
@@ -9,7 +8,7 @@ import java.util.function.Predicate;
 @RequiredArgsConstructor
 public class Tester implements Predicate<String> {
 
-  private final @NonNull Map<Integer, Rule> rules;
+  private final Map<Integer, Rule> rules;
 
   @Override
   public boolean test(String message) {

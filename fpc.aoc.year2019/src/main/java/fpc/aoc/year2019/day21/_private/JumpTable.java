@@ -23,7 +23,7 @@ public class JumpTable implements TruthTable {
     @NonNull
     private final Action[] actions;
 
-    private JumpTable(int size, @NonNull Action[] actions) {
+    private JumpTable(int size, Action[] actions) {
         this.size = size;
         this.actions = actions;
     }
@@ -38,11 +38,11 @@ public class JumpTable implements TruthTable {
     }
 
     @Override
-    public @NonNull TriBool value(int parameters) {
+    public TriBool value(int parameters) {
         return actions[parameters].triBool();
     }
 
-    public void print(@NonNull PrintStream ps) {
+    public void print(PrintStream ps) {
         IntStream.range(0,actions.length)
                  .mapToObj(this::oneActionLine)
                  .sorted()

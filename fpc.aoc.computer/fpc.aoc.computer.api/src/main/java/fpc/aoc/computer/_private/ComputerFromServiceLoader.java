@@ -14,17 +14,17 @@ public class ComputerFromServiceLoader implements Computer {
     @NonNull
     private final Computer delegate;
 
-    public ComputerFromServiceLoader(@NonNull BitSize minimalBitSize,@NonNull MemoryType memoryType) {
+    public ComputerFromServiceLoader(BitSize minimalBitSize,MemoryType memoryType) {
         this.delegate = findComputerFactoryOnProperty(minimalBitSize,memoryType).create();
     }
 
     @Override
-    public @NonNull Program compile(@NonNull String code) {
+    public Program compile(String code) {
         return delegate.compile(code);
     }
 
     @NonNull
-    private static ComputerFactory findComputerFactoryOnProperty(@NonNull BitSize minimalBitSize,@NonNull MemoryType memoryType) {
+    private static ComputerFactory findComputerFactoryOnProperty(BitSize minimalBitSize,MemoryType memoryType) {
         final ServiceLoader<ComputerFactory> serviceLoader = ServiceLoader.load(ComputerFactory.class);
         return serviceLoader.stream()
                             .map(ServiceLoader.Provider::get)

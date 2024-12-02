@@ -3,14 +3,13 @@ package fpc.aoc.year2015.day16;
 import fpc.aoc.common.AOCException;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
-import lombok.NonNull;
 
 import java.util.stream.Stream;
 
 public abstract class Day16Solver extends SmartSolver<Stream<Sue>> {
 
   @Override
-  protected @NonNull Converter<Stream<Sue>> getConverter() {
+  protected Converter<Stream<Sue>> getConverter() {
     return Converter.forStreamOfItems(Sue::parse);
   }
 
@@ -18,7 +17,7 @@ public abstract class Day16Solver extends SmartSolver<Stream<Sue>> {
 
 
   @Override
-  public @NonNull String doSolve(@NonNull Stream<Sue> input) {
+  public String doSolve(Stream<Sue> input) {
     final var clue = Clue.create(createTestFactory());
 
     final var list = input.filter(clue::matches).toList();

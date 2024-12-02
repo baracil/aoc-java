@@ -5,5 +5,5 @@ import lombok.NonNull;
 public interface StateEvolutionRule {
 
   @NonNull
-  State evaluateNewSate(@NonNull State current, long numberOfAdjacentOccupiedSeats);
+  State evaluateNewSate(State current, long numberOfAdjacentOccupiedSeats);
 }

@@ -7,7 +7,6 @@ import fpc.aoc.computer.ProgramBasedSolver;
 import fpc.aoc.year2019.day19._private.BeamExtract;
 import fpc.aoc.year2019.day19._private.BeamSlice;
 import fpc.aoc.year2019.day19._private.BeamSliceProbe;
-import lombok.NonNull;
 
 public class Day19Part2Solver extends ProgramBasedSolver {
 
@@ -16,7 +15,7 @@ public class Day19Part2Solver extends ProgramBasedSolver {
   }
 
   @Override
-  protected Object doSolve(@NonNull Program program) {
+  protected Object doSolve(Program program) {
     final BeamExtract beamExtract = new BeamExtract(100);
     Position start = Position.of(0, 0);
     do {

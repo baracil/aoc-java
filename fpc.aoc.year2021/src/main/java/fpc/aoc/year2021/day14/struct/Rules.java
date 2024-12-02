@@ -1,6 +1,5 @@
 package fpc.aoc.year2021.day14.struct;
 
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.Map;
@@ -14,7 +13,7 @@ public class Rules {
   private final Map<Couple, Character> rules;
 
 
-  public @NonNull Optional<Character> getInsertion(@NonNull Couple couple) {
+  public Optional<Character> getInsertion(Couple couple) {
     return Optional.ofNullable(rules.get(couple));
   }
 

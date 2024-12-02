@@ -2,7 +2,6 @@ package fpc.aoc.year2021.day16.struct;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
-import lombok.NonNull;
 
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -12,11 +11,11 @@ import static fpc.aoc.common.ImmutableEntry.of;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Reader {
 
-  private final @NonNull String message;
+  private final String message;
   private final int end;
   private int index;
 
-  public static @NonNull Reader fromHexaString(String hexaPacket) {
+  public static Reader fromHexaString(String hexaPacket) {
     final var binPacket = hexaPacket.chars().mapToObj(HEX_TO_BIN_DIGITS::get).collect(Collectors.joining());
     return new Reader(binPacket, binPacket.length(), 0);
   }
@@ -26,7 +25,7 @@ public class Reader {
     return Integer.parseInt(message.substring(pos, this.index), 2);
   }
 
-  public @NonNull Reader extract(int length) {
+  public Reader extract(int length) {
     final var pos = move(length);
     return new Reader(message, this.index, pos);
   }

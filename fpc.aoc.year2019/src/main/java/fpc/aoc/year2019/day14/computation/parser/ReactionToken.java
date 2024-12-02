@@ -20,7 +20,7 @@ public class ReactionToken {
     private final int amount;
 
     @NonNull
-    public Reactant toReactant(@NonNull Map<String, Chemical> chemicalByName) {
+    public Reactant toReactant(Map<String, Chemical> chemicalByName) {
         return new Reactant(chemicalByName.get(name),amount);
     }
 

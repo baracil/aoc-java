@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day13;
 
-import lombok.NonNull;
 import lombok.Value;
 
 import java.math.BigInteger;
@@ -8,9 +7,9 @@ import java.math.BigInteger;
 @Value
 public class NextStop {
 
-  @NonNull Bus bus;
+  Bus bus;
 
-  @NonNull BigInteger waitingTime;
+  BigInteger waitingTime;
 
   public BigInteger busId() {
     return bus.id();

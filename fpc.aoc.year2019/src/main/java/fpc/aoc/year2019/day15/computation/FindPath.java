@@ -10,7 +10,7 @@ import java.util.*;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class FindPath {
 
-  public static Map<Position, Integer> computeDistance(@NonNull Map<Position, TileType> maze, @NonNull Position start, @NonNull Position end) {
+  public static Map<Position, Integer> computeDistance(Map<Position, TileType> maze, Position start, Position end) {
     return new FindPath(maze, start, end).computeDistance();
   }
 
@@ -48,7 +48,7 @@ public class FindPath {
   }
 
   @NonNull
-  private List<Position> getNeighbours(@NonNull Position center) {
+  private List<Position> getNeighbours(Position center) {
     return List.of(center.translateX(1), center.translateY(-1), center.translateY(1), center.translateX(-1));
   }
 

@@ -21,7 +21,7 @@ import java.util.stream.Stream;
 public class BugColony {
 
   @NonNull
-  public static BugColony create(@NonNull List<String> input) {
+  public static BugColony create(List<String> input) {
     final IntFunction<Stream<Position>> lineParser = y -> {
       final String line = input.get(y);
       return IntStream.range(0, 5).filter(x -> line.charAt(x) == '#').mapToObj(x -> Position.create(0, x, y));
@@ -43,7 +43,7 @@ public class BugColony {
     return bugPositions.stream();
   }
 
-  public boolean hasBugAt(@NonNull Position position) {
+  public boolean hasBugAt(Position position) {
     return bugPositions.contains(position);
   }
 
@@ -65,12 +65,12 @@ public class BugColony {
     return current;
   }
 
-  public void dump(@NonNull PrintStream ps) {
+  public void dump(PrintStream ps) {
     final IntSummaryStatistics levelStat = bugPositions.stream().mapToInt(Position::level).summaryStatistics();
     IntStream.rangeClosed(levelStat.getMin(), levelStat.getMax()).forEach(lvl -> dumpOneLevel(ps, lvl));
   }
 
-  public void dumpOneLevel(@NonNull PrintStream ps, int level) {
+  public void dumpOneLevel(PrintStream ps, int level) {
     ps.println("Depth " + level + ":");
     for (int y = 0; y < 5; y++) {
       for (int x = 0; x < 5; x++) {

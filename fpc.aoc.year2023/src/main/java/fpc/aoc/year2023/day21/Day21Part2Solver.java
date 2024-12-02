@@ -1,24 +1,16 @@
 package fpc.aoc.year2023.day21;
 
 import fpc.aoc.api.Solver;
-import fpc.aoc.common.NotSolvedYet;
-import lombok.NonNull;
-
-import java.util.stream.Stream;
 
 public class Day21Part2Solver extends Day21Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day21Part2Solver();
   }
 
   @Override
-  public boolean isSkipped() {
-    return true;
+  protected int getNbSteps() {
+    return 26501365;
   }
 
-  @Override
-  public @NonNull Object doSolve(@NonNull Stream<String> input) {
-    throw new NotSolvedYet();
-  }
 }

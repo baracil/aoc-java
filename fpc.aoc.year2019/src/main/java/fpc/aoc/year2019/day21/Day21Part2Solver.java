@@ -1,7 +1,6 @@
 package fpc.aoc.year2019.day21;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 import java.util.List;
 import java.util.function.Function;
@@ -13,7 +12,7 @@ public class Day21Part2Solver extends Day21Solver {
     }
 
     @Override
-    int solve(@NonNull Function<List<String>,Result> executor) {
+    int solve(Function<List<String>,Result> executor) {
         final Result result = executor.apply(getLogicalProgram());
         return result.damage();
     }

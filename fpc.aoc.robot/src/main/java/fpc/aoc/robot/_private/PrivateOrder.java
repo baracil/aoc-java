@@ -17,12 +17,12 @@ public class PrivateOrder {
     }
 
     @NonNull
-    public static PrivateOrder sendData(@NonNull List<String> data) {
+    public static PrivateOrder sendData(List<String> data) {
         return new PrivateOrder(Type.SEND_DATA, data);
     }
 
     @NonNull
-    public static PrivateOrder sendData(@NonNull String... data) {
+    public static PrivateOrder sendData(String... data) {
         return sendData(List.of(data));
     }
 

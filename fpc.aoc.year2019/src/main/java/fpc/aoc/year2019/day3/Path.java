@@ -23,7 +23,7 @@ public class Path {
     this(List.of(Point.CENTRAL_PORT));
   }
 
-  private Path(@NonNull List<Point> points) {
+  private Path(List<Point> points) {
     if (points.isEmpty()) {
       throw new AOCException("A Path is made of at least 1 point");
     }
@@ -33,22 +33,22 @@ public class Path {
 
   @NonNull
   private Point getLastPoint() {
-    return points.get(points.size() - 1);
+    return points.getLast();
   }
 
   @NonNull
-  public Path complete(@NonNull Movement movement) {
+  public Path complete(Movement movement) {
     final var newPoints = movement.getPointsFromThisMovement(getLastPoint());
     return new Path(Tools.mergeLists(points, newPoints));
   }
 
-  public int numberOfStepsToReach(@NonNull Point point) {
+  public int numberOfStepsToReach(Point point) {
     final Integer nbSteps = numberOfStepsToPoint.get().get(point);
     return nbSteps == null ? Integer.MAX_VALUE / 2 : nbSteps;
   }
 
   @NonNull
-  public static Stream<Point> intersectionStream(@NonNull Path path1, @NonNull Path path2) {
+  public static Stream<Point> intersectionStream(Path path1, Path path2) {
     final Set<Point> path2Points = path2.numberOfStepsToPoint.get().keySet();
     return path1.points.stream()
         .filter(Point::isNotCentralPort)

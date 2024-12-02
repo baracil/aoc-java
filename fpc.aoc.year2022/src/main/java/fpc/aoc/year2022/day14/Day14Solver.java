@@ -3,7 +3,6 @@ package fpc.aoc.year2022.day14;
 import fpc.aoc.common.Position;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.HashMap;
@@ -15,16 +14,16 @@ import java.util.stream.Collector;
 public abstract class Day14Solver extends SmartSolver<Cave> {
 
   @Override
-  protected @NonNull Converter<Cave> getConverter() {
+  protected Converter<Cave> getConverter() {
     return s -> s.stream().map(Path::parse)
         .flatMap(Path::positions)
         .collect(CaveAggregator.CAVE_COLLECTOR);
   }
 
-  private final @NonNull Predicate<Cave> dropper;
+  private final Predicate<Cave> dropper;
 
   @Override
-  public @NonNull Long doSolve(@NonNull Cave input) {
+  public Long doSolve(Cave input) {
     long nb = 0;
     while (dropper.test(input)) {
       nb++;
@@ -45,11 +44,11 @@ public abstract class Day14Solver extends SmartSolver<Cave> {
     private final Map<Position, Type> types = new HashMap<>();
 
 
-    public void addPosition(@NonNull Position position) {
+    public void addPosition(Position position) {
       types.put(position, Type.ROCK);
     }
 
-    public CaveAggregator merge(@NonNull CaveAggregator aggregator) {
+    public CaveAggregator merge(CaveAggregator aggregator) {
       types.putAll(aggregator.types);
       return this;
     }

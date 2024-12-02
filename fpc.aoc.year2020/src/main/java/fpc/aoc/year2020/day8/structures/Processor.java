@@ -2,7 +2,6 @@ package fpc.aoc.year2020.day8.structures;
 
 import fpc.aoc.common.AOCException;
 import fpc.aoc.common.TryResult;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.HashSet;
@@ -11,13 +10,13 @@ import java.util.Set;
 @RequiredArgsConstructor
 public class Processor {
 
-  public static @NonNull Processor with(@NonNull StopCondition stopCondition) {
+  public static Processor with(StopCondition stopCondition) {
     return new Processor(stopCondition);
   }
 
-  private final @NonNull StopCondition stopCondition;
+  private final StopCondition stopCondition;
 
-  public TryResult<AOCException, ExecutionContext> launch(@NonNull Program program) {
+  public TryResult<AOCException, ExecutionContext> launch(Program program) {
     final Set<Integer> positionExecuted = new HashSet<>();
     var context = ExecutionContext.createInitial();
     while (true) {

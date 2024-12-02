@@ -13,7 +13,7 @@ import java.util.function.BiFunction;
 public class JumpTableBuilder {
 
 
-    public static JumpTable create(@NonNull BiFunction<Integer, Action[],JumpTable> constructor, int targetSize) {
+    public static JumpTable create(BiFunction<Integer, Action[],JumpTable> constructor, int targetSize) {
         return new JumpTableBuilder(constructor,targetSize).compute();
     }
 
@@ -22,9 +22,9 @@ public class JumpTableBuilder {
 
     private final int targetSize;
 
-    private Action[][] tables;
+    private final Action[][] tables;
 
-    private JumpTableBuilder(@NonNull BiFunction<Integer,Action[],JumpTable> constructor, int targetSize) {
+    private JumpTableBuilder(BiFunction<Integer,Action[],JumpTable> constructor, int targetSize) {
         this.constructor = constructor;
         this.targetSize = targetSize;
         this.tables = new Action[targetSize+1][];

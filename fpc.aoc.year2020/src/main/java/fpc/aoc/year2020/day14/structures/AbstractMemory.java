@@ -1,7 +1,5 @@
 package fpc.aoc.year2020.day14.structures;
 
-import lombok.NonNull;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,11 +14,11 @@ public abstract class AbstractMemory implements Memory {
   }
 
   @Override
-  public void setActiveMask(@NonNull Mask mask) {
+  public void setActiveMask(Mask mask) {
     this.mask = mask;
   }
 
-  protected @NonNull Mask getActiveMask() {
+  protected Mask getActiveMask() {
     assert mask != null;
     return mask;
   }

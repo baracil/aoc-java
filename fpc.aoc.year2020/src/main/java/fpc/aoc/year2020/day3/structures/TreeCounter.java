@@ -3,7 +3,6 @@ package fpc.aoc.year2020.day3.structures;
 import fpc.aoc.common.ArrayOfChar;
 import fpc.aoc.common.Displacement;
 import fpc.aoc.common.Position;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.stream.Stream;
@@ -11,9 +10,9 @@ import java.util.stream.Stream;
 @RequiredArgsConstructor
 public class TreeCounter {
 
-  private final @NonNull ArrayOfChar map;
+  private final ArrayOfChar map;
 
-  public long count(@NonNull Displacement displacement) {
+  public long count(Displacement displacement) {
 
     return Stream.iterate(Position.of(0, 0), p -> p.displaced(displacement))
         .takeWhile(this::isPositionStillOnTheMap)
@@ -22,15 +21,15 @@ public class TreeCounter {
         .count();
   }
 
-  private boolean isPositionStillOnTheMap(@NonNull Position position) {
+  private boolean isPositionStillOnTheMap(Position position) {
     return position.y() < map.height();
   }
 
-  private Position wrapPositionOnMap(@NonNull Position position) {
+  private Position wrapPositionOnMap(Position position) {
     return position.wrap(map.width(), map.height());
   }
 
-  private boolean isThereATreeAtThisPosition(@NonNull Position position) {
+  private boolean isThereATreeAtThisPosition(Position position) {
     return map.get(position) == '#';
   }
 }

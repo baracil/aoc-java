@@ -8,7 +8,7 @@ import lombok.NonNull;
 public class NoInputPort implements InputPort<Nil> {
 
     @Override
-    public @NonNull String read() {
+    public String read() {
         throw new AOCException("No input available");
     }
 

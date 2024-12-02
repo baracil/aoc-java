@@ -19,7 +19,7 @@ public enum Part {
   private final int numericalValue;
 
   @NonNull
-  public static Part parse(@NonNull String value) {
+  public static Part parse(String value) {
     final Predicate<Part> predicate = Tools.parseInteger(value)
         .map(Part::predicateOnNumericalValue)
         .orElseGet(() -> predicateOnName(value));
@@ -36,7 +36,7 @@ public enum Part {
   }
 
   @NonNull
-  private static Predicate<Part> predicateOnName(@NonNull String name) {
+  private static Predicate<Part> predicateOnName(String name) {
     return part -> part.name().equalsIgnoreCase(name);
   }
 

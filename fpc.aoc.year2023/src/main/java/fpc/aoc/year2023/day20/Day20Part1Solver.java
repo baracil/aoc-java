@@ -2,17 +2,16 @@ package fpc.aoc.year2023.day20;
 
 import fpc.aoc.api.Solver;
 import fpc.aoc.year2023.day20.model.Circuit;
-import lombok.NonNull;
 
 public class Day20Part1Solver extends Day20Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day20Part1Solver();
   }
 
 
   @Override
-  public @NonNull Object doSolve(@NonNull Circuit circuit) {
+  public Object doSolve(Circuit circuit) {
     var state = circuit.initialState();
 
     long nbLow = 0;

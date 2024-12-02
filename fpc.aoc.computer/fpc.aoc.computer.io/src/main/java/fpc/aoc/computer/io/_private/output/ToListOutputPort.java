@@ -12,13 +12,13 @@ public class ToListOutputPort<R> extends BaseOutputPort<List<R>,R> {
     @NonNull
     private final List<R> result;
 
-    public ToListOutputPort(@NonNull OutputTransformer<R> outputTransformer) {
+    public ToListOutputPort(OutputTransformer<R> outputTransformer) {
         super(outputTransformer);
         this.result = new ArrayList<>();
     }
 
     @Override
-    public void write(@NonNull R value) {
+    public void write(R value) {
         result.add(value);
     }
 

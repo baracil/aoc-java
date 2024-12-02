@@ -14,7 +14,7 @@ public class MultiLines implements RawInput {
   private final String multiLines;
 
   @Override
-  public @NonNull List<String> read() {
+  public List<String> read() {
     return Arrays.asList(multiLines.split("\\R"));
   }
 }

@@ -1,8 +1,7 @@
 package fpc.aoc.common;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -13,14 +12,14 @@ import java.util.function.Predicate;
 import java.util.function.UnaryOperator;
 import java.util.stream.Collectors;
 
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class GameOfLife<T extends NeighbourProvider<T>> {
 
 
-  private @NonNull Set<T> aliveCells;
+  private Set<T> aliveCells;
   private final GameOfLifeRule<? super T> gameOfLifeRule;
   private final UnaryOperator<Set<T>> finalizer;
-  private final @NonNull Map<T, Integer> neighbourCount = new HashMap<>();
+  private final Map<T, Integer> neighbourCount = new HashMap<>();
 
   public void performCycles(int numberOfCycles) {
     for (int i = 0; i < numberOfCycles; i++) {
@@ -38,7 +37,7 @@ public class GameOfLife<T extends NeighbourProvider<T>> {
     this.neighbourCount.clear();
   }
 
-  private void increaseNeighbourCount(@NonNull T cell) {
+  private void increaseNeighbourCount(T cell) {
     cell.neighbours().forEach(this::increaseNeighbourCountAt);
   }
 
@@ -70,16 +69,16 @@ public class GameOfLife<T extends NeighbourProvider<T>> {
   }
 
 
-  public static <T extends NeighbourProvider<T>> @NonNull GameOfLife<T> initialize(
-      @NonNull ArrayOfChar arrayOfChar,
-      @NonNull BiFunction<Integer, Integer, ? extends T> pointFactory) {
+  public static <T extends NeighbourProvider<T>> GameOfLife<T> initialize(
+      ArrayOfChar arrayOfChar,
+      BiFunction<Integer, Integer, ? extends T> pointFactory) {
     return initialize(arrayOfChar, pointFactory, GameOfLifeRule.DEFAULT_RULE);
   }
 
-  public static <T extends NeighbourProvider<T>> @NonNull GameOfLife<T> initialize(
-      @NonNull ArrayOfChar arrayOfChar,
-      @NonNull BiFunction<Integer, Integer, ? extends T> pointFactory,
-      @NonNull GameOfLifeRule<? super T> gameOfLifeRule) {
+  public static <T extends NeighbourProvider<T>> GameOfLife<T> initialize(
+      ArrayOfChar arrayOfChar,
+      BiFunction<Integer, Integer, ? extends T> pointFactory,
+      GameOfLifeRule<? super T> gameOfLifeRule) {
     final Set<T> listOfPoints = new HashSet<>();
     for (int y = 0; y < arrayOfChar.height(); y++) {
       for (int x = 0; x < arrayOfChar.width(); x++) {
@@ -91,15 +90,15 @@ public class GameOfLife<T extends NeighbourProvider<T>> {
     return new GameOfLife<>(listOfPoints, gameOfLifeRule, s -> s);
   }
 
-  public static <T extends NeighbourProvider<T>> @NonNull GameOfLife<T> initialize(@NonNull Set<T> initialState) {
+  public static <T extends NeighbourProvider<T>> GameOfLife<T> initialize(Set<T> initialState) {
     return initialize(initialState, GameOfLifeRule.DEFAULT_RULE, s -> s);
   }
 
-  public static <T extends NeighbourProvider<T>> @NonNull GameOfLife<T> initialize(@NonNull Set<T> initialState, @NonNull GameOfLifeRule<? super T> gameOfLifeRule) {
+  public static <T extends NeighbourProvider<T>> GameOfLife<T> initialize(Set<T> initialState, GameOfLifeRule<? super T> gameOfLifeRule) {
     return initialize(initialState, gameOfLifeRule, s -> s);
   }
 
-  public static <T extends NeighbourProvider<T>> @NonNull GameOfLife<T> initialize(@NonNull Set<T> initialState, @NonNull GameOfLifeRule<? super T> gameOfLifeRule, UnaryOperator<Set<T>> finalizer) {
+  public static <T extends NeighbourProvider<T>> GameOfLife<T> initialize(Set<T> initialState, GameOfLifeRule<? super T> gameOfLifeRule, UnaryOperator<Set<T>> finalizer) {
     return new GameOfLife<>(new HashSet<>(initialState), gameOfLifeRule, finalizer);
   }
 

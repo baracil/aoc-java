@@ -1,15 +1,13 @@
 package fpc.aoc.common;
 
-import lombok.NonNull;
-
 import java.util.HashSet;
 import java.util.Set;
 
 public class Pattern {
 
-  private final @NonNull Set<Displacement> positionsOfSharp;
+  private final Set<Displacement> positionsOfSharp;
 
-  public Pattern(@NonNull String pattern, char withData) {
+  public Pattern(String pattern, char withData) {
     final Set<Displacement> positions = new HashSet<>();
     final String[] lines = pattern.split("\n");
     for (int y = 0; y < lines.length; y++) {
@@ -27,13 +25,13 @@ public class Pattern {
     return positionsOfSharp.size();
   }
 
-  public boolean matchAt(@NonNull ArrayOfChar searchedRegion, char expectedChar, @NonNull Position origin) {
+  public boolean matchAt(ArrayOfChar searchedRegion, char expectedChar, Position origin) {
     return positionsOfSharp.stream()
         .map(origin::displaced)
         .allMatch(p -> searchedRegion.get(p) == expectedChar);
   }
 
-  public long numberOfMatches(@NonNull ArrayOfChar searchedRegion, char expectedChar) {
+  public long numberOfMatches(ArrayOfChar searchedRegion, char expectedChar) {
     return searchedRegion.positionStream()
         .filter(p -> matchAt(searchedRegion, expectedChar, p))
         .count();

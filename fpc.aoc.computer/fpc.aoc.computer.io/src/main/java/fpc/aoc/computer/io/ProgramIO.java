@@ -24,7 +24,7 @@ public interface ProgramIO<I, O> extends ProgramIOAccessors<I,O> {
      * Used by the program to write to its output
      * @param value the value to write
      */
-    void write(@NonNull String value);
+    void write(String value);
 
 
     //----------------------------------
@@ -34,7 +34,7 @@ public interface ProgramIO<I, O> extends ProgramIOAccessors<I,O> {
     }
 
     @NonNull
-    static OutputPartBuilder<Nil> withSupplier(@NonNull Supplier<? extends String> supplier) {
+    static OutputPartBuilder<Nil> withSupplier(Supplier<? extends String> supplier) {
         return new OutputPartBuilder<>(new InputPortWithSupplier(supplier));
     }
 
@@ -44,35 +44,35 @@ public interface ProgramIO<I, O> extends ProgramIOAccessors<I,O> {
     }
 
     @NonNull
-    static OutputPartBuilder<Nil> fromStdin(@NonNull InputMultiTransformer<String> transform) {
+    static OutputPartBuilder<Nil> fromStdin(InputMultiTransformer<String> transform) {
         return new OutputPartBuilder<>(new StdinInputPort(transform));
     }
 
     @NonNull
-    static <T> OutputPartBuilder<Nil> withSupplier(@NonNull Supplier<T> supplier, @NonNull InputTransform<T> transform) {
+    static <T> OutputPartBuilder<Nil> withSupplier(Supplier<T> supplier, InputTransform<T> transform) {
         return withSupplier(() -> transform.apply(supplier.get()));
     }
 
 
     @NonNull
-    static OutputPartBuilder<Nil> fromList(@NonNull String... values) {
+    static OutputPartBuilder<Nil> fromList(String... values) {
         return new OutputPartBuilder<>(new InputPortFromList(List.of(values)));
     }
 
     @NonNull
-    static <T> OutputPartBuilder<Nil> fromList(@NonNull InputMultiTransformer<T> transformer, @NonNull T... values) {
+    static <T> OutputPartBuilder<Nil> fromList(InputMultiTransformer<T> transformer, T... values) {
         final var strs = Arrays.stream(values).flatMap(r -> transformer.apply(r).stream()).toList();
 
         return new OutputPartBuilder<>(new InputPortFromList(strs));
     }
 
     @NonNull
-    static <T> OutputPartBuilder<ProgramInput<T>> controlledInput(@NonNull InputTransform<T> transformer) {
+    static <T> OutputPartBuilder<ProgramInput<T>> controlledInput(InputTransform<T> transformer) {
         return controlledInput(transformer.toMulti());
     }
 
     @NonNull
-    static <R> OutputPartBuilder<ProgramInput<R>> controlledInput(@NonNull InputMultiTransformer<R> transform) {
+    static <R> OutputPartBuilder<ProgramInput<R>> controlledInput(InputMultiTransformer<R> transform) {
         return new OutputPartBuilder<>(new ControllerInputPort<>(transform));
     }
 
@@ -82,14 +82,14 @@ public interface ProgramIO<I, O> extends ProgramIOAccessors<I,O> {
     }
 
     @NonNull
-    static <R,W> ProgramIO<ProgramInput<R>,ProgramOutput<W>> duplex(@NonNull InputTransform<R> inputTransform,
-            @NonNull OutputTransformer<W> outputTransformer) {
+    static <R,W> ProgramIO<ProgramInput<R>,ProgramOutput<W>> duplex(InputTransform<R> inputTransform,
+            OutputTransformer<W> outputTransformer) {
         return duplex(inputTransform.toMulti(),outputTransformer);
     }
 
     @NonNull
-    static <R,W> ProgramIO<ProgramInput<R>,ProgramOutput<W>> duplex(@NonNull InputMultiTransformer<R> inputTransform,
-            @NonNull OutputTransformer<W> outputTransformer) {
+    static <R,W> ProgramIO<ProgramInput<R>,ProgramOutput<W>> duplex(InputMultiTransformer<R> inputTransform,
+            OutputTransformer<W> outputTransformer) {
         return controlledInput(inputTransform).controlledOutput(outputTransformer);
     }
 

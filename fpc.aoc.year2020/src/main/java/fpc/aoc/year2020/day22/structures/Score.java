@@ -1,6 +1,9 @@
 package fpc.aoc.year2020.day22.structures;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
 import java.util.List;
 
@@ -9,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Score extends Number {
 
-  public static @NonNull Score of(int value) {
+  public static Score of(int value) {
     return new Score(value);
   }
 
@@ -17,7 +20,7 @@ public class Score extends Number {
 
   int value;
 
-  public Score(@NonNull List<Integer> cards) {
+  public Score(List<Integer> cards) {
     int score = 0;
     int factor = cards.size();
     for (Integer card : cards) {

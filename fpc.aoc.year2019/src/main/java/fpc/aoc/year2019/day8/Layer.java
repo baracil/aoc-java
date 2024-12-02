@@ -19,7 +19,7 @@ public class Layer {
 
     private final Map<Pixel,Integer> counts;
 
-    public Layer(@NonNull Pixel[] pixels, int width, int height) {
+    public Layer(Pixel[] pixels, int width, int height) {
         this.pixels = pixels;
         this.width = width;
         this.height = height;
@@ -42,7 +42,7 @@ public class Layer {
 
     }
 
-    public int numberOf(@NonNull Pixel pixel) {
+    public int numberOf(Pixel pixel) {
         return counts.getOrDefault(pixel, 0);
     }
 
@@ -51,7 +51,7 @@ public class Layer {
     }
 
     @NonNull
-    public Layer stack(@NonNull Layer below) {
+    public Layer stack(Layer below) {
         final Pixel[] result = new Pixel[this.pixels.length];
 
         for (int i = 0; i < result.length; i++) {

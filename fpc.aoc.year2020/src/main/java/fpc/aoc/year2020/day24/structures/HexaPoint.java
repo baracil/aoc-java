@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day24.structures;
 
 import fpc.aoc.common.NeighbourProvider;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.stream.Stream;
@@ -12,11 +11,11 @@ public class HexaPoint implements NeighbourProvider<HexaPoint> {
   int x;
   int y;
 
-  public @NonNull MutableHexaPoint toMutable() {
+  public MutableHexaPoint toMutable() {
     return new MutableHexaPoint(x, y);
   }
 
-  public @NonNull HexaPoint neighbour(@NonNull Direction direction) {
+  public HexaPoint neighbour(Direction direction) {
     return switch (direction) {
       case E -> new HexaPoint(x + 2, y);
       case NE -> new HexaPoint(x + 1, y + 1);
@@ -28,7 +27,7 @@ public class HexaPoint implements NeighbourProvider<HexaPoint> {
   }
 
   @Override
-  public @NonNull Stream<HexaPoint> neighbours() {
+  public Stream<HexaPoint> neighbours() {
     return Direction.all().map(this::neighbour);
   }
 }

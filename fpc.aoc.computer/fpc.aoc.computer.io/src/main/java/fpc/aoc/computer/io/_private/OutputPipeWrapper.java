@@ -15,7 +15,7 @@ public class OutputPipeWrapper<T> implements Output {
     private final Function<? super String, ? extends T> fromString;
 
     @Override
-    public void write(@NonNull String value) {
+    public void write(String value) {
         wrapped.write(fromString.apply(value));
     }
 

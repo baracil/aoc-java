@@ -13,9 +13,9 @@ import java.util.stream.Stream;
 public class TransformedArrayOfChar extends AbstractArrayOfChar implements ArrayOfChar {
 
   @Getter
-  private final @NonNull Transformation transformation;
+  private final Transformation transformation;
 
-  private final @NonNull BaseArrayOfChar delegate;
+  private final BaseArrayOfChar delegate;
 
   @Getter
   private final int width;
@@ -23,10 +23,10 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
   @Getter
   private final int height;
 
-  private final @NonNull IntBinaryOperator xTransformer;
-  private final @NonNull IntBinaryOperator yTransformer;
+  private final IntBinaryOperator xTransformer;
+  private final IntBinaryOperator yTransformer;
 
-  public TransformedArrayOfChar(@NonNull Transformation transformation, @NonNull BaseArrayOfChar delegate) {
+  public TransformedArrayOfChar(Transformation transformation, BaseArrayOfChar delegate) {
     this.transformation = transformation;
     this.delegate = delegate;
     this.width = switch (transformation.rotation()) {
@@ -42,7 +42,7 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
   }
 
   @Override
-  public void print(@NonNull PrintStream printStream) {
+  public void print(PrintStream printStream) {
     for (int y = 0; y < height; y++) {
       for (int x = 0; x < width; x++) {
         printStream.print(get(x, y));
@@ -58,7 +58,7 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
   }
 
   @Override
-  public char get(@NonNull Position position) {
+  public char get(Position position) {
     return get(position.x(), position.y());
   }
 
@@ -75,21 +75,21 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
   }
 
   @Override
-  public @NonNull ArrayOfChar rotate(@NonNull Rotation rotation) {
+  public ArrayOfChar rotate(Rotation rotation) {
     return transform(t -> t.compose(rotation));
   }
 
   @Override
-  public @NonNull ArrayOfChar flip(@NonNull Flipping flipping) {
+  public ArrayOfChar flip(Flipping flipping) {
     return transform(t -> t.compose(flipping));
   }
 
   @Override
-  public @NonNull ArrayOfChar transform(@NonNull Transformation transformation) {
+  public ArrayOfChar transform(Transformation transformation) {
     return transform(t -> t.compose(transformation));
   }
 
-  private @NonNull ArrayOfChar transform(@NonNull UnaryOperator<Transformation> modifier) {
+  private ArrayOfChar transform(UnaryOperator<Transformation> modifier) {
     final Transformation newTransformation = modifier.apply(this.transformation);
     if (newTransformation.equals(transformation)) {
       return this;
@@ -98,7 +98,7 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
   }
 
   @NonNull
-  public <T> T[] convert(@NonNull Function<? super Character, ? extends T> converter, @NonNull IntFunction<T[]> arrayCreator) {
+  public <T> T[] convert(Function<? super Character, ? extends T> converter, IntFunction<T[]> arrayCreator) {
     final var result = arrayCreator.apply(this.width * this.height);
     int i = 0;
     for (int y = 0; y < this.height; y++) {
@@ -123,7 +123,7 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
   }
 
   @Override
-  public @NonNull Optional<Position> findMatching(char s) {
+  public Optional<Position> findMatching(char s) {
     for (int x = 0; x < width; x++) {
       for (int y = 0; y < height; y++) {
         if (get(x, y) == s) {

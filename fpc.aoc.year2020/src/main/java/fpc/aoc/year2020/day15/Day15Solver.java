@@ -2,18 +2,17 @@ package fpc.aoc.year2020.day15;
 
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
-import lombok.NonNull;
 
 import java.util.Arrays;
 
 public abstract class Day15Solver extends SmartSolver<int[]> {
 
   @Override
-  protected @NonNull Converter<int[]> getConverter() {
+  protected Converter<int[]> getConverter() {
     return Converter.FIRST_LINE.andThen(this::toArrayOfNumbers);
   }
 
-  private int[] toArrayOfNumbers(@NonNull String line) {
+  private int[] toArrayOfNumbers(String line) {
     return Arrays.stream(line.split(","))
         .mapToInt(Integer::parseInt)
         .toArray();

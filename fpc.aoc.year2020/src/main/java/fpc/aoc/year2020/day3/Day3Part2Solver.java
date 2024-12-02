@@ -6,23 +6,22 @@ import fpc.aoc.common.Displacement;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
 import fpc.aoc.year2020.day3.structures.TreeCounter;
-import lombok.NonNull;
 
 import java.util.stream.Stream;
 
 public class Day3Part2Solver extends SmartSolver<TreeCounter> {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day3Part2Solver();
   }
 
   @Override
-  protected @NonNull Converter<TreeCounter> getConverter() {
+  protected Converter<TreeCounter> getConverter() {
     return Converter.TO_ARRAY_OF_CHAR.andThen(TreeCounter::new);
   }
 
   @Override
-  public @NonNull Long doSolve(@NonNull TreeCounter input) {
+  public Long doSolve(TreeCounter input) {
     return Stream.of(Displacement.of(1, 1),
             Displacement.of(3, 1),
             Displacement.of(5, 1),

@@ -7,11 +7,11 @@ import lombok.NonNull;
  **/
 public class NumericalStrings {
 
-    public static int compare(@NonNull String s1, @NonNull String s2) {
+    public static int compare(String s1, String s2) {
         return doCompare(s1, s2);
     }
 
-    private static int doCompare(@NonNull String s1, @NonNull String s2) {
+    private static int doCompare(String s1, String s2) {
         if (s1.length() > s2.length()) {
             return 1;
         }
@@ -22,7 +22,7 @@ public class NumericalStrings {
     }
 
     @NonNull
-    public static String max(@NonNull String s1, @NonNull String s2) {
+    public static String max(String s1, String s2) {
         final int comparison = compare(s1,s2);
         if (comparison < 0) {
             return s1;
@@ -33,7 +33,7 @@ public class NumericalStrings {
     }
 
     @NonNull
-    public static String min(@NonNull String s1, @NonNull String s2) {
+    public static String min(String s1, String s2) {
         final int comparison = compare(s1,s2);
         if (comparison < 0) {
             return s2;

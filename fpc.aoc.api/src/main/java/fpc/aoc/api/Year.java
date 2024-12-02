@@ -22,6 +22,7 @@ public enum Year {
   YEAR_2021(2021),
   YEAR_2022(2022),
   YEAR_2023(2023),
+  YEAR_2024(2024),
   ;
 
   private final int numericalValue;
@@ -29,7 +30,7 @@ public enum Year {
   public static final Comparator<Year> YEAR_COMPARATOR = Comparator.comparing(d -> d.numericalValue);
 
   @NonNull
-  public static Year parse(@NonNull String value) {
+  public static Year parse(String value) {
     final Predicate<Year> predicate = Tools.parseInteger(value)
         .map(Year::predicateOnNumericalValue)
         .orElseGet(() -> predicateOnName(value));
@@ -40,7 +41,7 @@ public enum Year {
   }
 
 
-  public @NonNull SolverId createIdWith(@NonNull Day day, @NonNull Part part) {
+  public SolverId createIdWith(Day day, Part part) {
     return new SolverId(this, day, part);
   }
 
@@ -50,7 +51,7 @@ public enum Year {
   }
 
   @NonNull
-  private static Predicate<Year> predicateOnName(@NonNull String name) {
+  private static Predicate<Year> predicateOnName(String name) {
     return year -> year.name().equalsIgnoreCase(name);
   }
 

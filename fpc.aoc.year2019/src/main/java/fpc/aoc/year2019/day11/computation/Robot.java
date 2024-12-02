@@ -11,7 +11,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class Robot {
 
-    public static Robot create(@NonNull Program brainProgram) {
+    public static Robot create(Program brainProgram) {
         return new Robot(new RobotBrain(brainProgram));
     }
 
@@ -23,7 +23,7 @@ public class Robot {
 
     private Hull hull = null;
 
-    private Loop loop = new RobotLoop();
+    private final Loop loop = new RobotLoop();
 
     public void switchOn() {
         loop.start();
@@ -33,7 +33,7 @@ public class Robot {
         loop.waitUntilDone();
     }
 
-    public void placeOnHull(@NonNull Hull hull) {
+    public void placeOnHull(Hull hull) {
         this.hull = hull;
     }
 

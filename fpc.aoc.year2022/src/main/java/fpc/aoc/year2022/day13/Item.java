@@ -1,7 +1,6 @@
 package fpc.aoc.year2022.day13;
 
 import fpc.aoc.common.AOCException;
-import lombok.NonNull;
 
 import java.util.stream.Collectors;
 
@@ -15,7 +14,7 @@ public sealed interface Item extends Comparable<Item> permits Item.Scalar, Item.
     }
 
     @Override
-    public int compareTo(@NonNull Item o) {
+    public int compareTo(Item o) {
       if (o instanceof Scalar s) {
         return ItemComparator.compare(this, s);
       } else if (o instanceof List l) {
@@ -40,7 +39,7 @@ public sealed interface Item extends Comparable<Item> permits Item.Scalar, Item.
     }
 
     @Override
-    public int compareTo(@NonNull Item o) {
+    public int compareTo(Item o) {
       if (o instanceof Scalar s) {
         return ItemComparator.compare(this, s);
       } else if (o instanceof List l) {

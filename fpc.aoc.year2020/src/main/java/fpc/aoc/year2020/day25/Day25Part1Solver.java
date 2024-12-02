@@ -1,18 +1,17 @@
 package fpc.aoc.year2020.day25;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 import java.math.BigInteger;
 
 public class Day25Part1Solver extends Day25Solver {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day25Part1Solver();
   }
 
   @Override
-  public @NonNull Long doSolve(@NonNull Day25Input input) {
+  public Long doSolve(Day25Input input) {
     final PublicKeys k = new PublicKeys(20201227);
     final int doorLoopSize = k.powerOf(input.doorPublicKey());
     final int cardLoopSize = k.powerOf(input.cardPublicKey());

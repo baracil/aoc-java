@@ -1,7 +1,5 @@
 package fpc.aoc.year2021.day12.struct;
 
-import lombok.NonNull;
-
 import java.util.HashSet;
 import java.util.Set;
 
@@ -11,7 +9,7 @@ public class Part2RecursiveMode implements RecursiveMode {
   private Node doubled = null;
 
   @Override
-  public void onEntering(@NonNull Node position) {
+  public void onEntering(Node position) {
     if (position.start()) {
       visited.add(position);
     }
@@ -25,7 +23,7 @@ public class Part2RecursiveMode implements RecursiveMode {
   }
 
   @Override
-  public boolean canVisit(@NonNull Node connection) {
+  public boolean canVisit(Node connection) {
     if (connection.start() || connection.end()) {
       return false;
     }
@@ -36,7 +34,7 @@ public class Part2RecursiveMode implements RecursiveMode {
   }
 
   @Override
-  public void onLeaving(@NonNull Node position) {
+  public void onLeaving(Node position) {
     if (position.start()) {
       visited.remove(position);
     }

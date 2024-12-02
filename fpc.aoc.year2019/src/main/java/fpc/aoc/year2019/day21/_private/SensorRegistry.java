@@ -30,7 +30,7 @@ public enum SensorRegistry {
   @NonNull
   private final String falseForm;
 
-  SensorRegistry(int level, @NonNull String trueForm) {
+  SensorRegistry(int level, String trueForm) {
     this.level = level;
     this.mask = 1 << level;
     this.trueForm = trueForm;
@@ -48,12 +48,12 @@ public enum SensorRegistry {
   public static ParameterNames parameterNames() {
     return new ParameterNames() {
       @Override
-      public @NonNull String trueForm(int index) {
+      public String trueForm(int index) {
         return getRegistry(index).trueForm;
       }
 
       @Override
-      public @NonNull String falseForm(int index) {
+      public String falseForm(int index) {
         return getRegistry(index).falseForm;
       }
     };

@@ -13,7 +13,7 @@ public interface Deck {
         return new DeckWithPermutationShuffle(PermutationFactors.identity(size));
     }
 
-    static Deck shuffled(@NonNull PermutationFactors permutationFactors) {
+    static Deck shuffled(PermutationFactors permutationFactors) {
         return new DeckWithPermutationShuffle(permutationFactors);
     }
 

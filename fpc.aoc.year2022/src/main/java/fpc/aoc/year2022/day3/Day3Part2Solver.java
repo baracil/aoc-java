@@ -3,24 +3,23 @@ package fpc.aoc.year2022.day3;
 import fpc.aoc.api.Solver;
 import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
-import lombok.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Day3Part2Solver extends SmartSolver<List<Group>> {
 
-  public static @NonNull Solver provider() {
+  public static Solver provider() {
     return new Day3Part2Solver();
   }
 
   @Override
-  public @NonNull Integer doSolve(@NonNull List<Group> input) {
+  public Integer doSolve(List<Group> input) {
     return input.stream().mapToInt(g -> g.getCommonItem() + 1).sum();
   }
 
   @Override
-  protected @NonNull Converter<List<Group>> getConverter() {
+  protected Converter<List<Group>> getConverter() {
     return Converter.forItem(Compartment::parse)
         .andThen(this::toGroups);
   }

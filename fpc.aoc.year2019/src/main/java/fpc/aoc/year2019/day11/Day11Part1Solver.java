@@ -5,7 +5,6 @@ import fpc.aoc.computer.Program;
 import fpc.aoc.computer.ProgramBasedSolver;
 import fpc.aoc.year2019.day11.computation.Hull;
 import fpc.aoc.year2019.day11.computation.Robot;
-import lombok.NonNull;
 
 public class Day11Part1Solver extends ProgramBasedSolver {
 
@@ -15,7 +14,7 @@ public class Day11Part1Solver extends ProgramBasedSolver {
 
 
     @Override
-    protected String doSolve(@NonNull Program program) {
+    protected String doSolve(Program program) {
         final Hull hull = new Hull();
 
         final Robot robot = Robot.create(program);

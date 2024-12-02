@@ -13,7 +13,7 @@ public class ListOfLines implements RawInput {
   private final List<String> lines;
 
   @Override
-  public @NonNull List<String> read() {
+  public List<String> read() {
     return lines;
   }
 }

@@ -15,7 +15,7 @@ public class VariableSizeMemory extends BaseMemory {
     @NonNull
     private final Map<Integer,long[]> values = new HashMap<>();
 
-    public VariableSizeMemory(@NonNull long[] values) {
+    public VariableSizeMemory(long[] values) {
         int i = 0;
         while (values.length - i > 0) {
             final int toCopy = Math.min(CHUNK_SIZE, values.length - i);

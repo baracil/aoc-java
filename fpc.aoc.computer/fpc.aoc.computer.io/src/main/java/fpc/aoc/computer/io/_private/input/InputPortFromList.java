@@ -14,7 +14,7 @@ public class InputPortFromList implements InputPort<Nil> {
 
     private int cursor = 0;
 
-    public InputPortFromList(@NonNull List<String> data) {
+    public InputPortFromList(List<String> data) {
         this.data = data;
     }
 
@@ -23,7 +23,7 @@ public class InputPortFromList implements InputPort<Nil> {
     public String read() {
         if (cursor>=data.size()) {
             throw new AOCException("No more input available");
-        };
+        }
         return data.get(cursor++);
     }
 

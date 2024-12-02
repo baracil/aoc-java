@@ -34,7 +34,7 @@ public class PermutationIterator<A> implements Iterator<A> {
 
     private PermutationIterator(
             int size,
-            @NonNull Function<int[],A> factory
+            Function<int[],A> factory
     ) {
         this.size = size;
         this.indexes = IntStream.range(0,size).toArray();

@@ -13,9 +13,9 @@ public class Processor {
 
     @NonNull
     public static ExecutionResult execute(
-            @NonNull String name,
-            @NonNull Memory memory,
-            @NonNull ProgramIO<?,?> programIo) {
+            String name,
+            Memory memory,
+            ProgramIO<?,?> programIo) {
         return new Processor(name, memory, programIo).execute();
     }
 
@@ -30,9 +30,9 @@ public class Processor {
     private boolean done = false;
 
     private Processor(
-            @NonNull String name,
-            @NonNull Memory memory,
-            @NonNull ProgramIO<?,?> programIo) {
+            String name,
+            Memory memory,
+            ProgramIO<?,?> programIo) {
         this.memory = memory;
         this.context = new ExecutionContext(name, memory, programIo);
     }

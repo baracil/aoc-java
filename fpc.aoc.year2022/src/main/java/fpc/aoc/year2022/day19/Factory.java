@@ -1,14 +1,13 @@
 package fpc.aoc.year2022.day19;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 
 @RequiredArgsConstructor(access = AccessLevel.PRIVATE)
 public class Factory {
 
-  public static State findBest(@NonNull BluePrint bluePrint, int nbRound) {
+  public static State findBest(BluePrint bluePrint, int nbRound) {
     return new Factory(bluePrint, nbRound).findBest();
   }
 

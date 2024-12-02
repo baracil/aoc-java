@@ -28,11 +28,11 @@ public abstract class AbstractNetwork implements Network {
     private final MutableSynchronizedValue<String> result = new MutableSynchronizedValue<>("");
 
 
-    public AbstractNetwork(@NonNull Program program) {
+    public AbstractNetwork(Program program) {
         this(program, 50);
     }
 
-    public AbstractNetwork(@NonNull Program program, int networkSize) {
+    public AbstractNetwork(Program program, int networkSize) {
         this.networkSize = networkSize;
         this.idle = new boolean[networkSize];
         this.queues = IntStream.range(0,networkSize)
@@ -55,7 +55,7 @@ public abstract class AbstractNetwork implements Network {
         }
     }
 
-    protected void setResult(@NonNull String value) {
+    protected void setResult(String value) {
         this.result.setValue(value);
         shutdown();
     }
@@ -68,7 +68,7 @@ public abstract class AbstractNetwork implements Network {
     }
 
     @Synchronized
-    protected void sendToNetwork(@NonNull Message message) {
+    protected void sendToNetwork(Message message) {
         final int destinationAddress = message.destinationAddress();
         if (destinationAddress == 255) {
             handlePort255(message.packet());
@@ -101,7 +101,7 @@ public abstract class AbstractNetwork implements Network {
 
     protected abstract void handleIdleNetwork();
 
-    protected abstract void handlePort255(@NonNull DataPacket packet);
+    protected abstract void handlePort255(DataPacket packet);
 
     /**
      * @author Bastien Aracil
@@ -118,12 +118,12 @@ public abstract class AbstractNetwork implements Network {
         }
 
         @Override
-        public @NonNull String read() {
+        public String read() {
             return readFromNetwork(networkAddress).orElse("-1");
         }
 
         @Override
-        public void write(@NonNull String value) {
+        public void write(String value) {
             messageConstructor.pushValue(value).ifPresent(AbstractNetwork.this::sendToNetwork);
         }
     }

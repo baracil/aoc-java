@@ -1,15 +1,13 @@
 package fpc.aoc.year2021.day3;
 
 
-import lombok.NonNull;
-
 public record PowerConsumption(int gammaRate, int epsilonRate) {
 
-  public @NonNull String getRateProduct() {
+  public String getRateProduct() {
     return String.valueOf(gammaRate * epsilonRate);
   }
 
-  public static @NonNull PowerConsumption fromDiagnostic(@NonNull DiagnosticReport diagnosticReport) {
+  public static PowerConsumption fromDiagnostic(DiagnosticReport diagnosticReport) {
     final var gamma = diagnosticReport.bitMaskStream()
         .filter(m -> diagnosticReport.computeBitBalance(m) == BitBalance.MORE_ONES)
         .sum();

@@ -17,7 +17,7 @@ public class OutputPartBuilder<I> {
     @NonNull
     private final InputPort<I> inputPort;
 
-    public <W> ProgramIO<I,Optional<W>> lastValue(@NonNull OutputTransformer<W> transformer) {
+    public <W> ProgramIO<I,Optional<W>> lastValue(OutputTransformer<W> transformer) {
         return new ComposedProgramIO<>(inputPort, new LastValueOutputPort<>(transformer));
     }
 
@@ -32,7 +32,7 @@ public class OutputPartBuilder<I> {
     }
 
     @NonNull
-    public <W> ProgramIO<I,ProgramOutput<W>> controlledOutput(@NonNull OutputTransformer<W> transformer) {
+    public <W> ProgramIO<I,ProgramOutput<W>> controlledOutput(OutputTransformer<W> transformer) {
         return new ComposedProgramIO<>(inputPort, new ControllerOutputPort<>(transformer));
     }
 
@@ -47,12 +47,12 @@ public class OutputPartBuilder<I> {
     }
 
     @NonNull
-    public <T> ProgramIO<I,Nil> toStdout(@NonNull OutputTransformer<T> transformer) {
+    public <T> ProgramIO<I,Nil> toStdout(OutputTransformer<T> transformer) {
         return new ComposedProgramIO<>(inputPort, new ToSdtOutputPort<>(transformer));
     }
 
     @NonNull
-    public <T> ProgramIO<I,List<T>> toList(@NonNull OutputTransformer<T> transformer) {
+    public <T> ProgramIO<I,List<T>> toList(OutputTransformer<T> transformer) {
         return new ComposedProgramIO<>(inputPort, new ToListOutputPort<>(transformer));
     }
 
@@ -62,12 +62,12 @@ public class OutputPartBuilder<I> {
     }
 
     @NonNull
-    public ProgramIO<I,Nil> consumeWith(@NonNull Consumer<? super String> consumer) {
+    public ProgramIO<I,Nil> consumeWith(Consumer<? super String> consumer) {
         return new ComposedProgramIO<>(inputPort, new SimpleConsumeOutput(consumer));
     }
 
     @NonNull
-    public <T> ProgramIO<I,Nil> consumeWith(@NonNull Consumer<? super T> consumer,@NonNull OutputTransformer<T> transformer) {
+    public <T> ProgramIO<I,Nil> consumeWith(Consumer<? super T> consumer,OutputTransformer<T> transformer) {
         return consumeWith(s->consumer.accept(transformer.transform(s)));
     }
 

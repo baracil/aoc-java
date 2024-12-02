@@ -4,7 +4,6 @@ import fpc.aoc.api.Day;
 import fpc.aoc.api.RawInput;
 import fpc.aoc.api.SolverId;
 import fpc.aoc.api.Year;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.util.List;
@@ -21,7 +20,7 @@ public class SmartRawInput implements RawInput {
   }
 
   @Override
-  public @NonNull List<String> read() {
+  public List<String> read() {
     return getRawInput().read();
   }
 

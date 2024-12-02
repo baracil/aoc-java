@@ -1,7 +1,6 @@
 package fpc.aoc.year2019.day22;
 
 import fpc.aoc.api.Solver;
-import lombok.NonNull;
 
 public class Day22Part2Solver extends Day22Solver {
 
@@ -11,7 +10,7 @@ public class Day22Part2Solver extends Day22Solver {
 
 
   @Override
-  protected Object doSolve(@NonNull Deck deck) {
+  protected Object doSolve(Deck deck) {
     return deck.cardAtPosition(2020);
   }
 

@@ -1,7 +1,6 @@
 package fpc.aoc.year2019.day6;
 
 import lombok.Getter;
-import lombok.NonNull;
 
 public class OrbitCounter implements OrbitWalker {
 
@@ -14,7 +13,7 @@ public class OrbitCounter implements OrbitWalker {
     private int indirect = 0;
 
     @Override
-    public void enter(@NonNull Body body) {
+    public void enter(Body body) {
         depth++;
         if (depth > 0) {
             direct+=1;
@@ -23,7 +22,7 @@ public class OrbitCounter implements OrbitWalker {
     }
 
     @Override
-    public void leave(@NonNull Body body) {
+    public void leave(Body body) {
         depth--;
     }
 

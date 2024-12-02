@@ -1,7 +1,5 @@
 package fpc.aoc.year2022.day16;
 
-import lombok.NonNull;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,7 +19,7 @@ public class ValveSolver {
     return findBestFrom(start, cache);
   }
 
-  private int findBestFrom(@NonNull State state, Map<String, Integer> cache) {
+  private int findBestFrom(State state, Map<String, Integer> cache) {
     final var cached = cache.get(state.path());
     if (cached != null) {
       return cached;

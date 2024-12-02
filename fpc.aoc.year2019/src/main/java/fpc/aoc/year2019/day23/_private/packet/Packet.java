@@ -8,5 +8,5 @@ import lombok.NonNull;
 public interface Packet {
 
     @NonNull
-    <T> T accept(@NonNull PacketVisitor<T> visitor);
+    <T> T accept(PacketVisitor<T> visitor);
 }

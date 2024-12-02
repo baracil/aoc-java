@@ -19,12 +19,12 @@ public class MazeBuilder {
 
 
   @NonNull
-  public static Maze buildNormal(@NonNull ArrayOfChar data) {
+  public static Maze buildNormal(ArrayOfChar data) {
     return new MazeBuilder(data, false).build();
   }
 
   @NonNull
-  public static Maze buildRecursive(@NonNull ArrayOfChar data) {
+  public static Maze buildRecursive(ArrayOfChar data) {
     return new MazeBuilder(data, true).build();
   }
 
@@ -54,22 +54,22 @@ public class MazeBuilder {
   }
 
   private void extractStartingPosition() {
-    startingPosition = portals.get("AA").get(0).exit();
+    startingPosition = portals.get("AA").getFirst().exit();
   }
 
   private void extractTargetPosition() {
-    targetPosition = portals.get("ZZ").get(0).exit();
+    targetPosition = portals.get("ZZ").getFirst().exit();
   }
 
   private void extractTeleporters() {
     teletransporters = portals.values()
         .stream()
         .filter(l -> l.size() == 2)
-        .flatMap(l -> link2Portals(l.get(0), l.get(1)))
+        .flatMap(l -> link2Portals(l.getFirst(), l.get(1)))
         .toList();
   }
 
-  private Stream<Teletransporter> link2Portals(@NonNull Portal side1, @NonNull Portal side2) {
+  private Stream<Teletransporter> link2Portals(Portal side1, Portal side2) {
     if (!side1.name().equals(side2.name())) {
       throw new AOCException("Invalid portals, they must have the same name");
     }

@@ -4,13 +4,12 @@ import fpc.aoc.input.Converter;
 import fpc.aoc.input.SmartSolver;
 import fpc.aoc.year2019.day22._private.DeckWithPermutationShuffle;
 import fpc.aoc.year2019.day22._private.ShuffleTechniqueParser;
-import lombok.NonNull;
 
 public abstract class Day22Solver extends SmartSolver<Deck> {
 
 
     @Override
-    protected @NonNull Converter<Deck> getConverter() {
+    protected Converter<Deck> getConverter() {
         final long size = deckSize();
         final ShuffleTechniqueParser parser = new ShuffleTechniqueParser(size);
 
@@ -22,7 +21,7 @@ public abstract class Day22Solver extends SmartSolver<Deck> {
         };
     }
 
-    protected abstract Object doSolve(@NonNull Deck deck);
+    protected abstract Object doSolve(Deck deck);
 
     protected abstract long deckSize();
 

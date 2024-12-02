@@ -1,6 +1,5 @@
 package fpc.aoc.year2020.day16;
 
-import lombok.NonNull;
 import lombok.Value;
 
 @Value
@@ -18,7 +17,7 @@ public class IntRange {
     }
   }
 
-  public static @NonNull IntRange parse(@NonNull String lower, @NonNull String upper) {
+  public static IntRange parse(String lower, String upper) {
     return new IntRange(Integer.parseInt(lower), Integer.parseInt(upper));
   }
 }

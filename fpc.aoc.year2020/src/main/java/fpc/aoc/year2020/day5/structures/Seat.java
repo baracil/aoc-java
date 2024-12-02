@@ -1,7 +1,6 @@
 package fpc.aoc.year2020.day5.structures;
 
 import fpc.aoc.common.Table;
-import lombok.NonNull;
 import lombok.Value;
 
 import java.util.Objects;
@@ -9,7 +8,7 @@ import java.util.Objects;
 @Value
 public class Seat {
 
-  public static @NonNull Seat of(@NonNull String boardingPassId) {
+  public static Seat of(String boardingPassId) {
     final Seat seat = PLANE_SEATS.get(boardingPassId.substring(0, 7), boardingPassId.substring(7));
     return Objects.requireNonNull(seat);
   }

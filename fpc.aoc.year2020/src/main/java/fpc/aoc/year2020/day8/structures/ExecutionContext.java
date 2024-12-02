@@ -1,13 +1,11 @@
 package fpc.aoc.year2020.day8.structures;
 
-import lombok.NonNull;
-
 /**
  * @param pointer Position of the next instruction to execute
  */
 public record ExecutionContext(int accumulator, int pointer) {
 
-  public static @NonNull ExecutionContext createInitial() {
+  public static ExecutionContext createInitial() {
     return new ExecutionContext(0, 0);
   }
 

@@ -25,7 +25,7 @@ public interface InputTransform<R> extends Function<R,String> {
     }
 
     @NonNull
-    default InputMultiTransformer<R> then(@NonNull InputMultiTransformer<String> after) {
+    default InputMultiTransformer<R> then(InputMultiTransformer<String> after) {
         return r -> after.transform(apply(r));
     }
 }

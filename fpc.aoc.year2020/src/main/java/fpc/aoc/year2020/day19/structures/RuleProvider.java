@@ -10,7 +10,7 @@ public interface RuleProvider extends Function<Integer, Rule> {
   Rule getRule(int id);
 
   @Override
-  default @NonNull Rule apply(Integer integer) {
+  default Rule apply(Integer integer) {
     return getRule(integer);
   }
 }

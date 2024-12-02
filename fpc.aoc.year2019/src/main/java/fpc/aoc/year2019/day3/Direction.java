@@ -23,12 +23,12 @@ public enum Direction {
   private final UnaryOperator<Point> singleStepMovement;
 
   @NonNull
-  public Point move(@NonNull Point point) {
+  public Point move(Point point) {
     return singleStepMovement.apply(point);
   }
 
   @NonNull
-  public static Direction parseDirection(@NonNull String abbreviation) {
+  public static Direction parseDirection(String abbreviation) {
     final Direction direction = Holder.DIRECTIONS_BY_ABBREVIATION.get(abbreviation.toUpperCase());
     if (direction == null) {
       throw new AOCException("Invalid abbreviation '" + abbreviation + "' for a direction");

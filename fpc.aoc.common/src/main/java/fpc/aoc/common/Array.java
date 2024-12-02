@@ -8,15 +8,15 @@ import java.util.stream.Stream;
 
 public interface Array {
 
-  static @NonNull ArrayOfChar create(@NonNull char[] data, char filling, int width, int height) {
+  static ArrayOfChar create(char[] data, char filling, int width, int height) {
     return new BaseArrayOfChar(data, filling, width, height);
   }
 
-  static <T> @NonNull GenericArray<T> create(@NonNull T[] data, int width, int height) {
+  static <T> GenericArray<T> create(T[] data, int width, int height) {
     return new BaseGenericArray<>(data, width, height);
   }
 
-  void print(@NonNull PrintStream printStream);
+  void print(PrintStream printStream);
 
   default void printToStandardOutput() {
     print(System.out);

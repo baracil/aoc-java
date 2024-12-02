@@ -1,7 +1,6 @@
 package fpc.aoc.year2021.day10.structures;
 
 import lombok.AccessLevel;
-import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 import java.math.BigInteger;
@@ -33,7 +32,7 @@ public enum CompleterChecker {
       '}', BigInteger.valueOf(3),
       '>', BigInteger.valueOf(4));
 
-  public Optional<BigInteger> complete(@NonNull String line) {
+  public Optional<BigInteger> complete(String line) {
     final Deque<Character> pile = new ArrayDeque<>(line.length());
 
     for (int i = 0; i < line.length(); i++) {

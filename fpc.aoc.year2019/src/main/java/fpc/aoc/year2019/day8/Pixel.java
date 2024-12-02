@@ -13,7 +13,7 @@ public enum Pixel implements Encoded {
     D1_WHITE(1, "█"),
     D2_TRANSPARENT(2,".") {
         @Override
-        public @NonNull Pixel stack(@NonNull Pixel pixelBelow) {
+        public Pixel stack(Pixel pixelBelow) {
             return pixelBelow;
         }
     },
@@ -35,7 +35,7 @@ public enum Pixel implements Encoded {
     }
 
     @NonNull
-    public Pixel stack(@NonNull Pixel pixelBelow) {
+    public Pixel stack(Pixel pixelBelow) {
         return this;
     }
 
