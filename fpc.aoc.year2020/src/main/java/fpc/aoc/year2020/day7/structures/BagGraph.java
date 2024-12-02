@@ -57,7 +57,7 @@ public class BagGraph {
 
   private long countContainers(BagNode node, Set<BagNode> seen) {
     long count = 0;
-    for (BagNode container : node.getContainers()) {
+    for (BagNode container : node.containers()) {
       if (seen.contains(container)) {
         continue;
       }

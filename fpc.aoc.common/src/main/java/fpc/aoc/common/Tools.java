@@ -84,6 +84,13 @@ public class Tools {
     return code;
   }
 
+  public static int sign(int num) {
+    if (num == 0) {
+      return 0;
+    }
+    return num<0?-1:1;
+  }
+
   public static long lcm(long num1, long num2) {
     return (num1 * num2) / gcd(num1, num2);
   }

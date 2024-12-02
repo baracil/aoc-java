@@ -7,5 +7,5 @@ module fpc.aoc.computer.api {
 
     exports fpc.aoc.computer;
 
-    uses ComputerFactory;
+    uses fpc.aoc.computer.ComputerFactory;
 }
