@@ -9,5 +9,5 @@ module fpc.aoc.computer.primitive {
 
     exports fpc.aoc.computer.primitive;
 
-    provides ComputerFactory with FixSizeLongValueComputerFactory, VariableSizeLongValueComputerFactory;
+    provides ComputerFactory with fpc.aoc.computer.primitive.FixSizeLongValueComputerFactory, fpc.aoc.computer.primitive.VariableSizeLongValueComputerFactory;
 }
