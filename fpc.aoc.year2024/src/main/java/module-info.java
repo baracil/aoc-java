@@ -7,6 +7,8 @@ import fpc.aoc.year2024.day03.Day3Part1Solver;
 import fpc.aoc.year2024.day03.Day3Part2Solver;
 import fpc.aoc.year2024.day04.Day4Part1Solver;
 import fpc.aoc.year2024.day04.Day4Part2Solver;
+import fpc.aoc.year2024.day05.Day5Part1Solver;
+import fpc.aoc.year2024.day05.Day5Part2Solver;
 
 module fpc.aoc.year2024 {
   requires static lombok;
@@ -18,6 +20,7 @@ module fpc.aoc.year2024 {
       , Day2Part1Solver, Day2Part2Solver
       , Day3Part1Solver, Day3Part2Solver
       , Day4Part1Solver, Day4Part2Solver
+      , Day5Part1Solver, Day5Part2Solver
       ;
 
 }

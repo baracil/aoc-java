@@ -7,6 +7,7 @@ import fpc.aoc.common.Tools;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Function;
+import java.util.stream.Collector;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -51,6 +52,7 @@ public interface Converter<I> extends Function<List<String>, I> {
    * do not perform any conversion, just return the stream of lines
    */
   Converter<Stream<String>> TO_STREAM = Collection::stream;
+
   /**
    * collect all lines into a list
    */
@@ -63,6 +65,10 @@ public interface Converter<I> extends Function<List<String>, I> {
    * transform the input stream into an array of char (using '.' to fill the spaces)
    */
   Converter<ArrayOfChar> TO_ARRAY_OF_CHAR = l -> ArrayOfChar.from(l, '.');
+
+  static <U> Converter<U> collect(Collector<? super String,? ,? extends U> collector) {
+    return list -> list.stream().collect(collector);
+  }
 
   static <U> Converter<List<U>> forItem(Function<? super String, ? extends U> itemMapper) {
     return list -> Tools.map(list, itemMapper);
