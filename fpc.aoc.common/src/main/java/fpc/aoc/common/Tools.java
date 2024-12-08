@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Tools {
 
@@ -176,6 +177,13 @@ public class Tools {
     return result;
   }
 
+  public static <T> Stream<Pair<T,T>> zip(Collection<T> values) {
+    return zip(values,values);
+  }
+
+  public static <A,B> Stream<Pair<A,B>> zip(Collection<A> first, Collection<B> second) {
+    return first.stream().flatMap(f -> second.stream().map(s -> Pair.of(f, s)));
+  }
 
   @NonNull
   public static <K, A, B> Map<K, B> mapValues(Map<K, A> input, Function<? super A, ? extends B> mapper) {

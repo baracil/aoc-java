@@ -25,6 +25,10 @@ public class Position {
     return of(x + dx, y + dy);
   }
 
+  public Translation subtract(Position origin) {
+    return Displacement.of(this.x - origin.x, this.y - origin.y);
+  }
+
   public Position translateX(int dx) {
     return translate(dx, 0);
   }
