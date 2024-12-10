@@ -130,4 +130,6 @@ public interface ArrayOfChar extends Array, ArrayOfCharReader {
 
   Optional<Position> findMatching(char s);
 
+  List<Position> findAllMatching(char s);
+
 }

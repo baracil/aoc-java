@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.NonNull;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.*;
@@ -134,5 +136,16 @@ public class TransformedArrayOfChar extends AbstractArrayOfChar implements Array
     return Optional.empty();
   }
 
-
+  @Override
+  public List<Position> findAllMatching(char s) {
+    final var result = new ArrayList<Position>();
+    for (int x = 0; x < width; x++) {
+      for (int y = 0; y < height; y++) {
+        if (get(x, y) == s) {
+          result.add(Position.of(x, y));
+        }
+      }
+    }
+    return result;
+  }
 }

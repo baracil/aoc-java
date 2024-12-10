@@ -3,6 +3,8 @@ package fpc.aoc.common;
 import lombok.NonNull;
 
 import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.function.BiFunction;
 import java.util.function.Function;
@@ -15,7 +17,6 @@ import java.util.stream.Stream;
  **/
 public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
 
-  @NonNull
   private final char[] data;
 
   private final char filling;
@@ -119,6 +120,17 @@ public class BaseArrayOfChar extends BaseArray implements ArrayOfChar {
       }
     }
     return Optional.empty();
+  }
+
+  @Override
+  public List<Position> findAllMatching(char s) {
+    final var result = new ArrayList<Position>();
+    for (int i = 0; i < data.length; i++) {
+      if (data[i] == s) {
+        result.add(Position.of(i % width(), i / width()));
+      }
+    }
+    return result;
   }
 
   @Override
