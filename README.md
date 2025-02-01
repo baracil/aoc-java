@@ -1,7 +1,2 @@
-# Advent Of Code 2023
+# Advent Of Code In Java
 
-Requires Java 21# aoc-2023-java
-
-# aoc-template-java
-
-# aoc-2023-java
